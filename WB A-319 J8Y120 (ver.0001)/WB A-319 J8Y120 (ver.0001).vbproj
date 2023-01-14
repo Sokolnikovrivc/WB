@@ -93,6 +93,18 @@
       <DependentUpon>Form1.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Form2.Designer.vb">
+      <DependentUpon>Form2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form3.Designer.vb">
+      <DependentUpon>Form3.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form3.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -130,10 +142,31 @@
     <Compile Include="TestDataSet2.vb">
       <DependentUpon>TestDataSet2.xsd</DependentUpon>
     </Compile>
+    <Compile Include="TestDataSet3.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TestDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="TestDataSet4.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TestDataSet4.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="TestDataSet5.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TestDataSet5.xsd</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form3.resx">
+      <DependentUpon>Form3.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -185,6 +218,39 @@
     </None>
     <None Include="TestDataSet2.xss">
       <DependentUpon>TestDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="TestDataSet3.xsc">
+      <DependentUpon>TestDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="TestDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TestDataSet3.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TestDataSet3.xss">
+      <DependentUpon>TestDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="TestDataSet4.xsc">
+      <DependentUpon>TestDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="TestDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TestDataSet4.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TestDataSet4.xss">
+      <DependentUpon>TestDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="TestDataSet5.xsc">
+      <DependentUpon>TestDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="TestDataSet5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TestDataSet5.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TestDataSet5.xss">
+      <DependentUpon>TestDataSet5.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
