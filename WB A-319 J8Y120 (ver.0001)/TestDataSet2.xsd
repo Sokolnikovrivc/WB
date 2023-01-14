@@ -65,15 +65,15 @@ FROM            [Weight pax]</CommandText>
         <xs:element name="Weight_x0020_pax" msprop:Generator_RowEvHandlerName="Weight_paxRowChangeEventHandler" msprop:Generator_RowDeletedName="Weight_paxRowDeleted" msprop:Generator_RowDeletingName="Weight_paxRowDeleting" msprop:Generator_RowEvArgName="Weight_paxRowChangeEvent" msprop:Generator_TablePropName="Weight_pax" msprop:Generator_RowChangedName="Weight_paxRowChanged" msprop:Generator_UserTableName="Weight pax" msprop:Generator_RowChangingName="Weight_paxRowChanging" msprop:Generator_RowClassName="Weight_paxRow" msprop:Generator_TableClassName="Weight_paxDataTable" msprop:Generator_TableVarName="tableWeight_pax">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Вариации" msprop:Generator_UserColumnName="Вариации" msprop:Generator_ColumnPropNameInTable="ВариацииColumn" msprop:Generator_ColumnPropNameInRow="Вариации" msprop:Generator_ColumnVarNameInTable="columnВариации" minOccurs="0">
+              <xs:element name="Вариации" msprop:Generator_ColumnPropNameInTable="ВариацииColumn" msprop:Generator_ColumnPropNameInRow="Вариации" msprop:Generator_UserColumnName="Вариации" msprop:Generator_ColumnVarNameInTable="columnВариации" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Зима" msprop:Generator_UserColumnName="Зима" msprop:Generator_ColumnPropNameInTable="ЗимаColumn" msprop:Generator_ColumnPropNameInRow="Зима" msprop:Generator_ColumnVarNameInTable="columnЗима" type="xs:int" minOccurs="0" />
-              <xs:element name="Лето" msprop:Generator_UserColumnName="Лето" msprop:Generator_ColumnPropNameInTable="ЛетоColumn" msprop:Generator_ColumnPropNameInRow="Лето" msprop:Generator_ColumnVarNameInTable="columnЛето" type="xs:int" minOccurs="0" />
+              <xs:element name="Зима" msprop:Generator_ColumnPropNameInTable="ЗимаColumn" msprop:Generator_ColumnPropNameInRow="Зима" msprop:Generator_UserColumnName="Зима" msprop:Generator_ColumnVarNameInTable="columnЗима" type="xs:int" minOccurs="0" />
+              <xs:element name="Лето" msprop:Generator_ColumnPropNameInTable="ЛетоColumn" msprop:Generator_ColumnPropNameInRow="Лето" msprop:Generator_UserColumnName="Лето" msprop:Generator_ColumnVarNameInTable="columnЛето" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
