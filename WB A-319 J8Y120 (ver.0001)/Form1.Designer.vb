@@ -189,6 +189,7 @@ Partial Class Form1
         Me.Label31 = New System.Windows.Forms.Label()
         Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
         Me.PrintPreviewDialog1 = New System.Windows.Forms.PrintPreviewDialog()
+        Me.Button24 = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -416,6 +417,7 @@ Partial Class Form1
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.Button24)
         Me.GroupBox2.Controls.Add(Me.Button23)
         Me.GroupBox2.Controls.Add(Me.Button8)
         Me.GroupBox2.Controls.Add(Me.Label21)
@@ -1758,6 +1760,15 @@ Partial Class Form1
         Me.PrintPreviewDialog1.Name = "PrintPreviewDialog1"
         Me.PrintPreviewDialog1.Visible = False
         '
+        'Button24
+        '
+        Me.Button24.Location = New System.Drawing.Point(213, 432)
+        Me.Button24.Name = "Button24"
+        Me.Button24.Size = New System.Drawing.Size(28, 20)
+        Me.Button24.TabIndex = 44
+        Me.Button24.Text = "..."
+        Me.Button24.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1975,4 +1986,5 @@ Partial Class Form1
     Friend WithEvents Label53 As Label
     Friend WithEvents Button22 As Button
     Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents Button24 As Button
 End Class

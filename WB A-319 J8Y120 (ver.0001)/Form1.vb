@@ -413,6 +413,11 @@ Public Class Form1
         Form2.TextBox31.Text = Mid(TextBox3.Text, 5, 3)
         Form2.TextBox28.Text = Mid(TextBox3.Text, 5, 3)
     End Sub
+
+    Private Sub Button24_Click(sender As Object, e As EventArgs) Handles Button24.Click
+        Form5.Show()
+
+    End Sub
 End Class
 
 
