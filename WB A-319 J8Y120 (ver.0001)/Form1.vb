@@ -336,63 +336,7 @@ Public Class Form1
         command.ExecuteNonQuery()
         connection.Close()
         MessageBox.Show("Запись в Базу Данных")
-        RichTextBox1.Visible = True
-        RichTextBox1.Clear()
-        RichTextBox1.AppendText("LOADSHEET" + vbTab + vbTab + "CHECKED" + vbTab + vbTab + "APPROVED" + vbTab + vbTab + "EDNO" + vbNewLine)
-        RichTextBox1.AppendText("ALL WEIGHTS IN KILOS" + vbNewLine)
-        RichTextBox1.AppendText("FROM/TO" + vbTab + "FLIGHT" + vbTab + "A/C REG" + vbTab + vbTab + "VERSION" + vbTab + "CREW" + vbTab + "DATE" + vbTab + vbTab + "TIME" + vbNewLine)
-        RichTextBox1.AppendText(TextBox3.Text + vbTab + TextBox5.Text + vbTab + TextBox4.Text + vbTab + vbTab + vbTab + TextBox2.Text + vbTab + vbTab + ComboBox1.Text + vbTab + TextBox48.Text + vbTab + TextBox49.Text + vbNewLine)
-        RichTextBox1.AppendText(vbTab + vbTab + vbTab + vbTab + "WEIGHT" + vbTab + "DISTRIBUTION" + vbNewLine)
-        RichTextBox1.AppendText("LOAD IN COMPARTMENTS" + vbTab + TextBox6.Text + vbTab + vbTab + "1/" + TextBox36.Text + vbTab + "4/" + TextBox37.Text + vbTab + "5/" + TextBox38.Text + vbNewLine)
-        RichTextBox1.AppendText("PASSENGER" + vbTab + vbTab + vbTab + TextBox7.Text + vbTab + vbTab + Label50.Text + "/" + Label51.Text + "/" + Label52.Text + vbTab + vbTab + vbTab + "TTL" + Label53.Text + vbNewLine)
-        RichTextBox1.AppendText("*************************************************************************" + vbNewLine)
-        RichTextBox1.AppendText("TOTAL TRAFFIC LOAD" + vbTab + vbTab + TextBox8.Text + vbNewLine)
-        RichTextBox1.AppendText("DRY OPERATING WEIGHT" + vbTab + TextBox11.Text + vbNewLine)
-        RichTextBox1.AppendText("ZERO FUEL WEIGHT" + vbTab + vbTab + TextBox12.Text + vbNewLine)
-        RichTextBox1.AppendText("TAKE OFF FUEL" + vbTab + vbTab + vbTab + TextBox15.Text + vbNewLine)
-        RichTextBox1.AppendText("TAKE OFF WEIGHT ACTUAL" + vbTab + TextBox17.Text + vbNewLine)
-        RichTextBox1.AppendText("TRIP FUEL" + vbTab + vbTab + vbTab + TextBox20.Text + vbNewLine)
-        RichTextBox1.AppendText("LANDING WEIGHT ACTUAL" + vbTab + TextBox21.Text + vbNewLine)
-        RichTextBox1.AppendText("BALANCE AND SEATING CONDITIONS" + vbNewLine)
-        RichTextBox1.AppendText("DOI" + vbTab + TextBox24.Text + vbTab + "LIZFW" + vbTab + TextBox42.Text + vbNewLine)
-        RichTextBox1.AppendText("LITOW" + vbTab + TextBox44.Text + vbTab + "MACZFW" + vbTab + TextBox43.Text + vbNewLine)
-        RichTextBox1.AppendText("MACTOW" + vbTab + vbTab + TextBox45.Text + vbNewLine)
-        RichTextBox1.AppendText("0A/" + TextBox28.Text + vbTab + "0B/" + TextBox29.Text + vbTab + "0C/" + TextBox30.Text + vbTab + "0D/" + TextBox31.Text + vbTab + vbNewLine)
-        RichTextBox1.AppendText("CABIN AREA TRIM" + vbNewLine)
-        RichTextBox1.AppendText("UNDERLOAD BEFORE LMC" + vbNewLine)
-        RichTextBox1.AppendText("*************************************************************************")
-    End Sub
 
-    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
-        Try
-            Dim PrinDoc As New PrintDocument
-            AddHandler PrinDoc.PrintPage, AddressOf Me.PrintText
-            PrinDoc.Print()
-            PrintPreviewDialog1.ShowDialog()
-        Catch ex As Exception
-            MessageBox.Show(ex.Message)
-        Finally
-            Beep()
-        End Try
-    End Sub
-    Private Sub PrintText(ByVal sender As Object, ByVal e As PrintPageEventArgs)
-        Try
-            e.Graphics.DrawString(RichTextBox1.Text, New Font("TimesNewRoman", 12, FontStyle.Regular), Brushes.Black, New Point(0, 0))
-        Catch ex As Exception
-            MessageBox.Show(ex.Message)
-        Finally
-            Beep()
-        End Try
-    End Sub
-
-    Private Sub PrintDocument1_PrintPage(sender As Object, e As PrintPageEventArgs) Handles PrintDocument1.PrintPage
-        Try
-            e.Graphics.DrawString(RichTextBox1.Text, New Font("TimesNewRoman", 12, FontStyle.Regular), Brushes.Black, New Point(0, 0))
-        Catch ex As Exception
-            MessageBox.Show(ex.Message)
-        Finally
-            Beep()
-        End Try
     End Sub
     Private Sub Button23_Click(sender As Object, e As EventArgs) Handles Button23.Click
         Form3.Show()
@@ -417,6 +361,17 @@ Public Class Form1
     Private Sub Button24_Click(sender As Object, e As EventArgs) Handles Button24.Click
         Form5.Show()
 
+    End Sub
+
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+        Form6.Show()
+        Form6.TextBox5.Text = TextBox5.Text
+        Form6.TextBox3.Text = TextBox3.Text
+        Form6.TextBox48.Text = TextBox48.Text
+        Form6.TextBox49.Text = TextBox49.Text
+        Form6.TextBox2.Text = TextBox2.Text
+        Form6.TextBox4.Text = TextBox4.Text
+        Form6.Label17.Text = MTOW - TOW
     End Sub
 End Class
 
