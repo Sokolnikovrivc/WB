@@ -373,6 +373,7 @@ Public Class Form1
         Form6.TextBox4.Text = TextBox4.Text
         Form6.Label17.Text = MTOW - TOW
     End Sub
+
 End Class
 
 

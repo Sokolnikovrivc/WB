@@ -3,6 +3,7 @@ Imports System.Data.SqlClient
 Imports System.Drawing.Printing
 Imports System.Net.Security
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement
+Imports System.Windows.Forms.VisualStyles.VisualStyleElement.Button
 
 Public Class Form2
     Public wt1, wt2, wt3, wt4, wt5, wt6 As Single
@@ -542,6 +543,7 @@ Public Class Form2
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        TextBox33.Text += 1
         Dim connection As New SqlConnection("Data Source=WIN-8CEIKSU78CS\SQLEXPRESS; Initial Catalog=Test; Integrated Security=True")
         Dim command As New SqlCommand("Insert into [Test].[dbo].[A319 lir] ([flight_id1],[flight_route],[flight_bort],[config_id],[date_flight],[time_flight],[CPT1FWD],[dest11],[LIC11] ,[type11],[wt11],[stat11],[code11],[V11],[info11],[dest12],[LIC12],[type12],[wt12],[stat12],[code12],[V12],[info12],[CPT4AFT],[dest41],[LIC41],[type41],[wt41],[stat41],[code41],[V41],[info41],[dest42],[LIC42],[type42],[wt42],[stat42],[code42],[V42],[info42],[CPT5AFT],[dest51],[LIC51],[type51],[wt51],[stat51],[code51],[V51],[info51],[dest52],[LIC52],[type52],[wt52],[stat52],[code52],[V52],[info52]) Values(@flight_id1, @flight_route, @flight_bort, @config_id, @date_flight, @time_flight, @CPT1FWD, @dest11, @LIC11, @type11, @wt11, @stat11, @code11, @V11, @info11, @dest12, @LIC12, @type12, @wt12, @stat12, @code12, @V12, @info12, @CPT4AFT, @dest41, @LIC41, @type41, @wt41, @stat41, @code41, @V41, @info41, @dest42, @LIC42 , @type42 , @wt42 , @stat42 , @code42 , @V42, @info42, @CPT5AFT, @dest51, @LIC51 , @type51 , @wt51 , @stat51 , @code51 , @V51 , @info51 , @dest52 , @LIC52 , @type52 , @wt52 , @stat52, @code52 , @V52 , @info52)", connection)
         command.Parameters.AddWithValue("@flight_id1", TextBox5.Text)
@@ -606,7 +608,7 @@ Public Class Form2
         connection.Close()
         MessageBox.Show("Запись в Базу Данных")
         RichTextBox1.Clear()
-        RichTextBox1.AppendText("LOADING INSTRUCTION/REPORT" + vbTab + vbTab + "PREPARED BY" + vbTab + vbTab + vbTab + "EDNO" + vbNewLine)
+        RichTextBox1.AppendText("LOADING INSTRUCTION/REPORT" + vbTab + vbTab + "PREPARED BY" + vbTab + vbTab + vbTab + "EDNO" + TextBox33.Text + vbNewLine)
         RichTextBox1.AppendText("ALL WEIGHTS IN KILOS" + vbNewLine)
         RichTextBox1.AppendText("FROM/TO" + vbTab + "FLIGHT" + vbTab + "A/C REG" + vbTab + "VERSION" + vbTab + "CREW" + vbTab + "DATE" + vbTab + vbTab + vbTab + "TIME" + vbNewLine)
         RichTextBox1.AppendText(TextBox3.Text + vbTab + TextBox5.Text + vbTab + TextBox4.Text + vbTab + vbTab + TextBox2.Text + vbTab + vbTab + Form1.ComboBox1.Text + vbTab + TextBox48.Text + vbTab + vbTab + TextBox49.Text + vbNewLine)
@@ -643,10 +645,12 @@ Public Class Form2
         RichTextBox1.AppendText(":" + ComboBox24.Text + ":" + vbTab + TextBox31.Text + vbTab + ComboBox22.Text + "/" + TextBox32.Text + vbNewLine)
         RichTextBox1.AppendText(":" + "SPECS" + ":" + vbTab + ComboBox21.Text + vbTab + TextBox29.Text + vbNewLine)
         RichTextBox1.AppendText(":" + "REPORT" + ":" + vbTab + TextBox32.Text + vbNewLine)
-        RichTextBox1.AppendText("......................................................................................................" + vbNewLine)
-        RichTextBox1.AppendText(":" + "51P" + vbTab + vbTab + ComboBox19.Text + vbNewLine)
-        RichTextBox1.AppendText(":" + ComboBox18.Text + ":" + vbTab + TextBox28.Text + vbTab + ComboBox20.Text + "/" + TextBox27.Text + vbNewLine)
-        RichTextBox1.AppendText(":" + "SPECS" + ":" + vbTab + ComboBox17.Text + vbTab + TextBox25.Text + vbNewLine)
+        If TextBox27.Text > 0 Then
+            RichTextBox1.AppendText("......................................................................................................" + vbNewLine)
+            RichTextBox1.AppendText(":" + "51P" + vbTab + vbTab + ComboBox19.Text + vbNewLine)
+            RichTextBox1.AppendText(":" + ComboBox18.Text + ":" + vbTab + TextBox28.Text + vbTab + ComboBox20.Text + "/" + TextBox27.Text + vbNewLine)
+            RichTextBox1.AppendText(":" + "SPECS" + ":" + vbTab + ComboBox17.Text + vbTab + TextBox25.Text + vbNewLine)
+        End If
         RichTextBox1.AppendText(":" + "REPORT" + ":" + vbTab + TextBox27.Text + vbTab + vbTab + vbTab + "CPT5AFT" + vbTab + vbTab + "TTL" + vbTab + TextBox24.Text + vbNewLine)
         RichTextBox1.AppendText("******************************************************************************************************************************" + vbNewLine)
         RichTextBox1.AppendText(":" + "SI" + vbNewLine)
