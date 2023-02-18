@@ -12,7 +12,7 @@ Public Class Form6
         RichTextBox1.AppendText(vbTab + vbTab + vbTab + vbTab + "WEIGHT" + vbTab + "DISTRIBUTION" + vbNewLine)
         RichTextBox1.AppendText("LOAD IN COMPARTMENTS" + vbTab + Form1.TextBox6.Text + vbTab + vbTab + "1/" + Form1.TextBox36.Text + vbTab + "4/" + Form1.TextBox37.Text + vbTab + "5/" + Form1.TextBox38.Text + vbNewLine)
         RichTextBox1.AppendText("PASSENGER" + vbTab + vbTab + vbTab + Form1.TextBox7.Text + vbTab + vbTab + Form1.Label50.Text + "/" + Form1.Label51.Text + "/" + Form1.Label52.Text + vbTab + vbTab + vbTab + "TTL" + Form1.Label53.Text + vbNewLine)
-        RichTextBox1.AppendText(vbTab + vbTab + vbTab + vbTab + vbTab + "PAX" + vbTab + "CY" + vbNewLine)
+        RichTextBox1.AppendText(vbTab + vbTab + vbTab + vbTab + vbTab + "PAX" + vbTab + "CY" + Label20.Text + "/" + Label21.Text + vbNewLine)
         RichTextBox1.AppendText("*************************************************************************" + vbNewLine)
         RichTextBox1.AppendText("TOTAL TRAFFIC LOAD" + vbTab + vbTab + Form1.TextBox8.Text + vbNewLine)
         RichTextBox1.AppendText("DRY OPERATING WEIGHT" + vbTab + Form1.TextBox11.Text + vbNewLine)
@@ -122,6 +122,5 @@ Public Class Form6
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Form7.Show()
-
     End Sub
 End Class

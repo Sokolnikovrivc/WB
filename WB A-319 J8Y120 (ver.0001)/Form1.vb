@@ -41,21 +41,25 @@ Public Class Form1
     Public AFT2 As Single
     Public AFT4 As Single
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim connection As New SqlConnection("Data Source=WIN-8CEIKSU78CS\SQLEXPRESS; Initial Catalog=Test; Integrated Security=True")
-        Dim command As New SqlCommand("select * from A319 where flight_id = @flight_id", connection)
-        command.Parameters.Add("@flight_id", SqlDbType.VarChar).Value = TextBox5.Text
-        Dim adapter As New SqlDataAdapter(command)
-        Dim table As New DataTable
-        adapter.Fill(table)
-        TextBox3.Text = table.Rows(0)(1).ToString()
-        TextBox4.Text = table.Rows(0)(2).ToString()
-        TextBox2.Text = table.Rows(0)(3).ToString()
-        TextBox13.Text = table.Rows(0)(4).ToString()
-        TextBox19.Text = table.Rows(0)(5).ToString()
-        TextBox18.Text = table.Rows(0)(6).ToString()
-        TextBox48.Text = table.Rows(0)(7).ToString()
-        TextBox49.Text = table.Rows(0)(8).ToString()
-        ComboBox1.Focus()
+        Try
+            Dim connection As New SqlConnection("Data Source=WIN-8CEIKSU78CS\SQLEXPRESS; Initial Catalog=Test; Integrated Security=True")
+            Dim command As New SqlCommand("select * from A319 where flight_id = @flight_id", connection)
+            command.Parameters.Add("@flight_id", SqlDbType.VarChar).Value = TextBox5.Text
+            Dim adapter As New SqlDataAdapter(command)
+            Dim table As New DataTable
+            adapter.Fill(table)
+            TextBox3.Text = table.Rows(0)(1).ToString()
+            TextBox4.Text = table.Rows(0)(2).ToString()
+            TextBox2.Text = table.Rows(0)(3).ToString()
+            TextBox13.Text = table.Rows(0)(4).ToString()
+            TextBox19.Text = table.Rows(0)(5).ToString()
+            TextBox18.Text = table.Rows(0)(6).ToString()
+            TextBox48.Text = table.Rows(0)(7).ToString()
+            TextBox49.Text = table.Rows(0)(8).ToString()
+            ComboBox1.Focus()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -373,7 +377,13 @@ Public Class Form1
         Form6.TextBox4.Text = TextBox4.Text
         Form6.Label17.Text = MTOW - TOW
     End Sub
-
+    Private Sub Form1_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+        Try
+            Microsoft.Win32.Registry.CurrentUser.DeleteSubKey("Form2Data")
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+    End Sub
 End Class
 
 

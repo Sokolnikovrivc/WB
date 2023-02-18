@@ -420,9 +420,9 @@ Partial Class Form3
         '
         'Label14
         '
-        Me.Label14.Location = New System.Drawing.Point(366, 53)
+        Me.Label14.Location = New System.Drawing.Point(362, 53)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(20, 13)
+        Me.Label14.Size = New System.Drawing.Size(36, 13)
         Me.Label14.TabIndex = 89
         Me.Label14.Text = "0"
         '
@@ -581,9 +581,9 @@ Partial Class Form3
         '
         'Label34
         '
-        Me.Label34.Location = New System.Drawing.Point(366, 53)
+        Me.Label34.Location = New System.Drawing.Point(362, 53)
         Me.Label34.Name = "Label34"
-        Me.Label34.Size = New System.Drawing.Size(20, 13)
+        Me.Label34.Size = New System.Drawing.Size(36, 13)
         Me.Label34.TabIndex = 89
         Me.Label34.Text = "0"
         '
@@ -734,9 +734,9 @@ Partial Class Form3
         '
         'Label37
         '
-        Me.Label37.Location = New System.Drawing.Point(366, 53)
+        Me.Label37.Location = New System.Drawing.Point(362, 53)
         Me.Label37.Name = "Label37"
-        Me.Label37.Size = New System.Drawing.Size(20, 13)
+        Me.Label37.Size = New System.Drawing.Size(36, 13)
         Me.Label37.TabIndex = 89
         Me.Label37.Text = "0"
         '
