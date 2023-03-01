@@ -8,7 +8,9 @@
         RichTextBox1.AppendText("-" + "41P" + "/" + Form2.TextBox22.Text + "/" + Form2.TextBox23.Text + "/" + Form2.ComboBox14.Text + "." + Form2.ComboBox13.Text + vbNewLine)
         RichTextBox1.AppendText("-" + "42P" + "/" + Form2.TextBox19.Text + "/" + Form2.TextBox18.Text + "/" + Form2.ComboBox12.Text + "." + Form2.ComboBox9.Text + vbNewLine)
         RichTextBox1.AppendText("-" + "51P" + "/" + Form2.TextBox31.Text + "/" + Form2.TextBox32.Text + "/" + Form2.ComboBox22.Text + "." + Form2.ComboBox21.Text + vbNewLine)
-        RichTextBox1.AppendText("-" + "51P" + "/" + Form2.TextBox28.Text + "/" + Form2.TextBox27.Text + "/" + Form2.ComboBox20.Text + "." + Form2.ComboBox17.Text + vbNewLine)
+        If Form2.TextBox27.Text > 0 Then
+            RichTextBox1.AppendText("-" + "51P" + "/" + Form2.TextBox28.Text + "/" + Form2.TextBox27.Text + "/" + Form2.ComboBox20.Text + "." + Form2.ComboBox17.Text + vbNewLine)
+        End If
         RichTextBox1.AppendText("SI")
     End Sub
 End Class

@@ -1,5 +1,7 @@
 ﻿Imports System.Diagnostics.Eventing.Reader
 Imports System.IO.File
+Imports System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar
+
 Public Class Form3
     Public vzr1, rb1, rm1, transvzr1, transvzr2, transvzr3 As Integer
     Public vzr2, rb2, rm2, transvzr4, transvzr5, transvzr6 As Integer
@@ -11,7 +13,7 @@ Public Class Form3
     Public Const RMc As Integer = 15
 
     Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
-        Dim VZR, RB, RM, TTL, PAX As Integer
+        Dim VZR, RB, RM, TTL, PAX, TRANS As Integer
         Dim filename As String = Application.StartupPath & "\test.log"
         Dim sw As IO.StreamWriter = AppendText(filename)
         TextBox1.Text = vzr1 + vzr2 + vzr3 + vzr4 + transvzr1 + transvzr4 + transvzr7 + transvzr10
@@ -23,6 +25,7 @@ Public Class Form3
         RB = CInt(TextBox2.Text)
         RM = CInt(TextBox3.Text)
         TTL = CInt(TextBox4.Text)
+        TRANS = CInt(TextBox7.Text)
         TextBox5.Text = VZR + RB + RM
         PAX = CInt(TextBox5.Text)
         If PAX > 128 Then
@@ -45,7 +48,7 @@ Public Class Form3
             Form1.TextBox30.Text = ttl3
             Form1.TextBox31.Text = ttl4
         End If
-        sw.WriteLine("[INFO] Button9_Click: VZR=" & VZR & ", RB=" & RB & ", RM=" & RM & ", PAX=" & PAX & ", TTL=" & TTL)
+        sw.WriteLine("[INFO] Button9_Click: VZR=" & VZR & ", RB=" & RB & ", RM=" & RM & ", PAX=" & PAX & ", TTL=" & TTL & ",TRANS=" & TRANS)
         sw.Close()
         If ComboBox1.Text = "F" Or ComboBox1.Text = "J" Or ComboBox1.Text = "C" Then
             Form6.Label20.Text = vzr1 + rb1 + rm1 + transvzr1 + transvzr2 + transvzr3
@@ -84,6 +87,8 @@ Public Class Form3
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim filename As String = Application.StartupPath & "\test.log"
+        Dim sw As IO.StreamWriter = AppendText(filename)
         vzr1 = CInt(TextBox8.Text)
         rb1 = CInt(TextBox9.Text)
         rm1 = CInt(TextBox10.Text)
@@ -117,6 +122,7 @@ Public Class Form3
             TextBox12.Text = "0"
             TextBox13.Text = "0"
             Label33.Text = "0"
+            sw.WriteLine("[ERROR] Exceeded maximum number of passengers.0A")
         End If
         If CheckBox1.Checked Then
             Label33.Text = (vzr1 * VZRsum + transvzr1 * VZRsum) + (rb1 * RBc + transvzr2 * RBc) + (rm1 * RMc + transvzr3 * RMc)
@@ -132,6 +138,7 @@ Public Class Form3
             TextBox15.Text = "0"
             TextBox14.Text = "0"
             Label14.Text = "0"
+            sw.WriteLine("[ERROR] Exceeded maximum number of passengers.0B")
         End If
         If CheckBox1.Checked Then
             Label14.Text = (vzr2 * VZRsum + transvzr4 * VZRsum) + (rb2 * RBc + transvzr5 * RBc) + (rm2 * RMc + transvzr6 * RMc)
@@ -147,6 +154,7 @@ Public Class Form3
             TextBox21.Text = "0"
             TextBox20.Text = "0"
             Label34.Text = "0"
+            sw.WriteLine("[ERROR] Exceeded maximum number of passengers.0C")
         End If
         If CheckBox1.Checked Then
             Label34.Text = (vzr3 * VZRsum + transvzr7 * VZRsum) + (rb3 * RBc + transvzr8 * RBc) + (rm3 * RMc + transvzr9 * RMc)
@@ -162,6 +170,7 @@ Public Class Form3
             TextBox27.Text = "0"
             TextBox26.Text = "0"
             Label37.Text = "0"
+            sw.WriteLine("[ERROR] Exceeded maximum number of passengers.0D")
         End If
         If CheckBox1.Checked Then
             Label37.Text = (vzr4 * VZRsum + transvzr10 * VZRsum) + (rb4 * RBc + transvzr11 * RBc) + (rm4 * RMc + transvzr12 * RMc)
@@ -172,5 +181,10 @@ Public Class Form3
         ttl2 = CSng(Label14.Text)
         ttl3 = CSng(Label34.Text)
         ttl4 = CSng(Label37.Text)
+        sw.WriteLine("[INFO] Button1_Click: VZR (0A)=" & vzr1 & ", RB (0A)=" & rb1 & ", RM (0A)=" & rm1 & ",TRANS (0A)=" & transvzr1)
+        sw.WriteLine("[INFO] Button1_Click: VZR (0B)=" & vzr2 & ", RB (0B)=" & rb2 & ", RM (0B)=" & rm2 & ",TRANS (0B)=" & transvzr2)
+        sw.WriteLine("[INFO] Button1_Click: VZR (0C)=" & vzr3 & ", RB (0C)=" & rb3 & ", RM (0C)=" & rm3 & ",TRANS (0C)=" & transvzr3)
+        sw.WriteLine("[INFO] Button1_Click: VZR (0D)=" & vzr4 & ", RB (0D)=" & rb4 & ", RM (0D)=" & rm4 & ",TRANS (0D)=" & transvzr4)
+        sw.Close()
     End Sub
 End Class

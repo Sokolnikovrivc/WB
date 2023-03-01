@@ -1,7 +1,4 @@
-﻿
-Imports System.ComponentModel.Design
-Imports System.Data.SqlClient
-Imports System.Drawing.Printing
+﻿Imports System.Data.SqlClient
 Imports System.IO.File
 Public Class Form1
     Public C As Single

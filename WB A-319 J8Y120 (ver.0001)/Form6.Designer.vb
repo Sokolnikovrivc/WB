@@ -24,6 +24,16 @@ Partial Class Form6
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form6))
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label75 = New System.Windows.Forms.Label()
+        Me.Label76 = New System.Windows.Forms.Label()
+        Me.Label73 = New System.Windows.Forms.Label()
+        Me.Label72 = New System.Windows.Forms.Label()
+        Me.Label74 = New System.Windows.Forms.Label()
+        Me.Label71 = New System.Windows.Forms.Label()
+        Me.Label21 = New System.Windows.Forms.Label()
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.Label18 = New System.Windows.Forms.Label()
+        Me.Label19 = New System.Windows.Forms.Label()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.TextBox11 = New System.Windows.Forms.TextBox()
@@ -114,16 +124,6 @@ Partial Class Form6
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.Label18 = New System.Windows.Forms.Label()
-        Me.Label19 = New System.Windows.Forms.Label()
-        Me.Label20 = New System.Windows.Forms.Label()
-        Me.Label21 = New System.Windows.Forms.Label()
-        Me.Label75 = New System.Windows.Forms.Label()
-        Me.Label76 = New System.Windows.Forms.Label()
-        Me.Label73 = New System.Windows.Forms.Label()
-        Me.Label72 = New System.Windows.Forms.Label()
-        Me.Label74 = New System.Windows.Forms.Label()
-        Me.Label71 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
@@ -167,6 +167,104 @@ Partial Class Form6
         Me.GroupBox1.Size = New System.Drawing.Size(1058, 95)
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
+        '
+        'Label75
+        '
+        Me.Label75.AutoSize = True
+        Me.Label75.Location = New System.Drawing.Point(1030, 55)
+        Me.Label75.Name = "Label75"
+        Me.Label75.Size = New System.Drawing.Size(13, 13)
+        Me.Label75.TabIndex = 109
+        Me.Label75.Text = "0"
+        '
+        'Label76
+        '
+        Me.Label76.AutoSize = True
+        Me.Label76.Location = New System.Drawing.Point(1019, 55)
+        Me.Label76.Name = "Label76"
+        Me.Label76.Size = New System.Drawing.Size(14, 13)
+        Me.Label76.TabIndex = 108
+        Me.Label76.Text = "B"
+        '
+        'Label73
+        '
+        Me.Label73.AutoSize = True
+        Me.Label73.Location = New System.Drawing.Point(994, 55)
+        Me.Label73.Name = "Label73"
+        Me.Label73.Size = New System.Drawing.Size(13, 13)
+        Me.Label73.TabIndex = 107
+        Me.Label73.Text = "0"
+        '
+        'Label72
+        '
+        Me.Label72.AutoSize = True
+        Me.Label72.Location = New System.Drawing.Point(944, 55)
+        Me.Label72.Name = "Label72"
+        Me.Label72.Size = New System.Drawing.Size(14, 13)
+        Me.Label72.TabIndex = 104
+        Me.Label72.Text = "C"
+        '
+        'Label74
+        '
+        Me.Label74.AutoSize = True
+        Me.Label74.Location = New System.Drawing.Point(983, 55)
+        Me.Label74.Name = "Label74"
+        Me.Label74.Size = New System.Drawing.Size(16, 13)
+        Me.Label74.TabIndex = 106
+        Me.Label74.Text = "M"
+        '
+        'Label71
+        '
+        Me.Label71.AutoSize = True
+        Me.Label71.Location = New System.Drawing.Point(955, 55)
+        Me.Label71.Name = "Label71"
+        Me.Label71.Size = New System.Drawing.Size(13, 13)
+        Me.Label71.TabIndex = 105
+        Me.Label71.Text = "0"
+        '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.Cursor = System.Windows.Forms.Cursors.Default
+        Me.Label21.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.Label21.Location = New System.Drawing.Point(908, 55)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(13, 13)
+        Me.Label21.TabIndex = 87
+        Me.Label21.Text = "0"
+        '
+        'Label20
+        '
+        Me.Label20.AutoSize = True
+        Me.Label20.Cursor = System.Windows.Forms.Cursors.Default
+        Me.Label20.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.Label20.Location = New System.Drawing.Point(880, 55)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(13, 13)
+        Me.Label20.TabIndex = 86
+        Me.Label20.Text = "0"
+        '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.Cursor = System.Windows.Forms.Cursors.Default
+        Me.Label18.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.Label18.Location = New System.Drawing.Point(897, 55)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(14, 13)
+        Me.Label18.TabIndex = 85
+        Me.Label18.Text = "Y"
+        '
+        'Label19
+        '
+        Me.Label19.AutoSize = True
+        Me.Label19.Cursor = System.Windows.Forms.Cursors.Default
+        Me.Label19.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.Label19.Location = New System.Drawing.Point(867, 55)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(14, 13)
+        Me.Label19.TabIndex = 84
+        Me.Label19.Text = "C"
         '
         'Label17
         '
@@ -435,7 +533,7 @@ Partial Class Form6
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 51.00671!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 103.0!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 107.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 115.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 117.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.TextBox68, 4, 11)
         Me.TableLayoutPanel1.Controls.Add(Me.TextBox67, 3, 11)
         Me.TableLayoutPanel1.Controls.Add(Me.TextBox66, 2, 11)
@@ -520,7 +618,7 @@ Partial Class Form6
         Me.TextBox68.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox68.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TextBox68.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox68.Location = New System.Drawing.Point(411, 324)
+        Me.TextBox68.Location = New System.Drawing.Point(410, 324)
         Me.TextBox68.Name = "TextBox68"
         Me.TextBox68.Size = New System.Drawing.Size(65, 13)
         Me.TextBox68.TabIndex = 77
@@ -533,7 +631,7 @@ Partial Class Form6
         Me.TextBox67.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox67.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TextBox67.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox67.Location = New System.Drawing.Point(299, 324)
+        Me.TextBox67.Location = New System.Drawing.Point(297, 324)
         Me.TextBox67.Name = "TextBox67"
         Me.TextBox67.Size = New System.Drawing.Size(65, 13)
         Me.TextBox67.TabIndex = 76
@@ -544,7 +642,7 @@ Partial Class Form6
         Me.TextBox66.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.TextBox66.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox66.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TextBox66.Location = New System.Drawing.Point(193, 324)
+        Me.TextBox66.Location = New System.Drawing.Point(191, 324)
         Me.TextBox66.Name = "TextBox66"
         Me.TextBox66.Size = New System.Drawing.Size(65, 13)
         Me.TextBox66.TabIndex = 75
@@ -555,7 +653,7 @@ Partial Class Form6
         Me.TextBox65.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.TextBox65.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox65.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TextBox65.Location = New System.Drawing.Point(97, 324)
+        Me.TextBox65.Location = New System.Drawing.Point(95, 324)
         Me.TextBox65.Name = "TextBox65"
         Me.TextBox65.Size = New System.Drawing.Size(65, 13)
         Me.TextBox65.TabIndex = 74
@@ -579,7 +677,7 @@ Partial Class Form6
         Me.TextBox63.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox63.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TextBox63.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox63.Location = New System.Drawing.Point(411, 297)
+        Me.TextBox63.Location = New System.Drawing.Point(410, 297)
         Me.TextBox63.Name = "TextBox63"
         Me.TextBox63.Size = New System.Drawing.Size(65, 13)
         Me.TextBox63.TabIndex = 72
@@ -592,7 +690,7 @@ Partial Class Form6
         Me.TextBox62.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox62.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TextBox62.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox62.Location = New System.Drawing.Point(299, 297)
+        Me.TextBox62.Location = New System.Drawing.Point(297, 297)
         Me.TextBox62.Name = "TextBox62"
         Me.TextBox62.Size = New System.Drawing.Size(65, 13)
         Me.TextBox62.TabIndex = 71
@@ -603,7 +701,7 @@ Partial Class Form6
         Me.TextBox61.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.TextBox61.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox61.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TextBox61.Location = New System.Drawing.Point(193, 297)
+        Me.TextBox61.Location = New System.Drawing.Point(191, 297)
         Me.TextBox61.Name = "TextBox61"
         Me.TextBox61.Size = New System.Drawing.Size(65, 13)
         Me.TextBox61.TabIndex = 70
@@ -615,7 +713,7 @@ Partial Class Form6
         Me.TextBox60.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox60.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TextBox60.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox60.Location = New System.Drawing.Point(97, 297)
+        Me.TextBox60.Location = New System.Drawing.Point(95, 297)
         Me.TextBox60.Name = "TextBox60"
         Me.TextBox60.Size = New System.Drawing.Size(65, 13)
         Me.TextBox60.TabIndex = 69
@@ -639,7 +737,7 @@ Partial Class Form6
         Me.TextBox58.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox58.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TextBox58.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox58.Location = New System.Drawing.Point(411, 271)
+        Me.TextBox58.Location = New System.Drawing.Point(410, 271)
         Me.TextBox58.Name = "TextBox58"
         Me.TextBox58.Size = New System.Drawing.Size(65, 13)
         Me.TextBox58.TabIndex = 67
@@ -652,7 +750,7 @@ Partial Class Form6
         Me.TextBox57.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox57.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TextBox57.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox57.Location = New System.Drawing.Point(299, 271)
+        Me.TextBox57.Location = New System.Drawing.Point(297, 271)
         Me.TextBox57.Name = "TextBox57"
         Me.TextBox57.Size = New System.Drawing.Size(65, 13)
         Me.TextBox57.TabIndex = 66
@@ -663,7 +761,7 @@ Partial Class Form6
         Me.TextBox56.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.TextBox56.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox56.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TextBox56.Location = New System.Drawing.Point(193, 271)
+        Me.TextBox56.Location = New System.Drawing.Point(191, 271)
         Me.TextBox56.Name = "TextBox56"
         Me.TextBox56.Size = New System.Drawing.Size(65, 13)
         Me.TextBox56.TabIndex = 65
@@ -674,7 +772,7 @@ Partial Class Form6
         Me.TextBox55.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.TextBox55.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox55.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TextBox55.Location = New System.Drawing.Point(97, 271)
+        Me.TextBox55.Location = New System.Drawing.Point(95, 271)
         Me.TextBox55.Name = "TextBox55"
         Me.TextBox55.Size = New System.Drawing.Size(65, 13)
         Me.TextBox55.TabIndex = 64
@@ -698,7 +796,7 @@ Partial Class Form6
         Me.TextBox53.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox53.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TextBox53.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox53.Location = New System.Drawing.Point(411, 245)
+        Me.TextBox53.Location = New System.Drawing.Point(410, 245)
         Me.TextBox53.Name = "TextBox53"
         Me.TextBox53.Size = New System.Drawing.Size(65, 13)
         Me.TextBox53.TabIndex = 62
@@ -711,7 +809,7 @@ Partial Class Form6
         Me.TextBox52.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox52.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TextBox52.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox52.Location = New System.Drawing.Point(299, 245)
+        Me.TextBox52.Location = New System.Drawing.Point(297, 245)
         Me.TextBox52.Name = "TextBox52"
         Me.TextBox52.Size = New System.Drawing.Size(65, 13)
         Me.TextBox52.TabIndex = 61
@@ -722,7 +820,7 @@ Partial Class Form6
         Me.TextBox51.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.TextBox51.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox51.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TextBox51.Location = New System.Drawing.Point(193, 245)
+        Me.TextBox51.Location = New System.Drawing.Point(191, 245)
         Me.TextBox51.Name = "TextBox51"
         Me.TextBox51.Size = New System.Drawing.Size(65, 13)
         Me.TextBox51.TabIndex = 60
@@ -733,7 +831,7 @@ Partial Class Form6
         Me.TextBox50.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.TextBox50.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox50.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TextBox50.Location = New System.Drawing.Point(97, 245)
+        Me.TextBox50.Location = New System.Drawing.Point(95, 245)
         Me.TextBox50.Name = "TextBox50"
         Me.TextBox50.Size = New System.Drawing.Size(65, 13)
         Me.TextBox50.TabIndex = 59
@@ -757,7 +855,7 @@ Partial Class Form6
         Me.TextBox46.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox46.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TextBox46.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox46.Location = New System.Drawing.Point(411, 219)
+        Me.TextBox46.Location = New System.Drawing.Point(410, 219)
         Me.TextBox46.Name = "TextBox46"
         Me.TextBox46.Size = New System.Drawing.Size(65, 13)
         Me.TextBox46.TabIndex = 57
@@ -770,7 +868,7 @@ Partial Class Form6
         Me.TextBox45.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox45.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TextBox45.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox45.Location = New System.Drawing.Point(299, 219)
+        Me.TextBox45.Location = New System.Drawing.Point(297, 219)
         Me.TextBox45.Name = "TextBox45"
         Me.TextBox45.Size = New System.Drawing.Size(65, 13)
         Me.TextBox45.TabIndex = 56
@@ -781,7 +879,7 @@ Partial Class Form6
         Me.TextBox44.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.TextBox44.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox44.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TextBox44.Location = New System.Drawing.Point(193, 219)
+        Me.TextBox44.Location = New System.Drawing.Point(191, 219)
         Me.TextBox44.Name = "TextBox44"
         Me.TextBox44.Size = New System.Drawing.Size(65, 13)
         Me.TextBox44.TabIndex = 55
@@ -792,7 +890,7 @@ Partial Class Form6
         Me.TextBox43.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.TextBox43.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox43.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TextBox43.Location = New System.Drawing.Point(97, 219)
+        Me.TextBox43.Location = New System.Drawing.Point(95, 219)
         Me.TextBox43.Name = "TextBox43"
         Me.TextBox43.Size = New System.Drawing.Size(65, 13)
         Me.TextBox43.TabIndex = 54
@@ -816,7 +914,7 @@ Partial Class Form6
         Me.TextBox41.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox41.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TextBox41.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox41.Location = New System.Drawing.Point(411, 193)
+        Me.TextBox41.Location = New System.Drawing.Point(410, 193)
         Me.TextBox41.Name = "TextBox41"
         Me.TextBox41.Size = New System.Drawing.Size(65, 13)
         Me.TextBox41.TabIndex = 52
@@ -829,7 +927,7 @@ Partial Class Form6
         Me.TextBox40.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox40.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TextBox40.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox40.Location = New System.Drawing.Point(299, 193)
+        Me.TextBox40.Location = New System.Drawing.Point(297, 193)
         Me.TextBox40.Name = "TextBox40"
         Me.TextBox40.Size = New System.Drawing.Size(65, 13)
         Me.TextBox40.TabIndex = 51
@@ -840,7 +938,7 @@ Partial Class Form6
         Me.TextBox39.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.TextBox39.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox39.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TextBox39.Location = New System.Drawing.Point(193, 193)
+        Me.TextBox39.Location = New System.Drawing.Point(191, 193)
         Me.TextBox39.Name = "TextBox39"
         Me.TextBox39.Size = New System.Drawing.Size(65, 13)
         Me.TextBox39.TabIndex = 50
@@ -851,7 +949,7 @@ Partial Class Form6
         Me.TextBox38.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.TextBox38.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox38.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TextBox38.Location = New System.Drawing.Point(97, 193)
+        Me.TextBox38.Location = New System.Drawing.Point(95, 193)
         Me.TextBox38.Name = "TextBox38"
         Me.TextBox38.Size = New System.Drawing.Size(65, 13)
         Me.TextBox38.TabIndex = 49
@@ -875,7 +973,7 @@ Partial Class Form6
         Me.TextBox36.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox36.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TextBox36.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox36.Location = New System.Drawing.Point(411, 167)
+        Me.TextBox36.Location = New System.Drawing.Point(410, 167)
         Me.TextBox36.Name = "TextBox36"
         Me.TextBox36.Size = New System.Drawing.Size(65, 13)
         Me.TextBox36.TabIndex = 47
@@ -888,7 +986,7 @@ Partial Class Form6
         Me.TextBox35.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox35.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TextBox35.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox35.Location = New System.Drawing.Point(299, 167)
+        Me.TextBox35.Location = New System.Drawing.Point(297, 167)
         Me.TextBox35.Name = "TextBox35"
         Me.TextBox35.Size = New System.Drawing.Size(65, 13)
         Me.TextBox35.TabIndex = 46
@@ -899,7 +997,7 @@ Partial Class Form6
         Me.TextBox34.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.TextBox34.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox34.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TextBox34.Location = New System.Drawing.Point(193, 167)
+        Me.TextBox34.Location = New System.Drawing.Point(191, 167)
         Me.TextBox34.Name = "TextBox34"
         Me.TextBox34.Size = New System.Drawing.Size(65, 13)
         Me.TextBox34.TabIndex = 45
@@ -910,7 +1008,7 @@ Partial Class Form6
         Me.TextBox33.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.TextBox33.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox33.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TextBox33.Location = New System.Drawing.Point(97, 167)
+        Me.TextBox33.Location = New System.Drawing.Point(95, 167)
         Me.TextBox33.Name = "TextBox33"
         Me.TextBox33.Size = New System.Drawing.Size(65, 13)
         Me.TextBox33.TabIndex = 44
@@ -934,7 +1032,7 @@ Partial Class Form6
         Me.TextBox31.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox31.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TextBox31.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox31.Location = New System.Drawing.Point(411, 141)
+        Me.TextBox31.Location = New System.Drawing.Point(410, 141)
         Me.TextBox31.Name = "TextBox31"
         Me.TextBox31.Size = New System.Drawing.Size(65, 13)
         Me.TextBox31.TabIndex = 42
@@ -947,7 +1045,7 @@ Partial Class Form6
         Me.TextBox30.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox30.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TextBox30.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox30.Location = New System.Drawing.Point(299, 141)
+        Me.TextBox30.Location = New System.Drawing.Point(297, 141)
         Me.TextBox30.Name = "TextBox30"
         Me.TextBox30.Size = New System.Drawing.Size(65, 13)
         Me.TextBox30.TabIndex = 41
@@ -958,7 +1056,7 @@ Partial Class Form6
         Me.TextBox29.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.TextBox29.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox29.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TextBox29.Location = New System.Drawing.Point(193, 141)
+        Me.TextBox29.Location = New System.Drawing.Point(191, 141)
         Me.TextBox29.Name = "TextBox29"
         Me.TextBox29.Size = New System.Drawing.Size(65, 13)
         Me.TextBox29.TabIndex = 40
@@ -969,7 +1067,7 @@ Partial Class Form6
         Me.TextBox28.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.TextBox28.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox28.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TextBox28.Location = New System.Drawing.Point(97, 141)
+        Me.TextBox28.Location = New System.Drawing.Point(95, 141)
         Me.TextBox28.Name = "TextBox28"
         Me.TextBox28.Size = New System.Drawing.Size(65, 13)
         Me.TextBox28.TabIndex = 39
@@ -993,7 +1091,7 @@ Partial Class Form6
         Me.TextBox26.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox26.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TextBox26.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox26.Location = New System.Drawing.Point(411, 115)
+        Me.TextBox26.Location = New System.Drawing.Point(410, 115)
         Me.TextBox26.Name = "TextBox26"
         Me.TextBox26.Size = New System.Drawing.Size(65, 13)
         Me.TextBox26.TabIndex = 37
@@ -1006,7 +1104,7 @@ Partial Class Form6
         Me.TextBox25.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox25.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TextBox25.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox25.Location = New System.Drawing.Point(299, 115)
+        Me.TextBox25.Location = New System.Drawing.Point(297, 115)
         Me.TextBox25.Name = "TextBox25"
         Me.TextBox25.Size = New System.Drawing.Size(65, 13)
         Me.TextBox25.TabIndex = 36
@@ -1017,7 +1115,7 @@ Partial Class Form6
         Me.TextBox24.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.TextBox24.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox24.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TextBox24.Location = New System.Drawing.Point(193, 115)
+        Me.TextBox24.Location = New System.Drawing.Point(191, 115)
         Me.TextBox24.Name = "TextBox24"
         Me.TextBox24.Size = New System.Drawing.Size(65, 13)
         Me.TextBox24.TabIndex = 35
@@ -1028,7 +1126,7 @@ Partial Class Form6
         Me.TextBox23.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.TextBox23.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox23.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TextBox23.Location = New System.Drawing.Point(97, 115)
+        Me.TextBox23.Location = New System.Drawing.Point(95, 115)
         Me.TextBox23.Name = "TextBox23"
         Me.TextBox23.Size = New System.Drawing.Size(65, 13)
         Me.TextBox23.TabIndex = 34
@@ -1052,7 +1150,7 @@ Partial Class Form6
         Me.TextBox20.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox20.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TextBox20.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox20.Location = New System.Drawing.Point(411, 89)
+        Me.TextBox20.Location = New System.Drawing.Point(410, 89)
         Me.TextBox20.Name = "TextBox20"
         Me.TextBox20.Size = New System.Drawing.Size(65, 13)
         Me.TextBox20.TabIndex = 32
@@ -1065,7 +1163,7 @@ Partial Class Form6
         Me.TextBox19.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox19.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TextBox19.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox19.Location = New System.Drawing.Point(299, 89)
+        Me.TextBox19.Location = New System.Drawing.Point(297, 89)
         Me.TextBox19.Name = "TextBox19"
         Me.TextBox19.Size = New System.Drawing.Size(65, 13)
         Me.TextBox19.TabIndex = 31
@@ -1076,7 +1174,7 @@ Partial Class Form6
         Me.TextBox18.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.TextBox18.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox18.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TextBox18.Location = New System.Drawing.Point(193, 89)
+        Me.TextBox18.Location = New System.Drawing.Point(191, 89)
         Me.TextBox18.Name = "TextBox18"
         Me.TextBox18.Size = New System.Drawing.Size(65, 13)
         Me.TextBox18.TabIndex = 30
@@ -1087,7 +1185,7 @@ Partial Class Form6
         Me.TextBox17.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.TextBox17.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox17.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TextBox17.Location = New System.Drawing.Point(97, 89)
+        Me.TextBox17.Location = New System.Drawing.Point(95, 89)
         Me.TextBox17.Name = "TextBox17"
         Me.TextBox17.Size = New System.Drawing.Size(65, 13)
         Me.TextBox17.TabIndex = 29
@@ -1111,7 +1209,7 @@ Partial Class Form6
         Me.TextBox9.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox9.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TextBox9.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox9.Location = New System.Drawing.Point(411, 63)
+        Me.TextBox9.Location = New System.Drawing.Point(410, 63)
         Me.TextBox9.Name = "TextBox9"
         Me.TextBox9.Size = New System.Drawing.Size(65, 13)
         Me.TextBox9.TabIndex = 23
@@ -1123,7 +1221,7 @@ Partial Class Form6
         Me.TextBox8.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.TextBox8.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox8.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TextBox8.Location = New System.Drawing.Point(299, 63)
+        Me.TextBox8.Location = New System.Drawing.Point(297, 63)
         Me.TextBox8.Name = "TextBox8"
         Me.TextBox8.Size = New System.Drawing.Size(65, 13)
         Me.TextBox8.TabIndex = 22
@@ -1134,7 +1232,7 @@ Partial Class Form6
         Me.TextBox7.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.TextBox7.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox7.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TextBox7.Location = New System.Drawing.Point(193, 63)
+        Me.TextBox7.Location = New System.Drawing.Point(191, 63)
         Me.TextBox7.Name = "TextBox7"
         Me.TextBox7.Size = New System.Drawing.Size(65, 13)
         Me.TextBox7.TabIndex = 21
@@ -1145,7 +1243,7 @@ Partial Class Form6
         Me.TextBox6.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.TextBox6.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox6.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TextBox6.Location = New System.Drawing.Point(97, 63)
+        Me.TextBox6.Location = New System.Drawing.Point(95, 63)
         Me.TextBox6.Name = "TextBox6"
         Me.TextBox6.Size = New System.Drawing.Size(65, 13)
         Me.TextBox6.TabIndex = 20
@@ -1167,7 +1265,7 @@ Partial Class Form6
         '
         Me.Label13.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(423, 22)
+        Me.Label13.Location = New System.Drawing.Point(422, 22)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(41, 13)
         Me.Label13.TabIndex = 4
@@ -1178,7 +1276,7 @@ Partial Class Form6
         '
         Me.Label12.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(321, 22)
+        Me.Label12.Location = New System.Drawing.Point(319, 22)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(21, 13)
         Me.Label12.TabIndex = 3
@@ -1189,7 +1287,7 @@ Partial Class Form6
         '
         Me.Label11.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(214, 22)
+        Me.Label11.Location = New System.Drawing.Point(212, 22)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(23, 13)
         Me.Label11.TabIndex = 2
@@ -1200,7 +1298,7 @@ Partial Class Form6
         '
         Me.Label10.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(95, 22)
+        Me.Label10.Location = New System.Drawing.Point(94, 22)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(68, 13)
         Me.Label10.TabIndex = 1
@@ -1228,104 +1326,6 @@ Partial Class Form6
         Me.Label8.Size = New System.Drawing.Size(144, 13)
         Me.Label8.TabIndex = 6
         Me.Label8.Text = "Last minutes changes (LMC) "
-        '
-        'Label18
-        '
-        Me.Label18.AutoSize = True
-        Me.Label18.Cursor = System.Windows.Forms.Cursors.Default
-        Me.Label18.FlatStyle = System.Windows.Forms.FlatStyle.System
-        Me.Label18.Location = New System.Drawing.Point(897, 55)
-        Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(14, 13)
-        Me.Label18.TabIndex = 85
-        Me.Label18.Text = "Y"
-        '
-        'Label19
-        '
-        Me.Label19.AutoSize = True
-        Me.Label19.Cursor = System.Windows.Forms.Cursors.Default
-        Me.Label19.FlatStyle = System.Windows.Forms.FlatStyle.System
-        Me.Label19.Location = New System.Drawing.Point(867, 55)
-        Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(14, 13)
-        Me.Label19.TabIndex = 84
-        Me.Label19.Text = "C"
-        '
-        'Label20
-        '
-        Me.Label20.AutoSize = True
-        Me.Label20.Cursor = System.Windows.Forms.Cursors.Default
-        Me.Label20.FlatStyle = System.Windows.Forms.FlatStyle.System
-        Me.Label20.Location = New System.Drawing.Point(880, 55)
-        Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(13, 13)
-        Me.Label20.TabIndex = 86
-        Me.Label20.Text = "0"
-        '
-        'Label21
-        '
-        Me.Label21.AutoSize = True
-        Me.Label21.Cursor = System.Windows.Forms.Cursors.Default
-        Me.Label21.FlatStyle = System.Windows.Forms.FlatStyle.System
-        Me.Label21.Location = New System.Drawing.Point(908, 55)
-        Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(13, 13)
-        Me.Label21.TabIndex = 87
-        Me.Label21.Text = "0"
-        '
-        'Label75
-        '
-        Me.Label75.AutoSize = True
-        Me.Label75.Location = New System.Drawing.Point(1030, 55)
-        Me.Label75.Name = "Label75"
-        Me.Label75.Size = New System.Drawing.Size(13, 13)
-        Me.Label75.TabIndex = 109
-        Me.Label75.Text = "0"
-        '
-        'Label76
-        '
-        Me.Label76.AutoSize = True
-        Me.Label76.Location = New System.Drawing.Point(1019, 55)
-        Me.Label76.Name = "Label76"
-        Me.Label76.Size = New System.Drawing.Size(14, 13)
-        Me.Label76.TabIndex = 108
-        Me.Label76.Text = "B"
-        '
-        'Label73
-        '
-        Me.Label73.AutoSize = True
-        Me.Label73.Location = New System.Drawing.Point(997, 55)
-        Me.Label73.Name = "Label73"
-        Me.Label73.Size = New System.Drawing.Size(13, 13)
-        Me.Label73.TabIndex = 107
-        Me.Label73.Text = "0"
-        '
-        'Label72
-        '
-        Me.Label72.AutoSize = True
-        Me.Label72.Location = New System.Drawing.Point(952, 55)
-        Me.Label72.Name = "Label72"
-        Me.Label72.Size = New System.Drawing.Size(14, 13)
-        Me.Label72.TabIndex = 104
-        Me.Label72.Text = "C"
-        '
-        'Label74
-        '
-        Me.Label74.AutoSize = True
-        Me.Label74.Location = New System.Drawing.Point(986, 55)
-        Me.Label74.Name = "Label74"
-        Me.Label74.Size = New System.Drawing.Size(16, 13)
-        Me.Label74.TabIndex = 106
-        Me.Label74.Text = "M"
-        '
-        'Label71
-        '
-        Me.Label71.AutoSize = True
-        Me.Label71.Location = New System.Drawing.Point(963, 55)
-        Me.Label71.Name = "Label71"
-        Me.Label71.Size = New System.Drawing.Size(13, 13)
-        Me.Label71.TabIndex = 105
-        Me.Label71.Text = "0"
         '
         'Form6
         '

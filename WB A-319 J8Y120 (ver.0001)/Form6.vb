@@ -1,4 +1,5 @@
-﻿Imports System.Drawing.Printing
+﻿Imports System.Data.SqlClient
+Imports System.Drawing.Printing
 Imports System.Windows
 
 Public Class Form6
