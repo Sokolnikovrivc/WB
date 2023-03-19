@@ -541,9 +541,9 @@ Public Class Form2
         TextBox6.Text = wt1 + wt2
         TextBox15.Text = wt3 + wt4
         TextBox24.Text = wt5 + wt6
-        Form6.Label71.Text = Label71.Text
-        Form6.Label73.Text = Label73.Text
-        Form6.Label75.Text = Label75.Text
+        Form1.Label71.Text = Label71.Text
+        Form1.Label73.Text = Label73.Text
+        Form1.Label75.Text = Label75.Text
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click

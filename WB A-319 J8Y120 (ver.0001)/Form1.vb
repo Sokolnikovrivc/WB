@@ -37,6 +37,12 @@ Public Class Form1
     Public FWD1 As Single
     Public AFT2 As Single
     Public AFT4 As Single
+    Public CPT6AFT As Single
+    Public CPT7AFT As Single
+    Public AFT6 As Single
+    Public AFT7 As Single
+    Public AFT8 As Single
+    Public AFT9 As Single
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Try
             Dim connection As New SqlConnection("Data Source=WIN-8CEIKSU78CS\SQLEXPRESS; Initial Catalog=Test; Integrated Security=True")
@@ -64,24 +70,7 @@ Public Class Form1
         Dim sw As IO.StreamWriter = AppendText(filename)
         sw.WriteLine(Now() & "" & "sample log file entry")
         sw.Close()
-        'TODO: данная строка кода позволяет загрузить данные в таблицу "TestDataSet5.fuel_810". При необходимости она может быть перемещена или удалена.
-        Me.Fuel_810TableAdapter.Fill(Me.TestDataSet5.fuel_810)
-        'TODO: данная строка кода позволяет загрузить данные в таблицу "TestDataSet4.fuel_0800". При необходимости она может быть перемещена или удалена.
-        Me.Fuel_0800TableAdapter.Fill(Me.TestDataSet4.fuel_0800)
-        'TODO: данная строка кода позволяет загрузить данные в таблицу "TestDataSet3.fuel_079". При необходимости она может быть перемещена или удалена.
-        Me.Fuel_079TableAdapter.Fill(Me.TestDataSet3.fuel_079)
-        'TODO: данная строка кода позволяет загрузить данные в таблицу "TestDataSet2.Weight_pax". При необходимости она может быть перемещена или удалена.
-        Me.Weight_paxTableAdapter.Fill(Me.TestDataSet2.Weight_pax)
     End Sub
-
-    Private Sub FillByToolStripButton_Click(sender As Object, e As EventArgs)
-        Try
-            Me.Weight_paxTableAdapter.FillBy(Me.TestDataSet2.Weight_pax)
-        Catch ex As System.Exception
-            System.Windows.Forms.MessageBox.Show(ex.Message)
-        End Try
-    End Sub
-
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         TTL = CSng(TextBox6.Text)
         PAXwt = CSng(TextBox7.Text)
@@ -121,8 +110,7 @@ Public Class Form1
             TextBox17.Text = ""
             TextBox17.Focus()
         End If
-        TOF = CSng(TextBox10.Text)
-        TextBox10.Text = TextBox15.Text
+        Label29.Text = MTOW - TOW
     End Sub
 
     Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
@@ -136,9 +124,6 @@ Public Class Form1
             TextBox21.Text = ""
             TextBox21.Focus()
         End If
-        TIF = CSng(TextBox16.Text)
-        TextBox16.Text = TextBox20.Text
-        TextBox26.Focus()
     End Sub
 
     Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
@@ -252,11 +237,13 @@ Public Class Form1
             TextBox38.Text = ""
             TextBox41.Text = ""
         End If
-        If FWD1 + AFT2 + AFT4 > TTL Then
-            MsgBox("Превышение значения введённого веса грузов!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
-            TextBox36.Text = ""
-            TextBox37.Text = ""
-            TextBox38.Text = ""
+        If TextBox1.Text = "A-319" Then
+            If FWD1 + AFT2 + AFT4 + AFT7 + AFT9 > TTL Then
+                MsgBox("Превышение значения введённого веса грузов!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+                TextBox36.Text = ""
+                TextBox37.Text = ""
+                TextBox38.Text = ""
+            End If
         End If
     End Sub
 
@@ -315,7 +302,7 @@ Public Class Form1
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         Dim connection As New SqlConnection("Data Source=WIN-8CEIKSU78CS\SQLEXPRESS; Initial Catalog=Test; Integrated Security=True")
-        Dim command As New SqlCommand("Insert into [Test].[dbo].[A319 Act] ([flight1_Id] ,[flight_Route] ,[flight1_bort] ,[config_id] ,[date_flight] ,[time_flight] ,[ttlKZ],[ZFW],[TOW],[TIF],[LW],[LIZFW],[LITOW],[LILW],[MACZFW],[MACTOW],[MACLW]) Values(@flight1_Id, @flight_Route, @flight1_bort, @config_id, @date_flight, @time_flight, @ttlKZ, @ZFW, @TOW, @TIF, @LW, @LIZFW, @LITOW, @LILW, @MACZFW, @MACTOW, @MACLW)", connection)
+        Dim command As New SqlCommand("Insert into [Test].[dbo].[A319 Act] ([flight1_Id] ,[flight_Route] ,[flight1_bort] ,[config_id] ,[date_flight] ,[time_flight] ,[ttlKZ],[ZFW],[TOW],[TIF],[LW],[LIZFW],[LITOW],[LILW],[MACZFW],[MACTOW],[MACLW],[TTL_load],[PAX_wt],[DOW],[code_crew],[code_kitchen],[DOI],[MAC],[TOF],[LITOF],[LITIF],[OA],[OB],[OC],[OD],[CPT1FWD],[CPT4AFT],[CPT5AFT] ) Values(@flight1_Id, @flight_Route, @flight1_bort, @config_id, @date_flight, @time_flight, @ttlKZ, @ZFW, @TOW, @TIF, @LW, @LIZFW, @LITOW, @LILW, @MACZFW, @MACTOW, @MACLW, @TTL_load, @PAX_wt, @DOW, @code_crew, @code_kitchen, @DOI, @MAC, @TOF, @LITOF, @LITIF, @OA, @OB, @OC, @OD, @CPT1FWD, @CPT4AFT, @CPT5AFT)", connection)
         command.Parameters.AddWithValue("@flight1_Id", TextBox5.Text)
         command.Parameters.AddWithValue("@flight_Route", TextBox3.Text)
         command.Parameters.AddWithValue("@flight1_bort", TextBox4.Text)
@@ -333,6 +320,23 @@ Public Class Form1
         command.Parameters.AddWithValue("@MACZFW", TextBox43.Text)
         command.Parameters.AddWithValue("@MACTOW", TextBox45.Text)
         command.Parameters.AddWithValue("@MACLW", TextBox47.Text)
+        command.Parameters.AddWithValue("@TTL_load", TextBox6.Text)
+        command.Parameters.AddWithValue("@PAX_wt", TextBox7.Text)
+        command.Parameters.AddWithValue("@DOW", TextBox14.Text)
+        command.Parameters.AddWithValue("@code_crew", ComboBox1.Text)
+        command.Parameters.AddWithValue("@code_kitchen", TextBox23.Text)
+        command.Parameters.AddWithValue("@DOI", TextBox24.Text)
+        command.Parameters.AddWithValue("@MAC", TextBox25.Text)
+        command.Parameters.AddWithValue("@TOF", TextBox15.Text)
+        command.Parameters.AddWithValue("@LITOF", TextBox26.Text)
+        command.Parameters.AddWithValue("@LITIF", TextBox27.Text)
+        command.Parameters.AddWithValue("@OA", TextBox28.Text)
+        command.Parameters.AddWithValue("@OB", TextBox29.Text)
+        command.Parameters.AddWithValue("@OC", TextBox30.Text)
+        command.Parameters.AddWithValue("@OD", TextBox31.Text)
+        command.Parameters.AddWithValue("@CPT1FWD", TextBox36.Text)
+        command.Parameters.AddWithValue("@CPT4AFT", TextBox37.Text)
+        command.Parameters.AddWithValue("@CPT5AFT", TextBox38.Text)
         connection.Open()
         command.ExecuteNonQuery()
         connection.Close()
@@ -380,6 +384,20 @@ Public Class Form1
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
+    End Sub
+
+    Private Sub Button25_Click(sender As Object, e As EventArgs) Handles Button25.Click
+        Const AFT6 As Single = 0.00447
+        AFT7 = CSng(TextBox16.Text)
+        TextBox10.Text = AFT6 * AFT7
+        CPT6AFT = CSng(TextBox10.Text)
+    End Sub
+
+    Private Sub Button26_Click(sender As Object, e As EventArgs) Handles Button26.Click
+        Const AFT8 As Single = 0.00447
+        AFT9 = CSng(TextBox50.Text)
+        TextBox22.Text = AFT8 * AFT9
+        CPT7AFT = CSng(TextBox22.Text)
     End Sub
 End Class
 

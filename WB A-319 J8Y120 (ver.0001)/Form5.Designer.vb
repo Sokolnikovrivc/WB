@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Form5
     Inherits System.Windows.Forms.Form
 
     'Форма переопределяет dispose для очистки списка компонентов.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,9 +20,10 @@ Partial Class Form5
     'Примечание: следующая процедура является обязательной для конструктора форм Windows Forms
     'Для ее изменения используйте конструктор форм Windows Form.  
     'Не изменяйте ее в редакторе исходного кода.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.TextBox7 = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -37,11 +38,14 @@ Partial Class Form5
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Label3)
+        Me.GroupBox1.Controls.Add(Me.ComboBox1)
         Me.GroupBox1.Controls.Add(Me.Label7)
         Me.GroupBox1.Controls.Add(Me.TextBox7)
         Me.GroupBox1.Controls.Add(Me.Label4)
@@ -61,10 +65,19 @@ Partial Class Form5
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Total"
         '
+        'ComboBox1
+        '
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Items.AddRange(New Object() {"A 319 (0,79)", "A 319 (0,80)", "A 319 (0,81)"})
+        Me.ComboBox1.Location = New System.Drawing.Point(291, 19)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(89, 21)
+        Me.ComboBox1.TabIndex = 14
+        '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(239, 116)
+        Me.Label7.Location = New System.Drawing.Point(224, 141)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(42, 13)
         Me.Label7.TabIndex = 13
@@ -72,7 +85,7 @@ Partial Class Form5
         '
         'TextBox7
         '
-        Me.TextBox7.Location = New System.Drawing.Point(306, 113)
+        Me.TextBox7.Location = New System.Drawing.Point(291, 138)
         Me.TextBox7.Name = "TextBox7"
         Me.TextBox7.Size = New System.Drawing.Size(59, 20)
         Me.TextBox7.TabIndex = 12
@@ -82,7 +95,7 @@ Partial Class Form5
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(239, 73)
+        Me.Label4.Location = New System.Drawing.Point(224, 98)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(53, 13)
         Me.Label4.TabIndex = 11
@@ -90,7 +103,7 @@ Partial Class Form5
         '
         'TextBox4
         '
-        Me.TextBox4.Location = New System.Drawing.Point(306, 70)
+        Me.TextBox4.Location = New System.Drawing.Point(291, 95)
         Me.TextBox4.Name = "TextBox4"
         Me.TextBox4.Size = New System.Drawing.Size(59, 20)
         Me.TextBox4.TabIndex = 10
@@ -100,7 +113,7 @@ Partial Class Form5
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(239, 31)
+        Me.Label5.Location = New System.Drawing.Point(224, 56)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(65, 13)
         Me.Label5.TabIndex = 9
@@ -108,7 +121,7 @@ Partial Class Form5
         '
         'TextBox5
         '
-        Me.TextBox5.Location = New System.Drawing.Point(306, 28)
+        Me.TextBox5.Location = New System.Drawing.Point(291, 53)
         Me.TextBox5.Name = "TextBox5"
         Me.TextBox5.Size = New System.Drawing.Size(59, 20)
         Me.TextBox5.TabIndex = 8
@@ -118,7 +131,7 @@ Partial Class Form5
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(45, 113)
+        Me.Label6.Location = New System.Drawing.Point(30, 138)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(65, 13)
         Me.Label6.TabIndex = 7
@@ -126,7 +139,7 @@ Partial Class Form5
         '
         'TextBox6
         '
-        Me.TextBox6.Location = New System.Drawing.Point(112, 110)
+        Me.TextBox6.Location = New System.Drawing.Point(97, 135)
         Me.TextBox6.Name = "TextBox6"
         Me.TextBox6.Size = New System.Drawing.Size(59, 20)
         Me.TextBox6.TabIndex = 6
@@ -136,7 +149,7 @@ Partial Class Form5
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(45, 73)
+        Me.Label2.Location = New System.Drawing.Point(30, 98)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(56, 13)
         Me.Label2.TabIndex = 3
@@ -144,7 +157,7 @@ Partial Class Form5
         '
         'TextBox2
         '
-        Me.TextBox2.Location = New System.Drawing.Point(112, 70)
+        Me.TextBox2.Location = New System.Drawing.Point(97, 95)
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.Size = New System.Drawing.Size(59, 20)
         Me.TextBox2.TabIndex = 2
@@ -154,7 +167,7 @@ Partial Class Form5
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(45, 31)
+        Me.Label1.Location = New System.Drawing.Point(30, 56)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(49, 13)
         Me.Label1.TabIndex = 1
@@ -162,7 +175,7 @@ Partial Class Form5
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(112, 28)
+        Me.TextBox1.Location = New System.Drawing.Point(97, 53)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(59, 20)
         Me.TextBox1.TabIndex = 0
@@ -186,6 +199,15 @@ Partial Class Form5
         Me.Button2.TabIndex = 3
         Me.Button2.Text = "Отменить"
         Me.Button2.UseVisualStyleBackColor = True
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(71, 27)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(206, 13)
+        Me.Label3.TabIndex = 15
+        Me.Label3.Text = "Выберете значение плотности топлива"
         '
         'Form5
         '
@@ -218,4 +240,6 @@ Partial Class Form5
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents Button1 As Button
     Friend WithEvents Button2 As Button
+    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents Label3 As Label
 End Class

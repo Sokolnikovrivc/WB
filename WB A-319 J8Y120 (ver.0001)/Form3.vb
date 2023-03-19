@@ -50,16 +50,18 @@ Public Class Form3
         End If
         sw.WriteLine("[INFO] Button9_Click: VZR=" & VZR & ", RB=" & RB & ", RM=" & RM & ", PAX=" & PAX & ", TTL=" & TTL & ",TRANS=" & TRANS)
         sw.Close()
-        If ComboBox1.Text = "F" Or ComboBox1.Text = "J" Or ComboBox1.Text = "C" Then
-            Form6.Label20.Text = vzr1 + rb1 + rm1 + transvzr1 + transvzr2 + transvzr3
-        ElseIf ComboBox1.Text = "Y" And ComboBox2.Text = "Y" And ComboBox3.Text = "Y" And ComboBox4.Text = "Y" Then
-            Form6.Label21.Text = vzr1 + rb1 + rm1 + transvzr1 + transvzr2 + transvzr3 + vzr2 + rb2 + rm2 + transvzr4 + transvzr5 + transvzr6 + vzr3 + rb3 + rm3 + transvzr7 + transvzr8 + transvzr9 + vzr4 + rb4 + rm4 + transvzr10 + transvzr11 + transvzr12
+        If ComboBox1.Text = "F" OrElse ComboBox1.Text = "J" OrElse ComboBox1.Text = "C" Then
+            Form1.Label57.Text = vzr1 + rb1 + rm1 + transvzr1 + transvzr2 + transvzr3
+        ElseIf ComboBox1.Text = "Y" Then
+            Form1.Label57.Text = "0"
         End If
-        If ComboBox2.Text = "Y" And ComboBox3.Text = "Y" And ComboBox4.Text = "Y" Then
-            Form6.Label21.Text = vzr2 + rb2 + rm2 + transvzr4 + transvzr5 + transvzr6 + vzr3 + rb3 + rm3 + transvzr7 + transvzr8 + transvzr9 + vzr4 + rb4 + rm4 + transvzr10 + transvzr11 + transvzr12
+        If ComboBox1.Text = "Y" AndAlso ComboBox2.Text = "Y" AndAlso ComboBox3.Text = "Y" AndAlso ComboBox4.Text = "Y" Then
+            Form1.Label56.Text = vzr1 + rb1 + rm1 + transvzr1 + transvzr2 + transvzr3 + vzr2 + rb2 + rm2 + transvzr4 + transvzr5 + transvzr6 + vzr3 + rb3 + rm3 + transvzr7 + transvzr8 + transvzr9 + vzr4 + rb4 + rm4 + transvzr10 + transvzr11 + transvzr12
+        End If
+        If ComboBox2.Text = "Y" AndAlso ComboBox3.Text = "Y" AndAlso ComboBox4.Text = "Y" AndAlso ComboBox1.Text <> "Y" Then
+            Form1.Label56.Text = vzr2 + rb2 + rm2 + transvzr4 + transvzr5 + transvzr6 + vzr3 + rb3 + rm3 + transvzr7 + transvzr8 + transvzr9 + vzr4 + rb4 + rm4 + transvzr10 + transvzr11 + transvzr12
         End If
     End Sub
-
     Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
         If CheckBox1.Checked = True Then
             CheckBox2.Checked = False

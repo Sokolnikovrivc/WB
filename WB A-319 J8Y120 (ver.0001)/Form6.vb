@@ -11,9 +11,13 @@ Public Class Form6
         RichTextBox1.AppendText("FROM/TO" + vbTab + "FLIGHT" + vbTab + "A/C REG" + vbTab + vbTab + "VERSION" + vbTab + "CREW" + vbTab + "DATE" + vbTab + vbTab + "TIME" + vbNewLine)
         RichTextBox1.AppendText(Form1.TextBox3.Text + vbTab + Form1.TextBox5.Text + vbTab + Form1.TextBox4.Text + vbTab + vbTab + vbTab + Form1.TextBox2.Text + vbTab + vbTab + Form1.ComboBox1.Text + vbTab + Form1.TextBox48.Text + vbTab + Form1.TextBox49.Text + vbNewLine)
         RichTextBox1.AppendText(vbTab + vbTab + vbTab + vbTab + "WEIGHT" + vbTab + "DISTRIBUTION" + vbNewLine)
-        RichTextBox1.AppendText("LOAD IN COMPARTMENTS" + vbTab + Form1.TextBox6.Text + vbTab + vbTab + "1/" + Form1.TextBox36.Text + vbTab + "4/" + Form1.TextBox37.Text + vbTab + "5/" + Form1.TextBox38.Text + vbNewLine)
+        If TextBox1.Text = "A-319" Then
+            RichTextBox1.AppendText("LOAD IN COMPARTMENTS" + vbTab + Form1.TextBox6.Text + vbTab + vbTab + "1/" + Form1.TextBox36.Text + vbTab + "4/" + Form1.TextBox37.Text + vbTab + "5/" + Form1.TextBox38.Text + vbNewLine)
+        ElseIf TextBox1.Text = "A-320" And TextBox1.Text = "A-321" Then
+            RichTextBox1.AppendText("LOAD IN COMPARTMENTS" + vbTab + Form1.TextBox6.Text + vbTab + vbTab + "1/" + Form1.TextBox36.Text + vbTab + "4/" + Form1.TextBox37.Text + vbTab + "5/" + Form1.TextBox38.Text + +vbTab + "6/" + Form1.TextBox16.Text + vbTab + "7/" + Form1.TextBox50.Text + vbNewLine)
+        End If
         RichTextBox1.AppendText("PASSENGER" + vbTab + vbTab + vbTab + Form1.TextBox7.Text + vbTab + vbTab + Form1.Label50.Text + "/" + Form1.Label51.Text + "/" + Form1.Label52.Text + vbTab + vbTab + vbTab + "TTL" + Form1.Label53.Text + vbNewLine)
-        RichTextBox1.AppendText(vbTab + vbTab + vbTab + vbTab + vbTab + "PAX" + vbTab + "CY" + Label20.Text + "/" + Label21.Text + vbNewLine)
+        RichTextBox1.AppendText(vbTab + vbTab + vbTab + vbTab + vbTab + "PAX" + vbTab + "CY" + Form1.Label57.Text + "/" + Form1.Label56.Text + vbNewLine)
         RichTextBox1.AppendText("*************************************************************************" + vbNewLine)
         RichTextBox1.AppendText("TOTAL TRAFFIC LOAD" + vbTab + vbTab + Form1.TextBox8.Text + vbNewLine)
         RichTextBox1.AppendText("DRY OPERATING WEIGHT" + vbTab + Form1.TextBox11.Text + vbNewLine)
@@ -64,7 +68,7 @@ Public Class Form6
             RichTextBox1.AppendText(vbTab + vbTab + vbTab + vbTab + TextBox64.Text + vbTab + TextBox65.Text + vbTab + TextBox66.Text + vbTab + TextBox67.Text + TextBox68.Text + vbNewLine)
         End If
         RichTextBox1.AppendText(vbNewLine)
-        RichTextBox1.AppendText("UNDERLOAD BEFORE LMC" + Label17.Text + vbTab + vbTab + "LMC TOTAL" + TextBox10.Text + vbNewLine)
+        RichTextBox1.AppendText("UNDERLOAD BEFORE LMC" + Form1.Label29.Text + vbTab + vbTab + "LMC TOTAL" + TextBox10.Text + vbNewLine)
         RichTextBox1.AppendText("*************************************************************************" + vbNewLine)
         RichTextBox1.AppendText("CAPTAIN INFORMATION/NOTES" + vbNewLine)
         RichTextBox1.AppendText(vbNewLine)
