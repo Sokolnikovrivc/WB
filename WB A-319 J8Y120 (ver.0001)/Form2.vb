@@ -9,41 +9,42 @@ Public Class Form2
     Public wt1, wt2, wt3, wt4, wt5, wt6 As Single
 
 
-    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
-        Try
-            Dim PrinDoc As New PrintDocument
-            AddHandler PrinDoc.PrintPage, AddressOf Me.PrintText
-            PrinDoc.Print()
-            PrintPreviewDialog1.ShowDialog()
-        Catch ex As Exception
-            MessageBox.Show(ex.Message)
-        Finally
-            Beep()
-        End Try
+    Private Sub PrintDocument1_PrintPage(ByVal sender As System.Object, ByVal e As System.Drawing.Printing.PrintPageEventArgs) Handles PrintDocument1.PrintPage
+        Dim f As Font = RichTextBox1.Font
+        Dim b As Brush = Brushes.Black
+        Dim x As Integer = e.MarginBounds.Left
+        Dim y As Integer = e.MarginBounds.Top
+        Dim linesPerPage As Integer = e.MarginBounds.Height \ f.Height
+        Dim lineCount As Integer = 0
+        Dim text As String = ""
+        'Получаем все строки из RichTextBox, которые помещаются на текущей странице
+        While lineCount < linesPerPage AndAlso RichTextBox1.Lines.Length > 0
+            text = RichTextBox1.Lines(0)
+            RichTextBox1.Lines = RichTextBox1.Lines.Skip(1).ToArray()
+            lineCount += 1
+
+            'Проверяем, помещается ли текущая строка на текущей странице
+            If e.Graphics.MeasureString(text, f).Width > e.MarginBounds.Width Then
+                'Если строка не помещается на текущей странице, то переносим ее на следующую страницу
+                RichTextBox1.Lines = New String() {text}.Concat(RichTextBox1.Lines).ToArray()
+                Exit While
+            End If
+
+            'Печатаем текущую строку на текущей странице
+            e.Graphics.DrawString(text, f, b, x, y)
+            y += f.Height
+        End While
+
+        'Если в RichTextBox остались строки, которые не помещаются на текущей странице, то печатаем их на следующей странице
+        If RichTextBox1.Lines.Length > 0 Then
+            e.HasMorePages = True
+        End If
     End Sub
 
-    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
-        Form4.Show()
-    End Sub
-
-    Private Sub PrintText(ByVal sender As Object, ByVal e As PrintPageEventArgs)
-        Try
-            e.Graphics.DrawString(RichTextBox1.Text, New Font("TimesNewRoman", 12, FontStyle.Regular), Brushes.Black, New Point(0, 0))
-        Catch ex As Exception
-            MessageBox.Show(ex.Message)
-        Finally
-            Beep()
-        End Try
-    End Sub
-
-    Private Sub PrintDocument1_PrintPage(sender As Object, e As PrintPageEventArgs) Handles PrintDocument1.PrintPage
-        Try
-            e.Graphics.DrawString(RichTextBox1.Text, New Font("TimesNewRoman", 12, FontStyle.Regular), Brushes.Black, New Point(0, 0))
-        Catch ex As Exception
-            MessageBox.Show(ex.Message)
-        Finally
-            Beep()
-        End Try
+    Private Sub Button5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button5.Click
+        If PrintDialog1.ShowDialog() = DialogResult.OK Then
+            PrintDocument1.Print()
+        End If
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
@@ -60,114 +61,114 @@ Public Class Form2
         Dim V51a As Single
         Dim V51b As Single
         Dim a, b, c, d, k, f, g, h, i, t, r, w As Single
-        'позиции 41 и 42
+        'позиции 11 и 12
         If ComboBox4.Text = "RFL" And ComboBox8.Text = "ROX" Or ComboBox4.Text = "ROX" And ComboBox8.Text = "RFL" Then
-            MsgBox("Не совместимые грузы в позициях 11 и 12!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позициях 11 и 12!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox4.Text = "RSC" And ComboBox8.Text = "ROX" Or ComboBox4.Text = "ROX" And ComboBox8.Text = "RSC" Then
-            MsgBox("Не совместимые грузы в позициях 11 и 12!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позициях 11 и 12!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox4.Text = "RFW" And ComboBox8.Text = "RCM" Or ComboBox4.Text = "RCM" And ComboBox8.Text = "RFW" Then
-            MsgBox("Не совместимые грузы в позициях 11 и 12!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позициях 11 и 12!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox4.Text = "AVI" And ComboBox8.Text = "RPB" Or ComboBox4.Text = "RPB" And ComboBox8.Text = "AVI" Then
-            MsgBox("Не совместимые грузы в позициях 11 и 12!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позициях 11 и 12!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox4.Text = "AVI" And ComboBox8.Text = "RIS" Or ComboBox4.Text = "RIS" And ComboBox8.Text = "AVI" Then
-            MsgBox("Не совместимые грузы в позициях 11 и 12!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позициях 11 и 12!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox4.Text = "AVI" And ComboBox8.Text = "ICE" Or ComboBox4.Text = "ICE" And ComboBox8.Text = "AVI" Then
-            MsgBox("Не совместимые грузы в позициях 11 и 12!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позициях 11 и 12!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox4.Text = "RPB" And ComboBox8.Text = "HEG" Or ComboBox4.Text = "HEG" And ComboBox8.Text = "RPB" Then
-            MsgBox("Не совместимые грузы в позициях 11 и 12!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позициях 11 и 12!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox4.Text = "RIS" And ComboBox8.Text = "HEG" Or ComboBox4.Text = "HEG" And ComboBox8.Text = "RIS" Then
-            MsgBox("Не совместимые грузы в позициях 11 и 12!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позициях 11 и 12!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox4.Text = "RPB" And TextBox9.Text = "PEM" Or TextBox9.Text = "RPB" And ComboBox4.Text = "PEM" Then
-            MsgBox("Не совместимые грузы в позициии 11!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 11!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox4.Text = "RPB" And TextBox9.Text = "PEP" Or TextBox9.Text = "RPB" And ComboBox4.Text = "PEP" Then
-            MsgBox("Не совместимые грузы в позициии 11!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 11!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox4.Text = "RPB" And TextBox9.Text = "PES" Or TextBox9.Text = "RPB" And ComboBox4.Text = "PES" Then
-            MsgBox("Не совместимые грузы в позициии 11!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 11!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox4.Text = "RPB" And TextBox9.Text = "EAT" Or TextBox9.Text = "RPB" And ComboBox4.Text = "EAT" Then
-            MsgBox("Не совместимые грузы в позициии 11!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 11!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox4.Text = "RIS" And TextBox9.Text = "PEM" Or TextBox9.Text = "RIS" And ComboBox4.Text = "PEM" Then
-            MsgBox("Не совместимые грузы в позициии 11!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 11!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox4.Text = "RIS" And TextBox9.Text = "PEP" Or TextBox9.Text = "RIS" And ComboBox4.Text = "PEP" Then
-            MsgBox("Не совместимые грузы в позициии 11!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 11!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox4.Text = "RIS" And TextBox9.Text = "PES" Or TextBox9.Text = "RIS" And ComboBox4.Text = "PES" Then
-            MsgBox("Не совместимые грузы в позициии 11!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 11!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox4.Text = "RIS" And TextBox9.Text = "EAT" Or TextBox9.Text = "RIS" And ComboBox4.Text = "EAT" Then
-            MsgBox("Не совместимые грузы в позициии 11!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 11!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox4.Text = "AVI" And TextBox9.Text = "AVI" Or TextBox9.Text = "AVI" And ComboBox4.Text = "AVI" Then
-            MsgBox("Не совместимые грузы в позициии 11!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 11!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox4.Text = "AVI" And TextBox9.Text = "HUM" Or TextBox9.Text = "AVI" And ComboBox4.Text = "HUM" Then
-            MsgBox("Не совместимые грузы в позициии 11!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 11!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox4.Text = "HUM" And TextBox9.Text = "PEM" Or TextBox9.Text = "HUM" And ComboBox4.Text = "PEM" Then
-            MsgBox("Не совместимые грузы в позициии 11!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 11!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox4.Text = "HUM" And TextBox9.Text = "PEP" Or TextBox9.Text = "HUM" And ComboBox4.Text = "PEP" Then
-            MsgBox("Не совместимые грузы в позициии 11!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 11!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox4.Text = "HUM" And TextBox9.Text = "PES" Or TextBox9.Text = "HUM" And ComboBox4.Text = "PES" Then
-            MsgBox("Не совместимые грузы в позициии 11!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 11!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox4.Text = "HUM" And TextBox9.Text = "EAT" Or TextBox9.Text = "HUM" And ComboBox4.Text = "EAT" Then
-            MsgBox("Не совместимые грузы в позициии 11!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 11!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox8.Text = "RPB" And TextBox14.Text = "PEM" Or TextBox14.Text = "RPB" And ComboBox8.Text = "PEM" Then
-            MsgBox("Не совместимые грузы в позициии 12!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 12!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox8.Text = "RPB" And TextBox14.Text = "PEP" Or TextBox14.Text = "RPB" And ComboBox8.Text = "PEP" Then
-            MsgBox("Не совместимые грузы в позициии 12!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 12!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox8.Text = "RPB" And TextBox14.Text = "PES" Or TextBox14.Text = "RPB" And ComboBox8.Text = "PES" Then
-            MsgBox("Не совместимые грузы в позициии 12!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 12!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox8.Text = "RPB" And TextBox14.Text = "EAT" Or TextBox14.Text = "RPB" And ComboBox8.Text = "EAT" Then
-            MsgBox("Не совместимые грузы в позициии 12!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 12!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox8.Text = "RIS" And TextBox14.Text = "PEM" Or TextBox14.Text = "RIS" And ComboBox8.Text = "PEM" Then
-            MsgBox("Не совместимые грузы в позициии 12!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 12!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox8.Text = "RIS" And TextBox14.Text = "PEP" Or TextBox14.Text = "RIS" And ComboBox8.Text = "PEP" Then
-            MsgBox("Не совместимые грузы в позициии 12!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 12!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox8.Text = "RIS" And TextBox14.Text = "PES" Or TextBox14.Text = "RIS" And ComboBox8.Text = "PES" Then
-            MsgBox("Не совместимые грузы в позициии 12!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 12!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox8.Text = "RIS" And TextBox14.Text = "EAT" Or TextBox14.Text = "RIS" And ComboBox8.Text = "EAT" Then
-            MsgBox("Не совместимые грузы в позициии 12!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 12!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox8.Text = "AVI" And TextBox14.Text = "AVI" Or TextBox14.Text = "AVI" And ComboBox8.Text = "AVI" Then
-            MsgBox("Не совместимые грузы в позициии 12!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 12!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox8.Text = "AVI" And TextBox14.Text = "HUM" Or TextBox14.Text = "AVI" And ComboBox8.Text = "HUM" Then
-            MsgBox("Не совместимые грузы в позициии 12!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 12!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox8.Text = "HUM" And TextBox14.Text = "PEM" Or TextBox14.Text = "HUM" And ComboBox8.Text = "PEM" Then
-            MsgBox("Не совместимые грузы в позициии 12!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 12!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox8.Text = "HUM" And TextBox14.Text = "PEP" Or TextBox14.Text = "HUM" And ComboBox8.Text = "PEP" Then
-            MsgBox("Не совместимые грузы в позициии 12!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 12!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox8.Text = "HUM" And TextBox14.Text = "PES" Or TextBox14.Text = "HUM" And ComboBox8.Text = "PES" Then
-            MsgBox("Не совместимые грузы в позициии 12!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 12!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox8.Text = "HUM" And TextBox14.Text = "EAT" Or TextBox14.Text = "HUM" And ComboBox8.Text = "EAT" Then
-            MsgBox("Не совместимые грузы в позициии 12!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 12!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         Mwt11 = CSng(TextBox8.Text)
         Mwt12 = CSng(TextBox12.Text)
@@ -187,112 +188,112 @@ Public Class Form2
         End If
         'позиции 41 и 42
         If ComboBox13.Text = "RFL" And ComboBox9.Text = "ROX" Or ComboBox13.Text = "ROX" And ComboBox9.Text = "RFL" Then
-            MsgBox("Не совместимые грузы в позициях 41 и 42!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позициях 41 и 42!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox13.Text = "RSC" And ComboBox9.Text = "ROX" Or ComboBox13.Text = "ROX" And ComboBox9.Text = "RSC" Then
-            MsgBox("Не совместимые грузы в позициях 41 и 42!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позициях 41 и 42!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox13.Text = "RFW" And ComboBox9.Text = "RCM" Or ComboBox13.Text = "RCM" And ComboBox9.Text = "RFW" Then
-            MsgBox("Не совместимые грузы в позициях 41 и 42!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позициях 41 и 42!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox13.Text = "AVI" And ComboBox9.Text = "RPB" Or ComboBox13.Text = "RPB" And ComboBox9.Text = "AVI" Then
-            MsgBox("Не совместимые грузы в позициях 41 и 42!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позициях 41 и 42!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox13.Text = "AVI" And ComboBox9.Text = "RIS" Or ComboBox13.Text = "RIS" And ComboBox9.Text = "AVI" Then
-            MsgBox("Не совместимые грузы в позициях 41 и 42!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позициях 41 и 42!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox13.Text = "AVI" And ComboBox9.Text = "ICE" Or ComboBox13.Text = "ICE" And ComboBox9.Text = "AVI" Then
-            MsgBox("Не совместимые грузы в позициях 41 и 42!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позициях 41 и 42!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox13.Text = "RPB" And ComboBox9.Text = "HEG" Or ComboBox13.Text = "HEG" And ComboBox9.Text = "RPB" Then
-            MsgBox("Не совместимые грузы в позициях 41 и 42!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позициях 41 и 42!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox13.Text = "RIS" And ComboBox9.Text = "HEG" Or ComboBox13.Text = "HEG" And ComboBox9.Text = "RIS" Then
-            MsgBox("Не совместимые грузы в позициях 41 и 42!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позициях 41 и 42!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox13.Text = "RPB" And TextBox20.Text = "PEM" Or TextBox20.Text = "RPB" And ComboBox13.Text = "PEM" Then
-            MsgBox("Не совместимые грузы в позициии 41!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 41!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox13.Text = "RPB" And TextBox20.Text = "PEP" Or TextBox20.Text = "RPB" And ComboBox13.Text = "PEP" Then
-            MsgBox("Не совместимые грузы в позициии 41!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 41!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox13.Text = "RPB" And TextBox20.Text = "PES" Or TextBox20.Text = "RPB" And ComboBox13.Text = "PES" Then
-            MsgBox("Не совместимые грузы в позициии 41!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 41!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox13.Text = "RPB" And TextBox20.Text = "EAT" Or TextBox20.Text = "RPB" And ComboBox13.Text = "EAT" Then
-            MsgBox("Не совместимые грузы в позициии 41!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 41!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox13.Text = "RIS" And TextBox20.Text = "PEM" Or TextBox20.Text = "RIS" And ComboBox13.Text = "PEM" Then
-            MsgBox("Не совместимые грузы в позициии 41!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 41!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox13.Text = "RIS" And TextBox20.Text = "PEP" Or TextBox20.Text = "RIS" And ComboBox13.Text = "PEP" Then
-            MsgBox("Не совместимые грузы в позициии 41!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 41!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox13.Text = "RIS" And TextBox20.Text = "PES" Or TextBox20.Text = "RIS" And ComboBox13.Text = "PES" Then
-            MsgBox("Не совместимые грузы в позициии 41!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 41!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox13.Text = "RIS" And TextBox20.Text = "EAT" Or TextBox20.Text = "RIS" And ComboBox13.Text = "EAT" Then
-            MsgBox("Не совместимые грузы в позициии 41!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 41!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox13.Text = "AVI" And TextBox20.Text = "AVI" Or TextBox20.Text = "AVI" And ComboBox13.Text = "AVI" Then
-            MsgBox("Не совместимые грузы в позициии 41!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 41!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox13.Text = "AVI" And TextBox20.Text = "HUM" Or TextBox20.Text = "AVI" And ComboBox13.Text = "HUM" Then
-            MsgBox("Не совместимые грузы в позициии 41!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 41!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox13.Text = "HUM" And TextBox20.Text = "PEM" Or TextBox20.Text = "HUM" And ComboBox13.Text = "PEM" Then
-            MsgBox("Не совместимые грузы в позициии 41!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 41!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox13.Text = "HUM" And TextBox20.Text = "PEP" Or TextBox20.Text = "HUM" And ComboBox13.Text = "PEP" Then
-            MsgBox("Не совместимые грузы в позициии 41!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 41!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox13.Text = "HUM" And TextBox20.Text = "PES" Or TextBox20.Text = "HUM" And ComboBox13.Text = "PES" Then
-            MsgBox("Не совместимые грузы в позициии 41!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 41!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox13.Text = "HUM" And TextBox20.Text = "EAT" Or TextBox20.Text = "HUM" And ComboBox13.Text = "EAT" Then
-            MsgBox("Не совместимые грузы в позициии 41!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 41!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox9.Text = "RPB" And TextBox16.Text = "PEM" Or TextBox16.Text = "RPB" And ComboBox9.Text = "PEM" Then
-            MsgBox("Не совместимые грузы в позициии 42!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 42!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox9.Text = "RPB" And TextBox16.Text = "PEP" Or TextBox16.Text = "RPB" And ComboBox9.Text = "PEP" Then
-            MsgBox("Не совместимые грузы в позициии 42!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 42!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox9.Text = "RPB" And TextBox16.Text = "PES" Or TextBox16.Text = "RPB" And ComboBox9.Text = "PES" Then
-            MsgBox("Не совместимые грузы в позициии 42!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 42!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox9.Text = "RPB" And TextBox16.Text = "EAT" Or TextBox16.Text = "RPB" And ComboBox9.Text = "EAT" Then
-            MsgBox("Не совместимые грузы в позициии 42!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 42!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox9.Text = "RIS" And TextBox16.Text = "PEM" Or TextBox16.Text = "RIS" And ComboBox9.Text = "PEM" Then
-            MsgBox("Не совместимые грузы в позициии 42!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 42!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox9.Text = "RIS" And TextBox16.Text = "PEP" Or TextBox16.Text = "RIS" And ComboBox9.Text = "PEP" Then
-            MsgBox("Не совместимые грузы в позициии 42!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 42!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox9.Text = "RIS" And TextBox16.Text = "PES" Or TextBox16.Text = "RIS" And ComboBox9.Text = "PES" Then
-            MsgBox("Не совместимые грузы в позициии 42!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 42!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox9.Text = "RIS" And TextBox16.Text = "EAT" Or TextBox16.Text = "RIS" And ComboBox9.Text = "EAT" Then
-            MsgBox("Не совместимые грузы в позициии 42!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 42!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox9.Text = "AVI" And TextBox16.Text = "AVI" Or TextBox16.Text = "AVI" And ComboBox9.Text = "AVI" Then
-            MsgBox("Не совместимые грузы в позициии 42!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 42!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox9.Text = "AVI" And TextBox16.Text = "HUM" Or TextBox16.Text = "AVI" And ComboBox9.Text = "HUM" Then
-            MsgBox("Не совместимые грузы в позициии 42!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 42!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox9.Text = "HUM" And TextBox16.Text = "PEM" Or TextBox16.Text = "HUM" And ComboBox9.Text = "PEM" Then
-            MsgBox("Не совместимые грузы в позициии 42!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 42!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox9.Text = "HUM" And TextBox16.Text = "PEP" Or TextBox16.Text = "HUM" And ComboBox9.Text = "PEP" Then
-            MsgBox("Не совместимые грузы в позициии 42!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 42!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox9.Text = "HUM" And TextBox16.Text = "PES" Or TextBox16.Text = "HUM" And ComboBox9.Text = "PES" Then
-            MsgBox("Не совместимые грузы в позициии 42!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 42!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox9.Text = "HUM" And TextBox16.Text = "EAT" Or TextBox16.Text = "HUM" And ComboBox9.Text = "EAT" Then
-            MsgBox("Не совместимые грузы в позициии 42!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 42!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         Mwt41 = CSng(TextBox23.Text)
         Mwt42 = CSng(TextBox18.Text)
@@ -312,112 +313,112 @@ Public Class Form2
         End If
         'позиции 51
         If ComboBox21.Text = "RFL" And ComboBox17.Text = "ROX" Or ComboBox17.Text = "ROX" And ComboBox21.Text = "RFL" Then
-            MsgBox("Не совместимые грузы в позициях 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позициях 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox21.Text = "RSC" And ComboBox17.Text = "ROX" Or ComboBox17.Text = "ROX" And ComboBox21.Text = "RSC" Then
-            MsgBox("Не совместимые грузы в позициях 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позициях 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox21.Text = "RFW" And ComboBox17.Text = "RCM" Or ComboBox17.Text = "RCM" And ComboBox21.Text = "RFW" Then
-            MsgBox("Не совместимые грузы в позициях 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позициях 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox21.Text = "AVI" And ComboBox17.Text = "RPB" Or ComboBox17.Text = "RPB" And ComboBox21.Text = "AVI" Then
-            MsgBox("Не совместимые грузы в позициях 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позициях 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox21.Text = "AVI" And ComboBox17.Text = "RIS" Or ComboBox17.Text = "RIS" And ComboBox21.Text = "AVI" Then
-            MsgBox("Не совместимые грузы в позициях 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позициях 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox21.Text = "AVI" And ComboBox17.Text = "ICE" Or ComboBox17.Text = "ICE" And ComboBox21.Text = "AVI" Then
-            MsgBox("Не совместимые грузы в позициях 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позициях 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox21.Text = "RPB" And ComboBox17.Text = "HEG" Or ComboBox17.Text = "HEG" And ComboBox21.Text = "RPB" Then
-            MsgBox("Не совместимые грузы в позициях 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позициях 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox21.Text = "RIS" And ComboBox17.Text = "HEG" Or ComboBox17.Text = "HEG" And ComboBox21.Text = "RIS" Then
-            MsgBox("Не совместимые грузы в позициях 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позициях 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox21.Text = "RPB" And TextBox29.Text = "PEM" Or TextBox29.Text = "RPB" And ComboBox21.Text = "PEM" Then
-            MsgBox("Не совместимые грузы в позициии 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox21.Text = "RPB" And TextBox29.Text = "PEP" Or TextBox29.Text = "RPB" And ComboBox21.Text = "PEP" Then
-            MsgBox("Не совместимые грузы в позициии 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox21.Text = "RPB" And TextBox29.Text = "PES" Or TextBox29.Text = "RPB" And ComboBox21.Text = "PES" Then
-            MsgBox("Не совместимые грузы в позициии 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox21.Text = "RPB" And TextBox29.Text = "EAT" Or TextBox29.Text = "RPB" And ComboBox21.Text = "EAT" Then
-            MsgBox("Не совместимые грузы в позициии 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox21.Text = "RIS" And TextBox29.Text = "PEM" Or TextBox29.Text = "RIS" And ComboBox21.Text = "PEM" Then
-            MsgBox("Не совместимые грузы в позициии 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox21.Text = "RIS" And TextBox29.Text = "PEP" Or TextBox29.Text = "RIS" And ComboBox21.Text = "PEP" Then
-            MsgBox("Не совместимые грузы в позициии 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox21.Text = "RIS" And TextBox29.Text = "PES" Or TextBox29.Text = "RIS" And ComboBox21.Text = "PES" Then
-            MsgBox("Не совместимые грузы в позициии 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox24.Text = "RIS" And TextBox29.Text = "EAT" Or TextBox29.Text = "RIS" And ComboBox21.Text = "EAT" Then
-            MsgBox("Не совместимые грузы в позициии 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox24.Text = "AVI" And TextBox29.Text = "AVI" Or TextBox29.Text = "AVI" And ComboBox21.Text = "AVI" Then
-            MsgBox("Не совместимые грузы в позициии 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox24.Text = "AVI" And TextBox29.Text = "HUM" Or TextBox29.Text = "AVI" And ComboBox21.Text = "HUM" Then
-            MsgBox("Не совместимые грузы в позициии 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox24.Text = "HUM" And TextBox29.Text = "PEM" Or TextBox29.Text = "HUM" And ComboBox21.Text = "PEM" Then
-            MsgBox("Не совместимые грузы в позициии 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox24.Text = "HUM" And TextBox29.Text = "PEP" Or TextBox29.Text = "HUM" And ComboBox21.Text = "PEP" Then
-            MsgBox("Не совместимые грузы в позициии 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox24.Text = "HUM" And TextBox29.Text = "PES" Or TextBox29.Text = "HUM" And ComboBox21.Text = "PES" Then
-            MsgBox("Не совместимые грузы в позициии 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox24.Text = "HUM" And TextBox29.Text = "EAT" Or TextBox29.Text = "HUM" And ComboBox21.Text = "EAT" Then
-            MsgBox("Не совместимые грузы в позициии 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox17.Text = "RPB" And TextBox25.Text = "PEM" Or TextBox25.Text = "RPB" And ComboBox17.Text = "PEM" Then
-            MsgBox("Не совместимые грузы в позициии 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox17.Text = "RPB" And TextBox25.Text = "PEP" Or TextBox25.Text = "RPB" And ComboBox17.Text = "PEP" Then
-            MsgBox("Не совместимые грузы в позициии 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox17.Text = "RPB" And TextBox25.Text = "PES" Or TextBox25.Text = "RPB" And ComboBox17.Text = "PES" Then
-            MsgBox("Не совместимые грузы в позициии 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox17.Text = "RPB" And TextBox25.Text = "EAT" Or TextBox25.Text = "RPB" And ComboBox17.Text = "EAT" Then
-            MsgBox("Не совместимые грузы в позициии 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox17.Text = "RIS" And TextBox25.Text = "PEM" Or TextBox25.Text = "RIS" And ComboBox17.Text = "PEM" Then
-            MsgBox("Не совместимые грузы в позициии 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox17.Text = "RIS" And TextBox25.Text = "PEP" Or TextBox25.Text = "RIS" And ComboBox17.Text = "PEP" Then
-            MsgBox("Не совместимые грузы в позициии 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox17.Text = "RIS" And TextBox25.Text = "PES" Or TextBox25.Text = "RIS" And ComboBox17.Text = "PES" Then
-            MsgBox("Не совместимые грузы в позициии 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox17.Text = "RIS" And TextBox25.Text = "EAT" Or TextBox25.Text = "RIS" And ComboBox17.Text = "EAT" Then
-            MsgBox("Не совместимые грузы в позициии 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox17.Text = "AVI" And TextBox25.Text = "AVI" Or TextBox25.Text = "AVI" And ComboBox17.Text = "AVI" Then
-            MsgBox("Не совместимые грузы в позициии 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox17.Text = "AVI" And TextBox25.Text = "HUM" Or TextBox25.Text = "AVI" And ComboBox17.Text = "HUM" Then
-            MsgBox("Не совместимые грузы в позициии 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox17.Text = "HUM" And TextBox25.Text = "PEM" Or TextBox25.Text = "HUM" And ComboBox17.Text = "PEM" Then
-            MsgBox("Не совместимые грузы в позициии 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox17.Text = "HUM" And TextBox25.Text = "PEP" Or TextBox25.Text = "HUM" And ComboBox17.Text = "PEP" Then
-            MsgBox("Не совместимые грузы в позициии 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox17.Text = "HUM" And TextBox25.Text = "PES" Or TextBox25.Text = "HUM" And ComboBox17.Text = "PES" Then
-            MsgBox("Не совместимые грузы в позициии 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         If ComboBox17.Text = "HUM" And TextBox25.Text = "EAT" Or TextBox25.Text = "HUM" And ComboBox17.Text = "EAT" Then
-            MsgBox("Не совместимые грузы в позициии 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            MsgBox("Несовместимые грузы в позиции 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         Mwt51a = CSng(TextBox32.Text)
         Mwt51b = CSng(TextBox27.Text)
@@ -562,7 +563,7 @@ Public Class Form2
         command.Parameters.AddWithValue("@type11", ComboBox2.Text)
         command.Parameters.AddWithValue("@wt11", TextBox8.Text)
         command.Parameters.AddWithValue("@stat11", ComboBox3.Text)
-        command.Parameters.AddWithValue("@code11", ComboBox3.Text)
+        command.Parameters.AddWithValue("@code11", ComboBox4.Text)
         command.Parameters.AddWithValue("@V11", TextBox10.Text)
         command.Parameters.AddWithValue("@info11", TextBox9.Text)
         command.Parameters.AddWithValue("@dest12", TextBox11.Text)
