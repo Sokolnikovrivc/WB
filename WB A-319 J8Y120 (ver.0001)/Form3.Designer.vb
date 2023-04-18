@@ -105,6 +105,10 @@ Partial Class Form3
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label40 = New System.Windows.Forms.Label()
+        Me.Label41 = New System.Windows.Forms.Label()
+        Me.Label42 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -242,6 +246,7 @@ Partial Class Form3
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Label5)
         Me.GroupBox1.Controls.Add(Me.Label33)
         Me.GroupBox1.Controls.Add(Me.Label32)
         Me.GroupBox1.Controls.Add(Me.Label13)
@@ -285,9 +290,9 @@ Partial Class Form3
         '
         Me.Label13.Location = New System.Drawing.Point(337, 31)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(61, 13)
+        Me.Label13.Size = New System.Drawing.Size(32, 13)
         Me.Label13.TabIndex = 74
-        Me.Label13.Text = "Max:8 пас"
+        Me.Label13.Text = "Max:"
         '
         'TextBox13
         '
@@ -395,6 +400,7 @@ Partial Class Form3
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.Label40)
         Me.GroupBox2.Controls.Add(Me.Label14)
         Me.GroupBox2.Controls.Add(Me.Label20)
         Me.GroupBox2.Controls.Add(Me.Label26)
@@ -438,9 +444,9 @@ Partial Class Form3
         '
         Me.Label26.Location = New System.Drawing.Point(333, 28)
         Me.Label26.Name = "Label26"
-        Me.Label26.Size = New System.Drawing.Size(65, 13)
+        Me.Label26.Size = New System.Drawing.Size(36, 13)
         Me.Label26.TabIndex = 87
-        Me.Label26.Text = "Max:42 пас"
+        Me.Label26.Text = "Max:"
         '
         'TextBox14
         '
@@ -548,6 +554,7 @@ Partial Class Form3
         '
         'GroupBox3
         '
+        Me.GroupBox3.Controls.Add(Me.Label41)
         Me.GroupBox3.Controls.Add(Me.Label36)
         Me.GroupBox3.Controls.Add(Me.Label34)
         Me.GroupBox3.Controls.Add(Me.Label35)
@@ -575,9 +582,9 @@ Partial Class Form3
         '
         Me.Label36.Location = New System.Drawing.Point(333, 28)
         Me.Label36.Name = "Label36"
-        Me.Label36.Size = New System.Drawing.Size(65, 13)
+        Me.Label36.Size = New System.Drawing.Size(36, 13)
         Me.Label36.TabIndex = 90
-        Me.Label36.Text = "Max:42 пас"
+        Me.Label36.Text = "Max:"
         '
         'Label34
         '
@@ -701,6 +708,7 @@ Partial Class Form3
         '
         'GroupBox4
         '
+        Me.GroupBox4.Controls.Add(Me.Label42)
         Me.GroupBox4.Controls.Add(Me.Label39)
         Me.GroupBox4.Controls.Add(Me.Label37)
         Me.GroupBox4.Controls.Add(Me.Label38)
@@ -728,9 +736,9 @@ Partial Class Form3
         '
         Me.Label39.Location = New System.Drawing.Point(333, 28)
         Me.Label39.Name = "Label39"
-        Me.Label39.Size = New System.Drawing.Size(65, 13)
+        Me.Label39.Size = New System.Drawing.Size(36, 13)
         Me.Label39.TabIndex = 90
-        Me.Label39.Text = "Max:36 пас"
+        Me.Label39.Text = "Max:"
         '
         'Label37
         '
@@ -892,6 +900,38 @@ Partial Class Form3
         Me.Button1.UseVisualStyleBackColor = True
         Me.Button1.Visible = False
         '
+        'Label5
+        '
+        Me.Label5.Location = New System.Drawing.Point(362, 32)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(36, 13)
+        Me.Label5.TabIndex = 77
+        Me.Label5.Text = "0"
+        '
+        'Label40
+        '
+        Me.Label40.Location = New System.Drawing.Point(362, 29)
+        Me.Label40.Name = "Label40"
+        Me.Label40.Size = New System.Drawing.Size(36, 13)
+        Me.Label40.TabIndex = 90
+        Me.Label40.Text = "0"
+        '
+        'Label41
+        '
+        Me.Label41.Location = New System.Drawing.Point(362, 29)
+        Me.Label41.Name = "Label41"
+        Me.Label41.Size = New System.Drawing.Size(36, 13)
+        Me.Label41.TabIndex = 91
+        Me.Label41.Text = "0"
+        '
+        'Label42
+        '
+        Me.Label42.Location = New System.Drawing.Point(362, 29)
+        Me.Label42.Name = "Label42"
+        Me.Label42.Size = New System.Drawing.Size(36, 13)
+        Me.Label42.TabIndex = 92
+        Me.Label42.Text = "0"
+        '
         'Form3
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1006,4 +1046,8 @@ Partial Class Form3
     Friend WithEvents GroupBox5 As GroupBox
     Friend WithEvents GroupBox6 As GroupBox
     Friend WithEvents Button1 As Button
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Label40 As Label
+    Friend WithEvents Label41 As Label
+    Friend WithEvents Label42 As Label
 End Class

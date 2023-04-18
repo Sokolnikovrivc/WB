@@ -1,17 +1,13 @@
 ﻿Imports System.Diagnostics.Eventing.Reader
 Imports System.IO.File
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar
+Imports System.Data.SqlClient
 
 Public Class Form3
     Public vzr1, rb1, rm1, transvzr1, transvzr2, transvzr3 As Integer
     Public vzr2, rb2, rm2, transvzr4, transvzr5, transvzr6 As Integer
     Public vzr3, rb3, rm3, transvzr7, transvzr8, transvzr9 As Integer
     Public vzr4, rb4, rm4, transvzr10, transvzr11, transvzr12, ttl1, ttl2, ttl3, ttl4 As Integer
-    Public Const VZRsum As Integer = 80
-    Public Const VZRwin As Integer = 85
-    Public Const RBc As Integer = 30
-    Public Const RMc As Integer = 15
-
     Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
         Dim VZR, RB, RM, TTL, PAX, TRANS As Integer
         Dim filename As String = Application.StartupPath & "\test.log"
@@ -89,6 +85,18 @@ Public Class Form3
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim registryKey As Microsoft.Win32.RegistryKey = Microsoft.Win32.Registry.CurrentUser.CreateSubKey("FormDatachanges")
+        Dim VZRsum As Integer = registryKey.GetValue("TextBox39", "")
+        Dim VZRwin As Integer = registryKey.GetValue("TextBox56", "")
+        Dim RBsum As Integer = registryKey.GetValue("TextBox38", "")
+        Dim RBwin As Integer = registryKey.GetValue("TextBox55", "")
+        Dim RMsum As Integer = registryKey.GetValue("TextBox37", "")
+        Dim RMwin As Integer = registryKey.GetValue("TextBox54", "")
+        Dim OAregkey As Integer = registryKey.GetValue("TextBox4", "")
+        Dim OBregkey As Integer = registryKey.GetValue("TextBox5", "")
+        Dim OCregkey As Integer = registryKey.GetValue("TextBox6", "")
+        Dim ODregkey As Integer = registryKey.GetValue("TextBox7", "")
+        registryKey.Close()
         Dim filename As String = Application.StartupPath & "\test.log"
         Dim sw As IO.StreamWriter = AppendText(filename)
         vzr1 = CInt(TextBox8.Text)
@@ -115,7 +123,7 @@ Public Class Form3
         transvzr10 = CInt(TextBox28.Text)
         transvzr11 = CInt(TextBox27.Text)
         transvzr12 = CInt(TextBox26.Text)
-        If vzr1 + rb1 + rm1 + transvzr1 + transvzr2 + transvzr3 > 8 Then
+        If vzr1 + rb1 + rm1 + transvzr1 + transvzr2 + transvzr3 > OAregkey Then
             MsgBox("Превышение максимального значения пассажиров!,Зона 0А", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
             TextBox8.Text = "0"
             TextBox9.Text = "0"
@@ -127,11 +135,11 @@ Public Class Form3
             sw.WriteLine("[ERROR] Exceeded maximum number of passengers.0A")
         End If
         If CheckBox1.Checked Then
-            Label33.Text = (vzr1 * VZRsum + transvzr1 * VZRsum) + (rb1 * RBc + transvzr2 * RBc) + (rm1 * RMc + transvzr3 * RMc)
+            Label33.Text = (vzr1 * VZRsum + transvzr1 * VZRsum) + (rb1 * RBsum + transvzr2 * RBsum) + (rm1 * RMsum + transvzr3 * RMsum)
         ElseIf CheckBox2.Checked Then
-            Label33.Text = (vzr1 * VZRwin + transvzr1 * VZRsum) + (rb1 * RBc + transvzr2 * RBc) + (rm1 * RMc + transvzr3 * RMc)
+            Label33.Text = (vzr1 * VZRwin + transvzr1 * VZRwin) + (rb1 * RBwin + transvzr2 * RBwin) + (rm1 * RMwin + transvzr3 * RMwin)
         End If
-        If vzr2 + rb2 + rm2 + transvzr4 + transvzr5 + transvzr6 > 42 Then
+        If vzr2 + rb2 + rm2 + transvzr4 + transvzr5 + transvzr6 > OBregkey Then
             MsgBox("Превышение максимального значения пассажиров!,Зона 0B", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
             TextBox19.Text = "0"
             TextBox18.Text = "0"
@@ -143,11 +151,11 @@ Public Class Form3
             sw.WriteLine("[ERROR] Exceeded maximum number of passengers.0B")
         End If
         If CheckBox1.Checked Then
-            Label14.Text = (vzr2 * VZRsum + transvzr4 * VZRsum) + (rb2 * RBc + transvzr5 * RBc) + (rm2 * RMc + transvzr6 * RMc)
+            Label14.Text = (vzr2 * VZRsum + transvzr4 * VZRsum) + (rb2 * RBsum + transvzr5 * RBsum) + (rm2 * RMsum + transvzr6 * RMsum)
         ElseIf CheckBox2.Checked Then
-            Label14.Text = (vzr2 * VZRwin + transvzr4 * VZRsum) + (rb2 * RBc + transvzr5 * RBc) + (rm2 * RMc + transvzr6 * RMc)
+            Label14.Text = (vzr2 * VZRwin + transvzr4 * VZRwin) + (rb2 * RBwin + transvzr5 * RBwin) + (rm2 * RMwin + transvzr6 * RMwin)
         End If
-        If vzr3 + rb3 + rm3 + transvzr7 + transvzr8 + transvzr9 > 42 Then
+        If vzr3 + rb3 + rm3 + transvzr7 + transvzr8 + transvzr9 > OCregkey Then
             MsgBox("Превышение максимального значения пассажиров!,Зона 0C", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
             TextBox25.Text = "0"
             TextBox24.Text = "0"
@@ -159,11 +167,11 @@ Public Class Form3
             sw.WriteLine("[ERROR] Exceeded maximum number of passengers.0C")
         End If
         If CheckBox1.Checked Then
-            Label34.Text = (vzr3 * VZRsum + transvzr7 * VZRsum) + (rb3 * RBc + transvzr8 * RBc) + (rm3 * RMc + transvzr9 * RMc)
+            Label34.Text = (vzr3 * VZRsum + transvzr7 * VZRsum) + (rb3 * RBsum + transvzr8 * RBsum) + (rm3 * RMsum + transvzr9 * RMsum)
         ElseIf CheckBox2.Checked Then
-            Label34.Text = (vzr3 * VZRwin + transvzr7 * VZRsum) + (rb3 * RBc + transvzr8 * RBc) + (rm3 * RMc + transvzr9 * RMc)
+            Label34.Text = (vzr3 * VZRwin + transvzr7 * VZRwin) + (rb3 * RBwin + transvzr8 * RBwin) + (rm3 * RMwin + transvzr9 * RMwin)
         End If
-        If vzr4 + rb4 + rm4 + transvzr10 + transvzr11 + transvzr12 > 36 Then
+        If vzr4 + rb4 + rm4 + transvzr10 + transvzr11 + transvzr12 > ODregkey Then
             MsgBox("Превышение максимального значения пассажиров!,Зона 0D", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
             TextBox31.Text = "0"
             TextBox30.Text = "0"
@@ -175,9 +183,9 @@ Public Class Form3
             sw.WriteLine("[ERROR] Exceeded maximum number of passengers.0D")
         End If
         If CheckBox1.Checked Then
-            Label37.Text = (vzr4 * VZRsum + transvzr10 * VZRsum) + (rb4 * RBc + transvzr11 * RBc) + (rm4 * RMc + transvzr12 * RMc)
+            Label37.Text = (vzr4 * VZRsum + transvzr10 * VZRsum) + (rb4 * RBsum + transvzr11 * RBsum) + (rm4 * RMsum + transvzr12 * RMsum)
         ElseIf CheckBox2.Checked Then
-            Label37.Text = (vzr4 * VZRwin + transvzr10 * VZRsum) + (rb4 * RBc + transvzr11 * RBc) + (rm4 * RMc + transvzr12 * RMc)
+            Label37.Text = (vzr4 * VZRwin + transvzr10 * VZRwin) + (rb4 * RBwin + transvzr11 * RBwin) + (rm4 * RMwin + transvzr12 * RMwin)
         End If
         ttl1 = CSng(Label33.Text)
         ttl2 = CSng(Label14.Text)
@@ -188,5 +196,17 @@ Public Class Form3
         sw.WriteLine("[INFO] Button1_Click: VZR (0C)=" & vzr3 & ", RB (0C)=" & rb3 & ", RM (0C)=" & rm3 & ",TRANS (0C)=" & transvzr3)
         sw.WriteLine("[INFO] Button1_Click: VZR (0D)=" & vzr4 & ", RB (0D)=" & rb4 & ", RM (0D)=" & rm4 & ",TRANS (0D)=" & transvzr4)
         sw.Close()
+    End Sub
+    Private Sub Form3_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim registryKey As Microsoft.Win32.RegistryKey = Microsoft.Win32.Registry.CurrentUser.CreateSubKey("FormDatachanges")
+        Dim OA As Integer = registryKey.GetValue("TextBox4", "")
+        Dim OB As Integer = registryKey.GetValue("TextBox5", "")
+        Dim OC As Integer = registryKey.GetValue("TextBox6", "")
+        Dim OD As Integer = registryKey.GetValue("TextBox7", "")
+        registryKey.Close()
+        Label5.Text = OA
+        Label40.Text = OB
+        Label41.Text = OC
+        Label42.Text = OD
     End Sub
 End Class

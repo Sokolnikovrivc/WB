@@ -51,14 +51,14 @@ Public Class Form1
             Dim adapter As New SqlDataAdapter(command)
             Dim table As New DataTable
             adapter.Fill(table)
-            TextBox3.Text = table.Rows(0)(1).ToString()
-            TextBox4.Text = table.Rows(0)(2).ToString()
-            TextBox2.Text = table.Rows(0)(3).ToString()
-            TextBox13.Text = table.Rows(0)(4).ToString()
-            TextBox19.Text = table.Rows(0)(5).ToString()
-            TextBox18.Text = table.Rows(0)(6).ToString()
-            TextBox48.Text = table.Rows(0)(7).ToString()
-            TextBox49.Text = table.Rows(0)(8).ToString()
+            TextBox4.Text = table.Rows(0)(0).ToString()
+            TextBox2.Text = table.Rows(0)(1).ToString()
+            TextBox3.Text = table.Rows(0)(8).ToString()
+            TextBox48.Text = table.Rows(0)(5).ToString()
+            TextBox49.Text = table.Rows(0)(6).ToString()
+            TextBox13.Text = table.Rows(0)(2).ToString()
+            TextBox19.Text = table.Rows(0)(3).ToString()
+            TextBox18.Text = table.Rows(0)(4).ToString()
             ComboBox1.Focus()
         Catch ex As Exception
             MessageBox.Show(ex.Message)
@@ -147,11 +147,14 @@ Public Class Form1
     End Sub
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
-        Const OA1 As Single = -0.00705
+        Dim registryKey As Microsoft.Win32.RegistryKey = Microsoft.Win32.Registry.CurrentUser.CreateSubKey("FormDatachanges")
+        Dim MAXwtOA As Integer = registryKey.GetValue("TextBox8", "")
+        Dim OA1 As Single = registryKey.GetValue("TextBox12", "")
+        registryKey.Close()
         OA2 = CSng(TextBox28.Text)
         TextBox32.Text = OA2 * OA1
         OA = CSng(TextBox32.Text)
-        If OA2 > 680 Then
+        If OA2 > MAXwtOA Then
             MsgBox("Превышение максимального веса!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
             TextBox28.Text = ""
             TextBox32.Text = ""
@@ -159,11 +162,14 @@ Public Class Form1
     End Sub
 
     Private Sub Button10_Click(sender As Object, e As EventArgs) Handles Button10.Click
-        Const OB1 As Single = -0.00325
+        Dim registryKey As Microsoft.Win32.RegistryKey = Microsoft.Win32.Registry.CurrentUser.CreateSubKey("FormDatachanges")
+        Dim MAXwtOB As Integer = registryKey.GetValue("TextBox9", "")
+        Dim OB1 As Single = registryKey.GetValue("TextBox13", "")
+        registryKey.Close()
         OB2 = CSng(TextBox29.Text)
         TextBox33.Text = OB2 * OB1
         OB = CSng(TextBox33.Text)
-        If OB2 > 3570 Then
+        If OB2 > MAXwtOB Then
             MsgBox("Превышение максимального веса!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
             TextBox29.Text = ""
             TextBox33.Text = ""
@@ -171,11 +177,14 @@ Public Class Form1
     End Sub
 
     Private Sub Button11_Click(sender As Object, e As EventArgs) Handles Button11.Click
-        Const OC1 As Single = 0.00231
+        Dim registryKey As Microsoft.Win32.RegistryKey = Microsoft.Win32.Registry.CurrentUser.CreateSubKey("FormDatachanges")
+        Dim MAXwtOC As Integer = registryKey.GetValue("TextBox10", "")
+        Dim OC1 As Single = registryKey.GetValue("TextBox14", "")
+        registryKey.Close()
         OC2 = CSng(TextBox30.Text)
         TextBox34.Text = OC2 * OC1
         OC = CSng(TextBox34.Text)
-        If OC2 > 3570 Then
+        If OC2 > MAXwtOC Then
             MsgBox("Превышение максимального веса!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
             TextBox30.Text = ""
             TextBox34.Text = ""
@@ -183,12 +192,15 @@ Public Class Form1
     End Sub
 
     Private Sub Button12_Click(sender As Object, e As EventArgs) Handles Button12.Click
-        Const OD1 As Single = 0.00726
+        Dim registryKey As Microsoft.Win32.RegistryKey = Microsoft.Win32.Registry.CurrentUser.CreateSubKey("FormDatachanges")
+        Dim MAXwtOD As Integer = registryKey.GetValue("TextBox11", "")
+        Dim OD1 As Single = registryKey.GetValue("TextBox15", "")
+        registryKey.Close()
         OD2 = CSng(TextBox31.Text)
         PAXwt = CSng(TextBox7.Text)
         TextBox35.Text = OD2 * OD1
         OD = CSng(TextBox35.Text)
-        If OD2 > 3060 Then
+        If OD2 > MAXwtOD Then
             MsgBox("Превышение максимального веса!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
             TextBox31.Text = ""
             TextBox35.Text = ""
@@ -203,11 +215,14 @@ Public Class Form1
     End Sub
 
     Private Sub Button13_Click(sender As Object, e As EventArgs) Handles Button13.Click
-        Const FWD As Single = -0.00563
+        Dim registryKey As Microsoft.Win32.RegistryKey = Microsoft.Win32.Registry.CurrentUser.CreateSubKey("FormDatachanges")
+        Dim FWD As Single = registryKey.GetValue("TextBox36", "")
+        Dim FWDkey As Single = registryKey.GetValue("TextBox16", "")
+        registryKey.Close()
         FWD1 = CSng(TextBox36.Text)
         TextBox39.Text = FWD1 * FWD
         CPT1FWD = CSng(TextBox39.Text)
-        If FWD1 > 2268 Then
+        If FWD1 > FWDkey Then
             MsgBox("Превышение максимального веса!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
             TextBox36.Text = ""
             TextBox39.Text = ""
@@ -215,11 +230,14 @@ Public Class Form1
     End Sub
 
     Private Sub Button14_Click(sender As Object, e As EventArgs) Handles Button14.Click
-        Const AFT1 As Single = 0.00447
+        Dim registryKey As Microsoft.Win32.RegistryKey = Microsoft.Win32.Registry.CurrentUser.CreateSubKey("FormDatachanges")
+        Dim AFT1 As Single = registryKey.GetValue("TextBox35", "")
+        Dim AFT1key As Single = registryKey.GetValue("TextBox17", "")
+        registryKey.Close()
         AFT2 = CSng(TextBox37.Text)
         TextBox40.Text = AFT1 * AFT2
         CPT4AFT = CSng(TextBox40.Text)
-        If AFT2 > 3021 Then
+        If AFT2 > AFT1key Then
             MsgBox("Превышение максимального веса!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
             TextBox37.Text = ""
             TextBox40.Text = ""
@@ -227,12 +245,15 @@ Public Class Form1
     End Sub
 
     Private Sub Button15_Click(sender As Object, e As EventArgs) Handles Button15.Click
-        Const AFT3 As Single = 0.0084
+        Dim registryKey As Microsoft.Win32.RegistryKey = Microsoft.Win32.Registry.CurrentUser.CreateSubKey("FormDatachanges")
+        Dim AFT3 As Single = registryKey.GetValue("TextBox34", "")
+        Dim AFT3key As Single = registryKey.GetValue("TextBox18", "")
+        registryKey.Close()
         AFT4 = CSng(TextBox38.Text)
         TTL = CSng(TextBox6.Text)
         TextBox41.Text = AFT3 * AFT4
         CPT5AFT = CSng(TextBox40.Text)
-        If AFT4 > 1497 Then
+        If AFT4 > AFT3key Then
             MsgBox("Превышение максимального веса!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
             TextBox38.Text = ""
             TextBox41.Text = ""
@@ -251,17 +272,26 @@ Public Class Form1
         LIZFW = CSng(TextBox42.Text)
         TextBox42.Text = DOI + OA + OB + OC + OD + CPT1FWD + CPT4AFT + CPT5AFT
     End Sub
-
-    Private Sub Button17_Click(sender As Object, e As EventArgs) Handles Button17.Click
-        Const M As Single = 100000
-        Const K As Single = 50
-        Const RefSTA As Single = 1725
-        Const LEMAC As Single = 1620.2
-        Const CAX As Single = 419.4
-        MACZFW = CSng(TextBox43.Text)
+    Public Function Preobraz_index()
+        Dim registryKey As Microsoft.Win32.RegistryKey = Microsoft.Win32.Registry.CurrentUser.CreateSubKey("FormDatachanges")
+        Dim RefSTA As Integer = registryKey.GetValue("TextBox29", "")
+        Dim K As Integer = registryKey.GetValue("TextBox30", "")
+        Dim C As Integer = registryKey.GetValue("TextBox31", "")
+        Dim CAX As Single = registryKey.GetValue("TextBox32", "")
+        Dim LEMAC As Single = registryKey.GetValue("TextBox33", "")
         LIZFW = CSng(TextBox42.Text)
         ZFW = CSng(TextBox12.Text)
-        TextBox43.Text = ((((M * (LIZFW - K)) / ZFW) + RefSTA - LEMAC) / CAX) * 100
+        MACTOW = CSng(TextBox45.Text)
+        LITOW = CSng(TextBox44.Text)
+        TOW = CSng(TextBox17.Text)
+        LILW = CSng(TextBox46.Text)
+        LITIF = CSng(TextBox27.Text)
+        registryKey.Close()
+        Dim Answer As Single = ((((C * (LIZFW - K)) / ZFW) + RefSTA - LEMAC) / CAX) * 100
+        Return Answer
+    End Function
+    Private Sub Button17_Click(sender As Object, e As EventArgs) Handles Button17.Click
+        TextBox43.Text = Preobraz_index()
     End Sub
 
     Private Sub Button18_Click(sender As Object, e As EventArgs) Handles Button18.Click
@@ -271,15 +301,17 @@ Public Class Form1
     End Sub
 
     Private Sub Button19_Click(sender As Object, e As EventArgs) Handles Button19.Click
-        Const M As Single = 100000
-        Const K As Single = 50
-        Const RefSTA As Single = 1725
-        Const LEMAC As Single = 1620.2
-        Const CAX As Single = 419.4
+        Dim registryKey As Microsoft.Win32.RegistryKey = Microsoft.Win32.Registry.CurrentUser.CreateSubKey("FormDatachanges")
+        Dim RefSTA As Integer = registryKey.GetValue("TextBox29", "")
+        Dim K As Integer = registryKey.GetValue("TextBox30", "")
+        Dim C As Integer = registryKey.GetValue("TextBox31", "")
+        Dim CAX As Single = registryKey.GetValue("TextBox32", "")
+        Dim LEMAC As Single = registryKey.GetValue("TextBox33", "")
+        registryKey.Close()
         MACTOW = CSng(TextBox45.Text)
         LITOW = CSng(TextBox44.Text)
         TOW = CSng(TextBox17.Text)
-        TextBox45.Text = ((((M * (LITOW - K)) / TOW) + RefSTA - LEMAC) / CAX) * 100
+        TextBox45.Text = ((((C * (LITOW - K)) / TOW) + RefSTA - LEMAC) / CAX) * 100
     End Sub
 
     Private Sub Button20_Click(sender As Object, e As EventArgs) Handles Button20.Click
@@ -289,15 +321,17 @@ Public Class Form1
     End Sub
 
     Private Sub Button21_Click(sender As Object, e As EventArgs) Handles Button21.Click
-        Const M As Single = 100000
-        Const K As Single = 50
-        Const RefSTA As Single = 1725
-        Const LEMAC As Single = 1620.2
-        Const CAX As Single = 419.4
+        Dim registryKey As Microsoft.Win32.RegistryKey = Microsoft.Win32.Registry.CurrentUser.CreateSubKey("FormDatachanges")
+        Dim RefSTA As Integer = registryKey.GetValue("TextBox29", "")
+        Dim K As Integer = registryKey.GetValue("TextBox30", "")
+        Dim C As Integer = registryKey.GetValue("TextBox31", "")
+        Dim CAX As Single = registryKey.GetValue("TextBox32", "")
+        Dim LEMAC As Single = registryKey.GetValue("TextBox33", "")
+        registryKey.Close()
         MACLW = CSng(TextBox47.Text)
         LILW = CSng(TextBox46.Text)
         LW = CSng(TextBox21.Text)
-        TextBox47.Text = ((((M * (LILW - K)) / LW) + RefSTA - LEMAC) / CAX) * 100
+        TextBox47.Text = ((((C * (LILW - K)) / LW) + RefSTA - LEMAC) / CAX) * 100
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
@@ -348,7 +382,7 @@ Public Class Form1
     End Sub
 
     Private Sub Button22_Click(sender As Object, e As EventArgs) Handles Button22.Click
-        Form9.Show()
+        Form2.Show()
         Form2.TextBox5.Text = TextBox5.Text
         Form2.TextBox3.Text = TextBox3.Text
         Form2.TextBox48.Text = TextBox48.Text
@@ -365,7 +399,6 @@ Public Class Form1
 
     Private Sub Button24_Click(sender As Object, e As EventArgs) Handles Button24.Click
         Form5.Show()
-
     End Sub
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
@@ -380,7 +413,7 @@ Public Class Form1
     End Sub
     Private Sub Form1_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         Try
-            Microsoft.Win32.Registry.CurrentUser.DeleteSubKey("Form2Data")
+            Microsoft.Win32.Registry.CurrentUser.DeleteSubKey("FormDatachanges")
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try

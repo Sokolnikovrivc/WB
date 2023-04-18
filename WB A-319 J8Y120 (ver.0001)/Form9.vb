@@ -1,6 +1,11 @@
 ﻿Imports System.Data.SqlClient
 Imports System.Drawing.Printing
 Public Class Form9
+    Public wt1, wt2, wt3, wt4, wt5, wt6, wt7, wt8, wt9, wt10 As Single
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        Form4.Show()
+    End Sub
     Private Sub PrintDocument1_PrintPage(ByVal sender As System.Object, ByVal e As System.Drawing.Printing.PrintPageEventArgs) Handles PrintDocument1.PrintPage
         Dim f As Font = RichTextBox1.Font
         Dim b As Brush = Brushes.Black
@@ -661,7 +666,6 @@ Public Class Form9
         If V53 > 2.88 Then
             MsgBox("Превышение максимального объёма в позиции 53!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
-        Dim wt1, wt2, wt3, wt4, wt5, wt6, wt7, wt8, wt9, wt10 As Single
         wt1 = CSng(TextBox8.Text)
         wt2 = CSng(TextBox12.Text)
         wt3 = CSng(TextBox16.Text)
@@ -1068,6 +1072,10 @@ Public Class Form9
         RichTextBox1.AppendText(":" + "SPECS" + ":" + vbTab + ComboBox40.Text + vbTab + TextBox52.Text + vbNewLine)
         RichTextBox1.AppendText(":" + "REPORT" + ":" + vbTab + TextBox50.Text + vbTab + vbTab + vbTab + "BULK" + vbTab + "TTL" + vbTab + TextBox46.Text + vbNewLine)
         RichTextBox1.AppendText("******************************************************************************************************************************" + vbNewLine)
-
+        Form1.TextBox36.Text = TextBox6.Text
+        Form1.TextBox37.Text = TextBox27.Text
+        Form1.TextBox38.Text = TextBox37.Text
+        Form1.TextBox16.Text = TextBox46.Text
+        Form1.TextBox6.Text = wt1 + wt2 + wt3 + wt4 + wt5 + wt6 + wt7 + wt8 + wt9 + wt10
     End Sub
 End Class
