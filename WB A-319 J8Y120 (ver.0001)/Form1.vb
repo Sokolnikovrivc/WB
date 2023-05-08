@@ -43,6 +43,7 @@ Public Class Form1
     Public AFT7 As Single
     Public AFT8 As Single
     Public AFT9 As Single
+    Public connectionString As String = "Data Source=WIN-8CEIKSU78CS\SQLEXPRESS; Initial Catalog=Test; Integrated Security=True"
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Try
             Dim connection As New SqlConnection("Data Source=WIN-8CEIKSU78CS\SQLEXPRESS; Initial Catalog=Test; Integrated Security=True")
@@ -59,17 +60,65 @@ Public Class Form1
             TextBox13.Text = table.Rows(0)(2).ToString()
             TextBox19.Text = table.Rows(0)(3).ToString()
             TextBox18.Text = table.Rows(0)(4).ToString()
+            TextBox1.Text = table.Rows(0)(9).ToString()
             ComboBox1.Focus()
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
     End Sub
-
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim registryKey As Microsoft.Win32.RegistryKey = Microsoft.Win32.Registry.CurrentUser.CreateSubKey("FormDatachanges")
+        Label36.Text = registryKey.GetValue("Label27", "")
+        Label37.Text = registryKey.GetValue("Label26", "")
+        Label38.Text = registryKey.GetValue("Label25", "")
+        Label23.Text = registryKey.GetValue("Label40", "")
+        registryKey.Close()
         Dim filename As String = Application.StartupPath & "\test.log"
         Dim sw As IO.StreamWriter = AppendText(filename)
         sw.WriteLine(Now() & "" & "sample log file entry")
         sw.Close()
+
+    End Sub
+    Public Sub combo()
+        If TextBox1.Text = "A-319" Then
+            Try
+                Using connection As SqlConnection = New SqlConnection(connectionString)
+                    connection.Open()
+                    Dim command As New SqlCommand("SELECT * FROM [Test].[dbo].[A319 Wt] where config_id = @config_id", connection)
+                    command.Parameters.Add("@config_id", SqlDbType.VarChar).Value = TextBox2.Text
+                    Dim reader As SqlDataReader = command.ExecuteReader()
+                    While reader.Read()
+                        ComboBox1.Items.Add(reader("crew").ToString())
+                    End While
+                End Using
+            Catch ex As Exception
+                MsgBox("Error: " & ex.ToString())
+            End Try
+        ElseIf TextBox1.Text = "A-320" Then ' добавляем проверку на второй вариант
+            Try
+                Using connection As SqlConnection = New SqlConnection(connectionString)
+                    connection.Open()
+                    Dim command As New SqlCommand("SELECT * FROM [Test].[dbo].[A320 Wt] where config_id = @config_id", connection)
+                    command.Parameters.Add("@config_id", SqlDbType.VarChar).Value = TextBox2.Text
+                    Dim reader As SqlDataReader = command.ExecuteReader()
+                    While reader.Read()
+                        ComboBox1.Items.Add(reader("crew").ToString())
+                    End While
+                End Using
+            Catch ex As Exception
+                MsgBox("Error: " & ex.ToString())
+            End Try
+        End If
+    End Sub
+    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
+        ComboBox1.Items.Clear()
+        combo() ' заполняем ComboBox данными из базы данных
+        If TextBox1.Text = "A-320" Then
+            Label23.Visible = True
+            TextBox16.Visible = True
+            Button25.Visible = True
+            TextBox10.Visible = True
+        End If
     End Sub
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         TTL = CSng(TextBox6.Text)
@@ -127,23 +176,55 @@ Public Class Form1
     End Sub
 
     Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
-        Dim connection As New SqlConnection("Data Source=WIN-8CEIKSU78CS\SQLEXPRESS; Initial Catalog=Test; Integrated Security=True")
-        Dim command As New SqlCommand("select * from [A319 Wt] where Flight_bort = @Flight_bort and crew = @crew", connection)
-        command.Parameters.Add("@Flight_bort", SqlDbType.VarChar).Value = TextBox4.Text
-        command.Parameters.Add("@crew", SqlDbType.VarChar).Value = ComboBox1.Text
-        Dim adapter As New SqlDataAdapter(command)
-        Dim table As New DataTable
-        adapter.Fill(table)
-        TextBox23.Text = table.Rows(0)(2).ToString()
-        TextBox14.Text = table.Rows(0)(3).ToString()
-        TextBox24.Text = table.Rows(0)(4).ToString()
-        TextBox25.Text = table.Rows(0)(5).ToString()
-        TextBox11.Text = TextBox14.Text
-        DOW = CSng(TextBox14.Text)
-        MZFW = CSng(TextBox13.Text)
-        DOI = CSng(TextBox24.Text)
-        TextBox9.Text = MZFW - DOW
-        TextBox6.Focus()
+        If TextBox1.Text = "A-319" Then
+            Try
+                Using connection As SqlConnection = New SqlConnection(connectionString)
+                    connection.Open()
+                    Dim command As New SqlCommand("select * from [A319 Wt] where Flight_bort = @Flight_bort and crew = @crew", connection)
+                    command.Parameters.Add("@Flight_bort", SqlDbType.VarChar).Value = TextBox4.Text
+                    command.Parameters.Add("@crew", SqlDbType.VarChar).Value = ComboBox1.Text
+                    Dim adapter As New SqlDataAdapter(command)
+                    Dim table As New DataTable
+                    adapter.Fill(table)
+                    TextBox23.Text = table.Rows(0)(2).ToString()
+                    TextBox14.Text = table.Rows(0)(3).ToString()
+                    TextBox24.Text = table.Rows(0)(4).ToString()
+                    TextBox25.Text = table.Rows(0)(5).ToString()
+                    TextBox11.Text = TextBox14.Text
+                    DOW = CSng(TextBox14.Text)
+                    MZFW = CSng(TextBox13.Text)
+                    DOI = CSng(TextBox24.Text)
+                    TextBox9.Text = MZFW - DOW
+                    TextBox6.Focus()
+                End Using
+            Catch ex As Exception
+                MsgBox("Error: " & ex.ToString())
+            End Try
+        ElseIf TextBox1.Text = "A-320" Then
+            Try
+                Using connection As SqlConnection = New SqlConnection(connectionString)
+                    connection.Open()
+                    Dim command As New SqlCommand("select * from [A320 Wt] where Flight_bort = @Flight_bort and crew = @crew", connection)
+                    command.Parameters.Add("@Flight_bort", SqlDbType.VarChar).Value = TextBox4.Text
+                    command.Parameters.Add("@crew", SqlDbType.VarChar).Value = ComboBox1.Text
+                    Dim adapter As New SqlDataAdapter(command)
+                    Dim table As New DataTable
+                    adapter.Fill(table)
+                    TextBox23.Text = table.Rows(0)(2).ToString()
+                    TextBox14.Text = table.Rows(0)(3).ToString()
+                    TextBox24.Text = table.Rows(0)(4).ToString()
+                    TextBox25.Text = table.Rows(0)(5).ToString()
+                    TextBox11.Text = TextBox14.Text
+                    DOW = CSng(TextBox14.Text)
+                    MZFW = CSng(TextBox13.Text)
+                    DOI = CSng(TextBox24.Text)
+                    TextBox9.Text = MZFW - DOW
+                    TextBox6.Focus()
+                End Using
+            Catch ex As Exception
+                MsgBox("Error: " & ex.ToString())
+            End Try
+        End If
     End Sub
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
@@ -382,19 +463,41 @@ Public Class Form1
     End Sub
 
     Private Sub Button22_Click(sender As Object, e As EventArgs) Handles Button22.Click
-        Form2.Show()
-        Form2.TextBox5.Text = TextBox5.Text
-        Form2.TextBox3.Text = TextBox3.Text
-        Form2.TextBox48.Text = TextBox48.Text
-        Form2.TextBox49.Text = TextBox49.Text
-        Form2.TextBox2.Text = TextBox2.Text
-        Form2.TextBox4.Text = TextBox4.Text
-        Form2.TextBox7.Text = Mid(TextBox3.Text, 5, 3)
-        Form2.TextBox11.Text = Mid(TextBox3.Text, 5, 3)
-        Form2.TextBox22.Text = Mid(TextBox3.Text, 5, 3)
-        Form2.TextBox19.Text = Mid(TextBox3.Text, 5, 3)
-        Form2.TextBox31.Text = Mid(TextBox3.Text, 5, 3)
-        Form2.TextBox28.Text = Mid(TextBox3.Text, 5, 3)
+        If TextBox1.Text = "A-320" Then
+            Form9.Show()
+            Form9.TextBox5.Text = TextBox5.Text
+            Form9.TextBox3.Text = TextBox3.Text
+            Form9.TextBox48.Text = TextBox48.Text
+            Form9.TextBox49.Text = TextBox49.Text
+            Form9.TextBox2.Text = TextBox2.Text
+            Form9.TextBox4.Text = TextBox4.Text
+            Form9.TextBox1.Text = TextBox1.Text
+            Form9.TextBox7.Text = Mid(TextBox3.Text, 5, 3)
+            Form9.TextBox11.Text = Mid(TextBox3.Text, 5, 3)
+            Form9.TextBox15.Text = Mid(TextBox3.Text, 5, 3)
+            Form9.TextBox25.Text = Mid(TextBox3.Text, 5, 3)
+            Form9.TextBox22.Text = Mid(TextBox3.Text, 5, 3)
+            Form9.TextBox35.Text = Mid(TextBox3.Text, 5, 3)
+            Form9.TextBox31.Text = Mid(TextBox3.Text, 5, 3)
+            Form9.TextBox53.Text = Mid(TextBox3.Text, 5, 3)
+            Form9.TextBox41.Text = Mid(TextBox3.Text, 5, 3)
+            Form9.TextBox47.Text = Mid(TextBox3.Text, 5, 3)
+        End If
+        If TextBox1.Text = "A-319" Then
+            Form2.Show()
+            Form2.TextBox5.Text = TextBox5.Text
+            Form2.TextBox3.Text = TextBox3.Text
+            Form2.TextBox48.Text = TextBox48.Text
+            Form2.TextBox49.Text = TextBox49.Text
+            Form2.TextBox2.Text = TextBox2.Text
+            Form2.TextBox4.Text = TextBox4.Text
+            Form2.TextBox7.Text = Mid(TextBox3.Text, 5, 3)
+            Form2.TextBox11.Text = Mid(TextBox3.Text, 5, 3)
+            Form2.TextBox22.Text = Mid(TextBox3.Text, 5, 3)
+            Form2.TextBox19.Text = Mid(TextBox3.Text, 5, 3)
+            Form2.TextBox31.Text = Mid(TextBox3.Text, 5, 3)
+            Form2.TextBox28.Text = Mid(TextBox3.Text, 5, 3)
+        End If
     End Sub
 
     Private Sub Button24_Click(sender As Object, e As EventArgs) Handles Button24.Click
@@ -420,10 +523,26 @@ Public Class Form1
     End Sub
 
     Private Sub Button25_Click(sender As Object, e As EventArgs) Handles Button25.Click
-        Const AFT6 As Single = 0.00447
+        Dim registryKey As Microsoft.Win32.RegistryKey = Microsoft.Win32.Registry.CurrentUser.CreateSubKey("FormDatachanges")
+        Dim BULK As Single = registryKey.GetValue("TextBox58", "")
+        Dim BULKkey As Single = registryKey.GetValue("TextBox57", "")
+        registryKey.Close()
         AFT7 = CSng(TextBox16.Text)
-        TextBox10.Text = AFT6 * AFT7
-        CPT6AFT = CSng(TextBox10.Text)
+        TTL = CSng(TextBox6.Text)
+        TextBox10.Text = AFT7 * BULK
+        If AFT7 > BULKkey Then
+            MsgBox("Превышение максимального веса!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+            TextBox10.Text = ""
+            TextBox16.Text = ""
+        End If
+        If TextBox1.Text = "A-320" Then
+            If FWD1 + AFT2 + AFT4 + AFT7 + AFT9 > TTL Then
+                MsgBox("Превышение значения введённого веса грузов!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+                TextBox36.Text = ""
+                TextBox37.Text = ""
+                TextBox38.Text = ""
+            End If
+        End If
     End Sub
 
     Private Sub Button26_Click(sender As Object, e As EventArgs) Handles Button26.Click

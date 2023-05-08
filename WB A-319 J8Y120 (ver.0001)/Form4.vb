@@ -13,7 +13,8 @@
                 RichTextBox1.AppendText("-" + "51P" + "/" + Form2.TextBox28.Text + "/" + Form2.TextBox27.Text + "/" + Form2.ComboBox20.Text + "." + Form2.ComboBox17.Text + vbNewLine)
             End If
             RichTextBox1.AppendText("SI")
-        ElseIf Form9.TextBox1.Text = "A-320" Then
+        End If
+        If Form9.TextBox1.Text = "A-320" Then
             RichTextBox1.Clear()
             RichTextBox1.AppendText("CPM" + vbNewLine)
             RichTextBox1.AppendText(Form9.TextBox5.Text + "/" + Mid(Form9.TextBox48.Text, 1, 2) + "." + Form9.TextBox4.Text + "." + Form9.TextBox2.Text + vbNewLine)
@@ -24,7 +25,7 @@
             RichTextBox1.AppendText("-" + "32P" + "/" + Form9.TextBox22.Text + "/" + Form9.TextBox21.Text + "/" + Form9.ComboBox16.Text + "." + Form9.ComboBox13.Text + vbNewLine)
             RichTextBox1.AppendText("-" + "41P" + "/" + Form9.TextBox35.Text + "/" + Form9.TextBox36.Text + "/" + Form9.ComboBox26.Text + "." + Form9.ComboBox25.Text + vbNewLine)
             RichTextBox1.AppendText("-" + "42P" + "/" + Form9.TextBox31.Text + "/" + Form9.TextBox30.Text + "/" + Form9.ComboBox24.Text + "." + Form9.ComboBox21.Text + vbNewLine)
-            RichTextBox1.AppendText("-" + "51P" + "/" + Form9.TextBox44.Text + "/" + Form9.TextBox45.Text + "/" + Form9.ComboBox34.Text + "." + Form9.ComboBox33.Text + vbNewLine)
+            RichTextBox1.AppendText("-" + "51P" + "/" + Form9.TextBox53.Text + "/" + Form9.TextBox45.Text + "/" + Form9.ComboBox34.Text + "." + Form9.ComboBox33.Text + vbNewLine)
             RichTextBox1.AppendText("-" + "52P" + "/" + Form9.TextBox41.Text + "/" + Form9.TextBox40.Text + "/" + Form9.ComboBox32.Text + "." + Form9.ComboBox29.Text + vbNewLine)
             RichTextBox1.AppendText("-" + "53P" + "/" + Form9.TextBox47.Text + "/" + Form9.TextBox50.Text + "/" + Form9.ComboBox37.Text + "." + Form9.ComboBox40.Text + vbNewLine)
             RichTextBox1.AppendText("SI")

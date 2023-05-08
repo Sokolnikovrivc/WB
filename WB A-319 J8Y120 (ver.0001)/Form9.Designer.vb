@@ -84,7 +84,6 @@ Partial Class Form9
         Me.Label90 = New System.Windows.Forms.Label()
         Me.Label91 = New System.Windows.Forms.Label()
         Me.Label92 = New System.Windows.Forms.Label()
-        Me.TextBox44 = New System.Windows.Forms.TextBox()
         Me.Label93 = New System.Windows.Forms.Label()
         Me.ComboBox34 = New System.Windows.Forms.ComboBox()
         Me.Label94 = New System.Windows.Forms.Label()
@@ -229,7 +228,9 @@ Partial Class Form9
         Me.Button1 = New System.Windows.Forms.Button()
         Me.TextBox6 = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
+        Me.TextBox44 = New System.Windows.Forms.TextBox()
         Me.PrintDialog1 = New System.Windows.Forms.PrintDialog()
+        Me.TextBox53 = New System.Windows.Forms.TextBox()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -480,10 +481,8 @@ Partial Class Form9
         '
         Me.TextBox1.Location = New System.Drawing.Point(319, 16)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.ReadOnly = True
         Me.TextBox1.Size = New System.Drawing.Size(100, 20)
         Me.TextBox1.TabIndex = 9
-        Me.TextBox1.Text = "A-320"
         '
         'Label7
         '
@@ -700,7 +699,8 @@ Partial Class Form9
         Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 58.0!))
         Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 51.0!))
         Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50.0!))
-        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 115.0!))
+        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 119.0!))
+        Me.TableLayoutPanel4.Controls.Add(Me.TextBox53, 1, 1)
         Me.TableLayoutPanel4.Controls.Add(Me.Label99, 0, 3)
         Me.TableLayoutPanel4.Controls.Add(Me.TextBox38, 8, 2)
         Me.TableLayoutPanel4.Controls.Add(Me.TextBox39, 7, 2)
@@ -719,7 +719,6 @@ Partial Class Form9
         Me.TableLayoutPanel4.Controls.Add(Me.Label90, 0, 0)
         Me.TableLayoutPanel4.Controls.Add(Me.Label91, 0, 1)
         Me.TableLayoutPanel4.Controls.Add(Me.Label92, 1, 0)
-        Me.TableLayoutPanel4.Controls.Add(Me.TextBox44, 1, 1)
         Me.TableLayoutPanel4.Controls.Add(Me.Label93, 2, 0)
         Me.TableLayoutPanel4.Controls.Add(Me.ComboBox34, 2, 1)
         Me.TableLayoutPanel4.Controls.Add(Me.Label94, 3, 0)
@@ -744,6 +743,7 @@ Partial Class Form9
         Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34.0!))
         Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33.0!))
+        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel4.Size = New System.Drawing.Size(502, 135)
         Me.TableLayoutPanel4.TabIndex = 116
         '
@@ -753,7 +753,7 @@ Partial Class Form9
         Me.Label99.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label99.Location = New System.Drawing.Point(4, 100)
         Me.Label99.Name = "Label99"
-        Me.Label99.Size = New System.Drawing.Size(37, 34)
+        Me.Label99.Size = New System.Drawing.Size(35, 34)
         Me.Label99.TabIndex = 38
         Me.Label99.Text = "53"
         Me.Label99.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -764,7 +764,7 @@ Partial Class Form9
         Me.TextBox38.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox38.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TextBox38.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox38.Location = New System.Drawing.Point(412, 75)
+        Me.TextBox38.Location = New System.Drawing.Point(410, 75)
         Me.TextBox38.Name = "TextBox38"
         Me.TextBox38.Size = New System.Drawing.Size(62, 13)
         Me.TextBox38.TabIndex = 37
@@ -775,7 +775,7 @@ Partial Class Form9
         Me.TextBox39.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.TextBox39.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox39.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TextBox39.Location = New System.Drawing.Point(339, 75)
+        Me.TextBox39.Location = New System.Drawing.Point(335, 75)
         Me.TextBox39.Name = "TextBox39"
         Me.TextBox39.Size = New System.Drawing.Size(39, 13)
         Me.TextBox39.TabIndex = 36
@@ -789,7 +789,7 @@ Partial Class Form9
         Me.ComboBox29.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox29.FormattingEnabled = True
         Me.ComboBox29.Items.AddRange(New Object() {"AOG", "AVI", "BAL", "BED", "BEH", "BIG", "COM", "CSU", "DHS", "DIP", "EAT", "EIC", "FIL", "FKT", "HEA", "HEG", "HUM", "ICE", "LHO", "MAG ", "MOS ", "NIL", "OBX", "PEA", "PEF ", "PEM", "PEP", "PER", "PES", "RXS", "RFG", "RNG", "RFL", "RFS", "RSC", "RFW", "ROX", "ROP", "RIS", "RCM", "RMD", "SOC", "VAL", "WET ", "XPS", "-"})
-        Me.ComboBox29.Location = New System.Drawing.Point(285, 71)
+        Me.ComboBox29.Location = New System.Drawing.Point(281, 71)
         Me.ComboBox29.Name = "ComboBox29"
         Me.ComboBox29.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.ComboBox29.Size = New System.Drawing.Size(45, 21)
@@ -802,7 +802,7 @@ Partial Class Form9
         Me.ComboBox30.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox30.FormattingEnabled = True
         Me.ComboBox30.Items.AddRange(New Object() {"TRANSIT", "ONLOAD"})
-        Me.ComboBox30.Location = New System.Drawing.Point(226, 71)
+        Me.ComboBox30.Location = New System.Drawing.Point(222, 71)
         Me.ComboBox30.Name = "ComboBox30"
         Me.ComboBox30.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.ComboBox30.Size = New System.Drawing.Size(51, 21)
@@ -813,7 +813,7 @@ Partial Class Form9
         Me.TextBox40.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.TextBox40.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox40.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TextBox40.Location = New System.Drawing.Point(186, 75)
+        Me.TextBox40.Location = New System.Drawing.Point(182, 75)
         Me.TextBox40.Name = "TextBox40"
         Me.TextBox40.Size = New System.Drawing.Size(33, 13)
         Me.TextBox40.TabIndex = 33
@@ -827,7 +827,7 @@ Partial Class Form9
         Me.ComboBox31.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox31.FormattingEnabled = True
         Me.ComboBox31.Items.AddRange(New Object() {"LD3-46 /AKG", "LD3-46W/AKH", "PKx ", "-"})
-        Me.ComboBox31.Location = New System.Drawing.Point(132, 71)
+        Me.ComboBox31.Location = New System.Drawing.Point(128, 71)
         Me.ComboBox31.Name = "ComboBox31"
         Me.ComboBox31.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.ComboBox31.Size = New System.Drawing.Size(46, 21)
@@ -840,7 +840,7 @@ Partial Class Form9
         Me.ComboBox32.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox32.FormattingEnabled = True
         Me.ComboBox32.Items.AddRange(New Object() {"B", "C", "D", "E", "F", "H", "M", "N", "Q", "S", "T", "U", "W", "X", "Z"})
-        Me.ComboBox32.Location = New System.Drawing.Point(84, 71)
+        Me.ComboBox32.Location = New System.Drawing.Point(80, 71)
         Me.ComboBox32.Name = "ComboBox32"
         Me.ComboBox32.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.ComboBox32.Size = New System.Drawing.Size(36, 21)
@@ -852,9 +852,9 @@ Partial Class Form9
         Me.TextBox41.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox41.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TextBox41.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox41.Location = New System.Drawing.Point(48, 75)
+        Me.TextBox41.Location = New System.Drawing.Point(46, 75)
         Me.TextBox41.Name = "TextBox41"
-        Me.TextBox41.Size = New System.Drawing.Size(26, 13)
+        Me.TextBox41.Size = New System.Drawing.Size(24, 13)
         Me.TextBox41.TabIndex = 19
         Me.TextBox41.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -862,9 +862,9 @@ Partial Class Form9
         '
         Me.Label87.AutoSize = True
         Me.Label87.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label87.Location = New System.Drawing.Point(388, 1)
+        Me.Label87.Location = New System.Drawing.Point(384, 1)
         Me.Label87.Name = "Label87"
-        Me.Label87.Size = New System.Drawing.Size(110, 31)
+        Me.Label87.Size = New System.Drawing.Size(114, 31)
         Me.Label87.TabIndex = 29
         Me.Label87.Text = "Примечание"
         Me.Label87.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -875,7 +875,7 @@ Partial Class Form9
         Me.TextBox42.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox42.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TextBox42.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox42.Location = New System.Drawing.Point(412, 42)
+        Me.TextBox42.Location = New System.Drawing.Point(410, 42)
         Me.TextBox42.Name = "TextBox42"
         Me.TextBox42.Size = New System.Drawing.Size(62, 13)
         Me.TextBox42.TabIndex = 19
@@ -885,7 +885,7 @@ Partial Class Form9
         '
         Me.Label88.AutoSize = True
         Me.Label88.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label88.Location = New System.Drawing.Point(337, 1)
+        Me.Label88.Location = New System.Drawing.Point(333, 1)
         Me.Label88.Name = "Label88"
         Me.Label88.Size = New System.Drawing.Size(44, 31)
         Me.Label88.TabIndex = 28
@@ -899,7 +899,7 @@ Partial Class Form9
         Me.ComboBox33.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox33.FormattingEnabled = True
         Me.ComboBox33.Items.AddRange(New Object() {"AOG", "AVI", "BAL", "BED", "BEH", "BIG", "COM", "CSU", "DHS", "DIP", "EAT", "EIC", "FIL", "FKT", "HEA", "HEG", "HUM", "ICE", "LHO", "MAG ", "MOS ", "NIL", "OBX", "PEA", "PEF ", "PEM", "PEP", "PER", "PES", "RXS", "RFG", "RNG", "RFL", "RFS", "RSC", "RFW", "ROX", "ROP", "RIS", "RCM", "RMD", "SOC", "VAL", "WET ", "XPS", "-"})
-        Me.ComboBox33.Location = New System.Drawing.Point(285, 38)
+        Me.ComboBox33.Location = New System.Drawing.Point(281, 38)
         Me.ComboBox33.Name = "ComboBox33"
         Me.ComboBox33.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.ComboBox33.Size = New System.Drawing.Size(45, 21)
@@ -910,7 +910,7 @@ Partial Class Form9
         Me.TextBox43.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.TextBox43.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox43.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TextBox43.Location = New System.Drawing.Point(339, 42)
+        Me.TextBox43.Location = New System.Drawing.Point(335, 42)
         Me.TextBox43.Name = "TextBox43"
         Me.TextBox43.Size = New System.Drawing.Size(39, 13)
         Me.TextBox43.TabIndex = 19
@@ -921,7 +921,7 @@ Partial Class Form9
         '
         Me.Label89.AutoSize = True
         Me.Label89.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label89.Location = New System.Drawing.Point(226, 1)
+        Me.Label89.Location = New System.Drawing.Point(222, 1)
         Me.Label89.Name = "Label89"
         Me.Label89.Size = New System.Drawing.Size(52, 31)
         Me.Label89.TabIndex = 26
@@ -934,7 +934,7 @@ Partial Class Form9
         Me.Label90.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label90.Location = New System.Drawing.Point(4, 1)
         Me.Label90.Name = "Label90"
-        Me.Label90.Size = New System.Drawing.Size(37, 31)
+        Me.Label90.Size = New System.Drawing.Size(35, 31)
         Me.Label90.TabIndex = 17
         Me.Label90.Text = "Номер позиции"
         Me.Label90.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -945,7 +945,7 @@ Partial Class Form9
         Me.Label91.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label91.Location = New System.Drawing.Point(4, 33)
         Me.Label91.Name = "Label91"
-        Me.Label91.Size = New System.Drawing.Size(37, 31)
+        Me.Label91.Size = New System.Drawing.Size(35, 31)
         Me.Label91.TabIndex = 15
         Me.Label91.Text = "51"
         Me.Label91.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -954,30 +954,18 @@ Partial Class Form9
         '
         Me.Label92.AutoSize = True
         Me.Label92.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label92.Location = New System.Drawing.Point(48, 1)
+        Me.Label92.Location = New System.Drawing.Point(46, 1)
         Me.Label92.Name = "Label92"
-        Me.Label92.Size = New System.Drawing.Size(26, 31)
+        Me.Label92.Size = New System.Drawing.Size(24, 31)
         Me.Label92.TabIndex = 16
         Me.Label92.Text = "Назначение"
         Me.Label92.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'TextBox44
-        '
-        Me.TextBox44.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.TextBox44.BackColor = System.Drawing.SystemColors.Control
-        Me.TextBox44.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TextBox44.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox44.Location = New System.Drawing.Point(48, 42)
-        Me.TextBox44.Name = "TextBox44"
-        Me.TextBox44.Size = New System.Drawing.Size(26, 13)
-        Me.TextBox44.TabIndex = 18
-        Me.TextBox44.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label93
         '
         Me.Label93.AutoSize = True
         Me.Label93.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label93.Location = New System.Drawing.Point(81, 1)
+        Me.Label93.Location = New System.Drawing.Point(77, 1)
         Me.Label93.Name = "Label93"
         Me.Label93.Size = New System.Drawing.Size(43, 31)
         Me.Label93.TabIndex = 19
@@ -991,7 +979,7 @@ Partial Class Form9
         Me.ComboBox34.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox34.FormattingEnabled = True
         Me.ComboBox34.Items.AddRange(New Object() {"B", "C", "D", "E", "F", "H", "M", "N", "Q", "S", "T", "U", "W", "X", "Z"})
-        Me.ComboBox34.Location = New System.Drawing.Point(84, 38)
+        Me.ComboBox34.Location = New System.Drawing.Point(80, 38)
         Me.ComboBox34.Name = "ComboBox34"
         Me.ComboBox34.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.ComboBox34.Size = New System.Drawing.Size(36, 21)
@@ -1001,7 +989,7 @@ Partial Class Form9
         '
         Me.Label94.AutoSize = True
         Me.Label94.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label94.Location = New System.Drawing.Point(131, 1)
+        Me.Label94.Location = New System.Drawing.Point(127, 1)
         Me.Label94.Name = "Label94"
         Me.Label94.Size = New System.Drawing.Size(48, 31)
         Me.Label94.TabIndex = 21
@@ -1015,7 +1003,7 @@ Partial Class Form9
         Me.ComboBox35.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox35.FormattingEnabled = True
         Me.ComboBox35.Items.AddRange(New Object() {"LD3-46 /AKG", "LD3-46W/AKH", "PKx ", "-"})
-        Me.ComboBox35.Location = New System.Drawing.Point(132, 38)
+        Me.ComboBox35.Location = New System.Drawing.Point(128, 38)
         Me.ComboBox35.Name = "ComboBox35"
         Me.ComboBox35.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.ComboBox35.Size = New System.Drawing.Size(46, 21)
@@ -1025,7 +1013,7 @@ Partial Class Form9
         '
         Me.Label95.AutoSize = True
         Me.Label95.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label95.Location = New System.Drawing.Point(186, 1)
+        Me.Label95.Location = New System.Drawing.Point(182, 1)
         Me.Label95.Name = "Label95"
         Me.Label95.Size = New System.Drawing.Size(33, 31)
         Me.Label95.TabIndex = 23
@@ -1037,7 +1025,7 @@ Partial Class Form9
         Me.TextBox45.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.TextBox45.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox45.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TextBox45.Location = New System.Drawing.Point(186, 42)
+        Me.TextBox45.Location = New System.Drawing.Point(182, 42)
         Me.TextBox45.Name = "TextBox45"
         Me.TextBox45.Size = New System.Drawing.Size(33, 13)
         Me.TextBox45.TabIndex = 24
@@ -1051,7 +1039,7 @@ Partial Class Form9
         Me.ComboBox36.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox36.FormattingEnabled = True
         Me.ComboBox36.Items.AddRange(New Object() {"TRANSIT", "ONLOAD"})
-        Me.ComboBox36.Location = New System.Drawing.Point(226, 38)
+        Me.ComboBox36.Location = New System.Drawing.Point(222, 38)
         Me.ComboBox36.Name = "ComboBox36"
         Me.ComboBox36.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.ComboBox36.Size = New System.Drawing.Size(51, 21)
@@ -1061,7 +1049,7 @@ Partial Class Form9
         '
         Me.Label96.AutoSize = True
         Me.Label96.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label96.Location = New System.Drawing.Point(285, 1)
+        Me.Label96.Location = New System.Drawing.Point(281, 1)
         Me.Label96.Name = "Label96"
         Me.Label96.Size = New System.Drawing.Size(45, 31)
         Me.Label96.TabIndex = 27
@@ -1074,7 +1062,7 @@ Partial Class Form9
         Me.Label97.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label97.Location = New System.Drawing.Point(4, 65)
         Me.Label97.Name = "Label97"
-        Me.Label97.Size = New System.Drawing.Size(37, 34)
+        Me.Label97.Size = New System.Drawing.Size(35, 34)
         Me.Label97.TabIndex = 30
         Me.Label97.Text = "52"
         Me.Label97.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1085,9 +1073,9 @@ Partial Class Form9
         Me.TextBox47.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox47.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TextBox47.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox47.Location = New System.Drawing.Point(48, 110)
+        Me.TextBox47.Location = New System.Drawing.Point(46, 110)
         Me.TextBox47.Name = "TextBox47"
-        Me.TextBox47.Size = New System.Drawing.Size(26, 13)
+        Me.TextBox47.Size = New System.Drawing.Size(24, 13)
         Me.TextBox47.TabIndex = 39
         Me.TextBox47.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -1098,7 +1086,7 @@ Partial Class Form9
         Me.ComboBox37.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox37.FormattingEnabled = True
         Me.ComboBox37.Items.AddRange(New Object() {"B", "C", "D", "E", "F", "H", "M", "N", "Q", "S", "T", "U", "W", "X", "Z"})
-        Me.ComboBox37.Location = New System.Drawing.Point(84, 106)
+        Me.ComboBox37.Location = New System.Drawing.Point(80, 106)
         Me.ComboBox37.Name = "ComboBox37"
         Me.ComboBox37.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.ComboBox37.Size = New System.Drawing.Size(36, 21)
@@ -1111,7 +1099,7 @@ Partial Class Form9
         Me.ComboBox38.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox38.FormattingEnabled = True
         Me.ComboBox38.Items.AddRange(New Object() {"LD3-46 /AKG", "LD3-46W/AKH", "PKx ", "-"})
-        Me.ComboBox38.Location = New System.Drawing.Point(132, 106)
+        Me.ComboBox38.Location = New System.Drawing.Point(128, 106)
         Me.ComboBox38.Name = "ComboBox38"
         Me.ComboBox38.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.ComboBox38.Size = New System.Drawing.Size(46, 21)
@@ -1122,7 +1110,7 @@ Partial Class Form9
         Me.TextBox50.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.TextBox50.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox50.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TextBox50.Location = New System.Drawing.Point(186, 110)
+        Me.TextBox50.Location = New System.Drawing.Point(182, 110)
         Me.TextBox50.Name = "TextBox50"
         Me.TextBox50.Size = New System.Drawing.Size(33, 13)
         Me.TextBox50.TabIndex = 42
@@ -1136,7 +1124,7 @@ Partial Class Form9
         Me.ComboBox39.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox39.FormattingEnabled = True
         Me.ComboBox39.Items.AddRange(New Object() {"TRANSIT", "ONLOAD"})
-        Me.ComboBox39.Location = New System.Drawing.Point(226, 106)
+        Me.ComboBox39.Location = New System.Drawing.Point(222, 106)
         Me.ComboBox39.Name = "ComboBox39"
         Me.ComboBox39.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.ComboBox39.Size = New System.Drawing.Size(51, 21)
@@ -1149,7 +1137,7 @@ Partial Class Form9
         Me.ComboBox40.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox40.FormattingEnabled = True
         Me.ComboBox40.Items.AddRange(New Object() {"AOG", "AVI", "BAL", "BED", "BEH", "BIG", "COM", "CSU", "DHS", "DIP", "EAT", "EIC", "FIL", "FKT", "HEA", "HEG", "HUM", "ICE", "LHO", "MAG ", "MOS ", "NIL", "OBX", "PEA", "PEF ", "PEM", "PEP", "PER", "PES", "RXS", "RFG", "RNG", "RFL", "RFS", "RSC", "RFW", "ROX", "ROP", "RIS", "RCM", "RMD", "SOC", "VAL", "WET ", "XPS", "-"})
-        Me.ComboBox40.Location = New System.Drawing.Point(285, 106)
+        Me.ComboBox40.Location = New System.Drawing.Point(281, 106)
         Me.ComboBox40.Name = "ComboBox40"
         Me.ComboBox40.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.ComboBox40.Size = New System.Drawing.Size(45, 21)
@@ -1160,7 +1148,7 @@ Partial Class Form9
         Me.TextBox51.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.TextBox51.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox51.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TextBox51.Location = New System.Drawing.Point(339, 110)
+        Me.TextBox51.Location = New System.Drawing.Point(335, 110)
         Me.TextBox51.Name = "TextBox51"
         Me.TextBox51.Size = New System.Drawing.Size(39, 13)
         Me.TextBox51.TabIndex = 45
@@ -1173,7 +1161,7 @@ Partial Class Form9
         Me.TextBox52.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox52.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TextBox52.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox52.Location = New System.Drawing.Point(412, 110)
+        Me.TextBox52.Location = New System.Drawing.Point(410, 110)
         Me.TextBox52.Name = "TextBox52"
         Me.TextBox52.Size = New System.Drawing.Size(62, 13)
         Me.TextBox52.TabIndex = 46
@@ -1280,7 +1268,7 @@ Partial Class Form9
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 58.0!))
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 51.0!))
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50.0!))
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 115.0!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 119.0!))
         Me.TableLayoutPanel3.Controls.Add(Me.TextBox28, 8, 2)
         Me.TableLayoutPanel3.Controls.Add(Me.TextBox29, 7, 2)
         Me.TableLayoutPanel3.Controls.Add(Me.ComboBox21, 6, 2)
@@ -1323,7 +1311,7 @@ Partial Class Form9
         Me.TextBox28.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox28.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TextBox28.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox28.Location = New System.Drawing.Point(412, 79)
+        Me.TextBox28.Location = New System.Drawing.Point(410, 79)
         Me.TextBox28.Name = "TextBox28"
         Me.TextBox28.Size = New System.Drawing.Size(62, 13)
         Me.TextBox28.TabIndex = 37
@@ -1334,7 +1322,7 @@ Partial Class Form9
         Me.TextBox29.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.TextBox29.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox29.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TextBox29.Location = New System.Drawing.Point(339, 79)
+        Me.TextBox29.Location = New System.Drawing.Point(335, 79)
         Me.TextBox29.Name = "TextBox29"
         Me.TextBox29.Size = New System.Drawing.Size(39, 13)
         Me.TextBox29.TabIndex = 36
@@ -1348,7 +1336,7 @@ Partial Class Form9
         Me.ComboBox21.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox21.FormattingEnabled = True
         Me.ComboBox21.Items.AddRange(New Object() {"AOG", "AVI", "BAL", "BED", "BEH", "BIG", "COM", "CSU", "DHS", "DIP", "EAT", "EIC", "FIL", "FKT", "HEA", "HEG", "HUM", "ICE", "LHO", "MAG ", "MOS ", "NIL", "OBX", "PEA", "PEF ", "PEM", "PEP", "PER", "PES", "RXS", "RFG", "RNG", "RFL", "RFS", "RSC", "RFW", "ROX", "ROP", "RIS", "RCM", "RMD", "SOC", "VAL", "WET ", "XPS", "-"})
-        Me.ComboBox21.Location = New System.Drawing.Point(285, 75)
+        Me.ComboBox21.Location = New System.Drawing.Point(281, 75)
         Me.ComboBox21.Name = "ComboBox21"
         Me.ComboBox21.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.ComboBox21.Size = New System.Drawing.Size(45, 21)
@@ -1361,7 +1349,7 @@ Partial Class Form9
         Me.ComboBox22.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox22.FormattingEnabled = True
         Me.ComboBox22.Items.AddRange(New Object() {"TRANSIT", "ONLOAD"})
-        Me.ComboBox22.Location = New System.Drawing.Point(226, 75)
+        Me.ComboBox22.Location = New System.Drawing.Point(222, 75)
         Me.ComboBox22.Name = "ComboBox22"
         Me.ComboBox22.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.ComboBox22.Size = New System.Drawing.Size(51, 21)
@@ -1372,7 +1360,7 @@ Partial Class Form9
         Me.TextBox30.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.TextBox30.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox30.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TextBox30.Location = New System.Drawing.Point(186, 79)
+        Me.TextBox30.Location = New System.Drawing.Point(182, 79)
         Me.TextBox30.Name = "TextBox30"
         Me.TextBox30.Size = New System.Drawing.Size(33, 13)
         Me.TextBox30.TabIndex = 33
@@ -1386,7 +1374,7 @@ Partial Class Form9
         Me.ComboBox23.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox23.FormattingEnabled = True
         Me.ComboBox23.Items.AddRange(New Object() {"LD3-46 /AKG", "LD3-46W/AKH", "PKx ", "-"})
-        Me.ComboBox23.Location = New System.Drawing.Point(132, 75)
+        Me.ComboBox23.Location = New System.Drawing.Point(128, 75)
         Me.ComboBox23.Name = "ComboBox23"
         Me.ComboBox23.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.ComboBox23.Size = New System.Drawing.Size(46, 21)
@@ -1399,7 +1387,7 @@ Partial Class Form9
         Me.ComboBox24.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox24.FormattingEnabled = True
         Me.ComboBox24.Items.AddRange(New Object() {"B", "C", "D", "E", "F", "H", "M", "N", "Q", "S", "T", "U", "W", "X", "Z"})
-        Me.ComboBox24.Location = New System.Drawing.Point(84, 75)
+        Me.ComboBox24.Location = New System.Drawing.Point(80, 75)
         Me.ComboBox24.Name = "ComboBox24"
         Me.ComboBox24.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.ComboBox24.Size = New System.Drawing.Size(36, 21)
@@ -1411,9 +1399,9 @@ Partial Class Form9
         Me.TextBox31.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox31.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TextBox31.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox31.Location = New System.Drawing.Point(48, 79)
+        Me.TextBox31.Location = New System.Drawing.Point(46, 79)
         Me.TextBox31.Name = "TextBox31"
-        Me.TextBox31.Size = New System.Drawing.Size(26, 13)
+        Me.TextBox31.Size = New System.Drawing.Size(24, 13)
         Me.TextBox31.TabIndex = 19
         Me.TextBox31.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -1421,9 +1409,9 @@ Partial Class Form9
         '
         Me.Label32.AutoSize = True
         Me.Label32.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label32.Location = New System.Drawing.Point(388, 1)
+        Me.Label32.Location = New System.Drawing.Point(384, 1)
         Me.Label32.Name = "Label32"
-        Me.Label32.Size = New System.Drawing.Size(110, 33)
+        Me.Label32.Size = New System.Drawing.Size(114, 33)
         Me.Label32.TabIndex = 29
         Me.Label32.Text = "Примечание"
         Me.Label32.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1434,7 +1422,7 @@ Partial Class Form9
         Me.TextBox32.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox32.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TextBox32.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox32.Location = New System.Drawing.Point(412, 45)
+        Me.TextBox32.Location = New System.Drawing.Point(410, 45)
         Me.TextBox32.Name = "TextBox32"
         Me.TextBox32.Size = New System.Drawing.Size(62, 13)
         Me.TextBox32.TabIndex = 19
@@ -1444,7 +1432,7 @@ Partial Class Form9
         '
         Me.Label33.AutoSize = True
         Me.Label33.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label33.Location = New System.Drawing.Point(337, 1)
+        Me.Label33.Location = New System.Drawing.Point(333, 1)
         Me.Label33.Name = "Label33"
         Me.Label33.Size = New System.Drawing.Size(44, 33)
         Me.Label33.TabIndex = 28
@@ -1458,7 +1446,7 @@ Partial Class Form9
         Me.ComboBox25.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox25.FormattingEnabled = True
         Me.ComboBox25.Items.AddRange(New Object() {"AOG", "AVI", "BAL", "BED", "BEH", "BIG", "COM", "CSU", "DHS", "DIP", "EAT", "EIC", "FIL", "FKT", "HEA", "HEG", "HUM", "ICE", "LHO", "MAG ", "MOS ", "NIL", "OBX", "PEA", "PEF ", "PEM", "PEP", "PER", "PES", "RXS", "RFG", "RNG", "RFL", "RFS", "RSC", "RFW", "ROX", "ROP", "RIS", "RCM", "RMD", "SOC", "VAL", "WET ", "XPS", "-"})
-        Me.ComboBox25.Location = New System.Drawing.Point(285, 41)
+        Me.ComboBox25.Location = New System.Drawing.Point(281, 41)
         Me.ComboBox25.Name = "ComboBox25"
         Me.ComboBox25.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.ComboBox25.Size = New System.Drawing.Size(45, 21)
@@ -1469,7 +1457,7 @@ Partial Class Form9
         Me.TextBox34.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.TextBox34.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox34.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TextBox34.Location = New System.Drawing.Point(339, 45)
+        Me.TextBox34.Location = New System.Drawing.Point(335, 45)
         Me.TextBox34.Name = "TextBox34"
         Me.TextBox34.Size = New System.Drawing.Size(39, 13)
         Me.TextBox34.TabIndex = 19
@@ -1480,7 +1468,7 @@ Partial Class Form9
         '
         Me.Label34.AutoSize = True
         Me.Label34.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label34.Location = New System.Drawing.Point(226, 1)
+        Me.Label34.Location = New System.Drawing.Point(222, 1)
         Me.Label34.Name = "Label34"
         Me.Label34.Size = New System.Drawing.Size(52, 33)
         Me.Label34.TabIndex = 26
@@ -1493,7 +1481,7 @@ Partial Class Form9
         Me.Label35.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label35.Location = New System.Drawing.Point(4, 1)
         Me.Label35.Name = "Label35"
-        Me.Label35.Size = New System.Drawing.Size(37, 33)
+        Me.Label35.Size = New System.Drawing.Size(35, 33)
         Me.Label35.TabIndex = 17
         Me.Label35.Text = "Номер позиции"
         Me.Label35.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1504,7 +1492,7 @@ Partial Class Form9
         Me.Label36.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label36.Location = New System.Drawing.Point(4, 35)
         Me.Label36.Name = "Label36"
-        Me.Label36.Size = New System.Drawing.Size(37, 33)
+        Me.Label36.Size = New System.Drawing.Size(35, 33)
         Me.Label36.TabIndex = 15
         Me.Label36.Text = "41"
         Me.Label36.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1513,9 +1501,9 @@ Partial Class Form9
         '
         Me.Label38.AutoSize = True
         Me.Label38.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label38.Location = New System.Drawing.Point(48, 1)
+        Me.Label38.Location = New System.Drawing.Point(46, 1)
         Me.Label38.Name = "Label38"
-        Me.Label38.Size = New System.Drawing.Size(26, 33)
+        Me.Label38.Size = New System.Drawing.Size(24, 33)
         Me.Label38.TabIndex = 16
         Me.Label38.Text = "Назначение"
         Me.Label38.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1526,9 +1514,9 @@ Partial Class Form9
         Me.TextBox35.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox35.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TextBox35.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox35.Location = New System.Drawing.Point(48, 45)
+        Me.TextBox35.Location = New System.Drawing.Point(46, 45)
         Me.TextBox35.Name = "TextBox35"
-        Me.TextBox35.Size = New System.Drawing.Size(26, 13)
+        Me.TextBox35.Size = New System.Drawing.Size(24, 13)
         Me.TextBox35.TabIndex = 18
         Me.TextBox35.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -1536,7 +1524,7 @@ Partial Class Form9
         '
         Me.Label39.AutoSize = True
         Me.Label39.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label39.Location = New System.Drawing.Point(81, 1)
+        Me.Label39.Location = New System.Drawing.Point(77, 1)
         Me.Label39.Name = "Label39"
         Me.Label39.Size = New System.Drawing.Size(43, 33)
         Me.Label39.TabIndex = 19
@@ -1550,7 +1538,7 @@ Partial Class Form9
         Me.ComboBox26.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox26.FormattingEnabled = True
         Me.ComboBox26.Items.AddRange(New Object() {"B", "C", "D", "E", "F", "H", "M", "N", "Q", "S", "T", "U", "W", "X", "Z"})
-        Me.ComboBox26.Location = New System.Drawing.Point(84, 41)
+        Me.ComboBox26.Location = New System.Drawing.Point(80, 41)
         Me.ComboBox26.Name = "ComboBox26"
         Me.ComboBox26.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.ComboBox26.Size = New System.Drawing.Size(36, 21)
@@ -1560,7 +1548,7 @@ Partial Class Form9
         '
         Me.Label40.AutoSize = True
         Me.Label40.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label40.Location = New System.Drawing.Point(131, 1)
+        Me.Label40.Location = New System.Drawing.Point(127, 1)
         Me.Label40.Name = "Label40"
         Me.Label40.Size = New System.Drawing.Size(48, 33)
         Me.Label40.TabIndex = 21
@@ -1574,7 +1562,7 @@ Partial Class Form9
         Me.ComboBox27.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox27.FormattingEnabled = True
         Me.ComboBox27.Items.AddRange(New Object() {"LD3-46 /AKG", "LD3-46W/AKH", "PKx ", "-"})
-        Me.ComboBox27.Location = New System.Drawing.Point(132, 41)
+        Me.ComboBox27.Location = New System.Drawing.Point(128, 41)
         Me.ComboBox27.Name = "ComboBox27"
         Me.ComboBox27.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.ComboBox27.Size = New System.Drawing.Size(46, 21)
@@ -1584,7 +1572,7 @@ Partial Class Form9
         '
         Me.Label41.AutoSize = True
         Me.Label41.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label41.Location = New System.Drawing.Point(186, 1)
+        Me.Label41.Location = New System.Drawing.Point(182, 1)
         Me.Label41.Name = "Label41"
         Me.Label41.Size = New System.Drawing.Size(33, 33)
         Me.Label41.TabIndex = 23
@@ -1596,7 +1584,7 @@ Partial Class Form9
         Me.TextBox36.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.TextBox36.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox36.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TextBox36.Location = New System.Drawing.Point(186, 45)
+        Me.TextBox36.Location = New System.Drawing.Point(182, 45)
         Me.TextBox36.Name = "TextBox36"
         Me.TextBox36.Size = New System.Drawing.Size(33, 13)
         Me.TextBox36.TabIndex = 24
@@ -1610,7 +1598,7 @@ Partial Class Form9
         Me.ComboBox28.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox28.FormattingEnabled = True
         Me.ComboBox28.Items.AddRange(New Object() {"TRANSIT", "ONLOAD"})
-        Me.ComboBox28.Location = New System.Drawing.Point(226, 41)
+        Me.ComboBox28.Location = New System.Drawing.Point(222, 41)
         Me.ComboBox28.Name = "ComboBox28"
         Me.ComboBox28.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.ComboBox28.Size = New System.Drawing.Size(51, 21)
@@ -1620,7 +1608,7 @@ Partial Class Form9
         '
         Me.Label42.AutoSize = True
         Me.Label42.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label42.Location = New System.Drawing.Point(285, 1)
+        Me.Label42.Location = New System.Drawing.Point(281, 1)
         Me.Label42.Name = "Label42"
         Me.Label42.Size = New System.Drawing.Size(45, 33)
         Me.Label42.TabIndex = 27
@@ -1633,7 +1621,7 @@ Partial Class Form9
         Me.Label43.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label43.Location = New System.Drawing.Point(4, 69)
         Me.Label43.Name = "Label43"
-        Me.Label43.Size = New System.Drawing.Size(37, 33)
+        Me.Label43.Size = New System.Drawing.Size(35, 33)
         Me.Label43.TabIndex = 30
         Me.Label43.Text = "42"
         Me.Label43.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1739,7 +1727,7 @@ Partial Class Form9
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 58.0!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 51.0!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50.0!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 115.0!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 119.0!))
         Me.TableLayoutPanel2.Controls.Add(Me.TextBox19, 8, 2)
         Me.TableLayoutPanel2.Controls.Add(Me.TextBox20, 7, 2)
         Me.TableLayoutPanel2.Controls.Add(Me.ComboBox13, 6, 2)
@@ -1782,7 +1770,7 @@ Partial Class Form9
         Me.TextBox19.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox19.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TextBox19.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox19.Location = New System.Drawing.Point(412, 70)
+        Me.TextBox19.Location = New System.Drawing.Point(410, 70)
         Me.TextBox19.Name = "TextBox19"
         Me.TextBox19.Size = New System.Drawing.Size(62, 13)
         Me.TextBox19.TabIndex = 37
@@ -1793,7 +1781,7 @@ Partial Class Form9
         Me.TextBox20.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.TextBox20.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox20.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TextBox20.Location = New System.Drawing.Point(339, 70)
+        Me.TextBox20.Location = New System.Drawing.Point(335, 70)
         Me.TextBox20.Name = "TextBox20"
         Me.TextBox20.Size = New System.Drawing.Size(39, 13)
         Me.TextBox20.TabIndex = 36
@@ -1807,7 +1795,7 @@ Partial Class Form9
         Me.ComboBox13.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox13.FormattingEnabled = True
         Me.ComboBox13.Items.AddRange(New Object() {"AOG", "AVI", "BAL", "BED", "BEH", "BIG", "COM", "CSU", "DHS", "DIP", "EAT", "EIC", "FIL", "FKT", "HEA", "HEG", "HUM", "ICE", "LHO", "MAG ", "MOS ", "NIL", "OBX", "PEA", "PEF ", "PEM", "PEP", "PER", "PES", "RXS", "RFG", "RNG", "RFL", "RFS", "RSC", "RFW", "ROX", "ROP", "RIS", "RCM", "RMD", "SOC", "VAL", "WET ", "XPS", "-"})
-        Me.ComboBox13.Location = New System.Drawing.Point(285, 66)
+        Me.ComboBox13.Location = New System.Drawing.Point(281, 66)
         Me.ComboBox13.Name = "ComboBox13"
         Me.ComboBox13.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.ComboBox13.Size = New System.Drawing.Size(45, 21)
@@ -1820,7 +1808,7 @@ Partial Class Form9
         Me.ComboBox14.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox14.FormattingEnabled = True
         Me.ComboBox14.Items.AddRange(New Object() {"TRANSIT", "ONLOAD"})
-        Me.ComboBox14.Location = New System.Drawing.Point(226, 66)
+        Me.ComboBox14.Location = New System.Drawing.Point(222, 66)
         Me.ComboBox14.Name = "ComboBox14"
         Me.ComboBox14.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.ComboBox14.Size = New System.Drawing.Size(51, 21)
@@ -1831,7 +1819,7 @@ Partial Class Form9
         Me.TextBox21.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.TextBox21.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox21.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TextBox21.Location = New System.Drawing.Point(186, 70)
+        Me.TextBox21.Location = New System.Drawing.Point(182, 70)
         Me.TextBox21.Name = "TextBox21"
         Me.TextBox21.Size = New System.Drawing.Size(33, 13)
         Me.TextBox21.TabIndex = 33
@@ -1845,7 +1833,7 @@ Partial Class Form9
         Me.ComboBox15.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox15.FormattingEnabled = True
         Me.ComboBox15.Items.AddRange(New Object() {"LD3-46 /AKG", "LD3-46W/AKH", "PKx ", "-"})
-        Me.ComboBox15.Location = New System.Drawing.Point(132, 66)
+        Me.ComboBox15.Location = New System.Drawing.Point(128, 66)
         Me.ComboBox15.Name = "ComboBox15"
         Me.ComboBox15.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.ComboBox15.Size = New System.Drawing.Size(46, 21)
@@ -1858,7 +1846,7 @@ Partial Class Form9
         Me.ComboBox16.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox16.FormattingEnabled = True
         Me.ComboBox16.Items.AddRange(New Object() {"B", "C", "D", "E", "F", "H", "M", "N", "Q", "S", "T", "U", "W", "X", "Z"})
-        Me.ComboBox16.Location = New System.Drawing.Point(84, 66)
+        Me.ComboBox16.Location = New System.Drawing.Point(80, 66)
         Me.ComboBox16.Name = "ComboBox16"
         Me.ComboBox16.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.ComboBox16.Size = New System.Drawing.Size(36, 21)
@@ -1870,9 +1858,9 @@ Partial Class Form9
         Me.TextBox22.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox22.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TextBox22.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox22.Location = New System.Drawing.Point(48, 70)
+        Me.TextBox22.Location = New System.Drawing.Point(46, 70)
         Me.TextBox22.Name = "TextBox22"
-        Me.TextBox22.Size = New System.Drawing.Size(26, 13)
+        Me.TextBox22.Size = New System.Drawing.Size(24, 13)
         Me.TextBox22.TabIndex = 19
         Me.TextBox22.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -1880,9 +1868,9 @@ Partial Class Form9
         '
         Me.Label21.AutoSize = True
         Me.Label21.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label21.Location = New System.Drawing.Point(388, 1)
+        Me.Label21.Location = New System.Drawing.Point(384, 1)
         Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(110, 29)
+        Me.Label21.Size = New System.Drawing.Size(114, 29)
         Me.Label21.TabIndex = 29
         Me.Label21.Text = "Примечание"
         Me.Label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1893,7 +1881,7 @@ Partial Class Form9
         Me.TextBox23.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox23.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TextBox23.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox23.Location = New System.Drawing.Point(412, 39)
+        Me.TextBox23.Location = New System.Drawing.Point(410, 39)
         Me.TextBox23.Name = "TextBox23"
         Me.TextBox23.Size = New System.Drawing.Size(62, 13)
         Me.TextBox23.TabIndex = 19
@@ -1903,7 +1891,7 @@ Partial Class Form9
         '
         Me.Label22.AutoSize = True
         Me.Label22.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label22.Location = New System.Drawing.Point(337, 1)
+        Me.Label22.Location = New System.Drawing.Point(333, 1)
         Me.Label22.Name = "Label22"
         Me.Label22.Size = New System.Drawing.Size(44, 29)
         Me.Label22.TabIndex = 28
@@ -1917,7 +1905,7 @@ Partial Class Form9
         Me.ComboBox17.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox17.FormattingEnabled = True
         Me.ComboBox17.Items.AddRange(New Object() {"AOG", "AVI", "BAL", "BED", "BEH", "BIG", "COM", "CSU", "DHS", "DIP", "EAT", "EIC", "FIL", "FKT", "HEA", "HEG", "HUM", "ICE", "LHO", "MAG ", "MOS ", "NIL", "OBX", "PEA", "PEF ", "PEM", "PEP", "PER", "PES", "RXS", "RFG", "RNG", "RFL", "RFS", "RSC", "RFW", "ROX", "ROP", "RIS", "RCM", "RMD", "SOC", "VAL", "WET ", "XPS", "-"})
-        Me.ComboBox17.Location = New System.Drawing.Point(285, 35)
+        Me.ComboBox17.Location = New System.Drawing.Point(281, 35)
         Me.ComboBox17.Name = "ComboBox17"
         Me.ComboBox17.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.ComboBox17.Size = New System.Drawing.Size(45, 21)
@@ -1928,7 +1916,7 @@ Partial Class Form9
         Me.TextBox24.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.TextBox24.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox24.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TextBox24.Location = New System.Drawing.Point(339, 39)
+        Me.TextBox24.Location = New System.Drawing.Point(335, 39)
         Me.TextBox24.Name = "TextBox24"
         Me.TextBox24.Size = New System.Drawing.Size(39, 13)
         Me.TextBox24.TabIndex = 19
@@ -1939,7 +1927,7 @@ Partial Class Form9
         '
         Me.Label23.AutoSize = True
         Me.Label23.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label23.Location = New System.Drawing.Point(226, 1)
+        Me.Label23.Location = New System.Drawing.Point(222, 1)
         Me.Label23.Name = "Label23"
         Me.Label23.Size = New System.Drawing.Size(52, 29)
         Me.Label23.TabIndex = 26
@@ -1952,7 +1940,7 @@ Partial Class Form9
         Me.Label24.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label24.Location = New System.Drawing.Point(4, 1)
         Me.Label24.Name = "Label24"
-        Me.Label24.Size = New System.Drawing.Size(37, 29)
+        Me.Label24.Size = New System.Drawing.Size(35, 29)
         Me.Label24.TabIndex = 17
         Me.Label24.Text = "Номер позиции"
         Me.Label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1963,7 +1951,7 @@ Partial Class Form9
         Me.Label25.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label25.Location = New System.Drawing.Point(4, 31)
         Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(37, 29)
+        Me.Label25.Size = New System.Drawing.Size(35, 29)
         Me.Label25.TabIndex = 15
         Me.Label25.Text = "31"
         Me.Label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1972,9 +1960,9 @@ Partial Class Form9
         '
         Me.Label26.AutoSize = True
         Me.Label26.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label26.Location = New System.Drawing.Point(48, 1)
+        Me.Label26.Location = New System.Drawing.Point(46, 1)
         Me.Label26.Name = "Label26"
-        Me.Label26.Size = New System.Drawing.Size(26, 29)
+        Me.Label26.Size = New System.Drawing.Size(24, 29)
         Me.Label26.TabIndex = 16
         Me.Label26.Text = "Назначение"
         Me.Label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1985,9 +1973,9 @@ Partial Class Form9
         Me.TextBox25.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox25.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TextBox25.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox25.Location = New System.Drawing.Point(48, 39)
+        Me.TextBox25.Location = New System.Drawing.Point(46, 39)
         Me.TextBox25.Name = "TextBox25"
-        Me.TextBox25.Size = New System.Drawing.Size(26, 13)
+        Me.TextBox25.Size = New System.Drawing.Size(24, 13)
         Me.TextBox25.TabIndex = 18
         Me.TextBox25.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -1995,7 +1983,7 @@ Partial Class Form9
         '
         Me.Label27.AutoSize = True
         Me.Label27.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label27.Location = New System.Drawing.Point(81, 1)
+        Me.Label27.Location = New System.Drawing.Point(77, 1)
         Me.Label27.Name = "Label27"
         Me.Label27.Size = New System.Drawing.Size(43, 29)
         Me.Label27.TabIndex = 19
@@ -2009,7 +1997,7 @@ Partial Class Form9
         Me.ComboBox18.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox18.FormattingEnabled = True
         Me.ComboBox18.Items.AddRange(New Object() {"B", "C", "D", "E", "F", "H", "M", "N", "Q", "S", "T", "U", "W", "X", "Z"})
-        Me.ComboBox18.Location = New System.Drawing.Point(84, 35)
+        Me.ComboBox18.Location = New System.Drawing.Point(80, 35)
         Me.ComboBox18.Name = "ComboBox18"
         Me.ComboBox18.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.ComboBox18.Size = New System.Drawing.Size(36, 21)
@@ -2019,7 +2007,7 @@ Partial Class Form9
         '
         Me.Label28.AutoSize = True
         Me.Label28.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label28.Location = New System.Drawing.Point(131, 1)
+        Me.Label28.Location = New System.Drawing.Point(127, 1)
         Me.Label28.Name = "Label28"
         Me.Label28.Size = New System.Drawing.Size(48, 29)
         Me.Label28.TabIndex = 21
@@ -2033,7 +2021,7 @@ Partial Class Form9
         Me.ComboBox19.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox19.FormattingEnabled = True
         Me.ComboBox19.Items.AddRange(New Object() {"LD3-46 /AKG", "LD3-46W/AKH", "PKx ", "-"})
-        Me.ComboBox19.Location = New System.Drawing.Point(132, 35)
+        Me.ComboBox19.Location = New System.Drawing.Point(128, 35)
         Me.ComboBox19.Name = "ComboBox19"
         Me.ComboBox19.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.ComboBox19.Size = New System.Drawing.Size(46, 21)
@@ -2043,7 +2031,7 @@ Partial Class Form9
         '
         Me.Label29.AutoSize = True
         Me.Label29.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label29.Location = New System.Drawing.Point(186, 1)
+        Me.Label29.Location = New System.Drawing.Point(182, 1)
         Me.Label29.Name = "Label29"
         Me.Label29.Size = New System.Drawing.Size(33, 29)
         Me.Label29.TabIndex = 23
@@ -2055,7 +2043,7 @@ Partial Class Form9
         Me.TextBox26.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.TextBox26.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox26.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TextBox26.Location = New System.Drawing.Point(186, 39)
+        Me.TextBox26.Location = New System.Drawing.Point(182, 39)
         Me.TextBox26.Name = "TextBox26"
         Me.TextBox26.Size = New System.Drawing.Size(33, 13)
         Me.TextBox26.TabIndex = 24
@@ -2069,7 +2057,7 @@ Partial Class Form9
         Me.ComboBox20.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox20.FormattingEnabled = True
         Me.ComboBox20.Items.AddRange(New Object() {"TRANSIT", "ONLOAD"})
-        Me.ComboBox20.Location = New System.Drawing.Point(226, 35)
+        Me.ComboBox20.Location = New System.Drawing.Point(222, 35)
         Me.ComboBox20.Name = "ComboBox20"
         Me.ComboBox20.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.ComboBox20.Size = New System.Drawing.Size(51, 21)
@@ -2079,7 +2067,7 @@ Partial Class Form9
         '
         Me.Label30.AutoSize = True
         Me.Label30.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label30.Location = New System.Drawing.Point(285, 1)
+        Me.Label30.Location = New System.Drawing.Point(281, 1)
         Me.Label30.Name = "Label30"
         Me.Label30.Size = New System.Drawing.Size(45, 29)
         Me.Label30.TabIndex = 27
@@ -2092,7 +2080,7 @@ Partial Class Form9
         Me.Label31.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label31.Location = New System.Drawing.Point(4, 61)
         Me.Label31.Name = "Label31"
-        Me.Label31.Size = New System.Drawing.Size(37, 31)
+        Me.Label31.Size = New System.Drawing.Size(35, 31)
         Me.Label31.TabIndex = 30
         Me.Label31.Text = "32"
         Me.Label31.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -2198,7 +2186,7 @@ Partial Class Form9
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 58.0!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 51.0!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 114.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 117.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.TextBox15, 0, 3)
         Me.TableLayoutPanel1.Controls.Add(Me.Label20, 0, 3)
         Me.TableLayoutPanel1.Controls.Add(Me.TextBox14, 8, 2)
@@ -2251,9 +2239,9 @@ Partial Class Form9
         Me.TextBox15.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox15.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TextBox15.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox15.Location = New System.Drawing.Point(51, 109)
+        Me.TextBox15.Location = New System.Drawing.Point(49, 109)
         Me.TextBox15.Name = "TextBox15"
-        Me.TextBox15.Size = New System.Drawing.Size(24, 13)
+        Me.TextBox15.Size = New System.Drawing.Size(23, 13)
         Me.TextBox15.TabIndex = 40
         Me.TextBox15.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -2263,7 +2251,7 @@ Partial Class Form9
         Me.Label20.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label20.Location = New System.Drawing.Point(4, 100)
         Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(40, 31)
+        Me.Label20.Size = New System.Drawing.Size(38, 31)
         Me.Label20.TabIndex = 38
         Me.Label20.Text = "13"
         Me.Label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -2274,7 +2262,7 @@ Partial Class Form9
         Me.TextBox14.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox14.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TextBox14.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox14.Location = New System.Drawing.Point(412, 76)
+        Me.TextBox14.Location = New System.Drawing.Point(411, 76)
         Me.TextBox14.Name = "TextBox14"
         Me.TextBox14.Size = New System.Drawing.Size(62, 13)
         Me.TextBox14.TabIndex = 37
@@ -2285,7 +2273,7 @@ Partial Class Form9
         Me.TextBox13.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.TextBox13.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox13.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TextBox13.Location = New System.Drawing.Point(340, 76)
+        Me.TextBox13.Location = New System.Drawing.Point(337, 76)
         Me.TextBox13.Name = "TextBox13"
         Me.TextBox13.Size = New System.Drawing.Size(39, 13)
         Me.TextBox13.TabIndex = 36
@@ -2299,7 +2287,7 @@ Partial Class Form9
         Me.ComboBox8.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox8.FormattingEnabled = True
         Me.ComboBox8.Items.AddRange(New Object() {"AOG", "AVI", "BAL", "BED", "BEH", "BIG", "COM", "CSU", "DHS", "DIP", "EAT", "EIC", "FIL", "FKT", "HEA", "HEG", "HUM", "ICE", "LHO", "MAG ", "MOS ", "NIL", "OBX", "PEA", "PEF ", "PEM", "PEP", "PER", "PES", "RXS", "RFG", "RNG", "RFL", "RFS", "RSC", "RFW", "ROX", "ROP", "RIS", "RCM", "RMD", "SOC", "VAL", "WET ", "XPS", "-"})
-        Me.ComboBox8.Location = New System.Drawing.Point(286, 72)
+        Me.ComboBox8.Location = New System.Drawing.Point(283, 72)
         Me.ComboBox8.Name = "ComboBox8"
         Me.ComboBox8.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.ComboBox8.Size = New System.Drawing.Size(45, 21)
@@ -2312,7 +2300,7 @@ Partial Class Form9
         Me.ComboBox7.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox7.FormattingEnabled = True
         Me.ComboBox7.Items.AddRange(New Object() {"TRANSIT", "ONLOAD"})
-        Me.ComboBox7.Location = New System.Drawing.Point(227, 72)
+        Me.ComboBox7.Location = New System.Drawing.Point(224, 72)
         Me.ComboBox7.Name = "ComboBox7"
         Me.ComboBox7.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.ComboBox7.Size = New System.Drawing.Size(51, 21)
@@ -2323,7 +2311,7 @@ Partial Class Form9
         Me.TextBox12.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.TextBox12.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox12.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TextBox12.Location = New System.Drawing.Point(187, 76)
+        Me.TextBox12.Location = New System.Drawing.Point(184, 76)
         Me.TextBox12.Name = "TextBox12"
         Me.TextBox12.Size = New System.Drawing.Size(33, 13)
         Me.TextBox12.TabIndex = 33
@@ -2337,7 +2325,7 @@ Partial Class Form9
         Me.ComboBox6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox6.FormattingEnabled = True
         Me.ComboBox6.Items.AddRange(New Object() {"LD3-46 /AKG", "LD3-46W/AKH", "PKx ", "-"})
-        Me.ComboBox6.Location = New System.Drawing.Point(133, 72)
+        Me.ComboBox6.Location = New System.Drawing.Point(130, 72)
         Me.ComboBox6.Name = "ComboBox6"
         Me.ComboBox6.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.ComboBox6.Size = New System.Drawing.Size(46, 21)
@@ -2350,7 +2338,7 @@ Partial Class Form9
         Me.ComboBox5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox5.FormattingEnabled = True
         Me.ComboBox5.Items.AddRange(New Object() {"B", "C", "D", "E", "F", "H", "M", "N", "Q", "S", "T", "U", "W", "X", "Z"})
-        Me.ComboBox5.Location = New System.Drawing.Point(85, 72)
+        Me.ComboBox5.Location = New System.Drawing.Point(82, 72)
         Me.ComboBox5.Name = "ComboBox5"
         Me.ComboBox5.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.ComboBox5.Size = New System.Drawing.Size(36, 21)
@@ -2362,9 +2350,9 @@ Partial Class Form9
         Me.TextBox11.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox11.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TextBox11.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox11.Location = New System.Drawing.Point(51, 76)
+        Me.TextBox11.Location = New System.Drawing.Point(49, 76)
         Me.TextBox11.Name = "TextBox11"
-        Me.TextBox11.Size = New System.Drawing.Size(24, 13)
+        Me.TextBox11.Size = New System.Drawing.Size(23, 13)
         Me.TextBox11.TabIndex = 19
         Me.TextBox11.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -2372,9 +2360,9 @@ Partial Class Form9
         '
         Me.Label18.AutoSize = True
         Me.Label18.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label18.Location = New System.Drawing.Point(389, 1)
+        Me.Label18.Location = New System.Drawing.Point(386, 1)
         Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(109, 32)
+        Me.Label18.Size = New System.Drawing.Size(112, 32)
         Me.Label18.TabIndex = 29
         Me.Label18.Text = "Примечание"
         Me.Label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -2385,7 +2373,7 @@ Partial Class Form9
         Me.TextBox9.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox9.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TextBox9.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox9.Location = New System.Drawing.Point(412, 43)
+        Me.TextBox9.Location = New System.Drawing.Point(411, 43)
         Me.TextBox9.Name = "TextBox9"
         Me.TextBox9.Size = New System.Drawing.Size(62, 13)
         Me.TextBox9.TabIndex = 19
@@ -2395,7 +2383,7 @@ Partial Class Form9
         '
         Me.Label17.AutoSize = True
         Me.Label17.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label17.Location = New System.Drawing.Point(338, 1)
+        Me.Label17.Location = New System.Drawing.Point(335, 1)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(44, 32)
         Me.Label17.TabIndex = 28
@@ -2409,7 +2397,7 @@ Partial Class Form9
         Me.ComboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox4.FormattingEnabled = True
         Me.ComboBox4.Items.AddRange(New Object() {"AOG", "AVI", "BAL", "BED", "BEH", "BIG", "COM", "CSU", "DHS", "DIP", "EAT", "EIC", "FIL", "FKT", "HEA", "HEG", "HUM", "ICE", "LHO", "MAG ", "MOS ", "NIL", "OBX", "PEA", "PEF ", "PEM", "PEP", "PER", "PES", "RXS", "RFG", "RNG", "RFL", "RFS", "RSC", "RFW", "ROX", "ROP", "RIS", "RCM", "RMD", "SOC", "VAL", "WET ", "XPS", "-"})
-        Me.ComboBox4.Location = New System.Drawing.Point(286, 39)
+        Me.ComboBox4.Location = New System.Drawing.Point(283, 39)
         Me.ComboBox4.Name = "ComboBox4"
         Me.ComboBox4.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.ComboBox4.Size = New System.Drawing.Size(45, 21)
@@ -2420,7 +2408,7 @@ Partial Class Form9
         Me.TextBox10.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.TextBox10.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox10.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TextBox10.Location = New System.Drawing.Point(340, 43)
+        Me.TextBox10.Location = New System.Drawing.Point(337, 43)
         Me.TextBox10.Name = "TextBox10"
         Me.TextBox10.Size = New System.Drawing.Size(39, 13)
         Me.TextBox10.TabIndex = 19
@@ -2431,7 +2419,7 @@ Partial Class Form9
         '
         Me.Label15.AutoSize = True
         Me.Label15.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label15.Location = New System.Drawing.Point(227, 1)
+        Me.Label15.Location = New System.Drawing.Point(224, 1)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(52, 32)
         Me.Label15.TabIndex = 26
@@ -2444,7 +2432,7 @@ Partial Class Form9
         Me.Label11.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label11.Location = New System.Drawing.Point(4, 1)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(40, 32)
+        Me.Label11.Size = New System.Drawing.Size(38, 32)
         Me.Label11.TabIndex = 17
         Me.Label11.Text = "Номер позиции"
         Me.Label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -2455,7 +2443,7 @@ Partial Class Form9
         Me.Label9.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label9.Location = New System.Drawing.Point(4, 34)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(40, 32)
+        Me.Label9.Size = New System.Drawing.Size(38, 32)
         Me.Label9.TabIndex = 15
         Me.Label9.Text = "11"
         Me.Label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -2464,9 +2452,9 @@ Partial Class Form9
         '
         Me.Label10.AutoSize = True
         Me.Label10.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label10.Location = New System.Drawing.Point(51, 1)
+        Me.Label10.Location = New System.Drawing.Point(49, 1)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(24, 32)
+        Me.Label10.Size = New System.Drawing.Size(23, 32)
         Me.Label10.TabIndex = 16
         Me.Label10.Text = "Назначение"
         Me.Label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -2477,9 +2465,9 @@ Partial Class Form9
         Me.TextBox7.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox7.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TextBox7.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox7.Location = New System.Drawing.Point(51, 43)
+        Me.TextBox7.Location = New System.Drawing.Point(49, 43)
         Me.TextBox7.Name = "TextBox7"
-        Me.TextBox7.Size = New System.Drawing.Size(24, 13)
+        Me.TextBox7.Size = New System.Drawing.Size(23, 13)
         Me.TextBox7.TabIndex = 18
         Me.TextBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -2487,7 +2475,7 @@ Partial Class Form9
         '
         Me.Label12.AutoSize = True
         Me.Label12.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label12.Location = New System.Drawing.Point(82, 1)
+        Me.Label12.Location = New System.Drawing.Point(79, 1)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(43, 32)
         Me.Label12.TabIndex = 19
@@ -2501,7 +2489,7 @@ Partial Class Form9
         Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Items.AddRange(New Object() {"B", "C", "D", "E", "F", "H", "M", "N", "Q", "S", "T", "U", "W", "X", "Z"})
-        Me.ComboBox1.Location = New System.Drawing.Point(85, 39)
+        Me.ComboBox1.Location = New System.Drawing.Point(82, 39)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.ComboBox1.Size = New System.Drawing.Size(36, 21)
@@ -2511,7 +2499,7 @@ Partial Class Form9
         '
         Me.Label13.AutoSize = True
         Me.Label13.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label13.Location = New System.Drawing.Point(132, 1)
+        Me.Label13.Location = New System.Drawing.Point(129, 1)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(48, 32)
         Me.Label13.TabIndex = 21
@@ -2525,7 +2513,7 @@ Partial Class Form9
         Me.ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox2.FormattingEnabled = True
         Me.ComboBox2.Items.AddRange(New Object() {"LD3-46 /AKG", "LD3-46W/AKH", "PKx ", "-"})
-        Me.ComboBox2.Location = New System.Drawing.Point(133, 39)
+        Me.ComboBox2.Location = New System.Drawing.Point(130, 39)
         Me.ComboBox2.Name = "ComboBox2"
         Me.ComboBox2.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.ComboBox2.Size = New System.Drawing.Size(46, 21)
@@ -2535,7 +2523,7 @@ Partial Class Form9
         '
         Me.Label14.AutoSize = True
         Me.Label14.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label14.Location = New System.Drawing.Point(187, 1)
+        Me.Label14.Location = New System.Drawing.Point(184, 1)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(33, 32)
         Me.Label14.TabIndex = 23
@@ -2547,7 +2535,7 @@ Partial Class Form9
         Me.TextBox8.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.TextBox8.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox8.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TextBox8.Location = New System.Drawing.Point(187, 43)
+        Me.TextBox8.Location = New System.Drawing.Point(184, 43)
         Me.TextBox8.Name = "TextBox8"
         Me.TextBox8.Size = New System.Drawing.Size(33, 13)
         Me.TextBox8.TabIndex = 24
@@ -2561,7 +2549,7 @@ Partial Class Form9
         Me.ComboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox3.FormattingEnabled = True
         Me.ComboBox3.Items.AddRange(New Object() {"TRANSIT", "ONLOAD"})
-        Me.ComboBox3.Location = New System.Drawing.Point(227, 39)
+        Me.ComboBox3.Location = New System.Drawing.Point(224, 39)
         Me.ComboBox3.Name = "ComboBox3"
         Me.ComboBox3.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.ComboBox3.Size = New System.Drawing.Size(51, 21)
@@ -2571,7 +2559,7 @@ Partial Class Form9
         '
         Me.Label16.AutoSize = True
         Me.Label16.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label16.Location = New System.Drawing.Point(286, 1)
+        Me.Label16.Location = New System.Drawing.Point(283, 1)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(45, 32)
         Me.Label16.TabIndex = 27
@@ -2584,7 +2572,7 @@ Partial Class Form9
         Me.Label19.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label19.Location = New System.Drawing.Point(4, 67)
         Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(40, 32)
+        Me.Label19.Size = New System.Drawing.Size(38, 32)
         Me.Label19.TabIndex = 30
         Me.Label19.Text = "12"
         Me.Label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -2596,7 +2584,7 @@ Partial Class Form9
         Me.ComboBox9.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox9.FormattingEnabled = True
         Me.ComboBox9.Items.AddRange(New Object() {"B", "C", "D", "E", "F", "H", "M", "N", "Q", "S", "T", "U", "W", "X", "Z"})
-        Me.ComboBox9.Location = New System.Drawing.Point(85, 105)
+        Me.ComboBox9.Location = New System.Drawing.Point(82, 105)
         Me.ComboBox9.Name = "ComboBox9"
         Me.ComboBox9.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.ComboBox9.Size = New System.Drawing.Size(36, 21)
@@ -2609,7 +2597,7 @@ Partial Class Form9
         Me.ComboBox10.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox10.FormattingEnabled = True
         Me.ComboBox10.Items.AddRange(New Object() {"LD3-46 /AKG", "LD3-46W/AKH", "PKx ", "-"})
-        Me.ComboBox10.Location = New System.Drawing.Point(133, 105)
+        Me.ComboBox10.Location = New System.Drawing.Point(130, 105)
         Me.ComboBox10.Name = "ComboBox10"
         Me.ComboBox10.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.ComboBox10.Size = New System.Drawing.Size(46, 21)
@@ -2620,7 +2608,7 @@ Partial Class Form9
         Me.TextBox16.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.TextBox16.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox16.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TextBox16.Location = New System.Drawing.Point(187, 109)
+        Me.TextBox16.Location = New System.Drawing.Point(184, 109)
         Me.TextBox16.Name = "TextBox16"
         Me.TextBox16.Size = New System.Drawing.Size(33, 13)
         Me.TextBox16.TabIndex = 42
@@ -2634,7 +2622,7 @@ Partial Class Form9
         Me.ComboBox11.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox11.FormattingEnabled = True
         Me.ComboBox11.Items.AddRange(New Object() {"TRANSIT", "ONLOAD"})
-        Me.ComboBox11.Location = New System.Drawing.Point(227, 105)
+        Me.ComboBox11.Location = New System.Drawing.Point(224, 105)
         Me.ComboBox11.Name = "ComboBox11"
         Me.ComboBox11.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.ComboBox11.Size = New System.Drawing.Size(51, 21)
@@ -2647,7 +2635,7 @@ Partial Class Form9
         Me.ComboBox12.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox12.FormattingEnabled = True
         Me.ComboBox12.Items.AddRange(New Object() {"AOG", "AVI", "BAL", "BED", "BEH", "BIG", "COM", "CSU", "DHS", "DIP", "EAT", "EIC", "FIL", "FKT", "HEA", "HEG", "HUM", "ICE", "LHO", "MAG ", "MOS ", "NIL", "OBX", "PEA", "PEF ", "PEM", "PEP", "PER", "PES", "RXS", "RFG", "RNG", "RFL", "RFS", "RSC", "RFW", "ROX", "ROP", "RIS", "RCM", "RMD", "SOC", "VAL", "WET ", "XPS", "-"})
-        Me.ComboBox12.Location = New System.Drawing.Point(286, 105)
+        Me.ComboBox12.Location = New System.Drawing.Point(283, 105)
         Me.ComboBox12.Name = "ComboBox12"
         Me.ComboBox12.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.ComboBox12.Size = New System.Drawing.Size(45, 21)
@@ -2658,7 +2646,7 @@ Partial Class Form9
         Me.TextBox17.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.TextBox17.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox17.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TextBox17.Location = New System.Drawing.Point(340, 109)
+        Me.TextBox17.Location = New System.Drawing.Point(337, 109)
         Me.TextBox17.Name = "TextBox17"
         Me.TextBox17.Size = New System.Drawing.Size(39, 13)
         Me.TextBox17.TabIndex = 45
@@ -2671,7 +2659,7 @@ Partial Class Form9
         Me.TextBox18.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox18.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TextBox18.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox18.Location = New System.Drawing.Point(412, 109)
+        Me.TextBox18.Location = New System.Drawing.Point(411, 109)
         Me.TextBox18.Name = "TextBox18"
         Me.TextBox18.Size = New System.Drawing.Size(62, 13)
         Me.TextBox18.TabIndex = 46
@@ -2712,9 +2700,33 @@ Partial Class Form9
         Me.Label8.TabIndex = 79
         Me.Label8.Text = "CPT1FWD"
         '
+        'TextBox44
+        '
+        Me.TextBox44.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.TextBox44.BackColor = System.Drawing.SystemColors.Control
+        Me.TextBox44.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TextBox44.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.TextBox44.Location = New System.Drawing.Point(70, 631)
+        Me.TextBox44.Name = "TextBox44"
+        Me.TextBox44.Size = New System.Drawing.Size(25, 13)
+        Me.TextBox44.TabIndex = 18
+        Me.TextBox44.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
         'PrintDialog1
         '
         Me.PrintDialog1.UseEXDialog = True
+        '
+        'TextBox53
+        '
+        Me.TextBox53.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.TextBox53.BackColor = System.Drawing.SystemColors.Control
+        Me.TextBox53.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TextBox53.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.TextBox53.Location = New System.Drawing.Point(46, 42)
+        Me.TextBox53.Name = "TextBox53"
+        Me.TextBox53.Size = New System.Drawing.Size(24, 13)
+        Me.TextBox53.TabIndex = 125
+        Me.TextBox53.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Form9
         '
@@ -2724,6 +2736,7 @@ Partial Class Form9
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.RichTextBox1)
         Me.Controls.Add(Me.GroupBox1)
+        Me.Controls.Add(Me.TextBox44)
         Me.MaximumSize = New System.Drawing.Size(1099, 755)
         Me.Name = "Form9"
         Me.Text = "LIR A320"
@@ -2742,6 +2755,7 @@ Partial Class Form9
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents PrintDocument1 As Printing.PrintDocument
@@ -2951,4 +2965,5 @@ Partial Class Form9
     Friend WithEvents Label98 As Label
     Friend WithEvents TextBox46 As TextBox
     Friend WithEvents PrintDialog1 As PrintDialog
+    Friend WithEvents TextBox53 As TextBox
 End Class

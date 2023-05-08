@@ -1,14 +1,14 @@
 ﻿Imports System.ComponentModel.Design
 Imports System.Data.SqlClient
 Imports System.Windows.Forms
-Public Class Form10
+Public Class Form11
     Public connectionString As String = "Data Source=WIN-8CEIKSU78CS\SQLEXPRESS; Initial Catalog=Test; Integrated Security=True"
-    Private Sub Form10_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub Form11_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
             Using connection As SqlConnection = New SqlConnection(connectionString)
                 connection.Open()
                 ' Создать команду для выборки данных
-                Dim command3 As New SqlCommand("SELECT FuelWeight AS Вес_топлива, CenterOfGravityIndex as Индекс FROM [Test].[dbo].[fuel_079]", connection)
+                Dim command3 As New SqlCommand("SELECT FuelWeight AS Вес_топлива, CenterOfGravityIndex as Индекс FROM [Test].[dbo].[fuel_079_A320]", connection)
                 ' Создать адаптер данных и заполнить DataTable
                 Dim adapter3 As New SqlDataAdapter(command3)
                 Dim table3 As New DataTable
@@ -23,7 +23,7 @@ Public Class Form10
             Using connection As SqlConnection = New SqlConnection(connectionString)
                 connection.Open()
                 ' Создать команду для выборки данных
-                Dim command4 As New SqlCommand("SELECT FuelWeight AS Вес_топлива, CenterOfGravityIndex as Индекс FROM [Test].[dbo].[fuel_080]", connection)
+                Dim command4 As New SqlCommand("SELECT FuelWeight AS Вес_топлива, CenterOfGravityIndex as Индекс FROM [Test].[dbo].[fuel_080_A320]", connection)
                 ' Создать адаптер данных и заполнить DataTable
                 Dim adapter4 As New SqlDataAdapter(command4)
                 Dim table4 As New DataTable
@@ -38,7 +38,7 @@ Public Class Form10
             Using connection As SqlConnection = New SqlConnection(connectionString)
                 connection.Open()
                 ' Создать команду для выборки данных
-                Dim command5 As New SqlCommand("SELECT FuelWeight AS Вес_топлива, CenterOfGravityIndex as Индекс FROM [Test].[dbo].[fuel_810]", connection)
+                Dim command5 As New SqlCommand("SELECT FuelWeight AS Вес_топлива, CenterOfGravityIndex as Индекс FROM [Test].[dbo].[fuel_810_A320]", connection)
                 ' Создать адаптер данных и заполнить DataTable
                 Dim adapter5 As New SqlDataAdapter(command5)
                 Dim table5 As New DataTable
@@ -69,7 +69,7 @@ Public Class Form10
             Using connection As SqlConnection = New SqlConnection(connectionString)
                 connection.Open()
                 ' Создать команду для выборки данных
-                Dim command6 As New SqlCommand("SELECT crew as Экипаж, kitchen as Кухня_тип, DOW, DOI, MAC FROM [Test].[dbo].[A319 Wt] where Flight_bort = @Flight_bort and config_id = @config_id", connection)
+                Dim command6 As New SqlCommand("SELECT crew as Экипаж, kitchen as Кухня_тип, DOW, DOI, MAC FROM [Test].[dbo].[A320 Wt] where Flight_bort = @Flight_bort and config_id = @config_id", connection)
                 command6.Parameters.AddWithValue("Flight_bort", TextBox3.Text)
                 command6.Parameters.AddWithValue("config_id", TextBox2.Text)
                 Dim adapter6 As New SqlDataAdapter(command6)
@@ -84,7 +84,7 @@ Public Class Form10
     End Sub
     Public Sub disp_data2()
         Dim connection As SqlConnection = New SqlConnection(connectionString)
-        Dim command3 As New SqlCommand("SELECT FuelWeight AS Вес_топлива, CenterOfGravityIndex as Индекс FROM [Test].[dbo].[fuel_079]", connection)
+        Dim command3 As New SqlCommand("SELECT FuelWeight AS Вес_топлива, CenterOfGravityIndex as Индекс FROM [Test].[dbo].[fuel_079_A320]", connection)
         Dim adapter3 As New SqlDataAdapter(command3)
         Dim table3 As New DataTable()
         adapter3.Fill(table3)
@@ -92,7 +92,7 @@ Public Class Form10
     End Sub
     Public Sub disp_data3()
         Dim connection As SqlConnection = New SqlConnection(connectionString)
-        Dim command4 As New SqlCommand("SELECT FuelWeight AS Вес_топлива, CenterOfGravityIndex as Индекс FROM [Test].[dbo].[fuel_080]", connection)
+        Dim command4 As New SqlCommand("SELECT FuelWeight AS Вес_топлива, CenterOfGravityIndex as Индекс FROM [Test].[dbo].[fuel_080_A320]", connection)
         Dim adapter4 As New SqlDataAdapter(command4)
         Dim table4 As New DataTable()
         adapter4.Fill(table4)
@@ -100,7 +100,7 @@ Public Class Form10
     End Sub
     Public Sub disp_data4()
         Dim connection As SqlConnection = New SqlConnection(connectionString)
-        Dim command5 As New SqlCommand("SELECT FuelWeight AS Вес_топлива, CenterOfGravityIndex as Индекс FROM [Test].[dbo].[fuel_810]", connection)
+        Dim command5 As New SqlCommand("SELECT FuelWeight AS Вес_топлива, CenterOfGravityIndex as Индекс FROM [Test].[dbo].[fuel_810_A320]", connection)
         Dim adapter5 As New SqlDataAdapter(command5)
         Dim table5 As New DataTable()
         adapter5.Fill(table5)
@@ -108,7 +108,7 @@ Public Class Form10
     End Sub
     Public Sub disp_data5()
         Dim connection As SqlConnection = New SqlConnection(connectionString)
-        Dim command6 As New SqlCommand("SELECT crew as Экипаж, kitchen as Кухня_тип, DOW, DOI, MAC FROM [Test].[dbo].[A319 Wt] where Flight_bort = @Flight_bort and config_id = @config_id", connection)
+        Dim command6 As New SqlCommand("SELECT crew as Экипаж, kitchen as Кухня_тип, DOW, DOI, MAC FROM [Test].[dbo].[A320 Wt] where Flight_bort = @Flight_bort and config_id = @config_id", connection)
         command6.Parameters.AddWithValue("Flight_bort", TextBox3.Text)
         command6.Parameters.AddWithValue("config_id", TextBox2.Text)
         Dim adapter6 As New SqlDataAdapter(command6)
@@ -121,12 +121,13 @@ Public Class Form10
         Try
             Using connection As SqlConnection = New SqlConnection(connectionString)
                 connection.Open()
-                Dim command As New SqlCommand("UPDATE [Test].[dbo].[A319] SET [MZFW] = @MZFW, [MTOW] = @MTOW, [MLW] = @MLW WHERE flight_bort = @flight_bort and config_id = @config_id ", connection)
+                Dim command As New SqlCommand("UPDATE [Test].[dbo].[A319] SET [MZFW] = @MZFW, [MTOW] = @MTOW, [MLW] = @MLW WHERE flight_bort = @flight_bort and config_id = @config_id and @type_Aircraft = type_Aircraft", connection)
                 command.Parameters.AddWithValue("@MZFW", TextBox40.Text)
                 command.Parameters.AddWithValue("@MTOW", TextBox41.Text)
                 command.Parameters.AddWithValue("@MLW", TextBox42.Text)
                 command.Parameters.Add("@flight_bort", SqlDbType.VarChar).Value = TextBox3.Text
                 command.Parameters.Add("@config_id", SqlDbType.VarChar).Value = TextBox2.Text
+                command.Parameters.Add("@type_Aircraft", SqlDbType.VarChar).Value = TextBox1.Text
                 command.ExecuteNonQuery()
                 MessageBox.Show("Обновление данных")
             End Using
@@ -149,7 +150,7 @@ Public Class Form10
         Try
             Using connection As SqlConnection = New SqlConnection(connectionString)
                 connection.Open()
-                Dim command As New SqlCommand("Insert into [Test].[dbo].[fuel_079] ([FuelWeight],[CenterOfGravityIndex]) Values(@FuelWeight, @CenterOfGravityIndex)", connection)
+                Dim command As New SqlCommand("Insert into [Test].[dbo].[fuel_079_A320] ([FuelWeight],[CenterOfGravityIndex]) Values(@FuelWeight, @CenterOfGravityIndex)", connection)
                 command.Parameters.AddWithValue("@FuelWeight", TextBox45.Text)
                 command.Parameters.AddWithValue("@CenterOfGravityIndex", TextBox43.Text)
                 command.ExecuteNonQuery()
@@ -165,7 +166,7 @@ Public Class Form10
         Try
             Using connection As SqlConnection = New SqlConnection(connectionString)
                 connection.Open()
-                Dim command As New SqlCommand("UPDATE [Test].[dbo].[fuel_079] SET [FuelWeight] = @FuelWeight, [CenterOfGravityIndex] = @CenterOfGravityIndex WHERE FuelWeight = @FuelWeight", connection)
+                Dim command As New SqlCommand("UPDATE [Test].[dbo].[fuel_079_A320] SET [FuelWeight] = @FuelWeight, [CenterOfGravityIndex] = @CenterOfGravityIndex WHERE FuelWeight = @FuelWeight", connection)
                 command.Parameters.AddWithValue("@FuelWeight", TextBox45.Text)
                 command.Parameters.AddWithValue("@CenterOfGravityIndex", TextBox43.Text)
                 command.ExecuteNonQuery()
@@ -181,7 +182,7 @@ Public Class Form10
         Try
             Using connection As SqlConnection = New SqlConnection(connectionString)
                 connection.Open()
-                Dim command As New SqlCommand("DELETE FROM [Test].[dbo].[fuel_079] WHERE FuelWeight = @FuelWeight", connection)
+                Dim command As New SqlCommand("DELETE FROM [Test].[dbo].[fuel_079_A320] WHERE FuelWeight = @FuelWeight", connection)
                 command.Parameters.AddWithValue("@FuelWeight", TextBox45.Text)
                 command.ExecuteNonQuery()
                 MessageBox.Show("Удаление данных")
@@ -206,7 +207,7 @@ Public Class Form10
         Try
             Using connection As SqlConnection = New SqlConnection(connectionString)
                 connection.Open()
-                Dim command As New SqlCommand("Insert into [Test].[dbo].[fuel_080] ([FuelWeight],[CenterOfGravityIndex]) Values(@FuelWeight, @CenterOfGravityIndex)", connection)
+                Dim command As New SqlCommand("Insert into [Test].[dbo].[fuel_080_A320] ([FuelWeight],[CenterOfGravityIndex]) Values(@FuelWeight, @CenterOfGravityIndex)", connection)
                 command.Parameters.AddWithValue("@FuelWeight", TextBox46.Text)
                 command.Parameters.AddWithValue("@CenterOfGravityIndex", TextBox44.Text)
                 command.ExecuteNonQuery()
@@ -222,7 +223,7 @@ Public Class Form10
         Try
             Using connection As SqlConnection = New SqlConnection(connectionString)
                 connection.Open()
-                Dim command As New SqlCommand("UPDATE [Test].[dbo].[fuel_080] SET [FuelWeight] = @FuelWeight, [CenterOfGravityIndex] = @CenterOfGravityIndex WHERE FuelWeight = @FuelWeight", connection)
+                Dim command As New SqlCommand("UPDATE [Test].[dbo].[fuel_080_A320] SET [FuelWeight] = @FuelWeight, [CenterOfGravityIndex] = @CenterOfGravityIndex WHERE FuelWeight = @FuelWeight", connection)
                 command.Parameters.AddWithValue("@FuelWeight", TextBox46.Text)
                 command.Parameters.AddWithValue("@CenterOfGravityIndex", TextBox44.Text)
                 command.ExecuteNonQuery()
@@ -238,7 +239,7 @@ Public Class Form10
         Try
             Using connection As SqlConnection = New SqlConnection(connectionString)
                 connection.Open()
-                Dim command As New SqlCommand("DELETE FROM [Test].[dbo].[fuel_080] WHERE FuelWeight = @FuelWeight", connection)
+                Dim command As New SqlCommand("DELETE FROM [Test].[dbo].[fuel_080_A320] WHERE FuelWeight = @FuelWeight", connection)
                 command.Parameters.AddWithValue("@FuelWeight", TextBox46.Text)
                 command.ExecuteNonQuery()
                 MessageBox.Show("Удаление данных")
@@ -263,7 +264,7 @@ Public Class Form10
         Try
             Using connection As SqlConnection = New SqlConnection(connectionString)
                 connection.Open()
-                Dim command As New SqlCommand("Insert into [Test].[dbo].[fuel_810] ([FuelWeight],[CenterOfGravityIndex]) Values(@FuelWeight, @CenterOfGravityIndex)", connection)
+                Dim command As New SqlCommand("Insert into [Test].[dbo].[fuel_810_A320] ([FuelWeight],[CenterOfGravityIndex]) Values(@FuelWeight, @CenterOfGravityIndex)", connection)
                 command.Parameters.AddWithValue("@FuelWeight", TextBox48.Text)
                 command.Parameters.AddWithValue("@CenterOfGravityIndex", TextBox47.Text)
                 command.ExecuteNonQuery()
@@ -279,7 +280,7 @@ Public Class Form10
         Try
             Using connection As SqlConnection = New SqlConnection(connectionString)
                 connection.Open()
-                Dim command As New SqlCommand("UPDATE [Test].[dbo].[fuel_810] SET [FuelWeight] = @FuelWeight, [CenterOfGravityIndex] = @CenterOfGravityIndex WHERE FuelWeight = @FuelWeight", connection)
+                Dim command As New SqlCommand("UPDATE [Test].[dbo].[fuel_810_A320] SET [FuelWeight] = @FuelWeight, [CenterOfGravityIndex] = @CenterOfGravityIndex WHERE FuelWeight = @FuelWeight", connection)
                 command.Parameters.AddWithValue("@FuelWeight", TextBox48.Text)
                 command.Parameters.AddWithValue("@CenterOfGravityIndex", TextBox47.Text)
                 command.ExecuteNonQuery()
@@ -295,7 +296,7 @@ Public Class Form10
         Try
             Using connection As SqlConnection = New SqlConnection(connectionString)
                 connection.Open()
-                Dim command As New SqlCommand("DELETE FROM [Test].[dbo].[fuel_810] WHERE FuelWeight = @FuelWeight", connection)
+                Dim command As New SqlCommand("DELETE FROM [Test].[dbo].[fuel_810_A320] WHERE FuelWeight = @FuelWeight", connection)
                 command.Parameters.AddWithValue("@FuelWeight", TextBox48.Text)
                 command.ExecuteNonQuery()
                 MessageBox.Show("Удаление данных")
@@ -323,7 +324,7 @@ Public Class Form10
         Try
             Using connection As SqlConnection = New SqlConnection(connectionString)
                 connection.Open()
-                Dim command As New SqlCommand("Insert into [Test].[dbo].[A319 Wt] ([Flight_bort],[crew],[kitchen],[DOW],[DOI],[MAC],[config_id]) Values(@Flight_bort, @crew, @kitchen, @DOW , @DOI, @MAC, @config_id)", connection)
+                Dim command As New SqlCommand("Insert into [Test].[dbo].[A320 Wt] ([Flight_bort],[crew],[kitchen],[DOW],[DOI],[MAC],[config_id]) Values(@Flight_bort, @crew, @kitchen, @DOW , @DOI, @MAC, @config_id)", connection)
                 command.Parameters.AddWithValue("@Flight_bort", TextBox3.Text)
                 command.Parameters.AddWithValue("@crew", TextBox50.Text)
                 command.Parameters.AddWithValue("@kitchen", TextBox49.Text)
@@ -344,7 +345,7 @@ Public Class Form10
         Try
             Using connection As SqlConnection = New SqlConnection(connectionString)
                 connection.Open()
-                Dim command As New SqlCommand("UPDATE [Test].[dbo].[A319 Wt] SET [crew] = @crew, [kitchen] = @kitchen, [DOW] = @DOW, [DOI] = @DOI, [MAC] = @MAC WHERE crew = @crew and config_id = @config_id", connection)
+                Dim command As New SqlCommand("UPDATE [Test].[dbo].[A320 Wt] SET [crew] = @crew, [kitchen] = @kitchen, [DOW] = @DOW, [DOI] = @DOI, [MAC] = @MAC WHERE crew = @crew and config_id = @config_id", connection)
                 command.Parameters.AddWithValue("@crew", TextBox50.Text)
                 command.Parameters.AddWithValue("@kitchen", TextBox49.Text)
                 command.Parameters.AddWithValue("@DOW", TextBox51.Text)
@@ -364,7 +365,7 @@ Public Class Form10
         Try
             Using connection As SqlConnection = New SqlConnection(connectionString)
                 connection.Open()
-                Dim command As New SqlCommand("DELETE FROM [Test].[dbo].[A319 Wt] WHERE crew = @crew and config_id = @config_id", connection)
+                Dim command As New SqlCommand("DELETE FROM [Test].[dbo].[A320 Wt] WHERE crew = @crew and config_id = @config_id", connection)
                 command.Parameters.AddWithValue("@crew", TextBox50.Text)
                 command.Parameters.AddWithValue("@config_id", TextBox2.Text)
                 command.ExecuteNonQuery()
@@ -413,22 +414,39 @@ Public Class Form10
         registryKey.SetValue("TextBox36", TextBox36.Text)
         registryKey.SetValue("TextBox35", TextBox35.Text)
         registryKey.SetValue("TextBox34", TextBox34.Text)
+        registryKey.SetValue("TextBox58", TextBox58.Text)
+        'изменение названий груз.отсеки
+        registryKey.SetValue("Label27", Label27.Text)
+        registryKey.SetValue("Label26", Label26.Text)
+        registryKey.SetValue("Label25", Label25.Text)
+        registryKey.SetValue("Label40", Label40.Text)
         'key для form1 (для max load)
         registryKey.SetValue("TextBox16", TextBox16.Text)
         registryKey.SetValue("TextBox17", TextBox17.Text)
         registryKey.SetValue("TextBox18", TextBox18.Text)
+        registryKey.SetValue("TextBox57", TextBox57.Text)
         'key для form2 (Max position)
         registryKey.SetValue("TextBox19", TextBox19.Text)
         registryKey.SetValue("TextBox20", TextBox20.Text)
         registryKey.SetValue("TextBox21", TextBox21.Text)
         registryKey.SetValue("TextBox22", TextBox22.Text)
         registryKey.SetValue("TextBox23", TextBox23.Text)
+        registryKey.SetValue("TextBox63", TextBox63.Text)
+        registryKey.SetValue("TextBox62", TextBox62.Text)
+        registryKey.SetValue("TextBox61", TextBox61.Text)
+        registryKey.SetValue("TextBox60", TextBox60.Text)
+        registryKey.SetValue("TextBox59", TextBox59.Text)
         'key для form2 (Max V position)
         registryKey.SetValue("TextBox24", TextBox24.Text)
         registryKey.SetValue("TextBox25", TextBox25.Text)
         registryKey.SetValue("TextBox26", TextBox26.Text)
         registryKey.SetValue("TextBox27", TextBox27.Text)
         registryKey.SetValue("TextBox28", TextBox28.Text)
+        registryKey.SetValue("TextBox68", TextBox68.Text)
+        registryKey.SetValue("TextBox67", TextBox67.Text)
+        registryKey.SetValue("TextBox66", TextBox66.Text)
+        registryKey.SetValue("TextBox65", TextBox65.Text)
+        registryKey.SetValue("TextBox64", TextBox64.Text)
         registryKey.Close()
         Form1.Show()
         Me.Close()

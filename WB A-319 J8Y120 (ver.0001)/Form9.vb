@@ -3,6 +3,7 @@ Imports System.Drawing.Printing
 Public Class Form9
     Public wt1, wt2, wt3, wt4, wt5, wt6, wt7, wt8, wt9, wt10 As Single
 
+
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
         Form4.Show()
     End Sub
@@ -66,6 +67,30 @@ Public Class Form9
         Dim V52 As Single
         Dim V53 As Single
         Dim a, b, c, d, k, f, g, h, i, t, r, w, z, l, q, y As Single
+        Dim registryKey As Microsoft.Win32.RegistryKey = Microsoft.Win32.Registry.CurrentUser.CreateSubKey("FormDatachanges")
+        Dim MAX11 As Integer = registryKey.GetValue("TextBox19", "")
+        Dim MAX12 As Integer = registryKey.GetValue("TextBox20", "")
+        Dim MAX13 As Integer = registryKey.GetValue("TextBox21", "")
+        Dim MAX31 As Integer = registryKey.GetValue("TextBox22", "")
+        Dim MAX32 As Integer = registryKey.GetValue("TextBox23", "")
+        Dim MAX41 As Integer = registryKey.GetValue("TextBox63", "")
+        Dim MAX42 As Integer = registryKey.GetValue("TextBox62", "")
+        Dim MAX51 As Integer = registryKey.GetValue("TextBox61", "")
+        Dim MAX52 As Integer = registryKey.GetValue("TextBox60", "")
+        Dim MAX53 As Integer = registryKey.GetValue("TextBox59", "")
+
+        Dim MAXV11 As Single = registryKey.GetValue("TextBox68", "")
+        Dim MAXV12 As Single = registryKey.GetValue("TextBox67", "")
+        Dim MAXV13 As Single = registryKey.GetValue("TextBox66", "")
+        Dim MAXV31 As Single = registryKey.GetValue("TextBox65", "")
+        Dim MAXV32 As Single = registryKey.GetValue("TextBox64", "")
+
+        Dim MAXV41 As Single = registryKey.GetValue("TextBox24", "")
+        Dim MAXV42 As Single = registryKey.GetValue("TextBox25", "")
+        Dim MAXV51 As Single = registryKey.GetValue("TextBox26", "")
+        Dim MAXV52 As Single = registryKey.GetValue("TextBox27", "")
+        Dim MAXV53 As Single = registryKey.GetValue("TextBox28", "")
+        registryKey.Close()
         'позиции 11 и 12, 13
         If ComboBox4.Text = "RFL" And ComboBox8.Text = "ROX" Or ComboBox4.Text = "ROX" And ComboBox8.Text = "RFL" Or ComboBox12.Text = "ROX" And ComboBox4.Text = "RFL" Or ComboBox12.Text = "RFL" And ComboBox4.Text = "ROX" Or ComboBox12.Text = "ROX" And ComboBox8.Text = "RFL" Or ComboBox12.Text = "RFL" And ComboBox8.Text = "ROX" Then
             MsgBox("Несовместимые грузы в позициях 11,12,13!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
@@ -223,22 +248,22 @@ Public Class Form9
         V11 = CSng(TextBox10.Text)
         V12 = CSng(TextBox13.Text)
         V13 = CSng(TextBox17.Text)
-        If Mwt11 > 1045 Then
+        If Mwt11 > MAX11 Then
             MsgBox("Превышение максимального веса в позиции 11!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
-        If Mwt12 > 1225 Then
+        If Mwt12 > MAX12 Then
             MsgBox("Превышение максимального веса в позиции 12!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
-        If Mwt13 > 1132 Then
+        If Mwt13 > MAX13 Then
             MsgBox("Превышение максимального веса в позиции 13!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
-        If V11 > 4.09 Then
+        If V11 > MAXV11 Then
             MsgBox("Превышение максимального объёма в позиции 11!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
-        If V12 > 4.77 Then
+        If V12 > MAXV12 Then
             MsgBox("Превышение максимального объёма в позиции 12!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
-        If V13 > 4.32 Then
+        If V13 > MAXV13 Then
             MsgBox("Превышение максимального объёма в позиции 13!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         '31 & 32
@@ -354,16 +379,16 @@ Public Class Form9
         Mwt32 = CSng(TextBox21.Text)
         V31 = CSng(TextBox24.Text)
         V32 = CSng(TextBox20.Text)
-        If Mwt31 > 1301 Then
+        If Mwt31 > MAX31 Then
             MsgBox("Превышение максимального веса в позиции 31!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
-        If Mwt32 > 1125 Then
+        If Mwt32 > MAX32 Then
             MsgBox("Превышение максимального веса в позиции 32!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
-        If V31 > 5.23 Then
+        If V31 > MAXV31 Then
             MsgBox("Превышение максимального объёма в позиции 31!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
-        If V32 > 4.53 Then
+        If V32 > MAX32 Then
             MsgBox("Превышение максимального объёма в позиции 32!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         '41 и 42 
@@ -479,16 +504,16 @@ Public Class Form9
         Mwt42 = CSng(TextBox30.Text)
         V41 = CSng(TextBox34.Text)
         V42 = CSng(TextBox29.Text)
-        If Mwt41 > 928 Then
+        If Mwt41 > MAX41 Then
             MsgBox("Превышение максимального веса в позиции 41!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
-        If Mwt42 > 1182 Then
+        If Mwt42 > MAX42 Then
             MsgBox("Превышение максимального веса в позиции 42!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
-        If V41 > 3.75 Then
+        If V41 > MAXV41 Then
             MsgBox("Превышение максимального объёма в позиции 41!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
-        If V42 > 4.75 Then
+        If V42 > MAX42 Then
             MsgBox("Превышение максимального объёма в позиции 42!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         'Bulk 
@@ -648,22 +673,22 @@ Public Class Form9
         V51 = CSng(TextBox43.Text)
         V52 = CSng(TextBox39.Text)
         V53 = CSng(TextBox51.Text)
-        If Mwt51 > 374 Then
+        If Mwt51 > MAX51 Then
             MsgBox("Превышение максимального веса в позиции 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
-        If Mwt52 > 353 Then
+        If Mwt52 > MAX52 Then
             MsgBox("Превышение максимального веса в позиции 52!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
-        If Mwt53 > 762 Then
+        If Mwt53 > MAX53 Then
             MsgBox("Превышение максимального веса в позиции 53!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
-        If V51 > 1.46 Then
+        If V51 > MAX51 Then
             MsgBox("Превышение максимального объёма в позиции 51!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
-        If V52 > 1.38 Then
+        If V52 > MAX52 Then
             MsgBox("Превышение максимального объёма в позиции 52!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
-        If V53 > 2.88 Then
+        If V53 > MAX53 Then
             MsgBox("Превышение максимального объёма в позиции 53!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
         End If
         wt1 = CSng(TextBox8.Text)

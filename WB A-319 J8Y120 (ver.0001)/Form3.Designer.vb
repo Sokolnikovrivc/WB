@@ -39,6 +39,7 @@ Partial Class Form3
         Me.Label6 = New System.Windows.Forms.Label()
         Me.TextBox7 = New System.Windows.Forms.TextBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.Label33 = New System.Windows.Forms.Label()
         Me.Label32 = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
@@ -55,6 +56,7 @@ Partial Class Form3
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.Label40 = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.Label26 = New System.Windows.Forms.Label()
@@ -71,6 +73,7 @@ Partial Class Form3
         Me.ComboBox2 = New System.Windows.Forms.ComboBox()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.Label41 = New System.Windows.Forms.Label()
         Me.Label36 = New System.Windows.Forms.Label()
         Me.Label34 = New System.Windows.Forms.Label()
         Me.Label35 = New System.Windows.Forms.Label()
@@ -87,6 +90,7 @@ Partial Class Form3
         Me.ComboBox3 = New System.Windows.Forms.ComboBox()
         Me.Label25 = New System.Windows.Forms.Label()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.Label42 = New System.Windows.Forms.Label()
         Me.Label39 = New System.Windows.Forms.Label()
         Me.Label37 = New System.Windows.Forms.Label()
         Me.Label38 = New System.Windows.Forms.Label()
@@ -105,10 +109,6 @@ Partial Class Form3
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label40 = New System.Windows.Forms.Label()
-        Me.Label41 = New System.Windows.Forms.Label()
-        Me.Label42 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -270,6 +270,14 @@ Partial Class Form3
         Me.GroupBox1.Text = "0A"
         Me.GroupBox1.Visible = False
         '
+        'Label5
+        '
+        Me.Label5.Location = New System.Drawing.Point(362, 32)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(36, 13)
+        Me.Label5.TabIndex = 77
+        Me.Label5.Text = "0"
+        '
         'Label33
         '
         Me.Label33.Location = New System.Drawing.Point(362, 56)
@@ -383,7 +391,7 @@ Partial Class Form3
         'ComboBox1
         '
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"J", "Y", "C", "F"})
+        Me.ComboBox1.Items.AddRange(New Object() {"J", "Y", "C", "F", "C/Y"})
         Me.ComboBox1.Location = New System.Drawing.Point(54, 35)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(33, 21)
@@ -423,6 +431,14 @@ Partial Class Form3
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "0B"
         Me.GroupBox2.Visible = False
+        '
+        'Label40
+        '
+        Me.Label40.Location = New System.Drawing.Point(362, 29)
+        Me.Label40.Name = "Label40"
+        Me.Label40.Size = New System.Drawing.Size(36, 13)
+        Me.Label40.TabIndex = 90
+        Me.Label40.Text = "0"
         '
         'Label14
         '
@@ -578,6 +594,14 @@ Partial Class Form3
         Me.GroupBox3.Text = "0C"
         Me.GroupBox3.Visible = False
         '
+        'Label41
+        '
+        Me.Label41.Location = New System.Drawing.Point(362, 29)
+        Me.Label41.Name = "Label41"
+        Me.Label41.Size = New System.Drawing.Size(36, 13)
+        Me.Label41.TabIndex = 91
+        Me.Label41.Text = "0"
+        '
         'Label36
         '
         Me.Label36.Location = New System.Drawing.Point(333, 28)
@@ -731,6 +755,14 @@ Partial Class Form3
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "0D"
         Me.GroupBox4.Visible = False
+        '
+        'Label42
+        '
+        Me.Label42.Location = New System.Drawing.Point(362, 29)
+        Me.Label42.Name = "Label42"
+        Me.Label42.Size = New System.Drawing.Size(36, 13)
+        Me.Label42.TabIndex = 92
+        Me.Label42.Text = "0"
         '
         'Label39
         '
@@ -899,38 +931,6 @@ Partial Class Form3
         Me.Button1.Text = "Проверка"
         Me.Button1.UseVisualStyleBackColor = True
         Me.Button1.Visible = False
-        '
-        'Label5
-        '
-        Me.Label5.Location = New System.Drawing.Point(362, 32)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(36, 13)
-        Me.Label5.TabIndex = 77
-        Me.Label5.Text = "0"
-        '
-        'Label40
-        '
-        Me.Label40.Location = New System.Drawing.Point(362, 29)
-        Me.Label40.Name = "Label40"
-        Me.Label40.Size = New System.Drawing.Size(36, 13)
-        Me.Label40.TabIndex = 90
-        Me.Label40.Text = "0"
-        '
-        'Label41
-        '
-        Me.Label41.Location = New System.Drawing.Point(362, 29)
-        Me.Label41.Name = "Label41"
-        Me.Label41.Size = New System.Drawing.Size(36, 13)
-        Me.Label41.TabIndex = 91
-        Me.Label41.Text = "0"
-        '
-        'Label42
-        '
-        Me.Label42.Location = New System.Drawing.Point(362, 29)
-        Me.Label42.Name = "Label42"
-        Me.Label42.Size = New System.Drawing.Size(36, 13)
-        Me.Label42.TabIndex = 92
-        Me.Label42.Text = "0"
         '
         'Form3
         '

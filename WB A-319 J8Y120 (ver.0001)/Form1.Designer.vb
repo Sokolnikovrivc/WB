@@ -82,6 +82,31 @@ Partial Class Form1
         Me.TextBox8 = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox9 = New System.Windows.Forms.GroupBox()
+        Me.Label75 = New System.Windows.Forms.Label()
+        Me.Label76 = New System.Windows.Forms.Label()
+        Me.Label73 = New System.Windows.Forms.Label()
+        Me.Label72 = New System.Windows.Forms.Label()
+        Me.Label74 = New System.Windows.Forms.Label()
+        Me.Label71 = New System.Windows.Forms.Label()
+        Me.Label56 = New System.Windows.Forms.Label()
+        Me.Label57 = New System.Windows.Forms.Label()
+        Me.Label58 = New System.Windows.Forms.Label()
+        Me.Label59 = New System.Windows.Forms.Label()
+        Me.Label29 = New System.Windows.Forms.Label()
+        Me.Label30 = New System.Windows.Forms.Label()
+        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.Label27 = New System.Windows.Forms.Label()
+        Me.Button9 = New System.Windows.Forms.Button()
+        Me.Label26 = New System.Windows.Forms.Label()
+        Me.Label25 = New System.Windows.Forms.Label()
+        Me.TextBox25 = New System.Windows.Forms.TextBox()
+        Me.Label24 = New System.Windows.Forms.Label()
+        Me.TextBox24 = New System.Windows.Forms.TextBox()
+        Me.TextBox23 = New System.Windows.Forms.TextBox()
+        Me.Label22 = New System.Windows.Forms.Label()
+        Me.TextBox14 = New System.Windows.Forms.TextBox()
         Me.Fuel079BindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Fuel0800BindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Fuel810BindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -106,6 +131,14 @@ Partial Class Form1
         Me.Button16 = New System.Windows.Forms.Button()
         Me.Label40 = New System.Windows.Forms.Label()
         Me.GroupBox7 = New System.Windows.Forms.GroupBox()
+        Me.TextBox22 = New System.Windows.Forms.TextBox()
+        Me.Button26 = New System.Windows.Forms.Button()
+        Me.TextBox50 = New System.Windows.Forms.TextBox()
+        Me.Label28 = New System.Windows.Forms.Label()
+        Me.TextBox10 = New System.Windows.Forms.TextBox()
+        Me.Button25 = New System.Windows.Forms.Button()
+        Me.TextBox16 = New System.Windows.Forms.TextBox()
+        Me.Label23 = New System.Windows.Forms.Label()
         Me.Label39 = New System.Windows.Forms.Label()
         Me.TextBox41 = New System.Windows.Forms.TextBox()
         Me.TextBox40 = New System.Windows.Forms.TextBox()
@@ -149,42 +182,11 @@ Partial Class Form1
         Me.PrintPreviewDialog1 = New System.Windows.Forms.PrintPreviewDialog()
         Me.TestDataSet1BindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.WeightPaxBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.TextBox14 = New System.Windows.Forms.TextBox()
-        Me.Label22 = New System.Windows.Forms.Label()
-        Me.TextBox23 = New System.Windows.Forms.TextBox()
-        Me.TextBox24 = New System.Windows.Forms.TextBox()
-        Me.Label24 = New System.Windows.Forms.Label()
-        Me.TextBox25 = New System.Windows.Forms.TextBox()
-        Me.Label25 = New System.Windows.Forms.Label()
-        Me.Label26 = New System.Windows.Forms.Label()
-        Me.Button9 = New System.Windows.Forms.Button()
-        Me.Label27 = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox9 = New System.Windows.Forms.GroupBox()
-        Me.TextBox10 = New System.Windows.Forms.TextBox()
-        Me.Button25 = New System.Windows.Forms.Button()
-        Me.TextBox16 = New System.Windows.Forms.TextBox()
-        Me.Label23 = New System.Windows.Forms.Label()
-        Me.TextBox22 = New System.Windows.Forms.TextBox()
-        Me.Button26 = New System.Windows.Forms.Button()
-        Me.TextBox50 = New System.Windows.Forms.TextBox()
-        Me.Label28 = New System.Windows.Forms.Label()
-        Me.Label29 = New System.Windows.Forms.Label()
-        Me.Label30 = New System.Windows.Forms.Label()
-        Me.Label56 = New System.Windows.Forms.Label()
-        Me.Label57 = New System.Windows.Forms.Label()
-        Me.Label58 = New System.Windows.Forms.Label()
-        Me.Label59 = New System.Windows.Forms.Label()
-        Me.Label75 = New System.Windows.Forms.Label()
-        Me.Label76 = New System.Windows.Forms.Label()
-        Me.Label73 = New System.Windows.Forms.Label()
-        Me.Label72 = New System.Windows.Forms.Label()
-        Me.Label74 = New System.Windows.Forms.Label()
-        Me.Label71 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
+        Me.GroupBox9.SuspendLayout()
+        Me.GroupBox4.SuspendLayout()
         CType(Me.Fuel079BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Fuel0800BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Fuel810BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -194,8 +196,6 @@ Partial Class Form1
         Me.GroupBox6.SuspendLayout()
         CType(Me.TestDataSet1BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.WeightPaxBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox4.SuspendLayout()
-        Me.GroupBox9.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -307,10 +307,8 @@ Partial Class Form1
         '
         Me.TextBox1.Location = New System.Drawing.Point(319, 16)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.ReadOnly = True
         Me.TextBox1.Size = New System.Drawing.Size(100, 20)
         Me.TextBox1.TabIndex = 9
-        Me.TextBox1.Text = "A-319"
         '
         'Label7
         '
@@ -775,6 +773,259 @@ Partial Class Form1
         Me.GroupBox3.TabIndex = 55
         Me.GroupBox3.TabStop = False
         '
+        'GroupBox9
+        '
+        Me.GroupBox9.Controls.Add(Me.Label75)
+        Me.GroupBox9.Controls.Add(Me.Label76)
+        Me.GroupBox9.Controls.Add(Me.Label73)
+        Me.GroupBox9.Controls.Add(Me.Label72)
+        Me.GroupBox9.Controls.Add(Me.Label74)
+        Me.GroupBox9.Controls.Add(Me.Label71)
+        Me.GroupBox9.Controls.Add(Me.Label56)
+        Me.GroupBox9.Controls.Add(Me.Label57)
+        Me.GroupBox9.Controls.Add(Me.Label58)
+        Me.GroupBox9.Controls.Add(Me.Label59)
+        Me.GroupBox9.Controls.Add(Me.Label29)
+        Me.GroupBox9.Controls.Add(Me.Label30)
+        Me.GroupBox9.Location = New System.Drawing.Point(42, 372)
+        Me.GroupBox9.Name = "GroupBox9"
+        Me.GroupBox9.Size = New System.Drawing.Size(260, 202)
+        Me.GroupBox9.TabIndex = 56
+        Me.GroupBox9.TabStop = False
+        '
+        'Label75
+        '
+        Me.Label75.AutoSize = True
+        Me.Label75.Location = New System.Drawing.Point(129, 140)
+        Me.Label75.Name = "Label75"
+        Me.Label75.Size = New System.Drawing.Size(13, 13)
+        Me.Label75.TabIndex = 115
+        Me.Label75.Text = "0"
+        '
+        'Label76
+        '
+        Me.Label76.AutoSize = True
+        Me.Label76.Location = New System.Drawing.Point(118, 140)
+        Me.Label76.Name = "Label76"
+        Me.Label76.Size = New System.Drawing.Size(14, 13)
+        Me.Label76.TabIndex = 114
+        Me.Label76.Text = "B"
+        '
+        'Label73
+        '
+        Me.Label73.AutoSize = True
+        Me.Label73.Location = New System.Drawing.Point(88, 140)
+        Me.Label73.Name = "Label73"
+        Me.Label73.Size = New System.Drawing.Size(13, 13)
+        Me.Label73.TabIndex = 113
+        Me.Label73.Text = "0"
+        '
+        'Label72
+        '
+        Me.Label72.AutoSize = True
+        Me.Label72.Location = New System.Drawing.Point(36, 140)
+        Me.Label72.Name = "Label72"
+        Me.Label72.Size = New System.Drawing.Size(14, 13)
+        Me.Label72.TabIndex = 110
+        Me.Label72.Text = "C"
+        '
+        'Label74
+        '
+        Me.Label74.AutoSize = True
+        Me.Label74.Location = New System.Drawing.Point(77, 140)
+        Me.Label74.Name = "Label74"
+        Me.Label74.Size = New System.Drawing.Size(16, 13)
+        Me.Label74.TabIndex = 112
+        Me.Label74.Text = "M"
+        '
+        'Label71
+        '
+        Me.Label71.AutoSize = True
+        Me.Label71.Location = New System.Drawing.Point(48, 140)
+        Me.Label71.Name = "Label71"
+        Me.Label71.Size = New System.Drawing.Size(13, 13)
+        Me.Label71.TabIndex = 111
+        Me.Label71.Text = "0"
+        '
+        'Label56
+        '
+        Me.Label56.AutoSize = True
+        Me.Label56.Cursor = System.Windows.Forms.Cursors.Default
+        Me.Label56.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.Label56.Location = New System.Drawing.Point(93, 89)
+        Me.Label56.Name = "Label56"
+        Me.Label56.Size = New System.Drawing.Size(13, 13)
+        Me.Label56.TabIndex = 91
+        Me.Label56.Text = "0"
+        '
+        'Label57
+        '
+        Me.Label57.AutoSize = True
+        Me.Label57.Cursor = System.Windows.Forms.Cursors.Default
+        Me.Label57.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.Label57.Location = New System.Drawing.Point(53, 89)
+        Me.Label57.Name = "Label57"
+        Me.Label57.Size = New System.Drawing.Size(13, 13)
+        Me.Label57.TabIndex = 90
+        Me.Label57.Text = "0"
+        '
+        'Label58
+        '
+        Me.Label58.AutoSize = True
+        Me.Label58.Cursor = System.Windows.Forms.Cursors.Default
+        Me.Label58.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.Label58.Location = New System.Drawing.Point(76, 89)
+        Me.Label58.Name = "Label58"
+        Me.Label58.Size = New System.Drawing.Size(14, 13)
+        Me.Label58.TabIndex = 89
+        Me.Label58.Text = "Y"
+        '
+        'Label59
+        '
+        Me.Label59.AutoSize = True
+        Me.Label59.Cursor = System.Windows.Forms.Cursors.Default
+        Me.Label59.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.Label59.Location = New System.Drawing.Point(36, 89)
+        Me.Label59.Name = "Label59"
+        Me.Label59.Size = New System.Drawing.Size(14, 13)
+        Me.Label59.TabIndex = 88
+        Me.Label59.Text = "C"
+        '
+        'Label29
+        '
+        Me.Label29.AutoSize = True
+        Me.Label29.Cursor = System.Windows.Forms.Cursors.Default
+        Me.Label29.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.Label29.Location = New System.Drawing.Point(123, 41)
+        Me.Label29.Name = "Label29"
+        Me.Label29.Size = New System.Drawing.Size(13, 13)
+        Me.Label29.TabIndex = 85
+        Me.Label29.Text = "0"
+        '
+        'Label30
+        '
+        Me.Label30.AutoSize = True
+        Me.Label30.Cursor = System.Windows.Forms.Cursors.Default
+        Me.Label30.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.Label30.Location = New System.Drawing.Point(36, 41)
+        Me.Label30.Name = "Label30"
+        Me.Label30.Size = New System.Drawing.Size(78, 13)
+        Me.Label30.TabIndex = 84
+        Me.Label30.Text = "UNDERLOAD:"
+        '
+        'GroupBox4
+        '
+        Me.GroupBox4.Controls.Add(Me.ComboBox1)
+        Me.GroupBox4.Controls.Add(Me.Label27)
+        Me.GroupBox4.Controls.Add(Me.Button9)
+        Me.GroupBox4.Controls.Add(Me.Label26)
+        Me.GroupBox4.Controls.Add(Me.Label25)
+        Me.GroupBox4.Controls.Add(Me.TextBox25)
+        Me.GroupBox4.Controls.Add(Me.Label24)
+        Me.GroupBox4.Controls.Add(Me.TextBox24)
+        Me.GroupBox4.Controls.Add(Me.TextBox23)
+        Me.GroupBox4.Controls.Add(Me.Label22)
+        Me.GroupBox4.Controls.Add(Me.TextBox14)
+        Me.GroupBox4.Location = New System.Drawing.Point(42, 23)
+        Me.GroupBox4.Name = "GroupBox4"
+        Me.GroupBox4.Size = New System.Drawing.Size(261, 301)
+        Me.GroupBox4.TabIndex = 55
+        Me.GroupBox4.TabStop = False
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(58, 147)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(59, 21)
+        Me.ComboBox1.TabIndex = 55
+        '
+        'Label27
+        '
+        Me.Label27.AutoSize = True
+        Me.Label27.Location = New System.Drawing.Point(172, 27)
+        Me.Label27.Name = "Label27"
+        Me.Label27.Size = New System.Drawing.Size(58, 13)
+        Me.Label27.TabIndex = 52
+        Me.Label27.Text = "Код Кухни"
+        '
+        'Button9
+        '
+        Me.Button9.Location = New System.Drawing.Point(17, 148)
+        Me.Button9.Name = "Button9"
+        Me.Button9.Size = New System.Drawing.Size(28, 20)
+        Me.Button9.TabIndex = 54
+        Me.Button9.Text = "=>"
+        Me.Button9.UseVisualStyleBackColor = True
+        '
+        'Label26
+        '
+        Me.Label26.AutoSize = True
+        Me.Label26.Location = New System.Drawing.Point(54, 124)
+        Me.Label26.Name = "Label26"
+        Me.Label26.Size = New System.Drawing.Size(74, 13)
+        Me.Label26.TabIndex = 51
+        Me.Label26.Text = "Код Экипажа"
+        '
+        'Label25
+        '
+        Me.Label25.AutoSize = True
+        Me.Label25.Location = New System.Drawing.Point(187, 231)
+        Me.Label25.Name = "Label25"
+        Me.Label25.Size = New System.Drawing.Size(30, 13)
+        Me.Label25.TabIndex = 50
+        Me.Label25.Text = "MAC"
+        '
+        'TextBox25
+        '
+        Me.TextBox25.Location = New System.Drawing.Point(164, 247)
+        Me.TextBox25.Name = "TextBox25"
+        Me.TextBox25.Size = New System.Drawing.Size(75, 20)
+        Me.TextBox25.TabIndex = 49
+        Me.TextBox25.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'Label24
+        '
+        Me.Label24.AutoSize = True
+        Me.Label24.Location = New System.Drawing.Point(187, 165)
+        Me.Label24.Name = "Label24"
+        Me.Label24.Size = New System.Drawing.Size(26, 13)
+        Me.Label24.TabIndex = 48
+        Me.Label24.Text = "DOI"
+        '
+        'TextBox24
+        '
+        Me.TextBox24.Location = New System.Drawing.Point(164, 181)
+        Me.TextBox24.Name = "TextBox24"
+        Me.TextBox24.Size = New System.Drawing.Size(75, 20)
+        Me.TextBox24.TabIndex = 47
+        Me.TextBox24.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'TextBox23
+        '
+        Me.TextBox23.Location = New System.Drawing.Point(173, 43)
+        Me.TextBox23.Name = "TextBox23"
+        Me.TextBox23.Size = New System.Drawing.Size(57, 20)
+        Me.TextBox23.TabIndex = 46
+        Me.TextBox23.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'Label22
+        '
+        Me.Label22.AutoSize = True
+        Me.Label22.Location = New System.Drawing.Point(183, 94)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(34, 13)
+        Me.Label22.TabIndex = 43
+        Me.Label22.Text = "DOW"
+        '
+        'TextBox14
+        '
+        Me.TextBox14.Location = New System.Drawing.Point(164, 110)
+        Me.TextBox14.Name = "TextBox14"
+        Me.TextBox14.Size = New System.Drawing.Size(75, 20)
+        Me.TextBox14.TabIndex = 24
+        Me.TextBox14.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
         'GroupBox5
         '
         Me.GroupBox5.Controls.Add(Me.GroupBox8)
@@ -1005,6 +1256,86 @@ Partial Class Form1
         Me.GroupBox7.Size = New System.Drawing.Size(257, 193)
         Me.GroupBox7.TabIndex = 1
         Me.GroupBox7.TabStop = False
+        '
+        'TextBox22
+        '
+        Me.TextBox22.Location = New System.Drawing.Point(165, 164)
+        Me.TextBox22.Name = "TextBox22"
+        Me.TextBox22.Size = New System.Drawing.Size(75, 20)
+        Me.TextBox22.TabIndex = 84
+        Me.TextBox22.Text = "0"
+        Me.TextBox22.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.TextBox22.Visible = False
+        '
+        'Button26
+        '
+        Me.Button26.Location = New System.Drawing.Point(131, 164)
+        Me.Button26.Name = "Button26"
+        Me.Button26.Size = New System.Drawing.Size(28, 20)
+        Me.Button26.TabIndex = 83
+        Me.Button26.Text = "→"
+        Me.Button26.UseVisualStyleBackColor = True
+        Me.Button26.Visible = False
+        '
+        'TextBox50
+        '
+        Me.TextBox50.Location = New System.Drawing.Point(71, 164)
+        Me.TextBox50.Name = "TextBox50"
+        Me.TextBox50.Size = New System.Drawing.Size(54, 20)
+        Me.TextBox50.TabIndex = 82
+        Me.TextBox50.Text = "0"
+        Me.TextBox50.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.TextBox50.Visible = False
+        '
+        'Label28
+        '
+        Me.Label28.AutoSize = True
+        Me.Label28.Location = New System.Drawing.Point(6, 168)
+        Me.Label28.Name = "Label28"
+        Me.Label28.Size = New System.Drawing.Size(54, 13)
+        Me.Label28.TabIndex = 81
+        Me.Label28.Text = "CPT5AFT"
+        Me.Label28.Visible = False
+        '
+        'TextBox10
+        '
+        Me.TextBox10.Location = New System.Drawing.Point(165, 132)
+        Me.TextBox10.Name = "TextBox10"
+        Me.TextBox10.Size = New System.Drawing.Size(75, 20)
+        Me.TextBox10.TabIndex = 80
+        Me.TextBox10.Text = "0"
+        Me.TextBox10.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.TextBox10.Visible = False
+        '
+        'Button25
+        '
+        Me.Button25.Location = New System.Drawing.Point(131, 133)
+        Me.Button25.Name = "Button25"
+        Me.Button25.Size = New System.Drawing.Size(28, 20)
+        Me.Button25.TabIndex = 79
+        Me.Button25.Text = "→"
+        Me.Button25.UseVisualStyleBackColor = True
+        Me.Button25.Visible = False
+        '
+        'TextBox16
+        '
+        Me.TextBox16.Location = New System.Drawing.Point(71, 132)
+        Me.TextBox16.Name = "TextBox16"
+        Me.TextBox16.Size = New System.Drawing.Size(54, 20)
+        Me.TextBox16.TabIndex = 78
+        Me.TextBox16.Text = "0"
+        Me.TextBox16.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.TextBox16.Visible = False
+        '
+        'Label23
+        '
+        Me.Label23.AutoSize = True
+        Me.Label23.Location = New System.Drawing.Point(7, 136)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(54, 13)
+        Me.Label23.TabIndex = 77
+        Me.Label23.Text = "CPT5AFT"
+        Me.Label23.Visible = False
         '
         'Label39
         '
@@ -1394,340 +1725,6 @@ Partial Class Form1
         '
         Me.WeightPaxBindingSource.DataMember = "Weight pax"
         '
-        'TextBox14
-        '
-        Me.TextBox14.Location = New System.Drawing.Point(164, 110)
-        Me.TextBox14.Name = "TextBox14"
-        Me.TextBox14.Size = New System.Drawing.Size(75, 20)
-        Me.TextBox14.TabIndex = 24
-        Me.TextBox14.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'Label22
-        '
-        Me.Label22.AutoSize = True
-        Me.Label22.Location = New System.Drawing.Point(183, 94)
-        Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(34, 13)
-        Me.Label22.TabIndex = 43
-        Me.Label22.Text = "DOW"
-        '
-        'TextBox23
-        '
-        Me.TextBox23.Location = New System.Drawing.Point(173, 43)
-        Me.TextBox23.Name = "TextBox23"
-        Me.TextBox23.Size = New System.Drawing.Size(57, 20)
-        Me.TextBox23.TabIndex = 46
-        Me.TextBox23.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'TextBox24
-        '
-        Me.TextBox24.Location = New System.Drawing.Point(164, 181)
-        Me.TextBox24.Name = "TextBox24"
-        Me.TextBox24.Size = New System.Drawing.Size(75, 20)
-        Me.TextBox24.TabIndex = 47
-        Me.TextBox24.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'Label24
-        '
-        Me.Label24.AutoSize = True
-        Me.Label24.Location = New System.Drawing.Point(187, 165)
-        Me.Label24.Name = "Label24"
-        Me.Label24.Size = New System.Drawing.Size(26, 13)
-        Me.Label24.TabIndex = 48
-        Me.Label24.Text = "DOI"
-        '
-        'TextBox25
-        '
-        Me.TextBox25.Location = New System.Drawing.Point(164, 247)
-        Me.TextBox25.Name = "TextBox25"
-        Me.TextBox25.Size = New System.Drawing.Size(75, 20)
-        Me.TextBox25.TabIndex = 49
-        Me.TextBox25.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'Label25
-        '
-        Me.Label25.AutoSize = True
-        Me.Label25.Location = New System.Drawing.Point(187, 231)
-        Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(30, 13)
-        Me.Label25.TabIndex = 50
-        Me.Label25.Text = "MAC"
-        '
-        'Label26
-        '
-        Me.Label26.AutoSize = True
-        Me.Label26.Location = New System.Drawing.Point(54, 124)
-        Me.Label26.Name = "Label26"
-        Me.Label26.Size = New System.Drawing.Size(74, 13)
-        Me.Label26.TabIndex = 51
-        Me.Label26.Text = "Код Экипажа"
-        '
-        'Button9
-        '
-        Me.Button9.Location = New System.Drawing.Point(17, 148)
-        Me.Button9.Name = "Button9"
-        Me.Button9.Size = New System.Drawing.Size(28, 20)
-        Me.Button9.TabIndex = 54
-        Me.Button9.Text = "=>"
-        Me.Button9.UseVisualStyleBackColor = True
-        '
-        'Label27
-        '
-        Me.Label27.AutoSize = True
-        Me.Label27.Location = New System.Drawing.Point(172, 27)
-        Me.Label27.Name = "Label27"
-        Me.Label27.Size = New System.Drawing.Size(58, 13)
-        Me.Label27.TabIndex = 52
-        Me.Label27.Text = "Код Кухни"
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"0", "2/0/0"})
-        Me.ComboBox1.Location = New System.Drawing.Point(58, 147)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(59, 21)
-        Me.ComboBox1.TabIndex = 55
-        '
-        'GroupBox4
-        '
-        Me.GroupBox4.Controls.Add(Me.ComboBox1)
-        Me.GroupBox4.Controls.Add(Me.Label27)
-        Me.GroupBox4.Controls.Add(Me.Button9)
-        Me.GroupBox4.Controls.Add(Me.Label26)
-        Me.GroupBox4.Controls.Add(Me.Label25)
-        Me.GroupBox4.Controls.Add(Me.TextBox25)
-        Me.GroupBox4.Controls.Add(Me.Label24)
-        Me.GroupBox4.Controls.Add(Me.TextBox24)
-        Me.GroupBox4.Controls.Add(Me.TextBox23)
-        Me.GroupBox4.Controls.Add(Me.Label22)
-        Me.GroupBox4.Controls.Add(Me.TextBox14)
-        Me.GroupBox4.Location = New System.Drawing.Point(42, 23)
-        Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(261, 301)
-        Me.GroupBox4.TabIndex = 55
-        Me.GroupBox4.TabStop = False
-        '
-        'GroupBox9
-        '
-        Me.GroupBox9.Controls.Add(Me.Label75)
-        Me.GroupBox9.Controls.Add(Me.Label76)
-        Me.GroupBox9.Controls.Add(Me.Label73)
-        Me.GroupBox9.Controls.Add(Me.Label72)
-        Me.GroupBox9.Controls.Add(Me.Label74)
-        Me.GroupBox9.Controls.Add(Me.Label71)
-        Me.GroupBox9.Controls.Add(Me.Label56)
-        Me.GroupBox9.Controls.Add(Me.Label57)
-        Me.GroupBox9.Controls.Add(Me.Label58)
-        Me.GroupBox9.Controls.Add(Me.Label59)
-        Me.GroupBox9.Controls.Add(Me.Label29)
-        Me.GroupBox9.Controls.Add(Me.Label30)
-        Me.GroupBox9.Location = New System.Drawing.Point(42, 372)
-        Me.GroupBox9.Name = "GroupBox9"
-        Me.GroupBox9.Size = New System.Drawing.Size(260, 202)
-        Me.GroupBox9.TabIndex = 56
-        Me.GroupBox9.TabStop = False
-        '
-        'TextBox10
-        '
-        Me.TextBox10.Location = New System.Drawing.Point(165, 132)
-        Me.TextBox10.Name = "TextBox10"
-        Me.TextBox10.Size = New System.Drawing.Size(75, 20)
-        Me.TextBox10.TabIndex = 80
-        Me.TextBox10.Text = "0"
-        Me.TextBox10.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        Me.TextBox10.Visible = False
-        '
-        'Button25
-        '
-        Me.Button25.Location = New System.Drawing.Point(131, 133)
-        Me.Button25.Name = "Button25"
-        Me.Button25.Size = New System.Drawing.Size(28, 20)
-        Me.Button25.TabIndex = 79
-        Me.Button25.Text = "→"
-        Me.Button25.UseVisualStyleBackColor = True
-        Me.Button25.Visible = False
-        '
-        'TextBox16
-        '
-        Me.TextBox16.Location = New System.Drawing.Point(71, 132)
-        Me.TextBox16.Name = "TextBox16"
-        Me.TextBox16.Size = New System.Drawing.Size(54, 20)
-        Me.TextBox16.TabIndex = 78
-        Me.TextBox16.Text = "0"
-        Me.TextBox16.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        Me.TextBox16.Visible = False
-        '
-        'Label23
-        '
-        Me.Label23.AutoSize = True
-        Me.Label23.Location = New System.Drawing.Point(7, 136)
-        Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(54, 13)
-        Me.Label23.TabIndex = 77
-        Me.Label23.Text = "CPT5AFT"
-        Me.Label23.Visible = False
-        '
-        'TextBox22
-        '
-        Me.TextBox22.Location = New System.Drawing.Point(165, 164)
-        Me.TextBox22.Name = "TextBox22"
-        Me.TextBox22.Size = New System.Drawing.Size(75, 20)
-        Me.TextBox22.TabIndex = 84
-        Me.TextBox22.Text = "0"
-        Me.TextBox22.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        Me.TextBox22.Visible = False
-        '
-        'Button26
-        '
-        Me.Button26.Location = New System.Drawing.Point(131, 164)
-        Me.Button26.Name = "Button26"
-        Me.Button26.Size = New System.Drawing.Size(28, 20)
-        Me.Button26.TabIndex = 83
-        Me.Button26.Text = "→"
-        Me.Button26.UseVisualStyleBackColor = True
-        Me.Button26.Visible = False
-        '
-        'TextBox50
-        '
-        Me.TextBox50.Location = New System.Drawing.Point(71, 164)
-        Me.TextBox50.Name = "TextBox50"
-        Me.TextBox50.Size = New System.Drawing.Size(54, 20)
-        Me.TextBox50.TabIndex = 82
-        Me.TextBox50.Text = "0"
-        Me.TextBox50.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        Me.TextBox50.Visible = False
-        '
-        'Label28
-        '
-        Me.Label28.AutoSize = True
-        Me.Label28.Location = New System.Drawing.Point(6, 168)
-        Me.Label28.Name = "Label28"
-        Me.Label28.Size = New System.Drawing.Size(54, 13)
-        Me.Label28.TabIndex = 81
-        Me.Label28.Text = "CPT5AFT"
-        Me.Label28.Visible = False
-        '
-        'Label29
-        '
-        Me.Label29.AutoSize = True
-        Me.Label29.Cursor = System.Windows.Forms.Cursors.Default
-        Me.Label29.FlatStyle = System.Windows.Forms.FlatStyle.System
-        Me.Label29.Location = New System.Drawing.Point(123, 41)
-        Me.Label29.Name = "Label29"
-        Me.Label29.Size = New System.Drawing.Size(13, 13)
-        Me.Label29.TabIndex = 85
-        Me.Label29.Text = "0"
-        '
-        'Label30
-        '
-        Me.Label30.AutoSize = True
-        Me.Label30.Cursor = System.Windows.Forms.Cursors.Default
-        Me.Label30.FlatStyle = System.Windows.Forms.FlatStyle.System
-        Me.Label30.Location = New System.Drawing.Point(36, 41)
-        Me.Label30.Name = "Label30"
-        Me.Label30.Size = New System.Drawing.Size(78, 13)
-        Me.Label30.TabIndex = 84
-        Me.Label30.Text = "UNDERLOAD:"
-        '
-        'Label56
-        '
-        Me.Label56.AutoSize = True
-        Me.Label56.Cursor = System.Windows.Forms.Cursors.Default
-        Me.Label56.FlatStyle = System.Windows.Forms.FlatStyle.System
-        Me.Label56.Location = New System.Drawing.Point(93, 89)
-        Me.Label56.Name = "Label56"
-        Me.Label56.Size = New System.Drawing.Size(13, 13)
-        Me.Label56.TabIndex = 91
-        Me.Label56.Text = "0"
-        '
-        'Label57
-        '
-        Me.Label57.AutoSize = True
-        Me.Label57.Cursor = System.Windows.Forms.Cursors.Default
-        Me.Label57.FlatStyle = System.Windows.Forms.FlatStyle.System
-        Me.Label57.Location = New System.Drawing.Point(53, 89)
-        Me.Label57.Name = "Label57"
-        Me.Label57.Size = New System.Drawing.Size(13, 13)
-        Me.Label57.TabIndex = 90
-        Me.Label57.Text = "0"
-        '
-        'Label58
-        '
-        Me.Label58.AutoSize = True
-        Me.Label58.Cursor = System.Windows.Forms.Cursors.Default
-        Me.Label58.FlatStyle = System.Windows.Forms.FlatStyle.System
-        Me.Label58.Location = New System.Drawing.Point(76, 89)
-        Me.Label58.Name = "Label58"
-        Me.Label58.Size = New System.Drawing.Size(14, 13)
-        Me.Label58.TabIndex = 89
-        Me.Label58.Text = "Y"
-        '
-        'Label59
-        '
-        Me.Label59.AutoSize = True
-        Me.Label59.Cursor = System.Windows.Forms.Cursors.Default
-        Me.Label59.FlatStyle = System.Windows.Forms.FlatStyle.System
-        Me.Label59.Location = New System.Drawing.Point(36, 89)
-        Me.Label59.Name = "Label59"
-        Me.Label59.Size = New System.Drawing.Size(14, 13)
-        Me.Label59.TabIndex = 88
-        Me.Label59.Text = "C"
-        '
-        'Label75
-        '
-        Me.Label75.AutoSize = True
-        Me.Label75.Location = New System.Drawing.Point(129, 140)
-        Me.Label75.Name = "Label75"
-        Me.Label75.Size = New System.Drawing.Size(13, 13)
-        Me.Label75.TabIndex = 115
-        Me.Label75.Text = "0"
-        '
-        'Label76
-        '
-        Me.Label76.AutoSize = True
-        Me.Label76.Location = New System.Drawing.Point(118, 140)
-        Me.Label76.Name = "Label76"
-        Me.Label76.Size = New System.Drawing.Size(14, 13)
-        Me.Label76.TabIndex = 114
-        Me.Label76.Text = "B"
-        '
-        'Label73
-        '
-        Me.Label73.AutoSize = True
-        Me.Label73.Location = New System.Drawing.Point(88, 140)
-        Me.Label73.Name = "Label73"
-        Me.Label73.Size = New System.Drawing.Size(13, 13)
-        Me.Label73.TabIndex = 113
-        Me.Label73.Text = "0"
-        '
-        'Label72
-        '
-        Me.Label72.AutoSize = True
-        Me.Label72.Location = New System.Drawing.Point(36, 140)
-        Me.Label72.Name = "Label72"
-        Me.Label72.Size = New System.Drawing.Size(14, 13)
-        Me.Label72.TabIndex = 110
-        Me.Label72.Text = "C"
-        '
-        'Label74
-        '
-        Me.Label74.AutoSize = True
-        Me.Label74.Location = New System.Drawing.Point(77, 140)
-        Me.Label74.Name = "Label74"
-        Me.Label74.Size = New System.Drawing.Size(16, 13)
-        Me.Label74.TabIndex = 112
-        Me.Label74.Text = "M"
-        '
-        'Label71
-        '
-        Me.Label71.AutoSize = True
-        Me.Label71.Location = New System.Drawing.Point(48, 140)
-        Me.Label71.Name = "Label71"
-        Me.Label71.Size = New System.Drawing.Size(13, 13)
-        Me.Label71.TabIndex = 111
-        Me.Label71.Text = "0"
-        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1748,6 +1745,10 @@ Partial Class Form1
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
+        Me.GroupBox9.ResumeLayout(False)
+        Me.GroupBox9.PerformLayout()
+        Me.GroupBox4.ResumeLayout(False)
+        Me.GroupBox4.PerformLayout()
         CType(Me.Fuel079BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Fuel0800BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Fuel810BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1760,10 +1761,6 @@ Partial Class Form1
         Me.GroupBox6.PerformLayout()
         CType(Me.TestDataSet1BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.WeightPaxBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupBox4.ResumeLayout(False)
-        Me.GroupBox4.PerformLayout()
-        Me.GroupBox9.ResumeLayout(False)
-        Me.GroupBox9.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub

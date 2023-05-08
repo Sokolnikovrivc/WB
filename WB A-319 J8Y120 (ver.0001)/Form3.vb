@@ -2,6 +2,7 @@
 Imports System.IO.File
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar
 Imports System.Data.SqlClient
+Imports System.Text.RegularExpressions
 
 Public Class Form3
     Public vzr1, rb1, rm1, transvzr1, transvzr2, transvzr3 As Integer
@@ -56,6 +57,21 @@ Public Class Form3
         End If
         If ComboBox2.Text = "Y" AndAlso ComboBox3.Text = "Y" AndAlso ComboBox4.Text = "Y" AndAlso ComboBox1.Text <> "Y" Then
             Form1.Label56.Text = vzr2 + rb2 + rm2 + transvzr4 + transvzr5 + transvzr6 + vzr3 + rb3 + rm3 + transvzr7 + transvzr8 + transvzr9 + vzr4 + rb4 + rm4 + transvzr10 + transvzr11 + transvzr12
+        End If
+        If ComboBox1.Text = "C/Y" Then
+            ' открываем inputbox для ввода данных по классам
+            Dim cClass As String = InputBox("Введите количество мест в классе C для отсека 0A", "Количество мест в классе C")
+            Dim yClass As String = InputBox("Введите количество мест в классе Y для отсека 0A", "Количество мест в классе Y")
+            ' проверяем, что были введены числа
+            Dim cClassInt, yClassInt As Integer
+            If Integer.TryParse(cClass, cClassInt) AndAlso Integer.TryParse(yClass, yClassInt) Then
+                ' если введены числа, то добавляем значения в метки на Form1
+                Form1.Label57.Text = (Integer.Parse(Form1.Label57.Text) + cClassInt).ToString()
+                Form1.Label56.Text = (Integer.Parse(Form1.Label56.Text) + yClassInt).ToString()
+            Else
+                ' если введены некорректные данные, выводим сообщение об ошибке
+                MessageBox.Show("Некорректный ввод! Введите числа.", "Ошибка")
+            End If
         End If
     End Sub
     Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
