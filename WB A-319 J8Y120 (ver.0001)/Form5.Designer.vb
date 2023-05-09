@@ -23,6 +23,7 @@ Partial Class Form5
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.TextBox7 = New System.Windows.Forms.TextBox()
@@ -38,7 +39,6 @@ Partial Class Form5
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -65,10 +65,19 @@ Partial Class Form5
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Total"
         '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(71, 27)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(206, 13)
+        Me.Label3.TabIndex = 15
+        Me.Label3.Text = "Выберете значение плотности топлива"
+        '
         'ComboBox1
         '
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"A 319 (0,79)", "A 319 (0,80)", "A 319 (0,81)"})
+        Me.ComboBox1.Items.AddRange(New Object() {"0,79", "0,80", "0,81"})
         Me.ComboBox1.Location = New System.Drawing.Point(291, 19)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(89, 21)
@@ -199,15 +208,6 @@ Partial Class Form5
         Me.Button2.TabIndex = 3
         Me.Button2.Text = "Отменить"
         Me.Button2.UseVisualStyleBackColor = True
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(71, 27)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(206, 13)
-        Me.Label3.TabIndex = 15
-        Me.Label3.Text = "Выберете значение плотности топлива"
         '
         'Form5
         '

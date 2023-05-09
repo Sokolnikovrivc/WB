@@ -79,15 +79,26 @@ Public Class Form5
                 connection.Open()
 
                 Dim query As String = ""
-                Select Case ComboBox1.SelectedIndex
-                    Case 0
-                        query = "SELECT TOP 1 CenterOfGravityIndex FROM fuel_079 ORDER BY ABS(FuelWeight - @fuelWeight) ASC"
-                    Case 1
-                        query = "SELECT TOP 1 CenterOfGravityIndex FROM fuel_080 ORDER BY ABS(FuelWeight - @fuelWeight) ASC"
-                    Case 2
-                        query = "SELECT TOP 1 CenterOfGravityIndex FROM fuel_810 ORDER BY ABS(FuelWeight - @fuelWeight) ASC"
-                End Select
-
+                If Form1.TextBox1.Text = "A-319" Then
+                    Select Case ComboBox1.SelectedIndex
+                        Case 0
+                            query = "SELECT TOP 1 CenterOfGravityIndex FROM fuel_079 ORDER BY ABS(FuelWeight - @fuelWeight) ASC"
+                        Case 1
+                            query = "SELECT TOP 1 CenterOfGravityIndex FROM fuel_080 ORDER BY ABS(FuelWeight - @fuelWeight) ASC"
+                        Case 2
+                            query = "SELECT TOP 1 CenterOfGravityIndex FROM fuel_810 ORDER BY ABS(FuelWeight - @fuelWeight) ASC"
+                    End Select
+                End If
+                If Form1.TextBox1.Text = "A-320" Then
+                    Select Case ComboBox1.SelectedIndex
+                        Case 0
+                            query = "SELECT TOP 1 CenterOfGravityIndex FROM fuel_079_A320 ORDER BY ABS(FuelWeight - @fuelWeight) ASC"
+                        Case 1
+                            query = "SELECT TOP 1 CenterOfGravityIndex FROM fuel_080_A320 ORDER BY ABS(FuelWeight - @fuelWeight) ASC"
+                        Case 2
+                            query = "SELECT TOP 1 CenterOfGravityIndex FROM fuel_810_A320 ORDER BY ABS(FuelWeight - @fuelWeight) ASC"
+                    End Select
+                End If
                 Dim command As SqlCommand = New SqlCommand(query, connection)
                 command.Parameters.AddWithValue("@fuelWeight", fuelWeight)
 
@@ -105,15 +116,26 @@ Public Class Form5
             Using connection As SqlConnection = New SqlConnection(connectionString)
                 connection.Open()
                 Dim query As String = ""
-                Select Case ComboBox1.SelectedIndex
-                    Case 0
-                        query = "SELECT TOP 1 CenterOfGravityIndex FROM fuel_079 ORDER BY ABS(FuelWeight - @fuelWeight2) ASC"
-                    Case 1
-                        query = "SELECT TOP 1 CenterOfGravityIndex FROM fuel_080 ORDER BY ABS(FuelWeight - @fuelWeight2) ASC"
-                    Case 2
-                        query = "SELECT TOP 1 CenterOfGravityIndex FROM fuel_810 ORDER BY ABS(FuelWeight - @fuelWeight2) ASC"
-                End Select
-
+                If Form1.TextBox1.Text = "A-319" Then
+                    Select Case ComboBox1.SelectedIndex
+                        Case 0
+                            query = "SELECT TOP 1 CenterOfGravityIndex FROM fuel_079 ORDER BY ABS(FuelWeight - @fuelWeight2) ASC"
+                        Case 1
+                            query = "SELECT TOP 1 CenterOfGravityIndex FROM fuel_080 ORDER BY ABS(FuelWeight - @fuelWeight2) ASC"
+                        Case 2
+                            query = "SELECT TOP 1 CenterOfGravityIndex FROM fuel_810 ORDER BY ABS(FuelWeight - @fuelWeight2) ASC"
+                    End Select
+                End If
+                If Form1.TextBox1.Text = "A-320" Then
+                    Select Case ComboBox1.SelectedIndex
+                        Case 0
+                            query = "SELECT TOP 1 CenterOfGravityIndex FROM fuel_079_A320 ORDER BY ABS(FuelWeight - @fuelWeight2) ASC"
+                        Case 1
+                            query = "SELECT TOP 1 CenterOfGravityIndex FROM fuel_080_A320 ORDER BY ABS(FuelWeight - @fuelWeight2) ASC"
+                        Case 2
+                            query = "SELECT TOP 1 CenterOfGravityIndex FROM fuel_810_A320 ORDER BY ABS(FuelWeight - @fuelWeight2) ASC"
+                    End Select
+                End If
                 ' Поиск ближайшего значения индекса для заданного веса топлива
                 Dim command As SqlCommand = New SqlCommand(query, connection)
                 command.Parameters.AddWithValue("@fuelWeight2", fuelWeight2)

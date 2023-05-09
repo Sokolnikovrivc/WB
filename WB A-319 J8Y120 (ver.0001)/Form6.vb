@@ -128,4 +128,11 @@ Public Class Form6
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Form7.Show()
     End Sub
+    Private Sub Form6_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Form1.Label57.Text = Label20.Text
+        Form1.Label56.Text = Label21.Text
+        Form1.Label71.Text = Label71.Text
+        Form1.Label73.Text = Label73.Text
+        Form1.Label75.Text = Label75.Text
+    End Sub
 End Class

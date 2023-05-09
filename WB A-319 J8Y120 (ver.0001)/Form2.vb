@@ -713,25 +713,4 @@ Public Class Form2
         TextBox15.Text = "0"
         TextBox24.Text = "0"
     End Sub
-    Private Sub Form2_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
-        Dim registryKey As Microsoft.Win32.RegistryKey = Microsoft.Win32.Registry.CurrentUser.CreateSubKey("Form2Data")
-        ' Save the form data to the registry
-        registryKey.SetValue("TextBox8", TextBox8.Text)
-        registryKey.SetValue("TextBox12", TextBox12.Text)
-        registryKey.Close()
-    End Sub
-
-    Private Sub Form2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim registryKey As Microsoft.Win32.RegistryKey = Microsoft.Win32.Registry.CurrentUser.CreateSubKey("Form2Data")
-        ' Load the form data from the registry
-        TextBox8.Text = registryKey.GetValue("TextBox8", "")
-        TextBox12.Text = registryKey.GetValue("TextBox12", "")
-        registryKey.Close()
-        If (String.IsNullOrEmpty(TextBox8.Text)) Then
-            TextBox8.Text = "0"
-        End If
-        If (String.IsNullOrEmpty(TextBox12.Text)) Then
-            TextBox12.Text = "0"
-        End If
-    End Sub
 End Class

@@ -905,6 +905,9 @@ Public Class Form9
         TextBox27.Text = wt4 + wt5
         TextBox37.Text = wt6 + wt7
         TextBox46.Text = wt8 + wt9 + wt10
+        Form1.Label71.Text = Label71.Text
+        Form1.Label73.Text = Label73.Text
+        Form1.Label75.Text = Label75.Text
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click

@@ -429,6 +429,10 @@ Public Class Form10
         registryKey.SetValue("TextBox26", TextBox26.Text)
         registryKey.SetValue("TextBox27", TextBox27.Text)
         registryKey.SetValue("TextBox28", TextBox28.Text)
+        'изменение названий груз.отсеки
+        registryKey.SetValue("Label27", Label27.Text)
+        registryKey.SetValue("Label26", Label26.Text)
+        registryKey.SetValue("Label25", Label25.Text)
         registryKey.Close()
         Form1.Show()
         Me.Close()
