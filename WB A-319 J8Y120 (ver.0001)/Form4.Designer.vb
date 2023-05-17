@@ -22,6 +22,7 @@ Partial Class Form4
     'Не изменяйте ее в редакторе исходного кода.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form4))
         Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
         Me.SuspendLayout()
         '
@@ -40,9 +41,11 @@ Partial Class Form4
         Me.ClientSize = New System.Drawing.Size(252, 239)
         Me.Controls.Add(Me.RichTextBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MaximumSize = New System.Drawing.Size(272, 282)
         Me.Name = "Form4"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "Form4"
+        Me.Text = "CPM"
         Me.ResumeLayout(False)
 
     End Sub

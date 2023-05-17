@@ -448,6 +448,101 @@ Public Class Form11
         registryKey.SetValue("TextBox65", TextBox65.Text)
         registryKey.SetValue("TextBox64", TextBox64.Text)
         registryKey.Close()
+        Try
+            Using connection As SqlConnection = New SqlConnection(connectionString)
+                connection.Open()
+                Dim command2 As New SqlCommand("Select MZFW, MTOW, MLW  FROM [Test].[dbo].[A319] where flight_bort = @flight_bort and config_id = @config_id", connection)
+                command2.Parameters.Add("@flight_bort", SqlDbType.VarChar).Value = TextBox3.Text
+                command2.Parameters.Add("@config_id", SqlDbType.VarChar).Value = TextBox2.Text
+                Dim adapter2 As New SqlDataAdapter(command2)
+                Dim table2 As New DataTable
+                adapter2.Fill(table2)
+                Form1.TextBox13.Text = table2.Rows(0)(0).ToString()
+                Form1.TextBox19.Text = table2.Rows(0)(1).ToString()
+                Form1.TextBox18.Text = table2.Rows(0)(2).ToString()
+            End Using
+        Catch ex As Exception
+            MsgBox("Error: " & ex.ToString())
+        End Try
+        Try
+            Using connection As SqlConnection = New SqlConnection(connectionString)
+                connection.Open()
+                Dim command As New SqlCommand("SELECT TOP 1 * FROM [Test].[dbo].[A319 Act] where flight1_bort = @flight1_bort and type_Aircraft = @type_Aircraft ORDER BY CreatedAt DESC", connection)
+                command.Parameters.Add("@flight1_bort", SqlDbType.VarChar).Value = TextBox3.Text
+                command.Parameters.Add("@type_Aircraft", SqlDbType.VarChar).Value = TextBox1.Text
+                Dim adapter As New SqlDataAdapter(command)
+                Dim table As New DataTable
+                adapter.Fill(table)
+                Form1.TextBox5.Text = table.Rows(0)(0).ToString()
+                Form1.TextBox3.Text = table.Rows(0)(1).ToString()
+                Form1.TextBox4.Text = table.Rows(0)(2).ToString()
+                Form1.TextBox2.Text = table.Rows(0)(3).ToString()
+                Form1.TextBox48.Text = table.Rows(0)(4).ToString()
+                Form1.TextBox49.Text = table.Rows(0)(5).ToString()
+                Form1.TextBox8.Text = table.Rows(0)(6).ToString()
+                Form1.TextBox12.Text = table.Rows(0)(7).ToString()
+                Form1.TextBox17.Text = table.Rows(0)(8).ToString()
+                Form1.TextBox20.Text = table.Rows(0)(9).ToString()
+                Form1.TextBox21.Text = table.Rows(0)(10).ToString()
+                Form1.TextBox42.Text = table.Rows(0)(11).ToString()
+                Form1.TextBox44.Text = table.Rows(0)(12).ToString()
+                Form1.TextBox46.Text = table.Rows(0)(13).ToString()
+                Form1.TextBox43.Text = table.Rows(0)(14).ToString()
+                Form1.TextBox45.Text = table.Rows(0)(15).ToString()
+                Form1.TextBox47.Text = table.Rows(0)(16).ToString()
+                Form1.TextBox6.Text = table.Rows(0)(17).ToString()
+                Form1.TextBox7.Text = table.Rows(0)(18).ToString()
+                Form1.TextBox14.Text = table.Rows(0)(19).ToString()
+                Form1.TextBox11.Text = table.Rows(0)(19).ToString()
+                Form1.ComboBox1.Text = table.Rows(0)(20).ToString()
+                Form1.TextBox23.Text = table.Rows(0)(21).ToString()
+                Form1.TextBox24.Text = table.Rows(0)(22).ToString()
+                Form1.TextBox25.Text = table.Rows(0)(23).ToString()
+                Form1.TextBox15.Text = table.Rows(0)(24).ToString()
+                Form1.TextBox26.Text = table.Rows(0)(25).ToString()
+                Form1.TextBox27.Text = table.Rows(0)(26).ToString()
+                Form1.TextBox28.Text = table.Rows(0)(27).ToString()
+                Form1.TextBox29.Text = table.Rows(0)(28).ToString()
+                Form1.TextBox30.Text = table.Rows(0)(29).ToString()
+                Form1.TextBox31.Text = table.Rows(0)(30).ToString()
+                Form1.TextBox36.Text = table.Rows(0)(31).ToString()
+                Form1.TextBox37.Text = table.Rows(0)(32).ToString()
+                Form1.TextBox38.Text = table.Rows(0)(33).ToString()
+                Form1.TextBox16.Text = table.Rows(0)(34).ToString()
+                Form1.TextBox39.Text = table.Rows(0)(35).ToString()
+                Form1.TextBox40.Text = table.Rows(0)(36).ToString()
+                Form1.TextBox41.Text = table.Rows(0)(37).ToString()
+                Form1.TextBox10.Text = table.Rows(0)(38).ToString()
+                Form1.TextBox32.Text = table.Rows(0)(39).ToString()
+                Form1.TextBox33.Text = table.Rows(0)(40).ToString()
+                Form1.TextBox34.Text = table.Rows(0)(41).ToString()
+                Form1.TextBox35.Text = table.Rows(0)(42).ToString()
+                Form1.TextBox9.Text = table.Rows(0)(43).ToString()
+                Form1.TextBox13.Text = table.Rows(0)(44).ToString()
+                Form1.TextBox19.Text = table.Rows(0)(45).ToString()
+                Form1.TextBox18.Text = table.Rows(0)(46).ToString()
+                Form1.Label29.Text = table.Rows(0)(47).ToString()
+                Form1.Label57.Text = table.Rows(0)(48).ToString()
+                Form1.Label56.Text = table.Rows(0)(49).ToString()
+                Form1.Label71.Text = table.Rows(0)(50).ToString()
+                Form1.Label73.Text = table.Rows(0)(51).ToString()
+                Form1.Label75.Text = table.Rows(0)(52).ToString()
+                Form1.Label50.Text = table.Rows(0)(53).ToString()
+                Form1.Label51.Text = table.Rows(0)(54).ToString()
+                Form1.Label52.Text = table.Rows(0)(55).ToString()
+                Form1.Label53.Text = table.Rows(0)(56).ToString()
+                Form1.TextBox1.Text = table.Rows(0)(57).ToString()
+            End Using
+        Catch ex As Exception
+            MsgBox("По данному рейсу записей не найдено!", vbInformation, "Информация")
+        End Try
+        Form1.TextBox5.Text = Form12.TextBox1.Text
+        Form1.TextBox3.Text = Form12.TextBox2.Text
+        Form1.TextBox48.Text = Form12.TextBox3.Text
+        Form1.TextBox49.Text = Form12.TextBox4.Text
+        Form1.TextBox1.Text = Form12.TextBox5.Text
+        Form1.TextBox4.Text = Form12.TextBox6.Text
+        Form1.TextBox2.Text = Form12.TextBox7.Text
         Form1.Show()
         Me.Close()
     End Sub

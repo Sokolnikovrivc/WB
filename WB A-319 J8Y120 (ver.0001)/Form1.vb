@@ -19,6 +19,7 @@ Public Class Form1
     Public CPT1FWD As Single
     Public CPT4AFT As Single
     Public CPT5AFT As Single
+    Public BULK As Single
     Public LIZFW As Single
     Public DOI As Single
     Public MACZFW As Single
@@ -44,28 +45,6 @@ Public Class Form1
     Public AFT8 As Single
     Public AFT9 As Single
     Public connectionString As String = "Data Source=WIN-8CEIKSU78CS\SQLEXPRESS; Initial Catalog=Test; Integrated Security=True"
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Try
-            Dim connection As New SqlConnection("Data Source=WIN-8CEIKSU78CS\SQLEXPRESS; Initial Catalog=Test; Integrated Security=True")
-            Dim command As New SqlCommand("select * from A319 where flight_id = @flight_id", connection)
-            command.Parameters.Add("@flight_id", SqlDbType.VarChar).Value = TextBox5.Text
-            Dim adapter As New SqlDataAdapter(command)
-            Dim table As New DataTable
-            adapter.Fill(table)
-            TextBox4.Text = table.Rows(0)(0).ToString()
-            TextBox2.Text = table.Rows(0)(1).ToString()
-            TextBox3.Text = table.Rows(0)(8).ToString()
-            TextBox48.Text = table.Rows(0)(5).ToString()
-            TextBox49.Text = table.Rows(0)(6).ToString()
-            TextBox13.Text = table.Rows(0)(2).ToString()
-            TextBox19.Text = table.Rows(0)(3).ToString()
-            TextBox18.Text = table.Rows(0)(4).ToString()
-            TextBox1.Text = table.Rows(0)(9).ToString()
-            ComboBox1.Focus()
-        Catch ex As Exception
-            MessageBox.Show(ex.Message)
-        End Try
-    End Sub
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim registryKey As Microsoft.Win32.RegistryKey = Microsoft.Win32.Registry.CurrentUser.CreateSubKey("FormDatachanges")
         Label36.Text = registryKey.GetValue("Label27", "")
@@ -77,7 +56,8 @@ Public Class Form1
         Dim sw As IO.StreamWriter = AppendText(filename)
         sw.WriteLine(Now() & "" & "sample log file entry")
         sw.Close()
-
+        ComboBox1.Items.Clear()
+        combo() ' заполняем ComboBox данными из базы данных
     End Sub
     Public Sub combo()
         If TextBox1.Text = "A-319" Then
@@ -111,8 +91,6 @@ Public Class Form1
         End If
     End Sub
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
-        ComboBox1.Items.Clear()
-        combo() ' заполняем ComboBox данными из базы данных
         If TextBox1.Text = "A-320" Then
             Label23.Visible = True
             TextBox16.Visible = True
@@ -351,7 +329,7 @@ Public Class Form1
 
     Private Sub Button16_Click(sender As Object, e As EventArgs) Handles Button16.Click
         LIZFW = CSng(TextBox42.Text)
-        TextBox42.Text = DOI + OA + OB + OC + OD + CPT1FWD + CPT4AFT + CPT5AFT
+        TextBox42.Text = DOI + OA + OB + OC + OD + CPT1FWD + CPT4AFT + CPT5AFT + BULK
     End Sub
     Public Function Preobraz_index()
         Dim registryKey As Microsoft.Win32.RegistryKey = Microsoft.Win32.Registry.CurrentUser.CreateSubKey("FormDatachanges")
@@ -378,7 +356,7 @@ Public Class Form1
     Private Sub Button18_Click(sender As Object, e As EventArgs) Handles Button18.Click
         LITOW = CSng(TextBox44.Text)
         LITOF = CSng(TextBox26.Text)
-        TextBox44.Text = DOI + OA + OB + OC + OD + CPT1FWD + CPT4AFT + CPT5AFT + LITOF
+        TextBox44.Text = DOI + OA + OB + OC + OD + CPT1FWD + CPT4AFT + CPT5AFT + BULK + LITOF
     End Sub
 
     Private Sub Button19_Click(sender As Object, e As EventArgs) Handles Button19.Click
@@ -398,7 +376,7 @@ Public Class Form1
     Private Sub Button20_Click(sender As Object, e As EventArgs) Handles Button20.Click
         LILW = CSng(TextBox46.Text)
         LITIF = CSng(TextBox27.Text)
-        TextBox46.Text = DOI + OA + OB + OC + OD + CPT1FWD + CPT4AFT + CPT5AFT + LITOF + LITIF
+        TextBox46.Text = DOI + OA + OB + OC + OD + CPT1FWD + CPT4AFT + CPT5AFT + BULK + LITOF + LITIF
     End Sub
 
     Private Sub Button21_Click(sender As Object, e As EventArgs) Handles Button21.Click
@@ -487,6 +465,109 @@ Public Class Form1
 
     Private Sub Button22_Click(sender As Object, e As EventArgs) Handles Button22.Click
         If TextBox1.Text = "A-320" Then
+            Try
+                Using connection As SqlConnection = New SqlConnection(connectionString)
+                    connection.Open()
+                    Dim command As New SqlCommand("SELECT TOP 1 * FROM [Test].[dbo].[A320 lir] where flight_id1 = @flight_id1 and flight_bort = @flight_bort ORDER BY CreatedAt DESC", connection)
+                    command.Parameters.Add("@flight_id1", SqlDbType.VarChar).Value = TextBox5.Text
+                    command.Parameters.Add("@flight_bort", SqlDbType.VarChar).Value = TextBox4.Text
+                    Dim adapter As New SqlDataAdapter(command)
+                    Dim table As New DataTable
+                    adapter.Fill(table)
+                    Form9.TextBox5.Text = table.Rows(0)(0).ToString()
+                    Form9.TextBox3.Text = table.Rows(0)(1).ToString()
+                    Form9.TextBox4.Text = table.Rows(0)(2).ToString()
+                    Form9.TextBox2.Text = table.Rows(0)(3).ToString()
+                    Form9.TextBox48.Text = table.Rows(0)(4).ToString()
+                    Form9.TextBox49.Text = table.Rows(0)(5).ToString()
+                    Form9.TextBox6.Text = table.Rows(0)(6).ToString()
+                    Form9.TextBox7.Text = table.Rows(0)(7).ToString()
+                    Form9.ComboBox1.Text = table.Rows(0)(8).ToString()
+                    Form9.ComboBox2.Text = table.Rows(0)(9).ToString()
+                    Form9.TextBox8.Text = table.Rows(0)(10).ToString()
+                    Form9.ComboBox3.Text = table.Rows(0)(11).ToString()
+                    Form9.ComboBox4.Text = table.Rows(0)(12).ToString()
+                    Form9.TextBox10.Text = table.Rows(0)(13).ToString()
+                    Form9.TextBox9.Text = table.Rows(0)(14).ToString()
+                    Form9.TextBox11.Text = table.Rows(0)(15).ToString()
+                    Form9.ComboBox5.Text = table.Rows(0)(16).ToString()
+                    Form9.ComboBox6.Text = table.Rows(0)(17).ToString()
+                    Form9.TextBox12.Text = table.Rows(0)(18).ToString()
+                    Form9.ComboBox7.Text = table.Rows(0)(19).ToString()
+                    Form9.ComboBox8.Text = table.Rows(0)(20).ToString()
+                    Form9.TextBox13.Text = table.Rows(0)(21).ToString()
+                    Form9.TextBox14.Text = table.Rows(0)(22).ToString()
+                    Form9.TextBox15.Text = table.Rows(0)(23).ToString()
+                    Form9.ComboBox9.Text = table.Rows(0)(24).ToString()
+                    Form9.ComboBox10.Text = table.Rows(0)(25).ToString()
+                    Form9.TextBox16.Text = table.Rows(0)(26).ToString()
+                    Form9.ComboBox11.Text = table.Rows(0)(27).ToString()
+                    Form9.ComboBox12.Text = table.Rows(0)(28).ToString()
+                    Form9.TextBox17.Text = table.Rows(0)(29).ToString()
+                    Form9.TextBox18.Text = table.Rows(0)(30).ToString()
+                    Form9.TextBox27.Text = table.Rows(0)(31).ToString()
+                    Form9.TextBox25.Text = table.Rows(0)(32).ToString()
+                    Form9.ComboBox18.Text = table.Rows(0)(33).ToString()
+                    Form9.ComboBox19.Text = table.Rows(0)(34).ToString()
+                    Form9.TextBox26.Text = table.Rows(0)(35).ToString()
+                    Form9.ComboBox20.Text = table.Rows(0)(36).ToString()
+                    Form9.ComboBox17.Text = table.Rows(0)(37).ToString()
+                    Form9.TextBox24.Text = table.Rows(0)(38).ToString()
+                    Form9.TextBox23.Text = table.Rows(0)(39).ToString()
+                    Form9.TextBox22.Text = table.Rows(0)(40).ToString()
+                    Form9.ComboBox16.Text = table.Rows(0)(41).ToString()
+                    Form9.ComboBox15.Text = table.Rows(0)(42).ToString()
+                    Form9.TextBox21.Text = table.Rows(0)(43).ToString()
+                    Form9.ComboBox14.Text = table.Rows(0)(44).ToString()
+                    Form9.ComboBox13.Text = table.Rows(0)(45).ToString()
+                    Form9.TextBox20.Text = table.Rows(0)(46).ToString()
+                    Form9.TextBox19.Text = table.Rows(0)(47).ToString()
+                    Form9.TextBox37.Text = table.Rows(0)(48).ToString()
+                    Form9.TextBox35.Text = table.Rows(0)(49).ToString()
+                    Form9.ComboBox26.Text = table.Rows(0)(50).ToString()
+                    Form9.ComboBox27.Text = table.Rows(0)(51).ToString()
+                    Form9.TextBox36.Text = table.Rows(0)(52).ToString()
+                    Form9.ComboBox28.Text = table.Rows(0)(53).ToString()
+                    Form9.ComboBox25.Text = table.Rows(0)(54).ToString()
+                    Form9.TextBox34.Text = table.Rows(0)(55).ToString()
+                    Form9.TextBox32.Text = table.Rows(0)(56).ToString()
+                    Form9.TextBox31.Text = table.Rows(0)(57).ToString()
+                    Form9.ComboBox24.Text = table.Rows(0)(58).ToString()
+                    Form9.ComboBox23.Text = table.Rows(0)(59).ToString()
+                    Form9.TextBox30.Text = table.Rows(0)(60).ToString()
+                    Form9.ComboBox22.Text = table.Rows(0)(61).ToString()
+                    Form9.ComboBox21.Text = table.Rows(0)(62).ToString()
+                    Form9.TextBox29.Text = table.Rows(0)(63).ToString()
+                    Form9.TextBox28.Text = table.Rows(0)(64).ToString()
+                    Form9.TextBox46.Text = table.Rows(0)(65).ToString()
+                    Form9.TextBox44.Text = table.Rows(0)(66).ToString()
+                    Form9.ComboBox34.Text = table.Rows(0)(67).ToString()
+                    Form9.ComboBox35.Text = table.Rows(0)(68).ToString()
+                    Form9.TextBox45.Text = table.Rows(0)(69).ToString()
+                    Form9.ComboBox36.Text = table.Rows(0)(70).ToString()
+                    Form9.ComboBox33.Text = table.Rows(0)(71).ToString()
+                    Form9.TextBox43.Text = table.Rows(0)(72).ToString()
+                    Form9.TextBox42.Text = table.Rows(0)(73).ToString()
+                    Form9.TextBox41.Text = table.Rows(0)(74).ToString()
+                    Form9.ComboBox32.Text = table.Rows(0)(75).ToString()
+                    Form9.ComboBox31.Text = table.Rows(0)(76).ToString()
+                    Form9.TextBox40.Text = table.Rows(0)(77).ToString()
+                    Form9.ComboBox30.Text = table.Rows(0)(78).ToString()
+                    Form9.ComboBox29.Text = table.Rows(0)(79).ToString()
+                    Form9.TextBox39.Text = table.Rows(0)(80).ToString()
+                    Form9.TextBox38.Text = table.Rows(0)(81).ToString()
+                    Form9.TextBox47.Text = table.Rows(0)(81).ToString()
+                    Form9.ComboBox37.Text = table.Rows(0)(83).ToString()
+                    Form9.ComboBox38.Text = table.Rows(0)(84).ToString()
+                    Form9.TextBox50.Text = table.Rows(0)(85).ToString()
+                    Form9.ComboBox39.Text = table.Rows(0)(86).ToString()
+                    Form9.ComboBox40.Text = table.Rows(0)(87).ToString()
+                    Form9.TextBox51.Text = table.Rows(0)(88).ToString()
+                    Form9.TextBox52.Text = table.Rows(0)(89).ToString()
+                End Using
+            Catch ex As Exception
+                MsgBox("По данному рейсу записей не найдено!", vbInformation, "Информация")
+            End Try
             Form9.Show()
             Form9.TextBox5.Text = TextBox5.Text
             Form9.TextBox3.Text = TextBox3.Text
@@ -507,6 +588,76 @@ Public Class Form1
             Form9.TextBox47.Text = Mid(TextBox3.Text, 5, 3)
         End If
         If TextBox1.Text = "A-319" Then
+            Try
+                Using connection As SqlConnection = New SqlConnection(connectionString)
+                    connection.Open()
+                    Dim command As New SqlCommand("SELECT TOP 1 * FROM [Test].[dbo].[A319 lir] where flight_id1 = @flight_id1 and flight_bort = @flight_bort ORDER BY CreatedAt DESC", connection)
+                    command.Parameters.Add("@flight_id1", SqlDbType.VarChar).Value = TextBox5.Text
+                    command.Parameters.Add("@flight_bort", SqlDbType.VarChar).Value = TextBox4.Text
+                    Dim adapter As New SqlDataAdapter(command)
+                    Dim table As New DataTable
+                    adapter.Fill(table)
+                    Form2.TextBox5.Text = table.Rows(0)(0).ToString()
+                    Form2.TextBox3.Text = table.Rows(0)(1).ToString()
+                    Form2.TextBox4.Text = table.Rows(0)(2).ToString()
+                    Form2.TextBox2.Text = table.Rows(0)(3).ToString()
+                    Form2.TextBox48.Text = table.Rows(0)(4).ToString()
+                    Form2.TextBox49.Text = table.Rows(0)(5).ToString()
+                    Form2.TextBox6.Text = table.Rows(0)(6).ToString()
+                    Form2.TextBox7.Text = table.Rows(0)(7).ToString()
+                    Form2.ComboBox1.Text = table.Rows(0)(8).ToString()
+                    Form2.ComboBox2.Text = table.Rows(0)(9).ToString()
+                    Form2.TextBox8.Text = table.Rows(0)(10).ToString()
+                    Form2.ComboBox3.Text = table.Rows(0)(11).ToString()
+                    Form2.ComboBox4.Text = table.Rows(0)(12).ToString()
+                    Form2.TextBox10.Text = table.Rows(0)(13).ToString()
+                    Form2.TextBox9.Text = table.Rows(0)(14).ToString()
+                    Form2.TextBox11.Text = table.Rows(0)(15).ToString()
+                    Form2.ComboBox5.Text = table.Rows(0)(16).ToString()
+                    Form2.ComboBox6.Text = table.Rows(0)(17).ToString()
+                    Form2.TextBox12.Text = table.Rows(0)(18).ToString()
+                    Form2.ComboBox7.Text = table.Rows(0)(19).ToString()
+                    Form2.ComboBox8.Text = table.Rows(0)(20).ToString()
+                    Form2.TextBox13.Text = table.Rows(0)(21).ToString()
+                    Form2.TextBox14.Text = table.Rows(0)(22).ToString()
+                    Form2.TextBox15.Text = table.Rows(0)(23).ToString()
+                    Form2.TextBox22.Text = table.Rows(0)(24).ToString()
+                    Form2.ComboBox14.Text = table.Rows(0)(25).ToString()
+                    Form2.ComboBox15.Text = table.Rows(0)(26).ToString()
+                    Form2.TextBox23.Text = table.Rows(0)(27).ToString()
+                    Form2.ComboBox16.Text = table.Rows(0)(28).ToString()
+                    Form2.ComboBox13.Text = table.Rows(0)(29).ToString()
+                    Form2.TextBox21.Text = table.Rows(0)(30).ToString()
+                    Form2.TextBox20.Text = table.Rows(0)(31).ToString()
+                    Form2.TextBox19.Text = table.Rows(0)(32).ToString()
+                    Form2.ComboBox12.Text = table.Rows(0)(33).ToString()
+                    Form2.ComboBox11.Text = table.Rows(0)(34).ToString()
+                    Form2.TextBox18.Text = table.Rows(0)(35).ToString()
+                    Form2.ComboBox10.Text = table.Rows(0)(36).ToString()
+                    Form2.ComboBox9.Text = table.Rows(0)(37).ToString()
+                    Form2.TextBox17.Text = table.Rows(0)(38).ToString()
+                    Form2.TextBox16.Text = table.Rows(0)(39).ToString()
+                    Form2.TextBox24.Text = table.Rows(0)(40).ToString()
+                    Form2.TextBox31.Text = table.Rows(0)(41).ToString()
+                    Form2.ComboBox22.Text = table.Rows(0)(42).ToString()
+                    Form2.ComboBox23.Text = table.Rows(0)(43).ToString()
+                    Form2.TextBox32.Text = table.Rows(0)(44).ToString()
+                    Form2.ComboBox24.Text = table.Rows(0)(45).ToString()
+                    Form2.ComboBox21.Text = table.Rows(0)(46).ToString()
+                    Form2.TextBox30.Text = table.Rows(0)(47).ToString()
+                    Form2.TextBox29.Text = table.Rows(0)(48).ToString()
+                    Form2.TextBox28.Text = table.Rows(0)(49).ToString()
+                    Form2.ComboBox20.Text = table.Rows(0)(50).ToString()
+                    Form2.ComboBox19.Text = table.Rows(0)(51).ToString()
+                    Form2.TextBox27.Text = table.Rows(0)(52).ToString()
+                    Form2.ComboBox18.Text = table.Rows(0)(53).ToString()
+                    Form2.ComboBox17.Text = table.Rows(0)(54).ToString()
+                    Form2.TextBox26.Text = table.Rows(0)(55).ToString()
+                    Form2.TextBox25.Text = table.Rows(0)(56).ToString()
+                End Using
+            Catch ex As Exception
+                MsgBox("По данному рейсу записей не найдено!", vbInformation, "Информация")
+            End Try
             Form2.Show()
             Form2.TextBox5.Text = TextBox5.Text
             Form2.TextBox3.Text = TextBox3.Text
@@ -529,6 +680,7 @@ Public Class Form1
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
         Form6.Show()
+        Form6.TextBox1.Text = TextBox1.Text
         Form6.TextBox5.Text = TextBox5.Text
         Form6.TextBox3.Text = TextBox3.Text
         Form6.TextBox48.Text = TextBox48.Text
@@ -547,12 +699,13 @@ Public Class Form1
 
     Private Sub Button25_Click(sender As Object, e As EventArgs) Handles Button25.Click
         Dim registryKey As Microsoft.Win32.RegistryKey = Microsoft.Win32.Registry.CurrentUser.CreateSubKey("FormDatachanges")
-        Dim BULK As Single = registryKey.GetValue("TextBox58", "")
+        Dim BULK1 As Single = registryKey.GetValue("TextBox58", "")
         Dim BULKkey As Single = registryKey.GetValue("TextBox57", "")
         registryKey.Close()
         AFT7 = CSng(TextBox16.Text)
         TTL = CSng(TextBox6.Text)
-        TextBox10.Text = AFT7 * BULK
+        BULK = CSng(TextBox10.Text)
+        TextBox10.Text = AFT7 * BULK1
         If AFT7 > BULKkey Then
             MsgBox("Превышение максимального веса!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
             TextBox10.Text = ""

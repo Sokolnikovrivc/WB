@@ -115,7 +115,9 @@ Partial Class LoginForm1
         Me.Controls.Add(Me.UsernameLabel)
         Me.Controls.Add(Me.LogoPictureBox)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
+        Me.MaximumSize = New System.Drawing.Size(421, 235)
         Me.MinimizeBox = False
         Me.Name = "LoginForm1"
         Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide

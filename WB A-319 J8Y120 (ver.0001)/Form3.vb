@@ -25,27 +25,16 @@ Public Class Form3
         TRANS = CInt(TextBox7.Text)
         TextBox5.Text = VZR + RB + RM
         PAX = CInt(TextBox5.Text)
-        If PAX > 128 Then
-            MsgBox("Превышение максимального значения пассажиров!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
-            TextBox1.Text = ""
-            TextBox2.Text = ""
-            TextBox3.Text = ""
-            TextBox4.Text = ""
-            TextBox5.Text = ""
-            sw.WriteLine("[ERROR] Exceeded maximum number of passengers.")
-        End If
-        If PAX < 128 Then
-            Form1.TextBox7.Text = TTL
-            Form1.Label50.Text = VZR
-            Form1.Label51.Text = RB
-            Form1.Label52.Text = RM
-            Form1.Label53.Text = PAX
-            Form1.TextBox28.Text = ttl1
-            Form1.TextBox29.Text = ttl2
-            Form1.TextBox30.Text = ttl3
-            Form1.TextBox31.Text = ttl4
-        End If
-        sw.WriteLine("[INFO] Button9_Click: VZR=" & VZR & ", RB=" & RB & ", RM=" & RM & ", PAX=" & PAX & ", TTL=" & TTL & ",TRANS=" & TRANS)
+        Form1.TextBox7.Text = TTL
+        Form1.Label50.Text = VZR
+        Form1.Label51.Text = RB
+        Form1.Label52.Text = RM
+        Form1.Label53.Text = PAX
+        Form1.TextBox28.Text = ttl1
+        Form1.TextBox29.Text = ttl2
+        Form1.TextBox30.Text = ttl3
+        Form1.TextBox31.Text = ttl4
+            sw.WriteLine("[INFO] Button9_Click: VZR=" & VZR & ", RB=" & RB & ", RM=" & RM & ", PAX=" & PAX & ", TTL=" & TTL & ",TRANS=" & TRANS)
         sw.Close()
         If ComboBox1.Text = "F" OrElse ComboBox1.Text = "J" OrElse ComboBox1.Text = "C" Then
             Form1.Label57.Text = vzr1 + rb1 + rm1 + transvzr1 + transvzr2 + transvzr3

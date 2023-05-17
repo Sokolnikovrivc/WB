@@ -936,7 +936,7 @@ Partial Class Form3
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(668, 475)
+        Me.ClientSize = New System.Drawing.Size(668, 477)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.GroupBox6)
         Me.Controls.Add(Me.GroupBox5)
@@ -947,7 +947,9 @@ Partial Class Form3
         Me.Controls.Add(Me.Button9)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MaximumSize = New System.Drawing.Size(688, 520)
         Me.Name = "Form3"
+        Me.Text = "Распределение пассажиров по отсекам"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)

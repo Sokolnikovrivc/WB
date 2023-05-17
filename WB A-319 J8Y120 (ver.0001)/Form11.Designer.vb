@@ -22,6 +22,7 @@ Partial Class Form11
     'Не изменяйте ее в редакторе исходного кода.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form11))
         Me.Button17 = New System.Windows.Forms.Button()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
@@ -45,6 +46,17 @@ Partial Class Form11
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.Label55 = New System.Windows.Forms.Label()
+        Me.Label54 = New System.Windows.Forms.Label()
+        Me.Label53 = New System.Windows.Forms.Label()
+        Me.Label52 = New System.Windows.Forms.Label()
+        Me.Label51 = New System.Windows.Forms.Label()
+        Me.Label50 = New System.Windows.Forms.Label()
+        Me.Label49 = New System.Windows.Forms.Label()
+        Me.Label48 = New System.Windows.Forms.Label()
+        Me.Label47 = New System.Windows.Forms.Label()
+        Me.Label46 = New System.Windows.Forms.Label()
+        Me.Label45 = New System.Windows.Forms.Label()
         Me.Label44 = New System.Windows.Forms.Label()
         Me.Label43 = New System.Windows.Forms.Label()
         Me.Label42 = New System.Windows.Forms.Label()
@@ -163,17 +175,6 @@ Partial Class Form11
         Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.Label45 = New System.Windows.Forms.Label()
-        Me.Label46 = New System.Windows.Forms.Label()
-        Me.Label47 = New System.Windows.Forms.Label()
-        Me.Label48 = New System.Windows.Forms.Label()
-        Me.Label49 = New System.Windows.Forms.Label()
-        Me.Label50 = New System.Windows.Forms.Label()
-        Me.Label51 = New System.Windows.Forms.Label()
-        Me.Label52 = New System.Windows.Forms.Label()
-        Me.Label53 = New System.Windows.Forms.Label()
-        Me.Label54 = New System.Windows.Forms.Label()
-        Me.Label55 = New System.Windows.Forms.Label()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
@@ -477,6 +478,105 @@ Partial Class Form11
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Груз.отсеки"
         Me.TabPage2.UseVisualStyleBackColor = True
+        '
+        'Label55
+        '
+        Me.Label55.AutoSize = True
+        Me.Label55.Location = New System.Drawing.Point(305, 176)
+        Me.Label55.Name = "Label55"
+        Me.Label55.Size = New System.Drawing.Size(19, 13)
+        Me.Label55.TabIndex = 98
+        Me.Label55.Text = "53"
+        '
+        'Label54
+        '
+        Me.Label54.AutoSize = True
+        Me.Label54.Location = New System.Drawing.Point(305, 141)
+        Me.Label54.Name = "Label54"
+        Me.Label54.Size = New System.Drawing.Size(19, 13)
+        Me.Label54.TabIndex = 97
+        Me.Label54.Text = "52"
+        '
+        'Label53
+        '
+        Me.Label53.AutoSize = True
+        Me.Label53.Location = New System.Drawing.Point(305, 104)
+        Me.Label53.Name = "Label53"
+        Me.Label53.Size = New System.Drawing.Size(19, 13)
+        Me.Label53.TabIndex = 96
+        Me.Label53.Text = "51"
+        '
+        'Label52
+        '
+        Me.Label52.AutoSize = True
+        Me.Label52.Location = New System.Drawing.Point(305, 65)
+        Me.Label52.Name = "Label52"
+        Me.Label52.Size = New System.Drawing.Size(19, 13)
+        Me.Label52.TabIndex = 95
+        Me.Label52.Text = "42"
+        '
+        'Label51
+        '
+        Me.Label51.AutoSize = True
+        Me.Label51.Location = New System.Drawing.Point(305, 29)
+        Me.Label51.Name = "Label51"
+        Me.Label51.Size = New System.Drawing.Size(19, 13)
+        Me.Label51.TabIndex = 94
+        Me.Label51.Text = "41"
+        '
+        'Label50
+        '
+        Me.Label50.AutoSize = True
+        Me.Label50.Location = New System.Drawing.Point(265, 176)
+        Me.Label50.Name = "Label50"
+        Me.Label50.Size = New System.Drawing.Size(19, 13)
+        Me.Label50.TabIndex = 93
+        Me.Label50.Text = "32"
+        '
+        'Label49
+        '
+        Me.Label49.AutoSize = True
+        Me.Label49.Location = New System.Drawing.Point(265, 140)
+        Me.Label49.Name = "Label49"
+        Me.Label49.Size = New System.Drawing.Size(19, 13)
+        Me.Label49.TabIndex = 92
+        Me.Label49.Text = "31"
+        '
+        'Label48
+        '
+        Me.Label48.AutoSize = True
+        Me.Label48.Location = New System.Drawing.Point(265, 104)
+        Me.Label48.Name = "Label48"
+        Me.Label48.Size = New System.Drawing.Size(19, 13)
+        Me.Label48.TabIndex = 91
+        Me.Label48.Text = "13"
+        '
+        'Label47
+        '
+        Me.Label47.AutoSize = True
+        Me.Label47.Location = New System.Drawing.Point(265, 65)
+        Me.Label47.Name = "Label47"
+        Me.Label47.Size = New System.Drawing.Size(19, 13)
+        Me.Label47.TabIndex = 90
+        Me.Label47.Text = "12"
+        '
+        'Label46
+        '
+        Me.Label46.AutoSize = True
+        Me.Label46.Location = New System.Drawing.Point(265, 29)
+        Me.Label46.Name = "Label46"
+        Me.Label46.Size = New System.Drawing.Size(19, 13)
+        Me.Label46.TabIndex = 89
+        Me.Label46.Text = "11"
+        '
+        'Label45
+        '
+        Me.Label45.AutoSize = True
+        Me.Label45.Location = New System.Drawing.Point(216, 176)
+        Me.Label45.Name = "Label45"
+        Me.Label45.Size = New System.Drawing.Size(19, 13)
+        Me.Label45.TabIndex = 88
+        Me.Label45.Text = "53"
         '
         'Label44
         '
@@ -1568,7 +1668,6 @@ Partial Class Form11
         Me.TextBox3.Name = "TextBox3"
         Me.TextBox3.Size = New System.Drawing.Size(60, 20)
         Me.TextBox3.TabIndex = 3
-        Me.TextBox3.Text = "VP-BMT"
         '
         'TextBox1
         '
@@ -1576,7 +1675,6 @@ Partial Class Form11
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(39, 20)
         Me.TextBox1.TabIndex = 2
-        Me.TextBox1.Text = "A-320"
         '
         'TextBox2
         '
@@ -1584,106 +1682,6 @@ Partial Class Form11
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.Size = New System.Drawing.Size(60, 20)
         Me.TextBox2.TabIndex = 0
-        Me.TextBox2.Text = "C12Y144"
-        '
-        'Label45
-        '
-        Me.Label45.AutoSize = True
-        Me.Label45.Location = New System.Drawing.Point(216, 176)
-        Me.Label45.Name = "Label45"
-        Me.Label45.Size = New System.Drawing.Size(19, 13)
-        Me.Label45.TabIndex = 88
-        Me.Label45.Text = "53"
-        '
-        'Label46
-        '
-        Me.Label46.AutoSize = True
-        Me.Label46.Location = New System.Drawing.Point(265, 29)
-        Me.Label46.Name = "Label46"
-        Me.Label46.Size = New System.Drawing.Size(19, 13)
-        Me.Label46.TabIndex = 89
-        Me.Label46.Text = "11"
-        '
-        'Label47
-        '
-        Me.Label47.AutoSize = True
-        Me.Label47.Location = New System.Drawing.Point(265, 65)
-        Me.Label47.Name = "Label47"
-        Me.Label47.Size = New System.Drawing.Size(19, 13)
-        Me.Label47.TabIndex = 90
-        Me.Label47.Text = "12"
-        '
-        'Label48
-        '
-        Me.Label48.AutoSize = True
-        Me.Label48.Location = New System.Drawing.Point(265, 104)
-        Me.Label48.Name = "Label48"
-        Me.Label48.Size = New System.Drawing.Size(19, 13)
-        Me.Label48.TabIndex = 91
-        Me.Label48.Text = "13"
-        '
-        'Label49
-        '
-        Me.Label49.AutoSize = True
-        Me.Label49.Location = New System.Drawing.Point(265, 140)
-        Me.Label49.Name = "Label49"
-        Me.Label49.Size = New System.Drawing.Size(19, 13)
-        Me.Label49.TabIndex = 92
-        Me.Label49.Text = "31"
-        '
-        'Label50
-        '
-        Me.Label50.AutoSize = True
-        Me.Label50.Location = New System.Drawing.Point(265, 176)
-        Me.Label50.Name = "Label50"
-        Me.Label50.Size = New System.Drawing.Size(19, 13)
-        Me.Label50.TabIndex = 93
-        Me.Label50.Text = "32"
-        '
-        'Label51
-        '
-        Me.Label51.AutoSize = True
-        Me.Label51.Location = New System.Drawing.Point(305, 29)
-        Me.Label51.Name = "Label51"
-        Me.Label51.Size = New System.Drawing.Size(19, 13)
-        Me.Label51.TabIndex = 94
-        Me.Label51.Text = "41"
-        '
-        'Label52
-        '
-        Me.Label52.AutoSize = True
-        Me.Label52.Location = New System.Drawing.Point(305, 65)
-        Me.Label52.Name = "Label52"
-        Me.Label52.Size = New System.Drawing.Size(19, 13)
-        Me.Label52.TabIndex = 95
-        Me.Label52.Text = "42"
-        '
-        'Label53
-        '
-        Me.Label53.AutoSize = True
-        Me.Label53.Location = New System.Drawing.Point(305, 104)
-        Me.Label53.Name = "Label53"
-        Me.Label53.Size = New System.Drawing.Size(19, 13)
-        Me.Label53.TabIndex = 96
-        Me.Label53.Text = "51"
-        '
-        'Label54
-        '
-        Me.Label54.AutoSize = True
-        Me.Label54.Location = New System.Drawing.Point(305, 141)
-        Me.Label54.Name = "Label54"
-        Me.Label54.Size = New System.Drawing.Size(19, 13)
-        Me.Label54.TabIndex = 97
-        Me.Label54.Text = "52"
-        '
-        'Label55
-        '
-        Me.Label55.AutoSize = True
-        Me.Label55.Location = New System.Drawing.Point(305, 176)
-        Me.Label55.Name = "Label55"
-        Me.Label55.Size = New System.Drawing.Size(19, 13)
-        Me.Label55.TabIndex = 98
-        Me.Label55.Text = "53"
         '
         'Form11
         '
@@ -1693,8 +1691,11 @@ Partial Class Form11
         Me.Controls.Add(Me.Button17)
         Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.GroupBox1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MaximumSize = New System.Drawing.Size(393, 416)
         Me.Name = "Form11"
-        Me.Text = "Form11"
+        Me.Text = "Настройки A-320"
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage1.PerformLayout()

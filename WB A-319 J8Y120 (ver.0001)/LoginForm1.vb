@@ -12,7 +12,7 @@ Public Class LoginForm1
         dt.Fill(table)
         If (table.Rows.Count) > 0 Then
             MsgBox("Доступ разрешён!", MsgBoxStyle.OkOnly + MsgBoxStyle.Information)
-            Form1.Show()
+            Form12.Show()
             Me.Close()
         ElseIf (table.Rows.Count) = 0 Then
             MsgBox("Пользователь не найден!", MsgBoxStyle.OkOnly + MsgBoxStyle.Critical)

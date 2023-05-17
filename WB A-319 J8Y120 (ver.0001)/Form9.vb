@@ -7,44 +7,51 @@ Public Class Form9
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
         Form4.Show()
     End Sub
-    Private Sub PrintDocument1_PrintPage(ByVal sender As System.Object, ByVal e As System.Drawing.Printing.PrintPageEventArgs) Handles PrintDocument1.PrintPage
-        Dim f As Font = RichTextBox1.Font
-        Dim b As Brush = Brushes.Black
-        Dim x As Integer = e.MarginBounds.Left
-        Dim y As Integer = e.MarginBounds.Top
-        Dim linesPerPage As Integer = e.MarginBounds.Height \ f.Height
-        Dim lineCount As Integer = 0
-        Dim text As String = ""
-        'Получаем все строки из RichTextBox, которые помещаются на текущей странице
-        While lineCount < linesPerPage AndAlso RichTextBox1.Lines.Length > 0
-            text = RichTextBox1.Lines(0)
-            RichTextBox1.Lines = RichTextBox1.Lines.Skip(1).ToArray()
-            lineCount += 1
+    Private currentPage As Integer = 1 ' Текущая страница для печати
 
-            'Проверяем, помещается ли текущая строка на текущей странице
-            If e.Graphics.MeasureString(text, f).Width > e.MarginBounds.Width Then
-                'Если строка не помещается на текущей странице, то переносим ее на следующую страницу
-                RichTextBox1.Lines = New String() {text}.Concat(RichTextBox1.Lines).ToArray()
-                Exit While
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+        Try
+            PrintPreviewDialog1.Document = PrintDocument1
+            PrintPreviewDialog1.ShowDialog()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        Finally
+            Beep()
+        End Try
+    End Sub
+
+    Private Sub PrintDocument1_PrintPage(sender As Object, e As PrintPageEventArgs) Handles PrintDocument1.PrintPage
+        Try
+            Dim font As New Font("TimesNewRoman", 12, FontStyle.Regular)
+            Dim brush As Brush = Brushes.Black
+            Dim marginTop As Integer = 0 ' Отступ сверху
+            Dim marginLeft As Integer = 0 ' Отступ слева
+            Dim printHeight As Integer = e.MarginBounds.Height
+            Dim linesPerPage As Integer = printHeight \ font.Height
+
+            Dim startIndex As Integer = (currentPage - 1) * linesPerPage
+            Dim endIndex As Integer = Math.Min(startIndex + linesPerPage, RichTextBox1.Lines.Length - 1)
+
+            Dim y As Integer = marginTop
+            For i As Integer = startIndex To endIndex
+                e.Graphics.DrawString(RichTextBox1.Lines(i), font, brush, marginLeft, y)
+                y += font.Height
+            Next i
+
+            currentPage += 1
+
+            If endIndex < RichTextBox1.Lines.Length - 1 Then
+                e.HasMorePages = True ' Если есть еще строки для печати, устанавливаем флаг HasMorePages в True
+            Else
+                e.HasMorePages = False ' Если строк больше нет, устанавливаем флаг HasMorePages в False
+                currentPage = 1 ' Сбрасываем счетчик страниц
             End If
-
-            'Печатаем текущую строку на текущей странице
-            e.Graphics.DrawString(text, f, b, x, y)
-            y += f.Height
-        End While
-
-        'Если в RichTextBox остались строки, которые не помещаются на текущей странице, то печатаем их на следующей странице
-        If RichTextBox1.Lines.Length > 0 Then
-            e.HasMorePages = True
-        End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        Finally
+            Beep()
+        End Try
     End Sub
-
-    Private Sub Button5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button5.Click
-        If PrintDialog1.ShowDialog() = DialogResult.OK Then
-            PrintDocument1.Print()
-        End If
-    End Sub
-
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Dim Mwt11 As Single
         Dim Mwt12 As Single
@@ -1035,18 +1042,24 @@ Public Class Form9
         command.ExecuteNonQuery()
         connection.Close()
         MessageBox.Show("Запись в Базу Данных")
+        Dim registryKey As Microsoft.Win32.RegistryKey = Microsoft.Win32.Registry.CurrentUser.CreateSubKey("FormDatachanges")
+        Dim MAX1 As String = registryKey.GetValue("TextBox16", "")
+        Dim MAX3 As String = registryKey.GetValue("TextBox17", "")
+        Dim MAX4 As String = registryKey.GetValue("TextBox18", "")
+        Dim MAX5 As String = registryKey.GetValue("TextBox57", "")
+        registryKey.Close()
         RichTextBox1.Clear()
-        RichTextBox1.AppendText("LOADING INSTRUCTION/REPORT" + vbTab + vbTab + "PREPARED BY" + vbTab + vbTab + vbTab + "EDNO" + TextBox33.Text + vbNewLine)
-        RichTextBox1.AppendText("ALL WEIGHTS IN KILOS" + vbNewLine)
+        RichTextBox1.AppendText("LOADING INSTRUCTION/REPORT" + vbTab + vbTab + "PREPARED BY" + vbTab + vbTab + vbTab + vbTab + "EDNO" + vbNewLine)
+        RichTextBox1.AppendText("ALL WEIGHTS IN KILOS" + vbTab + vbTab + vbTab + vbTab + vbTab + vbTab + vbTab + vbTab + vbTab + TextBox33.Text + vbNewLine)
         RichTextBox1.AppendText("FROM/TO" + vbTab + "FLIGHT" + vbTab + "A/C REG" + vbTab + "VERSION" + vbTab + "CREW" + vbTab + "DATE" + vbTab + vbTab + vbTab + "TIME" + vbNewLine)
-        RichTextBox1.AppendText(TextBox3.Text + vbTab + TextBox5.Text + vbTab + TextBox4.Text + vbTab + vbTab + TextBox2.Text + vbTab + vbTab + Form1.ComboBox1.Text + vbTab + TextBox48.Text + vbTab + vbTab + TextBox49.Text + vbNewLine)
+        RichTextBox1.AppendText(TextBox3.Text + vbTab + TextBox5.Text + vbTab + TextBox4.Text + vbTab + vbTab + TextBox2.Text + vbTab + Form1.ComboBox1.Text + vbTab + TextBox48.Text + vbTab + vbTab + TextBox49.Text + vbNewLine)
         RichTextBox1.AppendText("PLANNED JOINING LOAD" + vbNewLine)
         RichTextBox1.AppendText(TextBox7.Text + vbTab + vbTab + "F" + Label69.Text + vbTab + vbTab + vbTab + "C" + Label71.Text + vbTab + vbTab + "M" + Label73.Text + vbTab + vbTab + "B" + Label75.Text + vbNewLine)
         RichTextBox1.AppendText("JOINING SPECS : SEE SUMMARY" + vbNewLine)
         RichTextBox1.AppendText("TRANSIT SPECS: SEE SUMMARY" + vbNewLine)
         RichTextBox1.AppendText("LOADING INSTRUCTIONS" + vbNewLine)
         RichTextBox1.AppendText("******************************************************************************************************************************" + vbNewLine)
-        RichTextBox1.AppendText("CPT1FWD" + vbTab + "MAX" + "3402" + vbNewLine)
+        RichTextBox1.AppendText("CPT1FWD" + vbTab + vbTab + "MAX" + MAX1 + vbNewLine)
         RichTextBox1.AppendText(":" + "11P" + vbTab + vbTab + ComboBox2.Text + vbNewLine)
         RichTextBox1.AppendText(":" + ComboBox3.Text + ":" + vbTab + TextBox7.Text + vbTab + ComboBox1.Text + "/" + TextBox8.Text + vbNewLine)
         RichTextBox1.AppendText(":" + "SPECS" + ":" + vbTab + ComboBox4.Text + vbTab + TextBox9.Text + vbNewLine)
@@ -1060,9 +1073,9 @@ Public Class Form9
         RichTextBox1.AppendText(":" + "13P" + vbTab + vbTab + ComboBox10.Text + vbNewLine)
         RichTextBox1.AppendText(":" + ComboBox11.Text + ":" + vbTab + TextBox15.Text + vbTab + ComboBox9.Text + "/" + TextBox16.Text + vbNewLine)
         RichTextBox1.AppendText(":" + "SPECS" + ":" + vbTab + ComboBox12.Text + vbTab + TextBox18.Text + vbNewLine)
-        RichTextBox1.AppendText(":" + "REPORT" + ":" + vbTab + TextBox16.Text + vbTab + vbTab + vbTab + "CPT1FWD" + vbTab + "TTL" + vbTab + TextBox6.Text + vbNewLine)
+        RichTextBox1.AppendText(":" + "REPORT" + ":" + vbTab + TextBox16.Text + vbTab + vbTab + vbTab + "CPT1FWD" + vbTab + vbTab + "TTL" + vbTab + TextBox6.Text + vbNewLine)
         RichTextBox1.AppendText("******************************************************************************************************************************" + vbNewLine)
-        RichTextBox1.AppendText("CPT3AFT" + vbTab + vbTab + "MAX" + "2426" + vbNewLine)
+        RichTextBox1.AppendText("CPT3AFT" + vbTab + vbTab + "MAX" + MAX3 + vbNewLine)
         RichTextBox1.AppendText(":" + "31P" + vbTab + vbTab + ComboBox19.Text + vbNewLine)
         RichTextBox1.AppendText(":" + ComboBox20.Text + ":" + vbTab + TextBox25.Text + vbTab + ComboBox18.Text + "/" + TextBox26.Text + vbNewLine)
         RichTextBox1.AppendText(":" + "SPECS" + ":" + vbTab + ComboBox17.Text + vbTab + TextBox23.Text + vbNewLine)
@@ -1073,7 +1086,7 @@ Public Class Form9
         RichTextBox1.AppendText(":" + "SPECS" + ":" + vbTab + ComboBox13.Text + vbTab + TextBox19.Text + vbNewLine)
         RichTextBox1.AppendText(":" + "REPORT" + ":" + vbTab + TextBox21.Text + vbTab + vbTab + vbTab + "CPT3AFT" + vbTab + vbTab + "TTL" + vbTab + TextBox27.Text + vbNewLine)
         RichTextBox1.AppendText("******************************************************************************************************************************" + vbNewLine)
-        RichTextBox1.AppendText("CPT4AFT" + vbTab + vbTab + "MAX" + "2110" + vbNewLine)
+        RichTextBox1.AppendText("CPT4AFT" + vbTab + vbTab + "MAX" + MAX4 + vbNewLine)
         RichTextBox1.AppendText(":" + "41P" + vbTab + vbTab + ComboBox27.Text + vbNewLine)
         RichTextBox1.AppendText(":" + ComboBox28.Text + ":" + vbTab + TextBox35.Text + vbTab + ComboBox26.Text + "/" + TextBox36.Text + vbNewLine)
         RichTextBox1.AppendText(":" + "SPECS" + ":" + vbTab + ComboBox25.Text + vbTab + TextBox32.Text + vbNewLine)
@@ -1084,7 +1097,7 @@ Public Class Form9
         RichTextBox1.AppendText(":" + "SPECS" + ":" + vbTab + ComboBox21.Text + vbTab + TextBox28.Text + vbNewLine)
         RichTextBox1.AppendText(":" + "REPORT" + ":" + vbTab + TextBox30.Text + vbTab + vbTab + vbTab + "CPT4AFT" + vbTab + vbTab + "TTL" + vbTab + TextBox37.Text + vbNewLine)
         RichTextBox1.AppendText("******************************************************************************************************************************" + vbNewLine)
-        RichTextBox1.AppendText("BULK" + vbTab + "MAX" + "1489" + vbNewLine)
+        RichTextBox1.AppendText("BULK" + vbTab + vbTab + vbTab + "MAX" + MAX5 + vbNewLine)
         RichTextBox1.AppendText(":" + "51P" + vbTab + vbTab + ComboBox35.Text + vbNewLine)
         RichTextBox1.AppendText(":" + ComboBox36.Text + ":" + vbTab + TextBox44.Text + vbTab + ComboBox34.Text + "/" + TextBox45.Text + vbNewLine)
         RichTextBox1.AppendText(":" + "SPECS" + ":" + vbTab + ComboBox33.Text + vbTab + TextBox42.Text + vbNewLine)
@@ -1098,8 +1111,14 @@ Public Class Form9
         RichTextBox1.AppendText(":" + "53P" + vbTab + vbTab + ComboBox38.Text + vbNewLine)
         RichTextBox1.AppendText(":" + ComboBox39.Text + ":" + vbTab + TextBox47.Text + vbTab + ComboBox37.Text + "/" + TextBox50.Text + vbNewLine)
         RichTextBox1.AppendText(":" + "SPECS" + ":" + vbTab + ComboBox40.Text + vbTab + TextBox52.Text + vbNewLine)
-        RichTextBox1.AppendText(":" + "REPORT" + ":" + vbTab + TextBox50.Text + vbTab + vbTab + vbTab + "BULK" + vbTab + "TTL" + vbTab + TextBox46.Text + vbNewLine)
+        RichTextBox1.AppendText(":" + "REPORT" + ":" + vbTab + TextBox50.Text + vbTab + vbTab + vbTab + "BULK" + vbTab + vbTab + vbTab + "TTL" + vbTab + TextBox46.Text + vbNewLine)
         RichTextBox1.AppendText("******************************************************************************************************************************" + vbNewLine)
+        RichTextBox1.AppendText(":" + "SI" + vbNewLine)
+        RichTextBox1.AppendText("THIS AIRCRAFT HAS BEEN LOADED IN ACCORDANCE WITH THESE INSTRUCTIONS AND THE DEVIATIONS" + vbNewLine)
+        RichTextBox1.AppendText("SHOWN ON THIS REPORT. THE CONTAINERS / PALLETS AND BULKLOAD HAVE BEEN SECURED IN" + vbNewLine)
+        RichTextBox1.AppendText("ACCORDANCE WITH COMPANY INSTRUCTIONS." + vbNewLine)
+        RichTextBox1.AppendText(vbNewLine)
+        RichTextBox1.AppendText(vbTab + vbTab + vbTab + vbTab + "SIGNATURE")
         Form1.TextBox36.Text = TextBox6.Text
         Form1.TextBox37.Text = TextBox27.Text
         Form1.TextBox38.Text = TextBox37.Text

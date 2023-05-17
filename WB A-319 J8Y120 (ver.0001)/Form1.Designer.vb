@@ -31,7 +31,6 @@ Partial Class Form1
         Me.Button5 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.TextBox5 = New System.Windows.Forms.TextBox()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.TextBox4 = New System.Windows.Forms.TextBox()
         Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
@@ -206,7 +205,6 @@ Partial Class Form1
         Me.GroupBox1.Controls.Add(Me.Button5)
         Me.GroupBox1.Controls.Add(Me.Button3)
         Me.GroupBox1.Controls.Add(Me.TextBox5)
-        Me.GroupBox1.Controls.Add(Me.Button1)
         Me.GroupBox1.Controls.Add(Me.TextBox4)
         Me.GroupBox1.Controls.Add(Me.TextBox3)
         Me.GroupBox1.Controls.Add(Me.TextBox2)
@@ -272,15 +270,6 @@ Partial Class Form1
         Me.TextBox5.Name = "TextBox5"
         Me.TextBox5.Size = New System.Drawing.Size(99, 20)
         Me.TextBox5.TabIndex = 16
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(213, 19)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(28, 20)
-        Me.Button1.TabIndex = 15
-        Me.Button1.Text = "..."
-        Me.Button1.UseVisualStyleBackColor = True
         '
         'TextBox4
         '
@@ -1739,7 +1728,7 @@ Partial Class Form1
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximumSize = New System.Drawing.Size(1099, 755)
         Me.Name = "Form1"
-        Me.Text = "WB A319"
+        Me.Text = "WB"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
@@ -1777,7 +1766,6 @@ Partial Class Form1
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents TextBox4 As TextBox
     Friend WithEvents TextBox3 As TextBox
-    Friend WithEvents Button1 As Button
     Friend WithEvents TextBox5 As TextBox
     Friend WithEvents WeightPaxBindingSource As BindingSource
     Friend WithEvents VariantsDataGridViewTextBoxColumn As DataGridViewTextBoxColumn

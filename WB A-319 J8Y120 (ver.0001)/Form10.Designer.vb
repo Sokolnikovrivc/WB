@@ -22,6 +22,7 @@ Partial Class Form10
     'Не изменяйте ее в редакторе исходного кода.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form10))
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -209,7 +210,6 @@ Partial Class Form10
         Me.TextBox3.Name = "TextBox3"
         Me.TextBox3.Size = New System.Drawing.Size(60, 20)
         Me.TextBox3.TabIndex = 3
-        Me.TextBox3.Text = "VP-BOS"
         '
         'TextBox1
         '
@@ -224,7 +224,6 @@ Partial Class Form10
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.Size = New System.Drawing.Size(60, 20)
         Me.TextBox2.TabIndex = 0
-        Me.TextBox2.Text = "J8Y120"
         '
         'TabControl1
         '
@@ -1373,8 +1372,11 @@ Partial Class Form10
         Me.Controls.Add(Me.Button17)
         Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.GroupBox1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MaximumSize = New System.Drawing.Size(393, 416)
         Me.Name = "Form10"
-        Me.Text = "Form10"
+        Me.Text = "Настройки A-319"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.TabControl1.ResumeLayout(False)

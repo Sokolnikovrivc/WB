@@ -22,6 +22,7 @@ Partial Class Form7
     'Не изменяйте ее в редакторе исходного кода.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form7))
         Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
         Me.SuspendLayout()
         '
@@ -37,12 +38,13 @@ Partial Class Form7
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(256, 243)
+        Me.ClientSize = New System.Drawing.Size(252, 239)
         Me.Controls.Add(Me.RichTextBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximumSize = New System.Drawing.Size(272, 282)
         Me.Name = "Form7"
-        Me.Text = "Form7"
+        Me.Text = "LDM"
         Me.ResumeLayout(False)
 
     End Sub
