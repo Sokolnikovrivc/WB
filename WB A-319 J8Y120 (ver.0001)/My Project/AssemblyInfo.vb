@@ -8,10 +8,10 @@ Imports System.Runtime.InteropServices
 
 ' Проверьте значения атрибутов сборки
 
-<Assembly: AssemblyTitle("WB A-319 J8Y120 (ver.0001)")> 
+<Assembly: AssemblyTitle("WB")>
 <Assembly: AssemblyDescription("")> 
-<Assembly: AssemblyCompany("")> 
-<Assembly: AssemblyProduct("WB A-319 J8Y120 (ver.0001)")> 
+<Assembly: AssemblyCompany("")>
+<Assembly: AssemblyProduct("WB")>
 <Assembly: AssemblyCopyright("Copyright ©  2022")> 
 <Assembly: AssemblyTrademark("")> 
 
