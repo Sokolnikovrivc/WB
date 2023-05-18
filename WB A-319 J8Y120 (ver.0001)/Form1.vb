@@ -679,7 +679,6 @@ Public Class Form1
     End Sub
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
-        Form6.Show()
         Form6.TextBox1.Text = TextBox1.Text
         Form6.TextBox5.Text = TextBox5.Text
         Form6.TextBox3.Text = TextBox3.Text
@@ -687,7 +686,13 @@ Public Class Form1
         Form6.TextBox49.Text = TextBox49.Text
         Form6.TextBox2.Text = TextBox2.Text
         Form6.TextBox4.Text = TextBox4.Text
-        Form6.Label17.Text = MTOW - TOW
+        Form6.Label17.Text = Label29.Text
+        Form6.Label20.Text = Label57.Text
+        Form6.Label21.Text = Label56.Text
+        Form6.Label71.Text = Label71.Text
+        Form6.Label73.Text = Label73.Text
+        Form6.Label75.Text = Label75.Text
+        Form6.Show()
     End Sub
     Private Sub Form1_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         Try
