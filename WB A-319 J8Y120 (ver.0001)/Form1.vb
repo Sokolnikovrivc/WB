@@ -328,8 +328,17 @@ Public Class Form1
     End Sub
 
     Private Sub Button16_Click(sender As Object, e As EventArgs) Handles Button16.Click
+        DOI = CSng(TextBox24.Text)
+        OA = CSng(TextBox32.Text)
+        OB = CSng(TextBox33.Text)
+        OC = CSng(TextBox34.Text)
+        OD = CSng(TextBox35.Text)
+        CPT1FWD = CSng(TextBox39.Text)
+        CPT4AFT = CSng(TextBox40.Text)
+        CPT5AFT = CSng(TextBox41.Text)
+        BULK = CSng(TextBox10.Text)
+        TextBox42.Text = CStr(DOI + OA + OB + OC + OD + CPT1FWD + CPT4AFT + CPT5AFT + BULK)
         LIZFW = CSng(TextBox42.Text)
-        TextBox42.Text = DOI + OA + OB + OC + OD + CPT1FWD + CPT4AFT + CPT5AFT + BULK
     End Sub
     Public Function Preobraz_index()
         Dim registryKey As Microsoft.Win32.RegistryKey = Microsoft.Win32.Registry.CurrentUser.CreateSubKey("FormDatachanges")
