@@ -4,7 +4,8 @@ Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 
 Public Class Form12
     Private timer As Timer
-    Public connectionString As String = "Data Source=WIN-8CEIKSU78CS\SQLEXPRESS; Initial Catalog=Test; Integrated Security=True"
+    Public configLoader As New DatabaseConfigLoader("dbconnect.xml")
+    Public connectionstr As String = configLoader.GetConnectionString()
     Private Sub Form12_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' Инициализация таймера
         timer = New Timer()
@@ -12,7 +13,7 @@ Public Class Form12
         AddHandler timer.Elapsed, AddressOf TimerElapsed
         timer.Start()
         Try
-            Using connection As SqlConnection = New SqlConnection(connectionString)
+            Using connection As New SqlConnection(connectionstr)
                 connection.Open()
                 ' Создать команду для выборки данных
                 Dim command As New SqlCommand("SELECT flight_id AS Рейс, flight_route AS Маршрут, date_flight AS Дата_Рейса, time_flight AS Время_Рейса, type_Aircraft AS Тип_ВС, flight_bort AS Бортовой_Номер,config_id AS Конфигурация From [Test].[dbo].[A319]", connection)
@@ -33,26 +34,32 @@ Public Class Form12
         UpdateDateTime()
     End Sub
     Public Sub disp_data1()
-        Dim connection As SqlConnection = New SqlConnection(connectionString)
-        Dim command As New SqlCommand("SELECT flight_id AS Рейс, flight_route AS Маршрут, date_flight AS Дата_Рейса, time_flight AS Время_Рейса, type_Aircraft AS Тип_ВС, flight_bort AS Бортовой_Номер,config_id AS Конфигурация From [Test].[dbo].[A319]", connection)
-        Dim adapter3 As New SqlDataAdapter(command)
-        Dim table As New DataTable()
-        adapter3.Fill(table)
-        DataGridView1.DataSource = table
+        Using connection As New SqlConnection(connectionstr)
+            Dim command As New SqlCommand("SELECT flight_id AS Рейс, flight_route AS Маршрут, date_flight AS Дата_Рейса, time_flight AS Время_Рейса, type_Aircraft AS Тип_ВС, flight_bort AS Бортовой_Номер,config_id AS Конфигурация From [Test].[dbo].[A319]", connection)
+            Dim adapter3 As New SqlDataAdapter(command)
+            Dim table As New DataTable()
+            adapter3.Fill(table)
+            DataGridView1.DataSource = table
+        End Using
     End Sub
     Private Sub DataGridView1_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellClick
-        Dim selectedRow As DataGridViewRow = DataGridView1.Rows(e.RowIndex)
-        Try
-            TextBox1.Text = selectedRow.Cells(0).Value.ToString()
-            TextBox2.Text = selectedRow.Cells(1).Value.ToString()
-            TextBox3.Text = selectedRow.Cells(2).Value.ToString()
-            TextBox4.Text = selectedRow.Cells(3).Value.ToString()
-            TextBox5.Text = selectedRow.Cells(4).Value.ToString()
-            TextBox6.Text = selectedRow.Cells(5).Value.ToString()
-            TextBox7.Text = selectedRow.Cells(6).Value.ToString()
-        Catch ex As Exception
-            MsgBox("Error: " & ex.ToString())
-        End Try
+        If e.RowIndex >= 0 AndAlso e.RowIndex < DataGridView1.Rows.Count Then
+            Dim selectedRow As DataGridViewRow = DataGridView1.Rows(e.RowIndex)
+            Try
+                TextBox1.Text = selectedRow.Cells(0).Value.ToString()
+                TextBox2.Text = selectedRow.Cells(1).Value.ToString()
+                TextBox3.Text = selectedRow.Cells(2).Value.ToString()
+                TextBox4.Text = selectedRow.Cells(3).Value.ToString()
+                TextBox5.Text = selectedRow.Cells(4).Value.ToString()
+                TextBox6.Text = selectedRow.Cells(5).Value.ToString()
+                TextBox7.Text = selectedRow.Cells(6).Value.ToString()
+            Catch ex As Exception
+                MsgBox("Error: " & ex.ToString())
+            End Try
+        Else
+            ' Индекс строки вышел за пределы допустимого диапазона
+            ' Вы можете добавить обработку ошибки или вывести сообщение об ошибке
+        End If
     End Sub
 
     Private Sub UpdateDateTime()
@@ -81,7 +88,7 @@ Public Class Form12
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Try
-            Using connection As SqlConnection = New SqlConnection(connectionString)
+            Using connection As New SqlConnection(connectionstr)
                 connection.Open()
                 Dim command As New SqlCommand("UPDATE [Test].[dbo].[A319] SET [flight_bort] = @flight_bort, [config_id] = @config_id, [date_flight] = @date_flight, [time_flight] = @time_flight, [flight_id] = @flight_id, [flight_route] = @flight_route, [type_Aircraft] = @type_Aircraft  WHERE flight_id = @flight_id", connection)
                 command.Parameters.AddWithValue("@flight_id", TextBox1.Text)
@@ -102,7 +109,7 @@ Public Class Form12
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         Try
-            Using connection As SqlConnection = New SqlConnection(connectionString)
+            Using connection As New SqlConnection(connectionstr)
                 connection.Open()
                 Dim command As New SqlCommand("DELETE FROM [Test].[dbo].[A319] WHERE flight_id = @flight_id", connection)
                 command.Parameters.AddWithValue("@flight_id", TextBox1.Text)

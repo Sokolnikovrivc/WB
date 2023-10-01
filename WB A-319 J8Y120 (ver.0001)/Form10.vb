@@ -2,10 +2,11 @@
 Imports System.Data.SqlClient
 Imports System.Windows.Forms
 Public Class Form10
-    Public connectionString As String = "Data Source=WIN-8CEIKSU78CS\SQLEXPRESS; Initial Catalog=Test; Integrated Security=True"
+    Public configLoader As New DatabaseConfigLoader("dbconnect.xml")
+    Public connectionstr As String = configLoader.GetConnectionString()
     Private Sub Form10_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
-            Using connection As SqlConnection = New SqlConnection(connectionString)
+            Using connection As New SqlConnection(connectionstr)
                 connection.Open()
                 ' Создать команду для выборки данных
                 Dim command3 As New SqlCommand("SELECT FuelWeight AS Вес_топлива, CenterOfGravityIndex as Индекс FROM [Test].[dbo].[fuel_079]", connection)
@@ -20,7 +21,7 @@ Public Class Form10
             MsgBox("Error: " & ex.ToString())
         End Try
         Try
-            Using connection As SqlConnection = New SqlConnection(connectionString)
+            Using connection As New SqlConnection(connectionstr)
                 connection.Open()
                 ' Создать команду для выборки данных
                 Dim command4 As New SqlCommand("SELECT FuelWeight AS Вес_топлива, CenterOfGravityIndex as Индекс FROM [Test].[dbo].[fuel_080]", connection)
@@ -35,7 +36,7 @@ Public Class Form10
             MsgBox("Error: " & ex.ToString())
         End Try
         Try
-            Using connection As SqlConnection = New SqlConnection(connectionString)
+            Using connection As New SqlConnection(connectionstr)
                 connection.Open()
                 ' Создать команду для выборки данных
                 Dim command5 As New SqlCommand("SELECT FuelWeight AS Вес_топлива, CenterOfGravityIndex as Индекс FROM [Test].[dbo].[fuel_810]", connection)
@@ -50,7 +51,7 @@ Public Class Form10
             MsgBox("Error: " & ex.ToString())
         End Try
         Try
-            Using connection As SqlConnection = New SqlConnection(connectionString)
+            Using connection As New SqlConnection(connectionstr)
                 connection.Open()
                 Dim command2 As New SqlCommand("Select MZFW, MTOW, MLW  FROM [Test].[dbo].[A319] where flight_bort = @flight_bort and config_id = @config_id", connection)
                 command2.Parameters.Add("@flight_bort", SqlDbType.VarChar).Value = TextBox3.Text
@@ -66,7 +67,7 @@ Public Class Form10
             MsgBox("Error: " & ex.ToString())
         End Try
         Try
-            Using connection As SqlConnection = New SqlConnection(connectionString)
+            Using connection As New SqlConnection(connectionstr)
                 connection.Open()
                 ' Создать команду для выборки данных
                 Dim command6 As New SqlCommand("SELECT crew as Экипаж, kitchen as Кухня_тип, DOW, DOI, MAC FROM [Test].[dbo].[A319 Wt] where Flight_bort = @Flight_bort and config_id = @config_id", connection)
@@ -83,43 +84,47 @@ Public Class Form10
         End Try
     End Sub
     Public Sub disp_data2()
-        Dim connection As SqlConnection = New SqlConnection(connectionString)
-        Dim command3 As New SqlCommand("SELECT FuelWeight AS Вес_топлива, CenterOfGravityIndex as Индекс FROM [Test].[dbo].[fuel_079]", connection)
-        Dim adapter3 As New SqlDataAdapter(command3)
-        Dim table3 As New DataTable()
-        adapter3.Fill(table3)
-        DataGridView2.DataSource = table3
+        Using connection As New SqlConnection(connectionstr)
+            Dim command3 As New SqlCommand("SELECT FuelWeight AS Вес_топлива, CenterOfGravityIndex as Индекс FROM [Test].[dbo].[fuel_079]", connection)
+            Dim adapter3 As New SqlDataAdapter(command3)
+            Dim table3 As New DataTable()
+            adapter3.Fill(table3)
+            DataGridView2.DataSource = table3
+        End Using
     End Sub
     Public Sub disp_data3()
-        Dim connection As SqlConnection = New SqlConnection(connectionString)
-        Dim command4 As New SqlCommand("SELECT FuelWeight AS Вес_топлива, CenterOfGravityIndex as Индекс FROM [Test].[dbo].[fuel_080]", connection)
-        Dim adapter4 As New SqlDataAdapter(command4)
-        Dim table4 As New DataTable()
-        adapter4.Fill(table4)
-        DataGridView3.DataSource = table4
+        Using connection As New SqlConnection(connectionstr)
+            Dim command4 As New SqlCommand("SELECT FuelWeight AS Вес_топлива, CenterOfGravityIndex as Индекс FROM [Test].[dbo].[fuel_080]", connection)
+            Dim adapter4 As New SqlDataAdapter(command4)
+            Dim table4 As New DataTable()
+            adapter4.Fill(table4)
+            DataGridView3.DataSource = table4
+        End Using
     End Sub
     Public Sub disp_data4()
-        Dim connection As SqlConnection = New SqlConnection(connectionString)
-        Dim command5 As New SqlCommand("SELECT FuelWeight AS Вес_топлива, CenterOfGravityIndex as Индекс FROM [Test].[dbo].[fuel_810]", connection)
-        Dim adapter5 As New SqlDataAdapter(command5)
-        Dim table5 As New DataTable()
-        adapter5.Fill(table5)
-        DataGridView4.DataSource = table5
+        Using connection As New SqlConnection(connectionstr)
+            Dim command5 As New SqlCommand("SELECT FuelWeight AS Вес_топлива, CenterOfGravityIndex as Индекс FROM [Test].[dbo].[fuel_810]", connection)
+            Dim adapter5 As New SqlDataAdapter(command5)
+            Dim table5 As New DataTable()
+            adapter5.Fill(table5)
+            DataGridView4.DataSource = table5
+        End Using
     End Sub
     Public Sub disp_data5()
-        Dim connection As SqlConnection = New SqlConnection(connectionString)
-        Dim command6 As New SqlCommand("SELECT crew as Экипаж, kitchen as Кухня_тип, DOW, DOI, MAC FROM [Test].[dbo].[A319 Wt] where Flight_bort = @Flight_bort and config_id = @config_id", connection)
-        command6.Parameters.AddWithValue("Flight_bort", TextBox3.Text)
-        command6.Parameters.AddWithValue("config_id", TextBox2.Text)
-        Dim adapter6 As New SqlDataAdapter(command6)
-        Dim table6 As New DataTable()
-        adapter6.Fill(table6)
-        DataGridView5.DataSource = table6
+        Using connection As New SqlConnection(connectionstr)
+            Dim command6 As New SqlCommand("SELECT crew as Экипаж, kitchen as Кухня_тип, DOW, DOI, MAC FROM [Test].[dbo].[A319 Wt] where Flight_bort = @Flight_bort and config_id = @config_id", connection)
+            command6.Parameters.AddWithValue("Flight_bort", TextBox3.Text)
+            command6.Parameters.AddWithValue("config_id", TextBox2.Text)
+            Dim adapter6 As New SqlDataAdapter(command6)
+            Dim table6 As New DataTable()
+            adapter6.Fill(table6)
+            DataGridView5.DataSource = table6
+        End Using
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
         Try
-            Using connection As SqlConnection = New SqlConnection(connectionString)
+            Using connection As New SqlConnection(connectionstr)
                 connection.Open()
                 Dim command As New SqlCommand("UPDATE [Test].[dbo].[A319] SET [MZFW] = @MZFW, [MTOW] = @MTOW, [MLW] = @MLW WHERE flight_bort = @flight_bort and config_id = @config_id ", connection)
                 command.Parameters.AddWithValue("@MZFW", TextBox40.Text)
@@ -136,18 +141,20 @@ Public Class Form10
     End Sub
 
     Private Sub DataGridView2_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView2.CellClick
-        Dim selectedRow As DataGridViewRow = DataGridView2.Rows(e.RowIndex)
-        Try
-            TextBox45.Text = selectedRow.Cells(0).Value.ToString() ' Первый столбец
-            TextBox43.Text = selectedRow.Cells(1).Value.ToString() ' Второй столбец
-        Catch ex As Exception
-            MsgBox("Error: " & ex.ToString())
-        End Try
+        If e.RowIndex >= 0 AndAlso e.RowIndex < DataGridView2.Rows.Count Then
+            Dim selectedRow As DataGridViewRow = DataGridView2.Rows(e.RowIndex)
+            Try
+                TextBox45.Text = selectedRow.Cells(0).Value.ToString() ' Первый столбец
+                TextBox43.Text = selectedRow.Cells(1).Value.ToString() ' Второй столбец
+            Catch ex As Exception
+                MsgBox("Error: " & ex.ToString())
+            End Try
+        End If
     End Sub
 
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
         Try
-            Using connection As SqlConnection = New SqlConnection(connectionString)
+            Using connection As New SqlConnection(connectionstr)
                 connection.Open()
                 Dim command As New SqlCommand("Insert into [Test].[dbo].[fuel_079] ([FuelWeight],[CenterOfGravityIndex]) Values(@FuelWeight, @CenterOfGravityIndex)", connection)
                 command.Parameters.AddWithValue("@FuelWeight", TextBox45.Text)
@@ -163,7 +170,7 @@ Public Class Form10
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
         Try
-            Using connection As SqlConnection = New SqlConnection(connectionString)
+            Using connection As New SqlConnection(connectionstr)
                 connection.Open()
                 Dim command As New SqlCommand("UPDATE [Test].[dbo].[fuel_079] SET [FuelWeight] = @FuelWeight, [CenterOfGravityIndex] = @CenterOfGravityIndex WHERE FuelWeight = @FuelWeight", connection)
                 command.Parameters.AddWithValue("@FuelWeight", TextBox45.Text)
@@ -179,7 +186,7 @@ Public Class Form10
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
         Try
-            Using connection As SqlConnection = New SqlConnection(connectionString)
+            Using connection As New SqlConnection(connectionstr)
                 connection.Open()
                 Dim command As New SqlCommand("DELETE FROM [Test].[dbo].[fuel_079] WHERE FuelWeight = @FuelWeight", connection)
                 command.Parameters.AddWithValue("@FuelWeight", TextBox45.Text)
@@ -193,18 +200,20 @@ Public Class Form10
     End Sub
 
     Private Sub DataGridView3_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView3.CellClick
-        Dim selectedRow As DataGridViewRow = DataGridView3.Rows(e.RowIndex)
-        Try
-            TextBox46.Text = selectedRow.Cells(0).Value.ToString() ' Первый столбец
-            TextBox44.Text = selectedRow.Cells(1).Value.ToString() ' Второй столбец
-        Catch ex As Exception
-            MsgBox("Error: " & ex.ToString())
-        End Try
+        If e.RowIndex >= 0 AndAlso e.RowIndex < DataGridView3.Rows.Count Then
+            Dim selectedRow As DataGridViewRow = DataGridView3.Rows(e.RowIndex)
+            Try
+                TextBox46.Text = selectedRow.Cells(0).Value.ToString() ' Первый столбец
+                TextBox44.Text = selectedRow.Cells(1).Value.ToString() ' Второй столбец
+            Catch ex As Exception
+                MsgBox("Error: " & ex.ToString())
+            End Try
+        End If
     End Sub
 
     Private Sub Button10_Click(sender As Object, e As EventArgs) Handles Button10.Click
         Try
-            Using connection As SqlConnection = New SqlConnection(connectionString)
+            Using connection As New SqlConnection(connectionstr)
                 connection.Open()
                 Dim command As New SqlCommand("Insert into [Test].[dbo].[fuel_080] ([FuelWeight],[CenterOfGravityIndex]) Values(@FuelWeight, @CenterOfGravityIndex)", connection)
                 command.Parameters.AddWithValue("@FuelWeight", TextBox46.Text)
@@ -220,7 +229,7 @@ Public Class Form10
 
     Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
         Try
-            Using connection As SqlConnection = New SqlConnection(connectionString)
+            Using connection As New SqlConnection(connectionstr)
                 connection.Open()
                 Dim command As New SqlCommand("UPDATE [Test].[dbo].[fuel_080] SET [FuelWeight] = @FuelWeight, [CenterOfGravityIndex] = @CenterOfGravityIndex WHERE FuelWeight = @FuelWeight", connection)
                 command.Parameters.AddWithValue("@FuelWeight", TextBox46.Text)
@@ -236,7 +245,7 @@ Public Class Form10
 
     Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
         Try
-            Using connection As SqlConnection = New SqlConnection(connectionString)
+            Using connection As New SqlConnection(connectionstr)
                 connection.Open()
                 Dim command As New SqlCommand("DELETE FROM [Test].[dbo].[fuel_080] WHERE FuelWeight = @FuelWeight", connection)
                 command.Parameters.AddWithValue("@FuelWeight", TextBox46.Text)
@@ -250,18 +259,20 @@ Public Class Form10
     End Sub
 
     Private Sub DataGridView4_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView4.CellClick
-        Dim selectedRow As DataGridViewRow = DataGridView4.Rows(e.RowIndex)
-        Try
-            TextBox48.Text = selectedRow.Cells(0).Value.ToString() ' Первый столбец
-            TextBox47.Text = selectedRow.Cells(1).Value.ToString() ' Второй столбец
-        Catch ex As Exception
-            MsgBox("Error: " & ex.ToString())
-        End Try
+        If e.RowIndex >= 0 AndAlso e.RowIndex < DataGridView4.Rows.Count Then
+            Dim selectedRow As DataGridViewRow = DataGridView4.Rows(e.RowIndex)
+            Try
+                TextBox48.Text = selectedRow.Cells(0).Value.ToString() ' Первый столбец
+                TextBox47.Text = selectedRow.Cells(1).Value.ToString() ' Второй столбец
+            Catch ex As Exception
+                MsgBox("Error: " & ex.ToString())
+            End Try
+        End If
     End Sub
 
     Private Sub Button13_Click(sender As Object, e As EventArgs) Handles Button13.Click
         Try
-            Using connection As SqlConnection = New SqlConnection(connectionString)
+            Using connection As New SqlConnection(connectionstr)
                 connection.Open()
                 Dim command As New SqlCommand("Insert into [Test].[dbo].[fuel_810] ([FuelWeight],[CenterOfGravityIndex]) Values(@FuelWeight, @CenterOfGravityIndex)", connection)
                 command.Parameters.AddWithValue("@FuelWeight", TextBox48.Text)
@@ -277,7 +288,7 @@ Public Class Form10
 
     Private Sub Button12_Click(sender As Object, e As EventArgs) Handles Button12.Click
         Try
-            Using connection As SqlConnection = New SqlConnection(connectionString)
+            Using connection As New SqlConnection(connectionstr)
                 connection.Open()
                 Dim command As New SqlCommand("UPDATE [Test].[dbo].[fuel_810] SET [FuelWeight] = @FuelWeight, [CenterOfGravityIndex] = @CenterOfGravityIndex WHERE FuelWeight = @FuelWeight", connection)
                 command.Parameters.AddWithValue("@FuelWeight", TextBox48.Text)
@@ -293,7 +304,7 @@ Public Class Form10
 
     Private Sub Button11_Click(sender As Object, e As EventArgs) Handles Button11.Click
         Try
-            Using connection As SqlConnection = New SqlConnection(connectionString)
+            Using connection As New SqlConnection(connectionstr)
                 connection.Open()
                 Dim command As New SqlCommand("DELETE FROM [Test].[dbo].[fuel_810] WHERE FuelWeight = @FuelWeight", connection)
                 command.Parameters.AddWithValue("@FuelWeight", TextBox48.Text)
@@ -307,21 +318,23 @@ Public Class Form10
     End Sub
 
     Private Sub DataGridView5_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView5.CellClick
-        Dim selectedRow As DataGridViewRow = DataGridView5.Rows(e.RowIndex)
-        Try
-            TextBox50.Text = selectedRow.Cells(0).Value.ToString()
-            TextBox49.Text = selectedRow.Cells(1).Value.ToString()
-            TextBox51.Text = selectedRow.Cells(2).Value.ToString()
-            TextBox52.Text = selectedRow.Cells(3).Value.ToString()
-            TextBox53.Text = selectedRow.Cells(4).Value.ToString()
-        Catch ex As Exception
-            MsgBox("Error: " & ex.ToString())
-        End Try
+        If e.RowIndex >= 0 AndAlso e.RowIndex < DataGridView5.Rows.Count Then
+            Dim selectedRow As DataGridViewRow = DataGridView5.Rows(e.RowIndex)
+            Try
+                TextBox50.Text = selectedRow.Cells(0).Value.ToString()
+                TextBox49.Text = selectedRow.Cells(1).Value.ToString()
+                TextBox51.Text = selectedRow.Cells(2).Value.ToString()
+                TextBox52.Text = selectedRow.Cells(3).Value.ToString()
+                TextBox53.Text = selectedRow.Cells(4).Value.ToString()
+            Catch ex As Exception
+                MsgBox("Error: " & ex.ToString())
+            End Try
+        End If
     End Sub
 
     Private Sub Button16_Click(sender As Object, e As EventArgs) Handles Button16.Click
         Try
-            Using connection As SqlConnection = New SqlConnection(connectionString)
+            Using connection As New SqlConnection(connectionstr)
                 connection.Open()
                 Dim command As New SqlCommand("Insert into [Test].[dbo].[A319 Wt] ([Flight_bort],[crew],[kitchen],[DOW],[DOI],[MAC],[config_id]) Values(@Flight_bort, @crew, @kitchen, @DOW , @DOI, @MAC, @config_id)", connection)
                 command.Parameters.AddWithValue("@Flight_bort", TextBox3.Text)
@@ -342,7 +355,7 @@ Public Class Form10
 
     Private Sub Button15_Click(sender As Object, e As EventArgs) Handles Button15.Click
         Try
-            Using connection As SqlConnection = New SqlConnection(connectionString)
+            Using connection As New SqlConnection(connectionstr)
                 connection.Open()
                 Dim command As New SqlCommand("UPDATE [Test].[dbo].[A319 Wt] SET [crew] = @crew, [kitchen] = @kitchen, [DOW] = @DOW, [DOI] = @DOI, [MAC] = @MAC WHERE crew = @crew and config_id = @config_id", connection)
                 command.Parameters.AddWithValue("@crew", TextBox50.Text)
@@ -362,7 +375,7 @@ Public Class Form10
 
     Private Sub Button14_Click(sender As Object, e As EventArgs) Handles Button14.Click
         Try
-            Using connection As SqlConnection = New SqlConnection(connectionString)
+            Using connection As New SqlConnection(connectionstr)
                 connection.Open()
                 Dim command As New SqlCommand("DELETE FROM [Test].[dbo].[A319 Wt] WHERE crew = @crew and config_id = @config_id", connection)
                 command.Parameters.AddWithValue("@crew", TextBox50.Text)
@@ -435,7 +448,7 @@ Public Class Form10
         registryKey.SetValue("Label25", Label25.Text)
         registryKey.Close()
         Try
-            Using connection As SqlConnection = New SqlConnection(connectionString)
+            Using connection As New SqlConnection(connectionstr)
                 connection.Open()
                 Dim command2 As New SqlCommand("Select MZFW, MTOW, MLW  FROM [Test].[dbo].[A319] where flight_bort = @flight_bort and config_id = @config_id", connection)
                 command2.Parameters.Add("@flight_bort", SqlDbType.VarChar).Value = TextBox3.Text
@@ -451,7 +464,7 @@ Public Class Form10
             MsgBox("Error: " & ex.ToString())
         End Try
         Try
-            Using connection As SqlConnection = New SqlConnection(connectionString)
+            Using connection As New SqlConnection(connectionstr)
                 connection.Open()
                 Dim command As New SqlCommand("SELECT TOP 1 * FROM [Test].[dbo].[A319 Act] where flight1_bort = @flight1_bort and type_Aircraft = @type_Aircraft ORDER BY CreatedAt DESC", connection)
                 command.Parameters.Add("@flight1_bort", SqlDbType.VarChar).Value = TextBox3.Text

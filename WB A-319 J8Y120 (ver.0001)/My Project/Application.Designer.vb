@@ -34,5 +34,11 @@ Namespace My
         Protected Overrides Sub OnCreateMainForm()
             Me.MainForm = Global.WB_A_319_J8Y120__ver._0001_.LoginForm1
         End Sub
+        
+        <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
+        Protected Overrides Function OnInitialize(ByVal commandLineArgs As System.Collections.ObjectModel.ReadOnlyCollection(Of String)) As Boolean
+            Me.MinimumSplashScreenDisplayTime = 0
+            Return MyBase.OnInitialize(commandLineArgs)
+        End Function
     End Class
 End Namespace
