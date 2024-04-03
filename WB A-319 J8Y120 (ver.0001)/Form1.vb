@@ -44,7 +44,9 @@ Public Class Form1
     Public AFT7 As Single
     Public AFT8 As Single
     Public AFT9 As Single
-    Public connectionString As String = "Data Source=WIN-8CEIKSU78CS\SQLEXPRESS; Initial Catalog=Test; Integrated Security=True"
+
+    Private dbconnections As New DatabaseConnections()
+    Private connectionstr As String = dbconnections.GetConnectionString("stringconect_main")
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim registryKey As Microsoft.Win32.RegistryKey = Microsoft.Win32.Registry.CurrentUser.CreateSubKey("FormDatachanges")
         Label36.Text = registryKey.GetValue("Label27", "")
@@ -62,7 +64,7 @@ Public Class Form1
     Public Sub combo()
         If TextBox1.Text = "A-319" Then
             Try
-                Using connection As SqlConnection = New SqlConnection(connectionString)
+                Using connection As SqlConnection = New SqlConnection(connectionstr)
                     connection.Open()
                     Dim command As New SqlCommand("SELECT * FROM [Test].[dbo].[A319 Wt] where config_id = @config_id", connection)
                     command.Parameters.Add("@config_id", SqlDbType.VarChar).Value = TextBox2.Text
@@ -76,7 +78,7 @@ Public Class Form1
             End Try
         ElseIf TextBox1.Text = "A-320" Then ' добавляем проверку на второй вариант
             Try
-                Using connection As SqlConnection = New SqlConnection(connectionString)
+                Using connection As SqlConnection = New SqlConnection(connectionstr)
                     connection.Open()
                     Dim command As New SqlCommand("SELECT * FROM [Test].[dbo].[A320 Wt] where config_id = @config_id", connection)
                     command.Parameters.Add("@config_id", SqlDbType.VarChar).Value = TextBox2.Text
@@ -156,9 +158,9 @@ Public Class Form1
     Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
         If TextBox1.Text = "A-319" Then
             Try
-                Using connection As SqlConnection = New SqlConnection(connectionString)
+                Using connection As SqlConnection = New SqlConnection(connectionstr)
                     connection.Open()
-                    Dim command As New SqlCommand("select * from [A319 Wt] where Flight_bort = @Flight_bort and crew = @crew", connection)
+                    Dim command As New SqlCommand("select * from [Test].[dbo].[A319 Wt] where Flight_bort = @Flight_bort and crew = @crew", connection)
                     command.Parameters.Add("@Flight_bort", SqlDbType.VarChar).Value = TextBox4.Text
                     command.Parameters.Add("@crew", SqlDbType.VarChar).Value = ComboBox1.Text
                     Dim adapter As New SqlDataAdapter(command)
@@ -180,8 +182,8 @@ Public Class Form1
             End Try
         ElseIf TextBox1.Text = "A-320" Then
             Try
-                Using connection As SqlConnection = New SqlConnection(connectionString)
-                    connection.Open()
+                Using connection As SqlConnection = New SqlConnection(connectionstr)
+
                     Dim command As New SqlCommand("select * from [A320 Wt] where Flight_bort = @Flight_bort and crew = @crew", connection)
                     command.Parameters.Add("@Flight_bort", SqlDbType.VarChar).Value = TextBox4.Text
                     command.Parameters.Add("@crew", SqlDbType.VarChar).Value = ComboBox1.Text
@@ -403,70 +405,76 @@ Public Class Form1
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-        Dim connection As New SqlConnection("Data Source=WIN-8CEIKSU78CS\SQLEXPRESS; Initial Catalog=Test; Integrated Security=True")
-        Dim command As New SqlCommand("Insert into [Test].[dbo].[A319 Act] ([flight1_Id] ,[flight_Route] ,[flight1_bort] ,[config_id] ,[date_flight] ,[time_flight] ,[ttlKZ],[ZFW],[TOW],[TIF],[LW],[LIZFW],[LITOW],[LILW],[MACZFW],[MACTOW],[MACLW],[TTL_load],[PAX_wt],[DOW],[code_crew],[code_kitchen],[DOI],[MAC],[TOF],[LITOF],[LITIF],[OA],[OB],[OC],[OD],[CPT1FWD],[CPT4AFT],[CPT5AFT],[BLK],[LICPT1FWD],[LICPT4AFT],[LICPT5AFT],[LIBLK],[LIOA],[LIOB],[LIOC],[LIOD],[MAXKZ],[MAXZFW],[MAXTOW],[MAXLW],[UNDERLOAD],[C],[Y],[CARGO],[M],[B],[VZR],[RB],[RM],[TTL],[type_Aircraft]) Values(@flight1_Id, @flight_Route, @flight1_bort, @config_id, @date_flight, @time_flight, @ttlKZ, @ZFW, @TOW, @TIF, @LW, @LIZFW, @LITOW, @LILW, @MACZFW, @MACTOW, @MACLW, @TTL_load, @PAX_wt, @DOW, @code_crew, @code_kitchen, @DOI, @MAC, @TOF, @LITOF, @LITIF, @OA, @OB, @OC, @OD, @CPT1FWD, @CPT4AFT, @CPT5AFT, @BLK, @LICPT1FWD, @LICPT4AFT, @LICPT5AFT, @LIBLK, @LIOA, @LIOB, @LIOC, @LIOD, @MAXKZ, @MAXZFW, @MAXTOW, @MAXLW, @UNDERLOAD, @C, @Y, @CARGO, @M, @B, @VZR, @RB, @RM, @TTL, @type_Aircraft)", connection)
-        command.Parameters.AddWithValue("@flight1_Id", TextBox5.Text)
-        command.Parameters.AddWithValue("@flight_Route", TextBox3.Text)
-        command.Parameters.AddWithValue("@flight1_bort", TextBox4.Text)
-        command.Parameters.AddWithValue("@config_id", TextBox2.Text)
-        command.Parameters.AddWithValue("@date_flight", TextBox48.Text)
-        command.Parameters.AddWithValue("@time_flight", TextBox49.Text)
-        command.Parameters.AddWithValue("@ttlKZ", TextBox8.Text)
-        command.Parameters.AddWithValue("@ZFW", TextBox12.Text)
-        command.Parameters.AddWithValue("@TOW", TextBox17.Text)
-        command.Parameters.AddWithValue("@TIF", TextBox20.Text)
-        command.Parameters.AddWithValue("@LW", TextBox21.Text)
-        command.Parameters.AddWithValue("@LIZFW", TextBox42.Text)
-        command.Parameters.AddWithValue("@LITOW", TextBox44.Text)
-        command.Parameters.AddWithValue("@LILW", TextBox46.Text)
-        command.Parameters.AddWithValue("@MACZFW", TextBox43.Text)
-        command.Parameters.AddWithValue("@MACTOW", TextBox45.Text)
-        command.Parameters.AddWithValue("@MACLW", TextBox47.Text)
-        command.Parameters.AddWithValue("@TTL_load", TextBox6.Text)
-        command.Parameters.AddWithValue("@PAX_wt", TextBox7.Text)
-        command.Parameters.AddWithValue("@DOW", TextBox14.Text)
-        command.Parameters.AddWithValue("@code_crew", ComboBox1.Text)
-        command.Parameters.AddWithValue("@code_kitchen", TextBox23.Text)
-        command.Parameters.AddWithValue("@DOI", TextBox24.Text)
-        command.Parameters.AddWithValue("@MAC", TextBox25.Text)
-        command.Parameters.AddWithValue("@TOF", TextBox15.Text)
-        command.Parameters.AddWithValue("@LITOF", TextBox26.Text)
-        command.Parameters.AddWithValue("@LITIF", TextBox27.Text)
-        command.Parameters.AddWithValue("@OA", TextBox28.Text)
-        command.Parameters.AddWithValue("@OB", TextBox29.Text)
-        command.Parameters.AddWithValue("@OC", TextBox30.Text)
-        command.Parameters.AddWithValue("@OD", TextBox31.Text)
-        command.Parameters.AddWithValue("@CPT1FWD", TextBox36.Text)
-        command.Parameters.AddWithValue("@CPT4AFT", TextBox37.Text)
-        command.Parameters.AddWithValue("@CPT5AFT", TextBox38.Text)
-        command.Parameters.AddWithValue("@BLK", TextBox16.Text)
-        command.Parameters.AddWithValue("@LICPT1FWD", TextBox39.Text)
-        command.Parameters.AddWithValue("@LICPT4AFT", TextBox40.Text)
-        command.Parameters.AddWithValue("@LICPT5AFT", TextBox41.Text)
-        command.Parameters.AddWithValue("@LIBLK", TextBox10.Text)
-        command.Parameters.AddWithValue("@LIOA", TextBox32.Text)
-        command.Parameters.AddWithValue("@LIOB", TextBox33.Text)
-        command.Parameters.AddWithValue("@LIOC", TextBox34.Text)
-        command.Parameters.AddWithValue("@LIOD", TextBox35.Text)
-        command.Parameters.AddWithValue("@MAXKZ", TextBox9.Text)
-        command.Parameters.AddWithValue("@MAXZFW", TextBox13.Text)
-        command.Parameters.AddWithValue("@MAXTOW", TextBox19.Text)
-        command.Parameters.AddWithValue("@MAXLW", TextBox18.Text)
-        command.Parameters.AddWithValue("@UNDERLOAD", Label29.Text)
-        command.Parameters.AddWithValue("@C", Label57.Text)
-        command.Parameters.AddWithValue("@Y", Label56.Text)
-        command.Parameters.AddWithValue("@CARGO", Label71.Text)
-        command.Parameters.AddWithValue("@M", Label73.Text)
-        command.Parameters.AddWithValue("@B", Label75.Text)
-        command.Parameters.AddWithValue("@VZR", Label50.Text)
-        command.Parameters.AddWithValue("@RB", Label51.Text)
-        command.Parameters.AddWithValue("@RM", Label52.Text)
-        command.Parameters.AddWithValue("@TTL", Label53.Text)
-        command.Parameters.AddWithValue("@type_Aircraft", TextBox1.Text)
-        connection.Open()
-        command.ExecuteNonQuery()
-        connection.Close()
-        MessageBox.Show("Запись в Базу Данных")
+        Try
+            Using connection As SqlConnection = New SqlConnection(connectionstr)
+
+                Dim command As New SqlCommand("Insert into [Test].[dbo].[A319 Act] ([flight1_Id] ,[flight_Route] ,[flight1_bort] ,[config_id] ,[date_flight] ,[time_flight] ,[ttlKZ],[ZFW],[TOW],[TIF],[LW],[LIZFW],[LITOW],[LILW],[MACZFW],[MACTOW],[MACLW],[TTL_load],[PAX_wt],[DOW],[code_crew],[code_kitchen],[DOI],[MAC],[TOF],[LITOF],[LITIF],[OA],[OB],[OC],[OD],[CPT1FWD],[CPT4AFT],[CPT5AFT],[BLK],[LICPT1FWD],[LICPT4AFT],[LICPT5AFT],[LIBLK],[LIOA],[LIOB],[LIOC],[LIOD],[MAXKZ],[MAXZFW],[MAXTOW],[MAXLW],[UNDERLOAD],[C],[Y],[CARGO],[M],[B],[VZR],[RB],[RM],[TTL],[type_Aircraft]) Values(@flight1_Id, @flight_Route, @flight1_bort, @config_id, @date_flight, @time_flight, @ttlKZ, @ZFW, @TOW, @TIF, @LW, @LIZFW, @LITOW, @LILW, @MACZFW, @MACTOW, @MACLW, @TTL_load, @PAX_wt, @DOW, @code_crew, @code_kitchen, @DOI, @MAC, @TOF, @LITOF, @LITIF, @OA, @OB, @OC, @OD, @CPT1FWD, @CPT4AFT, @CPT5AFT, @BLK, @LICPT1FWD, @LICPT4AFT, @LICPT5AFT, @LIBLK, @LIOA, @LIOB, @LIOC, @LIOD, @MAXKZ, @MAXZFW, @MAXTOW, @MAXLW, @UNDERLOAD, @C, @Y, @CARGO, @M, @B, @VZR, @RB, @RM, @TTL, @type_Aircraft)", connection)
+                command.Parameters.AddWithValue("@flight1_Id", TextBox5.Text)
+                command.Parameters.AddWithValue("@flight_Route", TextBox3.Text)
+                command.Parameters.AddWithValue("@flight1_bort", TextBox4.Text)
+                command.Parameters.AddWithValue("@config_id", TextBox2.Text)
+                command.Parameters.AddWithValue("@date_flight", TextBox48.Text)
+                command.Parameters.AddWithValue("@time_flight", TextBox49.Text)
+                command.Parameters.AddWithValue("@ttlKZ", TextBox8.Text)
+                command.Parameters.AddWithValue("@ZFW", TextBox12.Text)
+                command.Parameters.AddWithValue("@TOW", TextBox17.Text)
+                command.Parameters.AddWithValue("@TIF", TextBox20.Text)
+                command.Parameters.AddWithValue("@LW", TextBox21.Text)
+                command.Parameters.AddWithValue("@LIZFW", TextBox42.Text)
+                command.Parameters.AddWithValue("@LITOW", TextBox44.Text)
+                command.Parameters.AddWithValue("@LILW", TextBox46.Text)
+                command.Parameters.AddWithValue("@MACZFW", TextBox43.Text)
+                command.Parameters.AddWithValue("@MACTOW", TextBox45.Text)
+                command.Parameters.AddWithValue("@MACLW", TextBox47.Text)
+                command.Parameters.AddWithValue("@TTL_load", TextBox6.Text)
+                command.Parameters.AddWithValue("@PAX_wt", TextBox7.Text)
+                command.Parameters.AddWithValue("@DOW", TextBox14.Text)
+                command.Parameters.AddWithValue("@code_crew", ComboBox1.Text)
+                command.Parameters.AddWithValue("@code_kitchen", TextBox23.Text)
+                command.Parameters.AddWithValue("@DOI", TextBox24.Text)
+                command.Parameters.AddWithValue("@MAC", TextBox25.Text)
+                command.Parameters.AddWithValue("@TOF", TextBox15.Text)
+                command.Parameters.AddWithValue("@LITOF", TextBox26.Text)
+                command.Parameters.AddWithValue("@LITIF", TextBox27.Text)
+                command.Parameters.AddWithValue("@OA", TextBox28.Text)
+                command.Parameters.AddWithValue("@OB", TextBox29.Text)
+                command.Parameters.AddWithValue("@OC", TextBox30.Text)
+                command.Parameters.AddWithValue("@OD", TextBox31.Text)
+                command.Parameters.AddWithValue("@CPT1FWD", TextBox36.Text)
+                command.Parameters.AddWithValue("@CPT4AFT", TextBox37.Text)
+                command.Parameters.AddWithValue("@CPT5AFT", TextBox38.Text)
+                command.Parameters.AddWithValue("@BLK", TextBox16.Text)
+                command.Parameters.AddWithValue("@LICPT1FWD", TextBox39.Text)
+                command.Parameters.AddWithValue("@LICPT4AFT", TextBox40.Text)
+                command.Parameters.AddWithValue("@LICPT5AFT", TextBox41.Text)
+                command.Parameters.AddWithValue("@LIBLK", TextBox10.Text)
+                command.Parameters.AddWithValue("@LIOA", TextBox32.Text)
+                command.Parameters.AddWithValue("@LIOB", TextBox33.Text)
+                command.Parameters.AddWithValue("@LIOC", TextBox34.Text)
+                command.Parameters.AddWithValue("@LIOD", TextBox35.Text)
+                command.Parameters.AddWithValue("@MAXKZ", TextBox9.Text)
+                command.Parameters.AddWithValue("@MAXZFW", TextBox13.Text)
+                command.Parameters.AddWithValue("@MAXTOW", TextBox19.Text)
+                command.Parameters.AddWithValue("@MAXLW", TextBox18.Text)
+                command.Parameters.AddWithValue("@UNDERLOAD", Label29.Text)
+                command.Parameters.AddWithValue("@C", Label57.Text)
+                command.Parameters.AddWithValue("@Y", Label56.Text)
+                command.Parameters.AddWithValue("@CARGO", Label71.Text)
+                command.Parameters.AddWithValue("@M", Label73.Text)
+                command.Parameters.AddWithValue("@B", Label75.Text)
+                command.Parameters.AddWithValue("@VZR", Label50.Text)
+                command.Parameters.AddWithValue("@RB", Label51.Text)
+                command.Parameters.AddWithValue("@RM", Label52.Text)
+                command.Parameters.AddWithValue("@TTL", Label53.Text)
+                command.Parameters.AddWithValue("@type_Aircraft", TextBox1.Text)
+                connection.Open()
+                command.ExecuteNonQuery()
+                connection.Close()
+                MessageBox.Show("Запись в Базу Данных")
+            End Using
+        Catch ex As Exception
+            MsgBox("Error: " & ex.ToString())
+        End Try
     End Sub
     Private Sub Button23_Click(sender As Object, e As EventArgs) Handles Button23.Click
         Form3.Show()
@@ -475,8 +483,8 @@ Public Class Form1
     Private Sub Button22_Click(sender As Object, e As EventArgs) Handles Button22.Click
         If TextBox1.Text = "A-320" Then
             Try
-                Using connection As SqlConnection = New SqlConnection(connectionString)
-                    connection.Open()
+                Using connection As SqlConnection = New SqlConnection(connectionstr)
+
                     Dim command As New SqlCommand("SELECT TOP 1 * FROM [Test].[dbo].[A320 lir] where flight_id1 = @flight_id1 and flight_bort = @flight_bort ORDER BY CreatedAt DESC", connection)
                     command.Parameters.Add("@flight_id1", SqlDbType.VarChar).Value = TextBox5.Text
                     command.Parameters.Add("@flight_bort", SqlDbType.VarChar).Value = TextBox4.Text
@@ -598,7 +606,7 @@ Public Class Form1
         End If
         If TextBox1.Text = "A-319" Then
             Try
-                Using connection As SqlConnection = New SqlConnection(connectionString)
+                Using connection As SqlConnection = New SqlConnection(connectionstr)
                     connection.Open()
                     Dim command As New SqlCommand("SELECT TOP 1 * FROM [Test].[dbo].[A319 lir] where flight_id1 = @flight_id1 and flight_bort = @flight_bort ORDER BY CreatedAt DESC", connection)
                     command.Parameters.Add("@flight_id1", SqlDbType.VarChar).Value = TextBox5.Text

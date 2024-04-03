@@ -2,6 +2,8 @@
 Imports System.Web
 
 Public Class Form5
+    Private dbconnections As New DatabaseConnections()
+    Private connectionstr As String = dbconnections.GetConnectionString("stringconect_main")
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
         Dim ost As Single = 0
         For Each val As String In TextBox1.Text.Split(" "c)
@@ -70,12 +72,11 @@ Public Class Form5
         Return rul
     End Function
     Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
-        Dim connectionString As String = "Data Source=WIN-8CEIKSU78CS\SQLEXPRESS; Initial Catalog=Test; Integrated Security=True"
         Dim fuelWeight As Integer = CInt(TextBox5.Text)
         Dim fuelWeight2 As Integer = CInt(TextBox4.Text)
 
         Try
-            Using connection As SqlConnection = New SqlConnection(connectionString)
+            Using connection As SqlConnection = New SqlConnection(connectionstr)
                 connection.Open()
 
                 Dim query As String = ""
@@ -113,7 +114,7 @@ Public Class Form5
             MsgBox("Error: " & ex.ToString())
         End Try
         Try
-            Using connection As SqlConnection = New SqlConnection(connectionString)
+            Using connection As SqlConnection = New SqlConnection(connectionstr)
                 connection.Open()
                 Dim query As String = ""
                 If Form1.TextBox1.Text = "A-319" Then

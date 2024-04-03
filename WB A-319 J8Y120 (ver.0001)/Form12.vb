@@ -1,11 +1,14 @@
 ﻿Imports System.Timers
 Imports System.Data.SqlClient
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement
+Imports log4net
+Imports System.Data.Common
+
 
 Public Class Form12
     Private timer As Timer
-    Public configLoader As New DatabaseConfigLoader("dbconnect.xml")
-    Public connectionstr As String = configLoader.GetConnectionString()
+    Private dbconnections As New DatabaseConnections()
+    Private connectionstr As String = dbconnections.GetConnectionString("stringconect_main")
     Private Sub Form12_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' Инициализация таймера
         timer = New Timer()
@@ -14,16 +17,14 @@ Public Class Form12
         timer.Start()
         Try
             Using connection As New SqlConnection(connectionstr)
-                connection.Open()
-                ' Создать команду для выборки данных
-                Dim command As New SqlCommand("SELECT flight_id AS Рейс, flight_route AS Маршрут, date_flight AS Дата_Рейса, time_flight AS Время_Рейса, type_Aircraft AS Тип_ВС, flight_bort AS Бортовой_Номер,config_id AS Конфигурация From [Test].[dbo].[A319]", connection)
-                ' Создать адаптер данных и заполнить DataTable
-                Dim adapter As New SqlDataAdapter(command)
+                Dim Command As New SqlCommand("GetDataA319", connection)
+                Command.CommandType = CommandType.StoredProcedure
+                Dim adapter As New SqlDataAdapter(Command)
                 Dim table As New DataTable
                 adapter.Fill(table)
-                ' Установить DataTable в качестве источника данных для DataGridView
                 DataGridView1.DataSource = table
             End Using
+
         Catch ex As Exception
             MsgBox("Error: " & ex.ToString())
         End Try
@@ -35,7 +36,7 @@ Public Class Form12
     End Sub
     Public Sub disp_data1()
         Using connection As New SqlConnection(connectionstr)
-            Dim command As New SqlCommand("SELECT flight_id AS Рейс, flight_route AS Маршрут, date_flight AS Дата_Рейса, time_flight AS Время_Рейса, type_Aircraft AS Тип_ВС, flight_bort AS Бортовой_Номер,config_id AS Конфигурация From [Test].[dbo].[A319]", connection)
+            Dim command As New SqlCommand("GetDataMethodView", connection)
             Dim adapter3 As New SqlDataAdapter(command)
             Dim table As New DataTable()
             adapter3.Fill(table)
@@ -75,11 +76,16 @@ Public Class Form12
 
     Private Sub UpdateLabel(dateTimeString As String)
         ' Обновление значения времени на форме через делегат
-        If InvokeRequired Then
-            Invoke(Sub() UpdateLabel(dateTimeString))
-        Else
-            Label1.Text = dateTimeString
-        End If
+        Try
+            If InvokeRequired Then
+                Invoke(Sub() UpdateLabel(dateTimeString))
+            Else
+                Label1.Text = dateTimeString
+            End If
+        Catch ex As Exception
+            MsgBox(ex)
+        End Try
+
     End Sub
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
@@ -89,8 +95,8 @@ Public Class Form12
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Try
             Using connection As New SqlConnection(connectionstr)
-                connection.Open()
-                Dim command As New SqlCommand("UPDATE [Test].[dbo].[A319] SET [flight_bort] = @flight_bort, [config_id] = @config_id, [date_flight] = @date_flight, [time_flight] = @time_flight, [flight_id] = @flight_id, [flight_route] = @flight_route, [type_Aircraft] = @type_Aircraft  WHERE flight_id = @flight_id", connection)
+                Dim command As New SqlCommand("UpdateDataF12", connection)
+                command.CommandType = CommandType.StoredProcedure
                 command.Parameters.AddWithValue("@flight_id", TextBox1.Text)
                 command.Parameters.AddWithValue("@flight_route", TextBox2.Text)
                 command.Parameters.AddWithValue("@date_flight", TextBox3.Text)
@@ -98,7 +104,11 @@ Public Class Form12
                 command.Parameters.AddWithValue("@type_Aircraft", TextBox5.Text)
                 command.Parameters.AddWithValue("@flight_bort", TextBox6.Text)
                 command.Parameters.AddWithValue("@config_id", TextBox7.Text)
-                command.ExecuteNonQuery()
+                'command.ExecuteNonQuery()
+                Dim dt As New DataTable
+                Dim adapter As New SqlDataAdapter(command)
+                adapter.Fill(dt)
+
                 MessageBox.Show("Обновление данных")
                 disp_data1()
             End Using

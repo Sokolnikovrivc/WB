@@ -2,8 +2,8 @@
 Imports System.Data.SqlClient
 Imports System.Windows.Forms
 Public Class Form10
-    Public configLoader As New DatabaseConfigLoader("dbconnect.xml")
-    Public connectionstr As String = configLoader.GetConnectionString()
+    Private dbconnections As New DatabaseConnections()
+    Private connectionstr As String = dbconnections.GetConnectionString("stringconect_main")
     Private Sub Form10_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
             Using connection As New SqlConnection(connectionstr)
