@@ -126,6 +126,7 @@ Public Class Form1
             TextBox12.Text = ""
             TextBox12.Focus()
         End If
+        Label29.Text = MZFW - ZFW
     End Sub
 
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
@@ -139,7 +140,7 @@ Public Class Form1
             TextBox17.Text = ""
             TextBox17.Focus()
         End If
-        Label29.Text = MTOW - TOW
+
     End Sub
 
     Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
@@ -387,7 +388,8 @@ Public Class Form1
     Private Sub Button20_Click(sender As Object, e As EventArgs) Handles Button20.Click
         LILW = CSng(TextBox46.Text)
         LITIF = CSng(TextBox27.Text)
-        TextBox46.Text = DOI + OA + OB + OC + OD + CPT1FWD + CPT4AFT + CPT5AFT + BULK + LITOF + LITIF
+        ' Решил вычетать LITIF, так как уменьшая топливо мы возвращаем значение в предыдущее состоянее, а не снова увеличиваем его
+        TextBox46.Text = DOI + OA + OB + OC + OD + CPT1FWD + CPT4AFT + CPT5AFT + BULK + LITOF - LITIF
     End Sub
 
     Private Sub Button21_Click(sender As Object, e As EventArgs) Handles Button21.Click

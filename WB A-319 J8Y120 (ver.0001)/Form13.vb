@@ -2,11 +2,12 @@
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 
 Public Class Form13
-    Public connectionString As String = "Data Source=WIN-8CEIKSU78CS\SQLEXPRESS; Initial Catalog=Test; Integrated Security=True"
+    Private dbconnections As New DatabaseConnections()
+    Private connectionstr As String = dbconnections.GetConnectionString("stringconect_main")
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Try
-            Using connection As SqlConnection = New SqlConnection(connectionString)
+            Using connection As SqlConnection = New SqlConnection(connectionstr)
                 connection.Open()
                 Dim command As New SqlCommand("Insert into [Test].[dbo].[A319] ([flight_bort],[config_id],[MZFW],[MTOW],[MLW],[date_flight],[time_flight],[flight_id],[flight_route],[type_Aircraft]) Values(@flight_bort, @config_id, @MZFW, @MTOW, @MLW, @date_flight, @time_flight, @flight_id, @flight_route, @type_Aircraft)", connection)
                 command.Parameters.AddWithValue("@flight_bort", TextBox3.Text)
@@ -31,4 +32,21 @@ Public Class Form13
             MsgBox("Error: " & ex.ToString())
         End Try
     End Sub
+
+    Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
+        If CheckBox1.Checked = True Then
+            CheckBox2.Checked = False
+        ElseIf CheckBox2.Checked = True Then
+            CheckBox1.Checked = False
+        End If
+    End Sub
+
+    Private Sub CheckBox2_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox2.CheckedChanged
+        If CheckBox2.Checked = True Then
+            CheckBox1.Checked = False
+        ElseIf CheckBox1.Checked = True Then
+            CheckBox2.Checked = False
+        End If
+    End Sub
+
 End Class

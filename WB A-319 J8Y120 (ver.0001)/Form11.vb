@@ -130,6 +130,18 @@ Public Class Form11
                 command.Parameters.Add("@config_id", SqlDbType.VarChar).Value = TextBox2.Text
                 command.Parameters.Add("@type_Aircraft", SqlDbType.VarChar).Value = TextBox1.Text
                 command.ExecuteNonQuery()
+
+            End Using
+            Using connection As SqlConnection = New SqlConnection(connectionstr)
+                connection.Open()
+                Dim command As New SqlCommand("UPDATE [Test].[dbo].[A319 Act] SET [MAXZFW] = @MAXZFW , [MAXTOW] = @MAXTOW, [MAXLW] = @MAXLW where type_Aircraft = @type_Aircraft and config_id = @config_id and flight1_bort = @flight1_bort", connection)
+                command.Parameters.AddWithValue("@MAXZFW", TextBox40.Text)
+                command.Parameters.AddWithValue("@MAXTOW", TextBox41.Text)
+                command.Parameters.AddWithValue("@MAXLW", TextBox42.Text)
+                command.Parameters.Add("@flight1_bort", SqlDbType.VarChar).Value = TextBox3.Text
+                command.Parameters.Add("@config_id", SqlDbType.VarChar).Value = TextBox2.Text
+                command.Parameters.Add("@type_Aircraft", SqlDbType.VarChar).Value = TextBox1.Text
+                command.ExecuteNonQuery()
                 MessageBox.Show("Обновление данных")
             End Using
         Catch ex As Exception

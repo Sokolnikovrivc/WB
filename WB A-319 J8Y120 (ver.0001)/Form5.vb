@@ -58,8 +58,8 @@ Public Class Form5
                 rul += num
             End If
         Next
-        TextBox5.Text = (rul + GetZapValue() + GetOstValue()).ToString()
-        TextBox7.Text = (rul + GetZapValue() + GetOstValue()).ToString()
+        TextBox5.Text = (-rul + GetZapValue() + GetOstValue()).ToString()
+        TextBox7.Text = (-rul + GetZapValue() + GetOstValue()).ToString()
     End Sub
     Private Function GetRulValue() As Single
         Dim rul As Single = 0
