@@ -25,6 +25,7 @@ Partial Class Form1
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.Button22 = New System.Windows.Forms.Button()
         Me.TextBox49 = New System.Windows.Forms.TextBox()
         Me.TextBox48 = New System.Windows.Forms.TextBox()
@@ -199,6 +200,7 @@ Partial Class Form1
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Button1)
         Me.GroupBox1.Controls.Add(Me.Button22)
         Me.GroupBox1.Controls.Add(Me.TextBox49)
         Me.GroupBox1.Controls.Add(Me.TextBox48)
@@ -221,6 +223,15 @@ Partial Class Form1
         Me.GroupBox1.Size = New System.Drawing.Size(1058, 95)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(848, 53)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(158, 20)
+        Me.Button1.TabIndex = 79
+        Me.Button1.Text = "Центровочный график"
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'Button22
         '
@@ -1913,4 +1924,5 @@ Partial Class Form1
     Friend WithEvents Label72 As Label
     Friend WithEvents Label74 As Label
     Friend WithEvents Label71 As Label
+    Friend WithEvents Button1 As Button
 End Class

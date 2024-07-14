@@ -66,12 +66,14 @@ Public Class Form12
     Private Sub UpdateDateTime()
         ' Получаем текущую дату и время
         Dim currentDate As DateTime = DateTime.Now
-
-        ' Преобразуем дату и время в строку
-        Dim currentDateTimeString As String = currentDate.ToString()
-
-        ' Обновляем значение времени на форме
-        UpdateLabel(currentDateTimeString)
+        Try
+            ' Преобразуем дату и время в строку
+            Dim currentDateTimeString As String = currentDate.ToString()
+            ' Обновляем значение времени на форме
+            UpdateLabel(currentDateTimeString)
+        Catch ex As Exception
+            MsgBox(ex)
+        End Try
     End Sub
 
     Private Sub UpdateLabel(dateTimeString As String)

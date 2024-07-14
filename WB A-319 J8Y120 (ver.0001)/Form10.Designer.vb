@@ -146,6 +146,7 @@ Partial Class Form10
         Me.Button16 = New System.Windows.Forms.Button()
         Me.DataGridView5 = New System.Windows.Forms.DataGridView()
         Me.Button17 = New System.Windows.Forms.Button()
+        Me.Label39 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
@@ -1357,18 +1358,30 @@ Partial Class Form10
         '
         'Button17
         '
-        Me.Button17.Location = New System.Drawing.Point(270, 342)
+        Me.Button17.Location = New System.Drawing.Point(318, 341)
         Me.Button17.Name = "Button17"
-        Me.Button17.Size = New System.Drawing.Size(75, 23)
+        Me.Button17.Size = New System.Drawing.Size(45, 23)
         Me.Button17.TabIndex = 10
         Me.Button17.Text = "Ок"
         Me.Button17.UseVisualStyleBackColor = True
+        '
+        'Label39
+        '
+        Me.Label39.AutoSize = True
+        Me.Label39.BackColor = System.Drawing.SystemColors.Info
+        Me.Label39.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label39.Location = New System.Drawing.Point(7, 347)
+        Me.Label39.Name = "Label39"
+        Me.Label39.Size = New System.Drawing.Size(47, 15)
+        Me.Label39.TabIndex = 11
+        Me.Label39.Text = "Label39"
         '
         'Form10
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(373, 373)
+        Me.Controls.Add(Me.Label39)
         Me.Controls.Add(Me.Button17)
         Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.GroupBox1)
@@ -1403,6 +1416,7 @@ Partial Class Form10
         Me.TabPage9.PerformLayout()
         CType(Me.DataGridView5, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -1529,4 +1543,5 @@ Partial Class Form10
     Friend WithEvents Label31 As Label
     Friend WithEvents Label32 As Label
     Friend WithEvents Label33 As Label
+    Friend WithEvents Label39 As Label
 End Class

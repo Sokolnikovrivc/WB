@@ -1,4 +1,5 @@
 ﻿Imports System.Data.SqlClient
+Imports System.IO
 Imports System.IO.File
 Public Class Form1
     Public C As Single
@@ -60,14 +61,23 @@ Public Class Form1
         sw.Close()
         ComboBox1.Items.Clear()
         combo() ' заполняем ComboBox данными из базы данных
+        Dim textBoxes As TextBox() = {TextBox12, TextBox17, TextBox21, TextBox42, TextBox43, TextBox44, TextBox45, TextBox46, TextBox47}
+
+        ' Проверка и замена пустых значений
+        For Each TextB In textBoxes
+            If String.IsNullOrEmpty(TextB.Text) Then
+                TextB.Text = "0"
+            End If
+        Next
     End Sub
     Public Sub combo()
         If TextBox1.Text = "A-319" Then
             Try
                 Using connection As SqlConnection = New SqlConnection(connectionstr)
                     connection.Open()
-                    Dim command As New SqlCommand("SELECT * FROM [Test].[dbo].[A319 Wt] where config_id = @config_id", connection)
+                    Dim command As New SqlCommand("SELECT * FROM [Test].[dbo].[A319 Wt] where config_id = @config_id and Flight_bort =@Flight_bort", connection)
                     command.Parameters.Add("@config_id", SqlDbType.VarChar).Value = TextBox2.Text
+                    command.Parameters.Add("@Flight_bort", SqlDbType.VarChar).Value = TextBox4.Text
                     Dim reader As SqlDataReader = command.ExecuteReader()
                     While reader.Read()
                         ComboBox1.Items.Add(reader("crew").ToString())
@@ -80,8 +90,9 @@ Public Class Form1
             Try
                 Using connection As SqlConnection = New SqlConnection(connectionstr)
                     connection.Open()
-                    Dim command As New SqlCommand("SELECT * FROM [Test].[dbo].[A320 Wt] where config_id = @config_id", connection)
+                    Dim command As New SqlCommand("SELECT * FROM [Test].[dbo].[A320 Wt] where config_id = @config_id and Flight_bort =@Flight_bort", connection)
                     command.Parameters.Add("@config_id", SqlDbType.VarChar).Value = TextBox2.Text
+                    command.Parameters.Add("@Flight_bort", SqlDbType.VarChar).Value = TextBox4.Text
                     Dim reader As SqlDataReader = command.ExecuteReader()
                     While reader.Read()
                         ComboBox1.Items.Add(reader("crew").ToString())
@@ -116,44 +127,64 @@ Public Class Form1
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
-        C = TextBox8.Text
-        DOW = TextBox11.Text
-        TextBox12.Text = C + DOW
-        ZFW = CSng(TextBox12.Text)
-        MZFW = CSng(TextBox13.Text)
-        If MZFW < ZFW Then
-            MsgBox("Фактическое значение ZFW превышает предельное MZFW!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
-            TextBox12.Text = ""
-            TextBox12.Focus()
-        End If
-        Label29.Text = MZFW - ZFW
+        Try
+            C = TextBox8.Text
+            DOW = TextBox11.Text
+            TextBox12.Text = C + DOW
+            Single.TryParse(TextBox12.Text, ZFW)
+            ' ZFW = CSng(TextBox12.Text)
+            Single.TryParse(TextBox13.Text, MZFW)
+            'MZFW = CSng(TextBox13.Text)
+            If MZFW < ZFW Then
+                MsgBox("Фактическое значение ZFW превышает предельное MZFW!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+                TextBox12.Text = ""
+                TextBox12.Focus()
+            End If
+            Label29.Text = MZFW - ZFW
+        Catch ex As Exception
+            MsgBox("Ошибка " & ex.Message)
+        End Try
     End Sub
 
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
-        TextBox12.Text = ZFW
-        TOF = CSng(TextBox15.Text)
-        TextBox17.Text = ZFW + TOF
-        TOW = CSng(TextBox17.Text)
-        MTOW = CSng(TextBox19.Text)
-        If MTOW < TOW Then
-            MsgBox("Фактическое значение TOW превышает предельное MTOW!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
-            TextBox17.Text = ""
-            TextBox17.Focus()
-        End If
-
+        Try
+            TextBox12.Text = ZFW
+            Single.TryParse(TextBox15.Text, TOF)
+            'TOF = CSng(TextBox15.Text)
+            TextBox17.Text = ZFW + TOF
+            Single.TryParse(TextBox17.Text, TOW)
+            Single.TryParse(TextBox19.Text, MTOW)
+            'TOW = CSng(TextBox17.Text)
+            'MTOW = CSng(TextBox19.Text)
+            If MTOW < TOW Then
+                MsgBox("Фактическое значение TOW превышает предельное MTOW!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+                TextBox17.Text = ""
+                TextBox17.Focus()
+            End If
+        Catch ex As Exception
+            MsgBox("Ошибка " & ex.Message)
+        End Try
     End Sub
 
     Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
-        TextBox17.Text = TOW
-        TIF = CSng(TextBox20.Text)
-        TextBox21.Text = TOW - TIF
-        LW = CSng(TextBox21.Text)
-        MLW = CSng(TextBox18.Text)
-        If MLW < LW Then
-            MsgBox("Фактическое значение TLW превышает предельное LW!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
-            TextBox21.Text = ""
-            TextBox21.Focus()
-        End If
+        Try
+            TextBox17.Text = TOW
+            Single.TryParse(TextBox20.Text, TIF)
+            'TIF = CSng(TextBox20.Text)
+            TextBox21.Text = TOW - TIF
+            Single.TryParse(TextBox21.Text, LW)
+            'LW = CSng(TextBox21.Text)
+            Single.TryParse(TextBox18.Text, MLW)
+            'MLW = CSng(TextBox18.Text)
+            If MLW < LW Then
+                MsgBox("Фактическое значение TLW превышает предельное LW!", MsgBoxStyle.OkCancel + MsgBoxStyle.Critical, "Ошибка!")
+                TextBox21.Text = ""
+                TextBox21.Focus()
+            End If
+        Catch ex As Exception
+            MsgBox("Ошибка " & ex.Message)
+        End Try
+
     End Sub
 
     Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
@@ -331,32 +362,45 @@ Public Class Form1
     End Sub
 
     Private Sub Button16_Click(sender As Object, e As EventArgs) Handles Button16.Click
-        DOI = CSng(TextBox24.Text)
-        OA = CSng(TextBox32.Text)
-        OB = CSng(TextBox33.Text)
-        OC = CSng(TextBox34.Text)
-        OD = CSng(TextBox35.Text)
-        CPT1FWD = CSng(TextBox39.Text)
-        CPT4AFT = CSng(TextBox40.Text)
-        CPT5AFT = CSng(TextBox41.Text)
-        BULK = CSng(TextBox10.Text)
-        TextBox42.Text = CStr(DOI + OA + OB + OC + OD + CPT1FWD + CPT4AFT + CPT5AFT + BULK)
-        LIZFW = CSng(TextBox42.Text)
+        Try
+            DOI = CSng(TextBox24.Text)
+            OA = CSng(TextBox32.Text)
+            OB = CSng(TextBox33.Text)
+            OC = CSng(TextBox34.Text)
+            OD = CSng(TextBox35.Text)
+            CPT1FWD = CSng(TextBox39.Text)
+            CPT4AFT = CSng(TextBox40.Text)
+            CPT5AFT = CSng(TextBox41.Text)
+            BULK = CSng(TextBox10.Text)
+            TextBox42.Text = CStr(DOI + OA + OB + OC + OD + CPT1FWD + CPT4AFT + CPT5AFT + BULK)
+            'LIZFW = CSng(TextBox42.Text)
+            Single.TryParse(TextBox42.Text, LIZFW)
+        Catch ex As Exception
+            MsgBox("Ошибка " & ex.Message)
+        End Try
     End Sub
     Public Function Preobraz_index()
+
         Dim registryKey As Microsoft.Win32.RegistryKey = Microsoft.Win32.Registry.CurrentUser.CreateSubKey("FormDatachanges")
         Dim RefSTA As Integer = registryKey.GetValue("TextBox29", "")
         Dim K As Integer = registryKey.GetValue("TextBox30", "")
         Dim C As Integer = registryKey.GetValue("TextBox31", "")
         Dim CAX As Single = registryKey.GetValue("TextBox32", "")
         Dim LEMAC As Single = registryKey.GetValue("TextBox33", "")
-        LIZFW = CSng(TextBox42.Text)
-        ZFW = CSng(TextBox12.Text)
-        MACTOW = CSng(TextBox45.Text)
-        LITOW = CSng(TextBox44.Text)
-        TOW = CSng(TextBox17.Text)
-        LILW = CSng(TextBox46.Text)
-        LITIF = CSng(TextBox27.Text)
+        Single.TryParse(TextBox42.Text, LIZFW)
+        Single.TryParse(TextBox12.Text, ZFW)
+        Single.TryParse(TextBox45.Text, MACTOW)
+        Single.TryParse(TextBox44.Text, LITOW)
+        Single.TryParse(TextBox17.Text, TOW)
+        Single.TryParse(TextBox46.Text, LILW)
+        Single.TryParse(TextBox27.Text, LITIF)
+        'LIZFW = CSng(TextBox42.Text)
+        'ZFW = CSng(TextBox12.Text)
+        'MACTOW = CSng(TextBox45.Text)
+        'LITOW = CSng(TextBox44.Text)
+        'TOW = CSng(TextBox17.Text)
+        'LILW = CSng(TextBox46.Text)
+        'LITIF = CSng(TextBox27.Text)
         registryKey.Close()
         Dim Answer As Single = ((((C * (LIZFW - K)) / ZFW) + RefSTA - LEMAC) / CAX) * 100
         Return Answer
@@ -751,6 +795,100 @@ Public Class Form1
         TextBox22.Text = AFT8 * AFT9
         CPT7AFT = CSng(TextBox22.Text)
     End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim form15 As Form15 = Nothing
+        Try
+            Using connection As New SqlConnection(connectionstr)
+                connection.Open()
+                Dim bytimg As Byte()
+                Dim command As New SqlCommand("Show_CG", connection)
+                command.CommandType = CommandType.StoredProcedure
+                command.Parameters.Add("@AircraftType", SqlDbType.VarChar).Value = TextBox1.Text
+                command.Parameters.Add("@flight_bort", SqlDbType.VarChar).Value = TextBox4.Text
+                command.Parameters.Add("@config_id", SqlDbType.VarChar).Value = TextBox2.Text
+                Dim adapter As New SqlDataAdapter(command)
+                Dim table As New DataTable
+                adapter.Fill(table)
+
+                If table.Rows.Count > 0 Then
+                    Dim mtowWeight As Integer = CType(table.Rows(0)(3), Integer)
+                    Dim mtowIndex As Single = CType(table.Rows(0)(4), Single)
+                    Dim mzfwWeight As Integer = CType(table.Rows(0)(5), Integer)
+                    Dim mzfwIndex As Single = CType(table.Rows(0)(6), Single)
+                    Dim mtow As New PointF(CSng(table.Rows(0)(7)), CSng(table.Rows(0)(8)))
+                    Dim mzfw As New PointF(CSng(table.Rows(0)(9)), CSng(table.Rows(0)(10)))
+
+                    form15 = New Form15(mtow, mzfw, mtowWeight, mzfwWeight, mtowIndex, mzfwIndex)
+
+                    form15.Label1.Text = table.Rows(0)(0).ToString
+                    form15.Label2.Text = table.Rows(0)(1).ToString
+                    form15.Label3.Text = table.Rows(0)(2).ToString
+
+                    bytimg = CType(table.Rows(0)(11), Byte())
+                    Dim MyImage As Bitmap = GetPictiresinBitmap(bytimg)
+                    If MyImage IsNot Nothing Then
+                        form15.ShowMyImage(MyImage)
+                    Else
+                        form15.PictureBox1.Image = Nothing
+                        MsgBox("Подходящих графиков не найдено", MsgBoxStyle.Information)
+                    End If
+
+                    Form15.Show()
+                Else
+                    MsgBox("Нет данных для отображения", MsgBoxStyle.Information)
+                End If
+            End Using
+        Catch ex As Exception
+            MsgBox("Ошибка! " & ex.Message)
+        End Try
+
+        Try
+
+
+            If Not Single.TryParse(TextBox43.Text, MACZFW) Then Throw New Exception("Ошибка преобразования MACZFW")
+            If Not Single.TryParse(TextBox45.Text, MACTOW) Then Throw New Exception("Ошибка преобразования MACTOW")
+            If Not Single.TryParse(TextBox47.Text, MACLW) Then Throw New Exception("Ошибка преобразования MACLW")
+            If Not Single.TryParse(TextBox42.Text, LIZFW) Then Throw New Exception("Ошибка преобразования LIZFW")
+            If Not Single.TryParse(TextBox12.Text, ZFW) Then Throw New Exception("Ошибка преобразования ZFW")
+            If Not Single.TryParse(TextBox44.Text, LITOW) Then Throw New Exception("Ошибка преобразования LITOW")
+            If Not Single.TryParse(TextBox17.Text, TOW) Then Throw New Exception("Ошибка преобразования TOW")
+            If Not Single.TryParse(TextBox46.Text, LILW) Then Throw New Exception("Ошибка преобразования LILW")
+            If Not Single.TryParse(TextBox21.Text, LW) Then Throw New Exception("Ошибка преобразования LW")
+
+            form15.TextBox1.Text = MACZFW
+            form15.TextBox2.Text = MACTOW
+            form15.TextBox3.Text = MACLW
+            form15.TextBox4.Text = LILW
+            form15.TextBox5.Text = LIZFW
+            form15.TextBox6.Text = LITOW
+            form15.TextBox7.Text = LW
+            form15.TextBox8.Text = ZFW
+            form15.TextBox9.Text = TOW
+
+            Dim data As New List(Of GroupData) From {
+            New GroupData(Label41.Text, MACZFW, LIZFW, ZFW),
+            New GroupData(Label43.Text, MACTOW, LITOW, TOW),
+            New GroupData(Label45.Text, MACLW, LILW, LW)
+        }
+
+            For Each item In data
+                form15.Exempl(item.LableCAX, item.CAX, item.Index, item.Weight)
+            Next
+
+        Catch ex As Exception
+            MsgBox("Ошибка " & ex.Message)
+        End Try
+    End Sub
+    Private Function GetPictiresinBitmap(bytimg As Byte()) As Bitmap
+        If bytimg IsNot Nothing And bytimg.Length > 0 Then
+            Using ms As New MemoryStream(bytimg)
+                Return CType(Image.FromStream(ms), Bitmap)
+            End Using
+        Else
+            Return Nothing
+        End If
+    End Function
 End Class
 
 

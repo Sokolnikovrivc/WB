@@ -175,6 +175,7 @@ Partial Class Form11
         Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.Label56 = New System.Windows.Forms.Label()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
@@ -194,9 +195,9 @@ Partial Class Form11
         '
         'Button17
         '
-        Me.Button17.Location = New System.Drawing.Point(272, 341)
+        Me.Button17.Location = New System.Drawing.Point(318, 341)
         Me.Button17.Name = "Button17"
-        Me.Button17.Size = New System.Drawing.Size(75, 23)
+        Me.Button17.Size = New System.Drawing.Size(45, 23)
         Me.Button17.TabIndex = 13
         Me.Button17.Text = "Ок"
         Me.Button17.UseVisualStyleBackColor = True
@@ -1638,7 +1639,7 @@ Partial Class Form11
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(254, 25)
+        Me.Label3.Location = New System.Drawing.Point(254, 28)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(28, 13)
         Me.Label3.TabIndex = 6
@@ -1647,7 +1648,7 @@ Partial Class Form11
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(99, 25)
+        Me.Label2.Location = New System.Drawing.Point(99, 28)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(70, 13)
         Me.Label2.TabIndex = 5
@@ -1656,7 +1657,7 @@ Partial Class Form11
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(6, 25)
+        Me.Label1.Location = New System.Drawing.Point(6, 28)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(43, 13)
         Me.Label1.TabIndex = 4
@@ -1664,30 +1665,42 @@ Partial Class Form11
         '
         'TextBox3
         '
-        Me.TextBox3.Location = New System.Drawing.Point(288, 22)
+        Me.TextBox3.Location = New System.Drawing.Point(288, 25)
         Me.TextBox3.Name = "TextBox3"
         Me.TextBox3.Size = New System.Drawing.Size(60, 20)
         Me.TextBox3.TabIndex = 3
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(54, 22)
+        Me.TextBox1.Location = New System.Drawing.Point(54, 25)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(39, 20)
         Me.TextBox1.TabIndex = 2
         '
         'TextBox2
         '
-        Me.TextBox2.Location = New System.Drawing.Point(175, 22)
+        Me.TextBox2.Location = New System.Drawing.Point(175, 25)
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.Size = New System.Drawing.Size(60, 20)
         Me.TextBox2.TabIndex = 0
+        '
+        'Label56
+        '
+        Me.Label56.AutoSize = True
+        Me.Label56.BackColor = System.Drawing.SystemColors.Info
+        Me.Label56.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label56.Location = New System.Drawing.Point(9, 346)
+        Me.Label56.Name = "Label56"
+        Me.Label56.Size = New System.Drawing.Size(47, 15)
+        Me.Label56.TabIndex = 14
+        Me.Label56.Text = "Label56"
         '
         'Form11
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(373, 373)
+        Me.Controls.Add(Me.Label56)
         Me.Controls.Add(Me.Button17)
         Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.GroupBox1)
@@ -1722,6 +1735,7 @@ Partial Class Form11
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -1877,4 +1891,5 @@ Partial Class Form11
     Friend WithEvents Label47 As Label
     Friend WithEvents Label46 As Label
     Friend WithEvents Label45 As Label
+    Friend WithEvents Label56 As Label
 End Class

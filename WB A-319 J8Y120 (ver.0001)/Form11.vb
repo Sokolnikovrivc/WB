@@ -1,5 +1,6 @@
 ﻿Imports System.ComponentModel.Design
 Imports System.Data.SqlClient
+Imports System.IO
 Imports System.Windows.Forms
 Public Class Form11
     Private dbconnections As New DatabaseConnections()
@@ -78,6 +79,28 @@ Public Class Form11
                 adapter6.Fill(table6)
                 ' Установить DataTable в качестве источника данных для DataGridView
                 DataGridView5.DataSource = table6
+            End Using
+        Catch ex As Exception
+            MsgBox("Error: " & ex.ToString())
+        End Try
+
+        Try
+            Using connection As New SqlConnection(connectionstr)
+                connection.Open()
+                Dim command7 As New SqlCommand("setstatusC_G", connection)
+                command7.CommandType = CommandType.StoredProcedure
+                command7.Parameters.Add("@AircraftType", SqlDbType.VarChar).Value = TextBox1.Text
+                command7.Parameters.Add("@flight_bort", SqlDbType.VarChar).Value = TextBox3.Text
+                command7.Parameters.Add("@config_id", SqlDbType.VarChar).Value = TextBox2.Text
+                Using reader As SqlDataReader = command7.ExecuteReader()
+                    If reader.Read() Then
+                        ' Предполагаем, что статус находится в первом столбце результата
+                        Dim status As String = reader.GetString(0)
+                        Label56.Text = status
+                    Else
+                        Label56.Text = "No status returned."
+                    End If
+                End Using
             End Using
         Catch ex As Exception
             MsgBox("Error: " & ex.ToString())
@@ -559,4 +582,65 @@ Public Class Form11
         Form1.Show()
         Me.Close()
     End Sub
+
+    Private Sub Label56_Click(sender As Object, e As EventArgs) Handles Label56.Click
+        Form14.Label1.Text = TextBox1.Text
+        Form14.Label2.Text = TextBox3.Text
+        Form14.Label3.Text = TextBox2.Text
+        Form14.Label1.Text = TextBox1.Text
+        Form14.Label2.Text = TextBox3.Text
+        Form14.Label3.Text = TextBox2.Text
+        Try
+            Using connection As New SqlConnection(connectionstr)
+                connection.Open()
+                Dim bytimg As Byte()
+                Dim command As New SqlCommand("Show_CG", connection)
+                command.CommandType = CommandType.StoredProcedure
+                command.Parameters.Add("@AircraftType", SqlDbType.VarChar).Value = TextBox1.Text
+                command.Parameters.Add("@flight_bort", SqlDbType.VarChar).Value = TextBox3.Text
+                command.Parameters.Add("@config_id", SqlDbType.VarChar).Value = TextBox2.Text
+                Dim adapter As New SqlDataAdapter(command)
+                Dim table As New DataTable
+                adapter.Fill(table)
+                If table.Rows.Count > 0 Then
+                    Form14.Label1.Text = table.Rows(0)(0).ToString
+                    Form14.Label2.Text = table.Rows(0)(1).ToString
+                    Form14.Label3.Text = table.Rows(0)(2).ToString
+                    Form14.TextBox1.Text = table.Rows(0)(3).ToString
+                    Form14.TextBox3.Text = table.Rows(0)(4).ToString
+                    Form14.TextBox8.Text = table.Rows(0)(5).ToString
+                    Form14.TextBox7.Text = table.Rows(0)(6).ToString
+                    Form14.TextBox5.Text = table.Rows(0)(7).ToString
+                    Form14.TextBox4.Text = table.Rows(0)(8).ToString
+                    Form14.TextBox6.Text = table.Rows(0)(9).ToString
+                    Form14.TextBox2.Text = table.Rows(0)(10).ToString
+                    Form14.ComboBox1.Text = table.Rows(0)(13).ToString
+                    bytimg = CType(table.Rows(0)(11), Byte())
+                    Dim MyImage As Bitmap = GetPictiresinBitmap(bytimg)
+                    If MyImage IsNot Nothing Then
+                        Form14.ShowMyImage(MyImage)
+                    Else
+                        Form14.PictureBox1.Image = Nothing
+                        MsgBox("Подходящих графиков не найдено", MsgBoxStyle.Information)
+
+                    End If
+                Else
+                    MsgBox("Нет данных для отображения", MsgBoxStyle.Information)
+                End If
+
+            End Using
+        Catch ex As Exception
+            MsgBox("Ошибка! " & ex.Message)
+        End Try
+        Form14.Show()
+    End Sub
+    Private Function GetPictiresinBitmap(bytimg As Byte()) As Bitmap
+        If bytimg IsNot Nothing And bytimg.Length > 0 Then
+            Using ms As New MemoryStream(bytimg)
+                Return CType(Image.FromStream(ms), Bitmap)
+            End Using
+        Else
+            Return Nothing
+        End If
+    End Function
 End Class
