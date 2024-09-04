@@ -1,5 +1,6 @@
 ﻿Imports System.Drawing.Printing
 
+
 Public Class Form15
 
     Private MyImage As Bitmap
@@ -88,7 +89,7 @@ Public Class Form15
 
                 g.FillEllipse(Brushes.Red, point.X - 4, point.Y - 4, 8, 8)
                 ' Вывод значений координат
-                g.DrawString($"({LableCAX}: {CAX}%)", New Font("Arial", 8), Brushes.Black, point.X + 4, point.Y - 4)
+                g.DrawString($"({LableCAX}: {CAX}%)", New Font("Arial", 9), Brushes.Black, point.X + 4, point.Y - 4)
 
             End Using
 
