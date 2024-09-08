@@ -858,7 +858,15 @@ Public Class Form1
                 If Not Single.TryParse(TextBox46.Text, LILW) Then Throw New Exception("Ошибка преобразования LILW")
                 If Not Single.TryParse(TextBox21.Text, LW) Then Throw New Exception("Ошибка преобразования LW")
 
-
+                form15.TextBox1.Text = MACZFW
+                form15.TextBox2.Text = MACTOW
+                form15.TextBox3.Text = MACLW
+                form15.TextBox4.Text = LILW
+                form15.TextBox5.Text = LIZFW
+                form15.TextBox6.Text = LITOW
+                form15.TextBox7.Text = LW
+                form15.TextBox8.Text = ZFW
+                form15.TextBox9.Text = TOW
                 Dim data As New List(Of GroupData) From {
             New GroupData(Label41.Text, MACZFW, LIZFW, ZFW),
             New GroupData(Label43.Text, MACTOW, LITOW, TOW),
