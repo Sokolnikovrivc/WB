@@ -6,9 +6,12 @@ Imports System.Data.Common
 
 
 Public Class Form12
+
+    Public modCG As Integer?
     Private timer As Timer
     Private dbconnections As New DatabaseConnections()
     Private connectionstr As String = dbconnections.GetConnectionString("stringconect_main")
+
     Private Sub Form12_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' Инициализация таймера
         timer = New Timer()
@@ -25,6 +28,16 @@ Public Class Form12
                 DataGridView1.DataSource = table
             End Using
 
+            Using conn As New SqlConnection(connectionstr)
+                conn.Open()
+                Dim comand As New SqlCommand("select * from Global_Params where is_use = 1", conn)
+
+                Using reader As SqlDataReader = comand.ExecuteReader()
+                    While reader.Read
+                        modCG = Convert.ToInt32(reader("Param_id"))
+                    End While
+                End Using
+            End Using
         Catch ex As Exception
             MsgBox("Error: " & ex.ToString())
         End Try

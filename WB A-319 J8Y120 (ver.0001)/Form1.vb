@@ -799,109 +799,128 @@ Public Class Form1
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        'Dim form15 As Form15 = Nothing
-        'Try
-        '    Using connection As New SqlConnection(connectionstr)
-        '        connection.Open()
-        '        Dim bytimg As Byte()
-        '        Dim command As New SqlCommand("Show_CG", connection)
-        '        command.CommandType = CommandType.StoredProcedure
-        '        command.Parameters.Add("@AircraftType", SqlDbType.VarChar).Value = TextBox1.Text
-        '        command.Parameters.Add("@flight_bort", SqlDbType.VarChar).Value = TextBox4.Text
-        '        command.Parameters.Add("@config_id", SqlDbType.VarChar).Value = TextBox2.Text
-        '        Dim adapter As New SqlDataAdapter(command)
-        '        Dim table As New DataTable
-        '        adapter.Fill(table)
 
-        '        If table.Rows.Count > 0 Then
-        '            Dim mtowWeight As Integer = CType(table.Rows(0)(3), Integer)
-        '            Dim mtowIndex As Single = CType(table.Rows(0)(4), Single)
-        '            Dim mzfwWeight As Integer = CType(table.Rows(0)(5), Integer)
-        '            Dim mzfwIndex As Single = CType(table.Rows(0)(6), Single)
-        '            Dim mtow As New PointF(CSng(table.Rows(0)(7)), CSng(table.Rows(0)(8)))
-        '            Dim mzfw As New PointF(CSng(table.Rows(0)(9)), CSng(table.Rows(0)(10)))
+        If Form12.modCG IsNot Nothing AndAlso Form12.modCG = 1 Then
+            Dim form15 As Form15 = Nothing
+            Try
+                Using connection As New SqlConnection(connectionstr)
+                    connection.Open()
+                    Dim bytimg As Byte()
+                    Dim command As New SqlCommand("Show_CG", connection)
+                    command.CommandType = CommandType.StoredProcedure
+                    command.Parameters.Add("@AircraftType", SqlDbType.VarChar).Value = TextBox1.Text
+                    command.Parameters.Add("@flight_bort", SqlDbType.VarChar).Value = TextBox4.Text
+                    command.Parameters.Add("@config_id", SqlDbType.VarChar).Value = TextBox2.Text
+                    Dim adapter As New SqlDataAdapter(command)
+                    Dim table As New DataTable
+                    adapter.Fill(table)
 
-        '            form15 = New Form15(mtow, mzfw, mtowWeight, mzfwWeight, mtowIndex, mzfwIndex)
+                    If table.Rows.Count > 0 Then
+                        Dim mtowWeight As Integer = CType(table.Rows(0)(3), Integer)
+                        Dim mtowIndex As Single = CType(table.Rows(0)(4), Single)
+                        Dim mzfwWeight As Integer = CType(table.Rows(0)(5), Integer)
+                        Dim mzfwIndex As Single = CType(table.Rows(0)(6), Single)
+                        Dim mtow As New PointF(CSng(table.Rows(0)(7)), CSng(table.Rows(0)(8)))
+                        Dim mzfw As New PointF(CSng(table.Rows(0)(9)), CSng(table.Rows(0)(10)))
 
-        '            form15.Label1.Text = table.Rows(0)(0).ToString
-        '            form15.Label2.Text = table.Rows(0)(1).ToString
-        '            form15.Label3.Text = table.Rows(0)(2).ToString
+                        form15 = New Form15(mtow, mzfw, mtowWeight, mzfwWeight, mtowIndex, mzfwIndex)
 
-        '            bytimg = CType(table.Rows(0)(11), Byte())
-        '            Dim MyImage As Bitmap = GetPictiresinBitmap(bytimg)
-        '            If MyImage IsNot Nothing Then
-        '                form15.ShowMyImage(MyImage)
-        '            Else
-        '                form15.PictureBox1.Image = Nothing
-        '                MsgBox("Подходящих графиков не найдено", MsgBoxStyle.Information)
-        '            End If
+                        form15.Label1.Text = table.Rows(0)(0).ToString
+                        form15.Label2.Text = table.Rows(0)(1).ToString
+                        form15.Label3.Text = table.Rows(0)(2).ToString
 
-        '            form15.Show()
-        '        Else
-        '            MsgBox("Нет данных для отображения", MsgBoxStyle.Information)
-        '            Return
-        '        End If
-        '    End Using
-        'Catch ex As Exception
-        '    MsgBox("Ошибка! " & ex.Message)
-        'End Try
+                        bytimg = CType(table.Rows(0)(11), Byte())
+                        Dim MyImage As Bitmap = GetPictiresinBitmap(bytimg)
+                        If MyImage IsNot Nothing Then
+                            form15.ShowMyImage(MyImage)
+                        Else
+                            form15.PictureBox1.Image = Nothing
+                            MsgBox("Подходящих графиков не найдено", MsgBoxStyle.Information)
+                        End If
 
-        Try
-
-
-            If Not Single.TryParse(TextBox43.Text, MACZFW) Then Throw New Exception("Ошибка преобразования MACZFW")
-            If Not Single.TryParse(TextBox45.Text, MACTOW) Then Throw New Exception("Ошибка преобразования MACTOW")
-            If Not Single.TryParse(TextBox47.Text, MACLW) Then Throw New Exception("Ошибка преобразования MACLW")
-            If Not Single.TryParse(TextBox42.Text, LIZFW) Then Throw New Exception("Ошибка преобразования LIZFW")
-            If Not Single.TryParse(TextBox12.Text, ZFW) Then Throw New Exception("Ошибка преобразования ZFW")
-            If Not Single.TryParse(TextBox44.Text, LITOW) Then Throw New Exception("Ошибка преобразования LITOW")
-            If Not Single.TryParse(TextBox17.Text, TOW) Then Throw New Exception("Ошибка преобразования TOW")
-            If Not Single.TryParse(TextBox46.Text, LILW) Then Throw New Exception("Ошибка преобразования LILW")
-            If Not Single.TryParse(TextBox21.Text, LW) Then Throw New Exception("Ошибка преобразования LW")
-
-
-            '    Dim data As New List(Of GroupData) From {
-            '    New GroupData(Label41.Text, MACZFW, LIZFW, ZFW),
-            '    New GroupData(Label43.Text, MACTOW, LITOW, TOW),
-            '    New GroupData(Label45.Text, MACLW, LILW, LW)
-            '}
-
-            '    For Each item In data
-            '        form15.Exempl(item.LableCAX, item.CAX, item.Index, item.Weight)
-            '    Next
-
-            Using connection As New SqlConnection(connectionstr)
-                connection.Open()
-                Dim comand As New SqlCommand("select * from DataLine where @AircraftType = AircraftType and @flight_bort = flight_bort", connection)
-                comand.Parameters.AddWithValue("@flight_bort", TextBox4.Text)
-                comand.Parameters.AddWithValue("@AircraftType", TextBox1.Text)
-
-                Using reader As SqlDataReader = comand.ExecuteReader()
-                    If reader.Read Then
-                        Form16.TextBox1.Text = MACZFW
-                        Form16.TextBox2.Text = MACTOW
-                        Form16.TextBox3.Text = MACLW
-                        Form16.TextBox4.Text = LILW
-                        Form16.TextBox5.Text = LIZFW
-                        Form16.TextBox6.Text = LITOW
-                        Form16.TextBox7.Text = LW
-                        Form16.TextBox8.Text = ZFW
-                        Form16.TextBox9.Text = TOW
-
-                        Form16.Label1.Text = TextBox1.Text
-                        Form16.Label2.Text = TextBox4.Text
-                        Form16.Label3.Text = TextBox2.Text
-                        Form16.Show()
+                        form15.Show()
                     Else
-                        MsgBox("Не найдено подходящих графиков")
+                        MsgBox("Нет данных для отображения", MsgBoxStyle.Information)
+                        Return
                     End If
+                End Using
+            Catch ex As Exception
+                MsgBox("Ошибка! " & ex.Message)
+            End Try
+            Try
+                If Not Single.TryParse(TextBox43.Text, MACZFW) Then Throw New Exception("Ошибка преобразования MACZFW")
+                If Not Single.TryParse(TextBox45.Text, MACTOW) Then Throw New Exception("Ошибка преобразования MACTOW")
+                If Not Single.TryParse(TextBox47.Text, MACLW) Then Throw New Exception("Ошибка преобразования MACLW")
+                If Not Single.TryParse(TextBox42.Text, LIZFW) Then Throw New Exception("Ошибка преобразования LIZFW")
+                If Not Single.TryParse(TextBox12.Text, ZFW) Then Throw New Exception("Ошибка преобразования ZFW")
+                If Not Single.TryParse(TextBox44.Text, LITOW) Then Throw New Exception("Ошибка преобразования LITOW")
+                If Not Single.TryParse(TextBox17.Text, TOW) Then Throw New Exception("Ошибка преобразования TOW")
+                If Not Single.TryParse(TextBox46.Text, LILW) Then Throw New Exception("Ошибка преобразования LILW")
+                If Not Single.TryParse(TextBox21.Text, LW) Then Throw New Exception("Ошибка преобразования LW")
+
+
+                Dim data As New List(Of GroupData) From {
+            New GroupData(Label41.Text, MACZFW, LIZFW, ZFW),
+            New GroupData(Label43.Text, MACTOW, LITOW, TOW),
+            New GroupData(Label45.Text, MACLW, LILW, LW)
+        }
+
+                For Each item In data
+                    form15.Exempl(item.LableCAX, item.CAX, item.Index, item.Weight)
+                Next
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+
+        ElseIf Form12.modCG IsNot Nothing AndAlso Form12.modCG = 2 Then
+
+            Try
+
+
+                If Not Single.TryParse(TextBox43.Text, MACZFW) Then Throw New Exception("Ошибка преобразования MACZFW")
+                If Not Single.TryParse(TextBox45.Text, MACTOW) Then Throw New Exception("Ошибка преобразования MACTOW")
+                If Not Single.TryParse(TextBox47.Text, MACLW) Then Throw New Exception("Ошибка преобразования MACLW")
+                If Not Single.TryParse(TextBox42.Text, LIZFW) Then Throw New Exception("Ошибка преобразования LIZFW")
+                If Not Single.TryParse(TextBox12.Text, ZFW) Then Throw New Exception("Ошибка преобразования ZFW")
+                If Not Single.TryParse(TextBox44.Text, LITOW) Then Throw New Exception("Ошибка преобразования LITOW")
+                If Not Single.TryParse(TextBox17.Text, TOW) Then Throw New Exception("Ошибка преобразования TOW")
+                If Not Single.TryParse(TextBox46.Text, LILW) Then Throw New Exception("Ошибка преобразования LILW")
+                If Not Single.TryParse(TextBox21.Text, LW) Then Throw New Exception("Ошибка преобразования LW")
+
+
+                Using connection As New SqlConnection(connectionstr)
+                    connection.Open()
+                    Dim comand As New SqlCommand("select * from DataLine where @AircraftType = AircraftType and @flight_bort = flight_bort", connection)
+                    comand.Parameters.AddWithValue("@flight_bort", TextBox4.Text)
+                    comand.Parameters.AddWithValue("@AircraftType", TextBox1.Text)
+
+                    Using reader As SqlDataReader = comand.ExecuteReader()
+                        If reader.Read Then
+                            Form16.TextBox1.Text = MACZFW
+                            Form16.TextBox2.Text = MACTOW
+                            Form16.TextBox3.Text = MACLW
+                            Form16.TextBox4.Text = LILW
+                            Form16.TextBox5.Text = LIZFW
+                            Form16.TextBox6.Text = LITOW
+                            Form16.TextBox7.Text = LW
+                            Form16.TextBox8.Text = ZFW
+                            Form16.TextBox9.Text = TOW
+
+                            Form16.Label1.Text = TextBox1.Text
+                            Form16.Label2.Text = TextBox4.Text
+                            Form16.Label3.Text = TextBox2.Text
+                            Form16.Show()
+                        Else
+                            MsgBox("Не найдено подходящих графиков")
+                        End If
+
+                    End Using
 
                 End Using
-
-            End Using
-        Catch ex As Exception
-            MsgBox("Ошибка " & ex.Message)
-        End Try
+            Catch ex As Exception
+                MsgBox("Ошибка " & ex.Message)
+            End Try
+        End If
     End Sub
     Private Function GetPictiresinBitmap(bytimg As Byte()) As Bitmap
         If bytimg IsNot Nothing And bytimg.Length > 0 Then

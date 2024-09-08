@@ -105,6 +105,12 @@ Public Class Form11
         Catch ex As Exception
             MsgBox("Error: " & ex.ToString())
         End Try
+
+        If Form12.modCG IsNot Nothing AndAlso Form12.modCG = 2 Then
+            Label56.Visible = False
+        Else
+            Label56.Visible = True
+        End If
     End Sub
     Public Sub disp_data2()
         Dim connection As SqlConnection = New SqlConnection(connectionstr)

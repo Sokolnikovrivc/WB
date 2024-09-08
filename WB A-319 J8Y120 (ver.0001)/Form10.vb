@@ -107,6 +107,12 @@ Public Class Form10
             MsgBox("Error: " & ex.ToString())
         End Try
 
+        If Form12.modCG IsNot Nothing AndAlso Form12.modCG = 2 Then
+            Label39.Visible = False
+        Else
+            Label39.Visible = True
+        End If
+
     End Sub
     Public Sub disp_data2()
         Using connection As New SqlConnection(connectionstr)
