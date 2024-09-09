@@ -31,6 +31,7 @@ Public Class Form16
     Private colormtow As SKColor
     Private colormlw As SKColor
     Private colorzfw As SKColor
+    Private msgcheck As Boolean = True
 
     Public Sub New()
 
@@ -131,24 +132,26 @@ Public Class Form16
         canvas.DrawText($"LW:({(TextBox7.Text)}; {TextBox4.Text})", chartDrawer.Xval(Single.Parse(TextBox4.Text)) - 20, chartDrawer.Yval(Single.Parse(TextBox7.Text) / 1000) - 10, chartDrawer.TextPaint)
         canvas.DrawText($"ZFW:({(TextBox8.Text)}; {TextBox5.Text})", chartDrawer.Xval(Single.Parse(TextBox5.Text)) - 20, chartDrawer.Yval(Single.Parse(TextBox8.Text) / 1000) - 10, chartDrawer.TextPaint)
 
-
-        If mtow.ContainsPoint(Single.Parse(TextBox6.Text), Single.Parse(TextBox9.Text) / 1000) = False Then
-            'canvas.DrawText("Точка не входит в ЦГ", chartDrawer.Xval(Single.Parse(TextBox6.Text)) + 2, chartDrawer.Yval(Single.Parse(TextBox9.Text) / 1000) + 2, chartDrawer.AxisPaint)
-            MsgBox($"Точка TOW  с значениями веса: {(TextBox9.Text)} и индекса {TextBox6.Text} не входит в ЦГ", vbCritical)
-            Label22.Text = "Ошибка контрольных точек ЦГ!"
-            Label23.Visible = True
-        End If
-        If mlw.ContainsPoint(Single.Parse(TextBox4.Text), Single.Parse(TextBox7.Text) / 1000) = False Then
-            'canvas.DrawText("Точка не входит в ЦГ", chartDrawer.Xval(Single.Parse(TextBox4.Text)) + 2, chartDrawer.Yval(Single.Parse(TextBox7.Text) / 1000) + 2, chartDrawer.AxisPaint)
-            MsgBox($"Точка LW  с значениями веса: {(TextBox7.Text)} и индекса {TextBox4.Text} не входит в ЦГ", vbCritical)
-            Label22.Text = "Ошибка контрольных точек ЦГ!"
-            Label24.Visible = True
-        End If
-        If mzfw.ContainsPoint(Single.Parse(TextBox5.Text), Single.Parse(TextBox8.Text) / 1000) = False Then
-            'canvas.DrawText("Точка не входит в ЦГ", chartDrawer.Xval(Single.Parse(TextBox5.Text)) + 2, chartDrawer.Yval(Single.Parse(TextBox8.Text) / 1000) + 2, chartDrawer.AxisPaint)
-            MsgBox($"Точка ZFW  с значениями веса: {(TextBox8.Text)} и индекса {TextBox5.Text} не входит в ЦГ", vbCritical)
-            Label22.Text = "Ошибка контрольных точек ЦГ!"
-            Label25.Visible = True
+        If msgcheck = True Then
+            If mtow.ContainsPoint(Single.Parse(TextBox6.Text), Single.Parse(TextBox9.Text) / 1000) = False Then
+                'canvas.DrawText("Точка не входит в ЦГ", chartDrawer.Xval(Single.Parse(TextBox6.Text)) + 2, chartDrawer.Yval(Single.Parse(TextBox9.Text) / 1000) + 2, chartDrawer.AxisPaint)
+                MsgBox($"Точка TOW  с значениями веса: {(TextBox9.Text)} и индекса {TextBox6.Text} не входит в ЦГ", vbCritical)
+                Label22.Text = "Ошибка контрольных точек ЦГ!"
+                Label23.Visible = True
+            End If
+            If mlw.ContainsPoint(Single.Parse(TextBox4.Text), Single.Parse(TextBox7.Text) / 1000) = False Then
+                'canvas.DrawText("Точка не входит в ЦГ", chartDrawer.Xval(Single.Parse(TextBox4.Text)) + 2, chartDrawer.Yval(Single.Parse(TextBox7.Text) / 1000) + 2, chartDrawer.AxisPaint)
+                MsgBox($"Точка LW  с значениями веса: {(TextBox7.Text)} и индекса {TextBox4.Text} не входит в ЦГ", vbCritical)
+                Label22.Text = "Ошибка контрольных точек ЦГ!"
+                Label24.Visible = True
+            End If
+            If mzfw.ContainsPoint(Single.Parse(TextBox5.Text), Single.Parse(TextBox8.Text) / 1000) = False Then
+                'canvas.DrawText("Точка не входит в ЦГ", chartDrawer.Xval(Single.Parse(TextBox5.Text)) + 2, chartDrawer.Yval(Single.Parse(TextBox8.Text) / 1000) + 2, chartDrawer.AxisPaint)
+                MsgBox($"Точка ZFW  с значениями веса: {(TextBox8.Text)} и индекса {TextBox5.Text} не входит в ЦГ", vbCritical)
+                Label22.Text = "Ошибка контрольных точек ЦГ!"
+                Label25.Visible = True
+            End If
+            msgcheck = False
         End If
     End Sub
 

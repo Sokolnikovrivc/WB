@@ -22,41 +22,41 @@ Public Class CAX
 
 
         For i As Single = MinX To MaxX Step 0.1
-                Dim CAXorig As Single
-                Dim W As Integer = MaxY * 1000
+            Dim CAXorig As Single
+            Dim W As Integer = MaxY * 1000
 
 
-                CAXorig = ((((С * (i - K)) / W) + RefSTA - LEMAC) / CAX) * 100
-                Data.Add(i, CAXorig)
+            CAXorig = ((((С * (i - K)) / W) + RefSTA - LEMAC) / CAX) * 100
+            Data.Add(i, CAXorig)
 
-            Next
+        Next
 
-            For Each kvp In Data
+        For Each kvp In Data
 
-                Dim value As Single = kvp.Value
-                Dim roundedValue As Single = Math.Round(value)
+            Dim value As Single = kvp.Value
+            Dim roundedValue As Single = Math.Round(value)
 
-                If Not ClosestValues.ContainsKey(roundedValue) OrElse DistanceToNearestInteger(value) < DistanceToNearestInteger(ClosestValues(roundedValue)) Then
-                    ClosestValues(roundedValue) = value
-                End If
-            Next
-            For Each kvp In ClosestValues
-                Dim index As Single = Data.First(Function(x) x.Value = kvp.Value).Key
-                'MsgBox($"Итерация: {index}, Значение: {kvp.Value}, Округленное значение: {Math.Round(kvp.Value)}")
-                CAXHead.Add(index, Math.Round(kvp.Value))
-                'MsgBox($"Значение индекса {index} и САХ: {Math.Round(kvp.Value)}")
-            Next
-            For Each kvp In CAXHead
-                Dim CAXorig As Integer = kvp.Value
-                Dim W As Integer = MinY * 1000
-                Dim i As Single
-                i = (((((CAXorig * CAX) / 100) - RefSTA + LEMAC) * W) / С) + K
-                Indexbottom.Add(i)
-                'MsgBox($"Индексы x0:{i}")
-                'MsgBox($"{kvp.Key}")
-            Next
+            If Not ClosestValues.ContainsKey(roundedValue) OrElse DistanceToNearestInteger(value) < DistanceToNearestInteger(ClosestValues(roundedValue)) Then
+                ClosestValues(roundedValue) = value
+            End If
+        Next
+        For Each kvp In ClosestValues
+            Dim index As Single = Data.First(Function(x) x.Value = kvp.Value).Key
+            'MsgBox($"Итерация: {index}, Значение: {kvp.Value}, Округленное значение: {Math.Round(kvp.Value)}")
+            CAXHead.Add(index, Math.Round(kvp.Value))
+            'MsgBox($"Значение индекса {index} и САХ: {Math.Round(kvp.Value)}")
+        Next
+        For Each kvp In CAXHead
+            Dim CAXorig As Integer = kvp.Value
+            Dim W As Integer = MinY * 1000
+            Dim i As Single
+            i = (((((CAXorig * CAX) / 100) - RefSTA + LEMAC) * W) / С) + K
+            Indexbottom.Add(i)
+            'MsgBox($"Индексы x0:{i}")
+            'MsgBox($"{kvp.Key}")
+        Next
 
-            Dim minLength As Integer = Math.Min(CAXHead.Count, Indexbottom.Count)
+        Dim minLength As Integer = Math.Min(CAXHead.Count, Indexbottom.Count)
             Dim CAXHeadList As List(Of KeyValuePair(Of Single, Integer)) = CAXHead.ToList()
             For i As Integer = 0 To minLength - 1
                 Dim drowCAX = CAXHeadList(i)
